@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+ :root {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #001608;
+    color: goldenrod;
+ }
+
+ body {
+    max-width: min(1080px, 90%);
+    margin: auto;
+    padding-top: 1em;
+ }
+
+ a {
+    color: plum;
+ }
+
+ .songs-list {
+    display: flex;
+    flex-direction: column;
+ }

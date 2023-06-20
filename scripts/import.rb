@@ -1,3 +1,5 @@
+# imports old format, shouldn't be ever needed again but in case - escape all double-quotes in lyrics: " => \" & create files song_seeds.rb and artist_seeds.rb
+
 # open library
 lib = File.open("lib.txt")
 
@@ -88,7 +90,7 @@ def songs_hash_to_seeds(songs, seeds_file)
         song_lyrics.gsub(/"/, '\"')    
 
         song_seed = 'Song.create_or_find_by(name: "%{name}", album: Album.find_or_create_by(name: "%{album}"), number: "%{number}", duration: "%{duration}", nb_practices: "%{nb_practices}", last_practiced: "%{last_practice}", capo: "%{capo}", chords: "%{chords}", lyrics: "%{lyrics}")' % {name: song_hash['song'], album: song_hash['album'], number: song_hash['songnumber'], duration: song_hash['duration'], nb_practices: song_hash['nbpractice'], last_practice: song_hash['lastpractice'], capo: song_hash['capo'], chords: song_hash['chords'], lyrics: song_lyrics}
-        # seeds_file.puts song_seed << "\n"  # disable when done so as to not overwrite
+        seeds_file.puts song_seed << "\n"  # disable when done so as to not overwrite
     end
 
     seed_artists(artists, songs)
