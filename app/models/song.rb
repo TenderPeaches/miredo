@@ -3,9 +3,12 @@ class Song < ApplicationRecord
     has_many :song_contributions
     has_many :artists, through: :song_contributions
 
+    OUTPUT_LINE_TYPE__CHORDS = "chords"
+    OUTPUT_LINE_TYPE__LYRICS = "lyrics"
+
     # default output => display chords & lyrics on separate lines
     def default_output
-        # output as array of strings, each representing a line of output
+        # output as array of {type:...,content:...} hashes, each representing a line of output
         output = []
 
         # finds chords, muted strums, etc. : 1> 3x Am,  2> Bmaj7 xx .., etc.
@@ -42,15 +45,14 @@ class Song < ApplicationRecord
             # extract chord patterns, if any
             while line.match(splitter_pattern) do
                 # print the chord pattern
-                output << chord_patterns[line.match(splitter_pattern)[1].to_i - 1]
+                output << {type: OUTPUT_LINE_TYPE__CHORDS, content: chord_patterns[line.match(splitter_pattern)[1].to_i - 1]}
                 # remove the pattern identifier from the lyrics' line
                 line = line.match(splitter_pattern)[2]
             end
 
-            output << line
+            output << {type: OUTPUT_LINE_TYPE__LYRICS, content: line}
         end
-
-        print output
+        
         return output
     end
 

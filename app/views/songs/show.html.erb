@@ -1,5 +1,17 @@
-<h1 class="song-title"><%= @song.name %></h1>
-<h3 class="song-artist"><%= @song.get_artists %></h3>
-<% @song.default_output.each do |line| %>
-    <div class="song-line"><%= line %><div>
-<% end %>
+<div class="show-song">
+    <%= link_to "< Back", "/", class: "button" %>
+    <%= link_to "Play", "/play/" << @song.id.to_s, class: "button" %>
+    <h1 class="song-title"><%= @song.name %></h1>
+    <h3 class="song-artist"><%= @song.get_artists %></h3>
+    <h5 class="song-capo">Capo <%= @song.capo %></h5>
+    <h5>Practiced: <%= @song.nb_practices %>x</h5>
+    <% @song.default_output.each do |line| %>
+        <% if line[:type] == Song::OUTPUT_LINE_TYPE__CHORDS %>
+            <div class="song-line song-line--chords"> 
+        <% else %>
+            <div class="song-line song-line--lyrics>">
+        <% end %>
+            <%= line[:content] %>
+        </div>
+    <% end %>
+</div>

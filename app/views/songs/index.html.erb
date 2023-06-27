@@ -1,9 +1,27 @@
+<div class="action-bar">
+    <fieldset>
+        <legend>Sort by</legend>
+        <%= link_to 'Reset', '/', class: "button" %>
+        <%= link_to 'Capo', '?sort=capo', class: "button" %>
+    </fieldset>
+</div>
 <table class="songs-list">
-    <% @songs.each do |song| %>
+    <thead>
         <tr>
-            <td class="songs-list__title"><%= link_to song.name, "/" << song.id.to_s %></td>
-            <td class="songs-list__artist"><%= song.get_artists %></td>
-            <td class="songs-list__capo"><%= song.capo %></td>
+            <th>Song</th>
+            <th>Artists</th>
+            <th>Capo</th>
+            <th>...</th>
         </tr>
-    <% end %>
+    </thead>
+    <tbody>
+        <% @songs.each do |song| %>
+            <tr>
+                <td class="songs-list__title"><%= link_to song.name, "/" << song.id.to_s %></td>
+                <td class="songs-list__artist"><%= song.get_artists %></td>
+                <td class="songs-list__capo"><%= song.capo %></td>
+                <td class="songs-list__play"><%= link_to "Play", "/play/" << song.id.to_s << "?from=home" %></td>
+            </tr>
+        <% end %>
+    </tbody>
 </table>

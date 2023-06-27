@@ -15,22 +15,71 @@
  */
 
  :root {
+    --color-primary: goldenrod;
+    --color-accent: #dda0dd;
+
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #001608;
-    color: goldenrod;
+    /*font-family: 'Consolas', 'Courier New', Courier, monospace;*/
+
  }
 
  body {
-    max-width: min(1080px, 90%);
+    background-color: #001608;
+    color: var(--color-primary);
+    max-width: 95%;
     margin: auto;
     padding-top: 1em;
  }
 
  a {
-    color: plum;
+    color: #dda0dd;
+ }
+
+ table {
+    border: solid 2px var(--color-primary);
+    border-collapse: collapse;
+ }
+
+ table td {
+    padding: 0.4em 2em;
+ }
+
+ table tr {
+    width: 100%;
+    border-bottom: solid 1px var(--color-primary);
  }
 
  .songs-list {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+ }
+
+ .songs-list tbody tr:hover {
+   
+ }
+ 
+ @media screen and (min-width: 1080px) {
+    body {
+        max-width: 1400px;
+    }
+    .show-song {
+        columns: 2;
+    }
+ }
+
+ .song-line {
+    margin-top: 0.15em;
+    margin-bottom: 0.15em;
+    font-size: 1.15rem;
+ }
+ .song-line--chords {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    color: var(--color-accent);
+ }
+
+ .action-bar {
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   display: flex;
  }
