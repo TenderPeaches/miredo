@@ -9,7 +9,8 @@ class CreateSongs < ActiveRecord::Migration[7.0]
       t.integer :capo
       t.string :chords
       t.string :lyrics
-
+      t.float :bpm
+      t.references :key, null: true, index: true
       t.references :album, null: true, index: true
 
       t.timestamps

@@ -29,4 +29,13 @@ class SongsController < ApplicationController
             redirect_to "/" << params[:id] << "/"
         end
     end
+
+    # GET /edit/[id]
+    def edit
+        @song = Song.find(params[:id])
+    end
+
+    # PATCH /save/[id]
+    def save
+    end
 end

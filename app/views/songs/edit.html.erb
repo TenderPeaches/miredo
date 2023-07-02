@@ -1,0 +1,7 @@
+<%= form_with model: @song do |form|%>
+    <!-- Select Key --> 
+    <%= form.collection_select :key_id, Key.all, :id, :shorthand %>
+    <!-- Create Patterns -->
+    
+    <!-- Position Patterns -->
+    <!-- Add lyrics to patterns -->

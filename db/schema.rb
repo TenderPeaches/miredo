@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_20_144909) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_01_193351) do
   create_table "album_contributions", force: :cascade do |t|
     t.integer "albums_id", null: false
     t.integer "artists_id", null: false
@@ -33,6 +33,106 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_144909) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chord_components", force: :cascade do |t|
+    t.integer "chord_id", null: false
+    t.integer "interval_id", null: false
+    t.integer "interval_quality_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chord_id"], name: "index_chord_components_on_chord_id"
+    t.index ["interval_id"], name: "index_chord_components_on_interval_id"
+    t.index ["interval_quality_id"], name: "index_chord_components_on_interval_quality_id"
+  end
+
+  create_table "chords", force: :cascade do |t|
+    t.string "name"
+    t.string "notation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "interval_qualities", force: :cascade do |t|
+    t.string "name"
+    t.string "shorthand"
+    t.integer "modifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "intervals", force: :cascade do |t|
+    t.integer "semitones"
+    t.string "name"
+    t.string "shorthand"
+    t.string "sonance"
+    t.string "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "keys", force: :cascade do |t|
+    t.string "name"
+    t.string "shorthand"
+    t.integer "flats"
+    t.integer "sharps"
+    t.integer "pitch_class_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pitch_class_id"], name: "index_keys_on_pitch_class_id"
+  end
+
+  create_table "pitch_classes", force: :cascade do |t|
+    t.string "solfege"
+    t.string "letter"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pitch_standards", force: :cascade do |t|
+    t.string "name"
+    t.float "semitone"
+    t.float "base_frequency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pitches", force: :cascade do |t|
+    t.integer "octave"
+    t.integer "pitch_class_id", null: false
+    t.float "frequency"
+    t.integer "pitch_standard_id", null: false
+    t.integer "midi"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pitch_class_id"], name: "index_pitches_on_pitch_class_id"
+    t.index ["pitch_standard_id"], name: "index_pitches_on_pitch_standard_id"
+  end
+
+  create_table "progression_chords", force: :cascade do |t|
+    t.integer "chord_id", null: false
+    t.integer "degree"
+    t.string "duration"
+    t.string "sequence"
+    t.integer "progression_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chord_id"], name: "index_progression_chords_on_chord_id"
+    t.index ["progression_id"], name: "index_progression_chords_on_progression_id"
+  end
+
+  create_table "progressions", force: :cascade do |t|
+    t.string "tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scale_types", force: :cascade do |t|
+    t.string "name"
+    t.string "intervals"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "song_contributions", force: :cascade do |t|
     t.string "parts"
     t.integer "song_id", null: false
@@ -41,6 +141,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_144909) do
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_song_contributions_on_artist_id"
     t.index ["song_id"], name: "index_song_contributions_on_song_id"
+  end
+
+  create_table "song_progressions", force: :cascade do |t|
+    t.integer "song_id", null: false
+    t.integer "progression_id", null: false
+    t.integer "sequence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["progression_id"], name: "index_song_progressions_on_progression_id"
+    t.index ["song_id"], name: "index_song_progressions_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -52,10 +162,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_144909) do
     t.integer "capo"
     t.string "chords"
     t.string "lyrics"
+    t.float "bpm"
+    t.integer "key_id"
     t.integer "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_songs_on_album_id"
+    t.index ["key_id"], name: "index_songs_on_key_id"
   end
 
+  add_foreign_key "chord_components", "chords"
+  add_foreign_key "chord_components", "interval_qualities"
+  add_foreign_key "chord_components", "intervals"
+  add_foreign_key "keys", "pitch_classes"
+  add_foreign_key "pitches", "pitch_classes"
+  add_foreign_key "pitches", "pitch_standards"
+  add_foreign_key "progression_chords", "chords"
+  add_foreign_key "progression_chords", "progressions"
+  add_foreign_key "song_progressions", "progressions"
+  add_foreign_key "song_progressions", "songs"
 end
