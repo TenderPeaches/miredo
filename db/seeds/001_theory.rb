@@ -15,12 +15,12 @@ pitch_class__b = PitchClass.create(solfege: 'Si', letter: 'B', position: 12)
 
 # scales
 
-scale_type__chromatic = ScaleType.create(name: 'Chromatic', intervals: '1-1-1-1-1-1-1-1-1-1-1-1')
-scale_type__major = ScaleType.create(name: 'Major', intervals: '2-2-1-2-2-2-1')
-scale_type__minor_natural = ScaleType.create(name: 'Natural Minor', intervals: '2-1-2-2-1-2-2')
-scale_type__minor_harmonic = ScaleType.create(name: 'Harmonic Minor', intervals: '2-1-2-2-1-3-1')
-scale_type__minor_melodic = ScaleType.create(name: 'Melodic Minor', intervals: '2-1-2-2-2-2-1')
-scale_type__blues = ScaleType.create(name: 'Blues', intervals: '3-2-1-1-3-2')
+scale__chromatic = Scale.create(name: 'Chromatic', intervals: '1-1-1-1-1-1-1-1-1-1-1-1')
+scale__major = Scale.create(name: 'Major', intervals: '2-2-1-2-2-2-1')
+scale__minor_natural = Scale.create(name: 'Natural Minor', intervals: '2-1-2-2-1-2-2')
+scale__minor_harmonic = Scale.create(name: 'Harmonic Minor', intervals: '2-1-2-2-1-3-1')
+scale__minor_melodic = Scale.create(name: 'Melodic Minor', intervals: '2-1-2-2-2-2-1')
+scale__blues = Scale.create(name: 'Blues', intervals: '3-2-1-1-3-2')
 
 # pitch standard
 
@@ -166,6 +166,65 @@ interval__sixth = Interval.create(name: "Sixth", shorthand: "6", semitones: 9)
 interval__seventh = Interval.create(name: "Seventh", shorthand: "7", semitones: 11)
 interval__octave = Interval.create(name: "Octave", shorthand: "7", semitones: 12)
 
+# scale intervals
+
+# chromatic scale has 12 identical, 1-semitones (minor 2nds) intervals
+12.times { |i| scale__chromatic.scale_intervals.push(ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: i))}
+
+# major scale 2-2-1-2-2-2-1
+scale__major.scale_intervals = [
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 1),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 2),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 3),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 4),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 5),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 6),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 7),
+]
+
+# minor natural scale 2-1-2-2-1-2-2
+scale__minor_natural.scale_intervals = [
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 1),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 2),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 3),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 4),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 5),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 6),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 7),
+] 
+
+# minor harmonic scale 2-1-2-2-1-3-1
+scale__minor_harmonic.scale_intervals = [
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 1),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 2),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 3),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 4),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 5),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__augmented, sequence: 6),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 7),
+] 
+
+# minor melodic scale 2-1-2-2-2-2-1
+scale__minor_melodic.scale_intervals = [
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 1),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 2),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 3),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 4),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 5),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 6),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 7),
+]
+
+# blues scale 3-2-1-1-3-2
+scale__blues.scale_intervals = [
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__augmented, sequence: 1),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 2),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 3),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 4),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__augmented, sequence: 5),
+    ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 6),
+]
+
 # keys
 Key.create(name: "C Major", shorthand: "C", sharps: 0, flats: 0, pitch_class: pitch_class__c)
 Key.create(name: "G Major", shorthand: "G", sharps: 1, flats: 0, pitch_class: pitch_class__g)
@@ -198,29 +257,77 @@ Key.create(name: "Bb Minor", shorthand: "Bbm", sharps: 0, flats: 5, pitch_class:
 Key.create(name: "Eb Minor", shorthand: "Ebm", sharps: 0, flats: 6, pitch_class: pitch_class__d_sharp)
 Key.create(name: "Ab Minor", shorthand: "Abm", sharps: 0, flats: 7, pitch_class: pitch_class__g_sharp)
 
-# interval types
-interval_quality__perfect = IntervalQuality.create(name: "Perfect", shorthand: "P", modifier: 0)
-interval_quality__minor = IntervalQuality.create(name: "Minor", shorthand: "m", modifier: -1)
-interval_quality__major = IntervalQuality.create(name: "Major", shorthand: "M", modifier: 0)
-interval_quality__augmented = IntervalQuality.create(name: "Augmented", shorthand: "aug", modifier: 1)
-interval_quality__diminished = IntervalQuality.create(name: "Diminished", shorthand: "dim", modifier: -2)
-
-interval__unison = Interval.create(name: "Unison", shorthand: "1", semitones: 0)
-interval__second = Interval.create(name: "Second", shorthand: "2", semitones: 2)
-interval__third = Interval.create(name: "Third", shorthand: "3", semitones: 4)
-interval__fourth = Interval.create(name: "Fourth", shorthand: "4", semitones: 5)
-interval__fifth = Interval.create(name: "Fifth", shorthand: "5", semitones: 7)
-interval__sixth = Interval.create(name: "Sixth", shorthand: "6", semitones: 9)
-interval__seventh = Interval.create(name: "Seventh", shorthand: "7", semitones: 11)
-interval__octave = Interval.create(name: "Octave", shorthand: "7", semitones: 12)
-
 # chord templates
 chord__major_triad = Chord.create(name: "Major Triad", notation: "")
-ChordComponent.create(chord: chord__major_triad, interval: interval__unison, interval_quality: interval_quality__perfect) # P1 => 0 => C
-ChordComponent.create(chord: chord__major_triad, interval: interval__third, interval_quality: interval_quality__major)    # M3 => 4 => E
-ChordComponent.create(chord: chord__major_triad, interval: interval__fifth, interval_quality: interval_quality__perfect)  # P5 => 7 => G
+ChordComponent.create(chord: chord__major_triad, interval: interval__unison, interval_quality: interval_quality__perfect)             # P1 => 0 => C
+ChordComponent.create(chord: chord__major_triad, interval: interval__third, interval_quality: interval_quality__major)                # M3 => 4 => E
+ChordComponent.create(chord: chord__major_triad, interval: interval__fifth, interval_quality: interval_quality__perfect)              # P5 => 7 => G
 
 chord__minor_triad = Chord.create(name: "Minor Triad", notation: "m")
-ChordComponent.create(chord: chord__minor_triad, interval: interval__unison, interval_quality: interval_quality__perfect) # P1 => 0 => C
-ChordComponent.create(chord: chord__minor_triad, interval: interval__third, interval_quality: interval_quality__minor)    # m3 => 3 => Eb
-ChordComponent.create(chord: chord__minor_triad, interval: interval__fifth, interval_quality: interval_quality__perfect)  # P5 => 7 => G
+ChordComponent.create(chord: chord__minor_triad, interval: interval__unison, interval_quality: interval_quality__perfect)             # P1 => 0 => C
+ChordComponent.create(chord: chord__minor_triad, interval: interval__third, interval_quality: interval_quality__minor)                # m3 => 3 => Eb
+ChordComponent.create(chord: chord__minor_triad, interval: interval__fifth, interval_quality: interval_quality__perfect)              # P5 => 7 => G
+
+chord__major_sixth = Chord.create(name: "Major Sixth", notation: "6")
+ChordComponent.create(chord: chord__major_sixth, interval: interval__unison, interval_quality: interval_quality__perfect)             # P1 => 0 => C
+ChordComponent.create(chord: chord__major_sixth, interval: interval__third, interval_quality: interval_quality__major)                # M3 => 4 => E
+ChordComponent.create(chord: chord__major_sixth, interval: interval__fifth, interval_quality: interval_quality__perfect)              # P5 => 7 => G
+ChordComponent.create(chord: chord__major_sixth, interval: interval__sixth, interval_quality: interval_quality__major)                # M6 => 9 => A
+
+chord__dominant_seventh = Chord.create(name: "Dominant Seventh", notation: "7")
+ChordComponent.create(chord: chord__dominant_seventh, interval: interval__unison, interval_quality: interval_quality__perfect)        # P1 => 0 => C
+ChordComponent.create(chord: chord__dominant_seventh, interval: interval__third, interval_quality: interval_quality__major)           # M3 => 4 => E
+ChordComponent.create(chord: chord__dominant_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)         # P5 => 7 => G
+ChordComponent.create(chord: chord__dominant_seventh, interval: interval__seventh, interval_quality: interval_quality__minor)         # m7 => 10 => A#
+
+chord__major_seventh = Chord.create(name: "Major Seventh", notation: "maj7")
+ChordComponent.create(chord: chord__major_seventh, interval: interval__unison, interval_quality: interval_quality__perfect)           # P1 => 0 => C
+ChordComponent.create(chord: chord__major_seventh, interval: interval__third, interval_quality: interval_quality__major)              # M3 => 4 => E
+ChordComponent.create(chord: chord__major_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)            # P5 => 7 => G
+ChordComponent.create(chord: chord__major_seventh, interval: interval__seventh, interval_quality: interval_quality__major)            # M7 => 11 => B
+
+chord__augmented_triad = Chord.create(name: "Augmented Triad", notation: "+")
+ChordComponent.create(chord: chord__augmented_triad, interval: interval__unison, interval_quality: interval_quality__perfect)         # P1 => 0 => C
+ChordComponent.create(chord: chord__augmented_triad, interval: interval__third, interval_quality: interval_quality__major)            # M3 => 4 => E
+ChordComponent.create(chord: chord__augmented_triad, interval: interval__fifth, interval_quality: interval_quality__augmented)        # A5 => 8 => G#
+
+chord__augmented_seventh = Chord.create(name: "Augmented Seventh", notation: "7+")
+ChordComponent.create(chord: chord__augmented_seventh, interval: interval__unison, interval_quality: interval_quality__perfect)       # P1 => 0 => C
+ChordComponent.create(chord: chord__augmented_seventh, interval: interval__third, interval_quality: interval_quality__major)          # M3 => 4 => E
+ChordComponent.create(chord: chord__augmented_seventh, interval: interval__fifth, interval_quality: interval_quality__augmented)      # A5 => 8 => G#
+ChordComponent.create(chord: chord__augmented_seventh, interval: interval__seventh, interval_quality: interval_quality__minor)        # m7 => 10 => A#
+
+chord__minor_sixth = Chord.create(name: "Minor Sixth", notation: "m6")
+ChordComponent.create(chord: chord__minor_sixth, interval: interval__unison, interval_quality: interval_quality__perfect)             # P1 => 0 => C
+ChordComponent.create(chord: chord__minor_sixth, interval: interval__third, interval_quality: interval_quality__minor)                # m3 => 3 => Eb
+ChordComponent.create(chord: chord__minor_sixth, interval: interval__fifth, interval_quality: interval_quality__perfect)              # P5 => 7 => G
+ChordComponent.create(chord: chord__minor_sixth, interval: interval__sixth, interval_quality: interval_quality__major)                # M6 => 9 => A
+
+chord__minor_seventh = Chord.create(name: "Minor Seventh", notation: "m7")
+ChordComponent.create(chord: chord__minor_seventh, interval: interval__unison, interval_quality: interval_quality__perfect)           # P1 => 0 => C
+ChordComponent.create(chord: chord__minor_seventh, interval: interval__third, interval_quality: interval_quality__minor)              # m3 => 3 => Eb
+ChordComponent.create(chord: chord__minor_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)            # P5 => 7 => G
+ChordComponent.create(chord: chord__minor_seventh, interval: interval__seventh, interval_quality: interval_quality__minor)            # m7 => 10 => A#
+
+chord__minor_major_seventh = Chord.create(name: "Minor-major Seventh", notation: "m/M7")
+ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__unison, interval_quality: interval_quality__perfect)     # P1 => 0 => C
+ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__third, interval_quality: interval_quality__minor)        # m3 => 3 => Eb
+ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)      # P5 => 7 => G
+ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__seventh, interval_quality: interval_quality__major)      # M7 => 11 => B
+
+chord__diminished_triad = Chord.create(name: "Diminished Triad", notation: "-")
+ChordComponent.create(chord: chord__diminished_triad, interval: interval__unison, interval_quality: interval_quality__perfect)        # P1 => 0 => C
+ChordComponent.create(chord: chord__diminished_triad, interval: interval__third, interval_quality: interval_quality__major)           # M3 => 4 => E
+ChordComponent.create(chord: chord__diminished_triad, interval: interval__fifth, interval_quality: interval_quality__diminished)      # d5 => 6 => F#
+
+chord__diminished_seventh = Chord.create(name: "Diminished Seventh", notation: "7-")
+ChordComponent.create(chord: chord__diminished_seventh, interval: interval__unison, interval_quality: interval_quality__perfect)      # P1 => 0 => C
+ChordComponent.create(chord: chord__diminished_seventh, interval: interval__third, interval_quality: interval_quality__major)         # M3 => 4 => E
+ChordComponent.create(chord: chord__diminished_seventh, interval: interval__fifth, interval_quality: interval_quality__diminished)    # d5 => 6 => F#
+ChordComponent.create(chord: chord__diminished_seventh, interval: interval__seventh, interval_quality: interval_quality__diminished)  # d7 => 9 => A
+
+chord__half_diminished_seventh = Chord.create(name: "Half-diminished Seventh", notation: "7*")
+ChordComponent.create(chord: chord__half_diminished_seventh, interval: interval__unison, interval_quality: interval_quality__perfect) # P1 => 0 => C
+ChordComponent.create(chord: chord__half_diminished_seventh, interval: interval__third, interval_quality: interval_quality__major)    # M3 => 4 => E
+ChordComponent.create(chord: chord__half_diminished_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)  # d5 => 6 => G
+ChordComponent.create(chord: chord__half_diminished_seventh, interval: interval__seventh, interval_quality: interval_quality__minor)  # m7 => 10 => A#

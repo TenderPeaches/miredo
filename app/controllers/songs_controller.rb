@@ -13,6 +13,11 @@ class SongsController < ApplicationController
         @song = Song.find(params[:id])
     end
 
+    #todo when all songs are upgraded, discard
+    def show_new
+        @song = Song.find(params[:id])
+    end
+
     # GET /play/[id]
     def play
         song = Song.find(params[:id])

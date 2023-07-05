@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get "/:id", to: "songs#show"
   get "/play/:id", to: "songs#play"
+  get "/show_new/:id", to: "songs#show_new"
 end

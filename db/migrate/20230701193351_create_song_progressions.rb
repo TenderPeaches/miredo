@@ -4,6 +4,8 @@ class CreateSongProgressions < ActiveRecord::Migration[7.0]
       t.references :song, null: false, foreign_key: true
       t.references :progression, null: false, foreign_key: true
       t.integer :sequence
+      t.string :lyrics
+      t.string :tag
 
       t.timestamps
     end

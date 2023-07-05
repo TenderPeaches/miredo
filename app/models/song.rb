@@ -3,6 +3,8 @@ class Song < ApplicationRecord
     belongs_to :key, optional: true
     has_many :song_contributions
     has_many :artists, through: :song_contributions
+    has_many :song_progressions
+    has_many :progressions, through: :song_progressions
 
     OUTPUT_LINE_TYPE__CHORDS = "chords"
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
@@ -57,6 +59,7 @@ class Song < ApplicationRecord
         return output
     end
 
+    # get artists label (a string, not a music label), as multiple artists might contribute to one song
     def get_artists
         output = ""
         artists.each do |artist|
@@ -66,6 +69,14 @@ class Song < ApplicationRecord
             end
             output << artist.name
         end
+        #> [Artist 1], [Artist 2], ...
         return output
+    end
+
+    # if true => the song's chords structure and lyrics are obtained through Song_Progression entries
+    # if false => the song's chord structure and lyrics are obtained through parsing the lib.txt file
+    def upgraded?
+        #! If song progressions are added, they will be assumed to be valid and the song will be considered upgraded so make sure each song's song_progressions are valid, if they exist, before committing them
+        return song_progressions.any?
     end
 end

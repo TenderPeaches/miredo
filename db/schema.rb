@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_01_193351) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_04_143142) do
   create_table "album_contributions", force: :cascade do |t|
     t.integer "albums_id", null: false
     t.integer "artists_id", null: false
@@ -111,6 +111,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_193351) do
   create_table "progression_chords", force: :cascade do |t|
     t.integer "chord_id", null: false
     t.integer "degree"
+    t.integer "modifier"
+    t.integer "bass_degree"
+    t.integer "bass_modifier"
     t.string "duration"
     t.string "sequence"
     t.integer "progression_id", null: false
@@ -126,7 +129,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_193351) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "scale_types", force: :cascade do |t|
+  create_table "scale_intervals", force: :cascade do |t|
+    t.integer "scale_id", null: false
+    t.integer "interval_id", null: false
+    t.integer "interval_quality_id", null: false
+    t.integer "sequence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interval_id"], name: "index_scale_intervals_on_interval_id"
+    t.index ["interval_quality_id"], name: "index_scale_intervals_on_interval_quality_id"
+    t.index ["scale_id"], name: "index_scale_intervals_on_scale_id"
+  end
+
+  create_table "scales", force: :cascade do |t|
     t.string "name"
     t.string "intervals"
     t.datetime "created_at", null: false
@@ -147,6 +162,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_193351) do
     t.integer "song_id", null: false
     t.integer "progression_id", null: false
     t.integer "sequence"
+    t.string "lyrics"
+    t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["progression_id"], name: "index_song_progressions_on_progression_id"
@@ -179,6 +196,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_193351) do
   add_foreign_key "pitches", "pitch_standards"
   add_foreign_key "progression_chords", "chords"
   add_foreign_key "progression_chords", "progressions"
+  add_foreign_key "scale_intervals", "interval_qualities"
+  add_foreign_key "scale_intervals", "intervals"
+  add_foreign_key "scale_intervals", "scales"
   add_foreign_key "song_progressions", "progressions"
   add_foreign_key "song_progressions", "songs"
 end
