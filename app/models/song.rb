@@ -1,13 +1,40 @@
+class CapoValidator < ActiveModel::EachValidator
+    def validate_each(record, attribute, value)
+=begin
+        unless value.is_a?(Integer) && (value >= -1 && value <= 10)
+            record.errors.add attribute, (options[:message] || " is not a valid capo position. Valid positions go from -1 to 10")
+        end
+=end
+    end
+end
+
 class Song < ApplicationRecord
-    belongs_to :album
+    belongs_to :album, optional: true
     belongs_to :key, optional: true
+    belongs_to :scale, optional: true
+    belongs_to :time_signature, optional: true
     has_many :song_contributions
     has_many :artists, through: :song_contributions
     has_many :song_progressions
     has_many :progressions, through: :song_progressions
 
+    validates :number, comparison: { greater_than: 0 }, numericality: { only_integer: true }, allow_nil: true
+    validates :duration, comparison: { greater_than: 0 }, numericality: { only_integer: true }, allow_nil: true
+    validates :nb_practices, comparison: { greater_than: 0 }, numericality: { only_integer: true }, allow_nil: true
+    validates :last_practiced, comparison: { less_than: DateTime.now }, allow_nil: true
+    validates :capo, capo: true
+    validates :bpm, comparison: { greater_than: 0, less_than_or_equal_to: 360 }, numericality: { only_integer: true }, allow_nil: true
+
+    attr_accessor :new_album_name           # to allow create album through create song form
+
+    before_save :create_album_from_name
+
     OUTPUT_LINE_TYPE__CHORDS = "chords"
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
+
+    def create_album_from_name
+        create_album(:name => new_album_name)
+    end
 
     # default output => display chords & lyrics on separate lines
     def default_output
@@ -78,5 +105,11 @@ class Song < ApplicationRecord
     def upgraded?
         #! If song progressions are added, they will be assumed to be valid and the song will be considered upgraded so make sure each song's song_progressions are valid, if they exist, before committing them
         return song_progressions.any?
+    end
+
+    def song_progressions_attributes=(song_progressions_attributes)
+        song_progressions_attributes.each do |spa| 
+            
+        end
     end
 end

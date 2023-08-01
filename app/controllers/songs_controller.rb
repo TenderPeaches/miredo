@@ -16,6 +16,9 @@ class SongsController < ApplicationController
     #todo when all songs are upgraded, discard
     def show_new
         @song = Song.find(params[:id])
+        # capo can be provided as query string argument, if absent then use the song's suggested capo
+        @capo = params.has_key? :capo ? params[:capo].to_i : @song.capo
+        @key = @song.key        # user can play around with song key, set default value to song's default key
     end
 
     # GET /play/[id]
@@ -38,9 +41,14 @@ class SongsController < ApplicationController
     # GET /edit/[id]
     def edit
         @song = Song.find(params[:id])
+        @progressions = Progression.all.sort { |a, b| a.sortable <=> b.sortable }
     end
 
     # PATCH /save/[id]
     def save
+    end
+
+    def new 
+        @song = Song.new
     end
 end

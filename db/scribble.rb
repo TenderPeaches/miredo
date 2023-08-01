@@ -13,3 +13,6 @@
     # SONG_LYRICS> of the lyrics that exist, which order are they in
 
 #? Patterns => Song-specific or not? Right now it's not even enforced, so same patterns *could* be reused, with this in mind might as well consider patterns reusable, in which case it doesn't make all that much sense to give each pattern a tag; instead, the tag should be in song_patterns and there should just been generic tags generated for patterns that are already associated with a given song through song_progressions
+
+# pattern forms:
+# must be able to select from existing patterns -> probably sort the letters parts alphabetically

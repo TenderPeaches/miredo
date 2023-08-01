@@ -86,3 +86,11 @@
    margin-bottom: 1rem;
    display: flex;
  }
+
+ .form-fields {
+   display: grid;
+   margin: 0.5rem;
+   padding: 0.5rem;
+   grid-template-columns: 1fr 3fr;
+   row-gap: 0.25rem;
+ }

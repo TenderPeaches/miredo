@@ -331,3 +331,13 @@ ChordComponent.create(chord: chord__half_diminished_seventh, interval: interval_
 ChordComponent.create(chord: chord__half_diminished_seventh, interval: interval__third, interval_quality: interval_quality__major)    # M3 => 4 => E
 ChordComponent.create(chord: chord__half_diminished_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)  # d5 => 6 => G
 ChordComponent.create(chord: chord__half_diminished_seventh, interval: interval__seventh, interval_quality: interval_quality__minor)  # m7 => 10 => A#
+
+# time signatures
+TimeSignature.create(label: "4/4")
+TimeSignature.create(label: "3/4")
+TimeSignature.create(label: "2/4")
+TimeSignature.create(label: "2/2")
+TimeSignature.create(label: "3/8")
+TimeSignature.create(label: "6/8")
+TimeSignature.create(label: "9/8")
+TimeSignature.create(label: "12/8")

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_04_143142) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
   create_table "album_contributions", force: :cascade do |t|
     t.integer "albums_id", null: false
     t.integer "artists_id", null: false
@@ -114,8 +114,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_143142) do
     t.integer "modifier"
     t.integer "bass_degree"
     t.integer "bass_modifier"
-    t.string "duration"
-    t.string "sequence"
+    t.integer "duration"
+    t.integer "sequence"
+    t.boolean "staccato"
+    t.boolean "muted"
     t.integer "progression_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -162,6 +164,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_143142) do
     t.integer "song_id", null: false
     t.integer "progression_id", null: false
     t.integer "sequence"
+    t.integer "reps", default: 1
     t.string "lyrics"
     t.string "tag"
     t.datetime "created_at", null: false
@@ -171,21 +174,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_143142) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name"
-    t.integer "number"
-    t.integer "duration"
-    t.integer "nb_practices"
+    t.string "name", default: "Unnamed Song"
+    t.integer "number", default: 0
+    t.integer "duration", default: 0
+    t.integer "nb_practices", default: 0
     t.datetime "last_practiced"
-    t.integer "capo"
-    t.string "chords"
-    t.string "lyrics"
-    t.float "bpm"
+    t.integer "capo", default: 0
+    t.string "chords", default: ""
+    t.string "lyrics", default: ""
+    t.integer "bpm", default: 120
+    t.integer "time_signature_id"
     t.integer "key_id"
+    t.integer "scale_id"
     t.integer "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["key_id"], name: "index_songs_on_key_id"
+    t.index ["scale_id"], name: "index_songs_on_scale_id"
+    t.index ["time_signature_id"], name: "index_songs_on_time_signature_id"
+  end
+
+  create_table "time_signatures", force: :cascade do |t|
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "chord_components", "chords"
