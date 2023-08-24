@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
     # GET /
     def index
-        @songs = Song.all
+        @songs = Song.includes(:artists) 
 
         if (params[:sort] == 'capo')
             @songs = @songs.order('capo')
@@ -13,7 +13,35 @@ class SongsController < ApplicationController
         @song = Song.find(params[:id])
     end
 
-    #todo when all songs are upgraded, discard
+    def create 
+        @song = Song.new(song_params)
+
+        respond_to do |format|
+            
+        if @song.save
+            format.html { redirect_to song_url(@song), notice: "Song was successfully created." }
+            format.json { render :show, status: :created, location: @song }
+        else
+            format.html { render :new, status: :unprocessable_entity }
+            format.json { render json: @song.errors, status: :unprocessable_entity }
+        end
+        end
+    end
+
+    # PATCH /save/[id]
+    def save
+    end
+
+    def new 
+        @song = Song.new
+        @song.song_contributions << SongContribution.new
+    end
+
+    def scales
+        render json: { body: params }
+    end
+
+    #todo when all songs are upgraded, rename to show
     def show_new
         @song = Song.find(params[:id])
         # capo can be provided as query string argument, if absent then use the song's suggested capo
@@ -44,11 +72,8 @@ class SongsController < ApplicationController
         @progressions = Progression.all.sort { |a, b| a.sortable <=> b.sortable }
     end
 
-    # PATCH /save/[id]
-    def save
-    end
-
-    def new 
-        @song = Song.new
+    private
+    def song_params
+        params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key, :scale, song_contributions_attributes: [:id, :artist_id])
     end
 end

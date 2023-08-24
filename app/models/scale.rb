@@ -10,4 +10,25 @@ class Scale < ApplicationRecord
     def self.for_select
         Scale.where.not(id: [1])    # don't return scale #1, it's the chromatic scale and shouldn't be selected for songs; use Scale.all if it needs to be included
     end
+
+    def print_in_key(key)
+        output = ""
+        
+        (1..7).each do |i| 
+            puts ('i: ' << i.to_s)
+            puts ('key.pitch_class.position: ' << key.pitch_class.position.to_s)
+            puts ('get_degrees_interval(i): ' << get_degrees_interval(i).to_s)
+            pitch_class__position = (key.pitch_class.position + get_degrees_interval(i)) % 12
+
+            if pitch_class__position == 0
+                pitch_class__position = 12
+            end
+
+            puts (pitch_class__position)
+            puts (PitchClass.find_by(position: pitch_class__position).print)
+
+            output << PitchClass.find_by(position: pitch_class__position).print << " "
+        end
+        output
+    end
 end

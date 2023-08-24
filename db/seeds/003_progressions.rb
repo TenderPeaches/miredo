@@ -107,7 +107,7 @@ SongProgression.create(song: song, progression: progression_1, sequence: 2, tag:
 SongProgression.create(song: song, progression: progression_2, sequence: 3, tag: "Chorus", lyrics: "Is it getting better? It's really getting worse; I'll give a thousand apologies for a thousand hurts; The forest is on fire but we're gonna let it burn; We're controlling it; We've got it handled; Thanks for your concern;")
 
 # A Song Dedicated to the Memory of Stormy the Rabbit - AJJ
-song = Song.find(4)
+song = Song.find(3)
 progression_1 = Progression.create(tag: "Verse A")
 ProgressionChord.create(chord: chord__minor, degree: 1, duration: 1, sequence: 1, progression: progression_1)
 ProgressionChord.create(chord: chord__major, degree: 7, duration: 1, sequence: 2, progression: progression_1)
@@ -279,3 +279,83 @@ SongProgression.create(song: song, progression: progression_4, sequence: 12, tag
 SongProgression.create(song: song, progression: progression_3, sequence: 13, tag: "Chorus 3", lyrics: "When you cried I'd wipe away all of your tears; When you'd scream I'd fight away all of your fears;", reps: 3)
 SongProgression.create(song: song, progression: progression_4, sequence: 14, tag: "Chorus 3", lyrics: "And I held your hand through all of these years; But you still have all of me;")
 
+# toxicity - system of a down
+
+song = Song.find_by(name: "Toxicity")
+progression_1 = Progression.create(tag: "Verse")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+]
+progression_2 = Progression.create(tag: "Chorus")
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+]
+progression_3 = Progression.create(tag: "Post-Chorus")
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 1),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "", reps: 2)
+SongProgression.create(song: song, progression: progression_2, tag: "Intro", lyrics: "", reps: 4)
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 1", lyrics: "Conversion, software version 7.0; Looking at life through the eyes of a tire hub; Eating seeds as a pastime activity; The toxicity of our city, of our city;", reps: 4)
+SongProgression.create(song: song, progression: progression_2, tag: "Chorus 1", lyrics: "New, what do you own the world; How do you own disorder, disorder; Now, somewhere between the sacred silence; sacred silence and sleep; Somewhere between the sacred silence and sleep; Disorder, disorder, disorder;", reps: 4)
+SongProgression.create(song: song, progression: progression_1, tag: "Pre-Verse 2", lyrics: "", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "More wood for their fires, loud neighbours; Flashlight reveries caught in the headlights of a truck; Eating seeds as a pastime activity; The toxicity of our city, of our city;", reps: 4)
+SongProgression.create(song: song, progression: progression_2, tag: "Chorus 2", lyrics: " New, what do you own the world, How do you own disorder, disorder; Now, somewhere between the sacred silence, sacred silence and sleep; Somewhere between the sacred silence and sleep, Disorder, disorder, disorder;", reps: 4)
+SongProgression.create(song: song, progression: progression_3, tag: "Breakdown", lyrics: "", reps: 16)
+SongProgression.create(song: song, progression: progression_2, tag: "Chorus 3", lyrics: "New, what do you own the world, How do you own disorder; Now, somewhere between the sacred silence, sacred silence and sleep; Somewhere between the sacred silence and sleep, Disorder, disorder, disorder; ", reps: 4)
+SongProgression.create(song: song, progression: progression_3, tag: "Ending", lyrics: "", reps: 4)
+SongProgression.create(song: song, progression: progression_3, tag: "Ending", lyrics: "When I became the sun, I shone life into the man's hearts, When I became the sun, I shone life into the man's hearts", reps: 4)
+
+# tangled in ropes - holy locust
+song = Song.find_by(name: "Tangled in Ropes")
+progression_1 = Progression.create(tag: "Riff 1")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+]
+
+progression_2 = Progression.create(tag: "Verse")
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+]
+
+progression_3 = Progression.create(tag: "Chorus")
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 2, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "I'm tangled in ropes, Pulled into the shore; You wash up all heavy, Tired and bored; Had a laugh made of wax, In a house made of butter; How they melted that summer, How they melted that summer", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "When the tide rolled out, And all was exposed; You found yourself drowning, in currents untold; Here's a sand dollar too, Hard thoughts taking hold; Though a hundred-degree heat he felt took hold", reps: 1)
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 1", lyrics: "And mixing your drinks with holy water; Won't cover up sins that are bound to follow; And a laugh made of wax, house made of butter; How they melted that summer, How they melted that summer", reps: 1)
+SongProgression.create(song: song, progression: progression_1, tag: "Post-Chorus 1", lyrics: "", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 2", lyrics: "Well the winter came early, and the ocean froze over; You threw your belongings, onto the shoulder; Stole a pair of boots, that could handle the cold; And walked out into the frozen unknown", reps: 1)
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 2", lyrics: "And mixing your drinks with holy water; Won't cover up sins that are bound to follow; And a laugh made of wax, house made of butter; How they melted that summer, How they melted that summer", reps: 1)
+SongProgression.create(song: song, progression: progression_1, tag: "Post-Chorus 2", lyrics: "", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 3", lyrics: "Now I'm tangled in ropes, Pulled into the shore; You washed up all heavy, Tired and bored; Had a laugh made of wax, In a house made of butter; How they melted that summer, How they melted that summer", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 3", lyrics: "When the tide rolled out, And all was exposed; You found yourself drowning, in currents untold; Here's a sand dollar too, Hard thoughts taking hold; Though a hundred-degree heat he felt took hold", reps: 1)
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 3", lyrics: "And mixing your drinks with holy water; Won't cover up sins that are bound to follow; And a laugh made of wax, house made of butter; How they melted that summer, How they melted that summer", reps: 1)
+SongProgression.create(song: song, progression: progression_1, tag: "Post-Chorus 3", lyrics: "", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 4", lyrics: "Well the winter came early, and the ocean froze over; You threw your belongings, onto the shoulder; Stole a pair of boots, that could handle the cold; And walked out into the frozen unknown", reps: 1)
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 4", lyrics: "And mixing your drinks with holy water; Won't cover up sins that are bound to follow; And a laugh made of wax, house made of butter; How they melted that summer, How they melted that summer", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Outro", lyrics: "I'm tangled in ropes, Pulled into the shore; You wash up all heavy, Tired and bored; Had a laugh made of wax, In a house made of butter; How they melted that summer, How they melted that summer", reps: 1)

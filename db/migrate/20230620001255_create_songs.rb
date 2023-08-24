@@ -1,7 +1,7 @@
 class CreateSongs < ActiveRecord::Migration[7.0]
   def change
     create_table :songs do |t|
-      t.string :name, comment: "Song name", default: "Unnamed Song"
+      t.string :name, comment: "Song name", default: ""
       t.integer :number, comment: "Position of the song in the album", default: 0
       t.integer :duration, comment: "Suggested approximate duration, given the default bpm", default: 0
       t.integer :nb_practices, comment: "Number of user-confirmed practices of this song", default: 0

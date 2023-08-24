@@ -174,7 +174,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name", default: "Unnamed Song"
+    t.string "name", default: ""
     t.integer "number", default: 0
     t.integer "duration", default: 0
     t.integer "nb_practices", default: 0

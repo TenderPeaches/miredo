@@ -1,0 +1,13 @@
+<%= form_with(model: song_contribution) do |form| %>
+    <% if song_contribution.errors.any? %>
+        <div style="color: red">
+        <h2><%= pluralize(song_contribution.errors.count, "error") %> prohibited this song_contribution from being saved:</h2>
+
+        <ul>
+            <% song_contribution.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+<% end %>

@@ -12,6 +12,9 @@
         </div>
         <%= form.submit "Apply" %>
     <% end %>
+    <div>
+        <%= @song.scale.print_in_key(Key.find(@key.id)) %>
+    </div>
 
     <% @song.song_progressions.order(:sequence).each do |song_progression| %>
         <div class="song-progression__chords">

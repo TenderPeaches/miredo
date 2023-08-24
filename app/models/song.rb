@@ -20,12 +20,17 @@ class Song < ApplicationRecord
 
     validates :number, comparison: { greater_than: 0 }, numericality: { only_integer: true }, allow_nil: true
     validates :duration, comparison: { greater_than: 0 }, numericality: { only_integer: true }, allow_nil: true
-    validates :nb_practices, comparison: { greater_than: 0 }, numericality: { only_integer: true }, allow_nil: true
+    validates :nb_practices, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
     validates :last_practiced, comparison: { less_than: DateTime.now }, allow_nil: true
     validates :capo, capo: true
     validates :bpm, comparison: { greater_than: 0, less_than_or_equal_to: 360 }, numericality: { only_integer: true }, allow_nil: true
 
-    attr_accessor :new_album_name           # to allow create album through create song form
+    attr_accessor(:new_album_name, :new_artist_name)        # in case of new album/artist
+
+    accepts_nested_attributes_for :artists
+    accepts_nested_attributes_for :song_contributions, :allow_destroy => true
+    accepts_nested_attributes_for :song_progressions
+    accepts_nested_attributes_for :progressions
 
     before_save :create_album_from_name
 
