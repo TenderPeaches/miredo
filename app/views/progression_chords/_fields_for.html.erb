@@ -1,0 +1,27 @@
+<%= form.collection_select :chord_id, Chord.for_select, :id, :name %>
+
+<%= form.label :degree %>
+<%= form.number_field :degree, in: 1...8, step: 1 %>
+
+<%= form.label :modifier %>
+<%= form.number_field :modifier, min: -3, max: 3, step: 1 %>
+
+<%= form.label :bass_degree %>
+<%= form.number_field :bass_degree, in: 1...8, step: 1 %>
+
+<%= form.label :bass_modifier %>
+<%= form.number_field :bass_modifier, min: -3, max: 3, step: 1 %>
+
+<%= form.label :duration %>
+<%= form.number_field :duration, min: 1, step: 1 %>
+
+<%= form.label :staccato %>
+<%= form.check_box :staccato %>
+
+<%= form.label :muted %>
+<%= form.check_box :muted %>
+
+<% puts "progression_chords/_fields_for" << form.object.inspect %>
+
+<%= form.submit %>
+<%= link_to_remove_association "Remove chord", form %>

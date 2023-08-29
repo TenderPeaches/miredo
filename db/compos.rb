@@ -1,6 +1,7 @@
 compo__a_badge_for_the_smelter = { capo: 1 , chords: " verse Am---Dm-Am--, need figure out chorus", lyrics: 
 "Cold light reeks
 So bright, so bleak
+???
 Irradiate 
     Examinate
 Can't get away
@@ -51,6 +52,14 @@ Rain, bring me the strength to see another day
     Can't you feel
     This is real"
 
+"
+feel it in the air 
+the pain the suffering
+the misery and craving
+
+
+"
+
 
 "
 Heading down south to the land of the pines
@@ -98,3 +107,4 @@ Rock me momma like a south bound train
 Hey momma rock me
 Rock me 
 "
+

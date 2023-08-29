@@ -1,0 +1,21 @@
+<%= form_with model: progression, class: "progression-form" do |form| %>
+    <% if progression.errors.any? %>
+        <div style="color: red">
+        <h2><%= pluralize(progression.errors.count, "error") %> prohibited this progression from being saved:</h2>
+
+        <ul>
+            <% progression.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <%= form.label :tag, "Tag" %>
+    <%= form.text_field :tag %>
+
+    <%= form.fields_for :progression_chords do |progression_chords_form| %>
+        <%= render "progression_chords/fields_for", form: progression_chords_form %>
+    <% end %>
+    <%= link_to_add_association 'Add Chord', form, :progression_chords, { partial: "progression_chords/fields_for", form_name: "form" }%>
+<% end %>

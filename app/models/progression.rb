@@ -4,6 +4,8 @@ class Progression < ApplicationRecord
     has_many :progression_chords
     has_many :chords, through: :progression_chords
 
+    accepts_nested_attributes_for :progression_chords
+
     public
     # need to sort progressions in order to show user a list to select from somehow
     # sort by each chord that makes up the progression

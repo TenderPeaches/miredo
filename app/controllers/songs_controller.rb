@@ -11,20 +11,31 @@ class SongsController < ApplicationController
     # GET /[id]/
     def show
         @song = Song.find(params[:id])
+        if @song.upgraded?
+            # capo can be provided as query string argument, if absent then use the song's suggested capo
+            @capo = params.has_key? :capo ? params[:capo].to_i : @song.capo
+            @key = @song.key        # user can play around with song key, set default value to song's default key
+            render :show_new
+        end
     end
 
+    # POST /songs
     def create 
         @song = Song.new(song_params)
 
         respond_to do |format|
-            
-        if @song.save
-            format.html { redirect_to song_url(@song), notice: "Song was successfully created." }
-            format.json { render :show, status: :created, location: @song }
-        else
-            format.html { render :new, status: :unprocessable_entity }
-            format.json { render json: @song.errors, status: :unprocessable_entity }
-        end
+            if @song.save
+                # if redirect to define_progressions
+                if params[:progressions]
+                    format.html { redirect_to define_progressions_song_path(@song), notice: "Song was successfully created." }
+                else
+                    format.html { redirect_to song_url(@song), notice: "Song was successfully created." }
+                end
+                format.json { render :show, status: :created, location: @song }
+            else
+                format.html { render :new, status: :unprocessable_entity }
+                format.json { render json: @song.errors, status: :unprocessable_entity }
+            end
         end
     end
 
@@ -39,14 +50,6 @@ class SongsController < ApplicationController
 
     def scales
         render json: { body: params }
-    end
-
-    #todo when all songs are upgraded, rename to show
-    def show_new
-        @song = Song.find(params[:id])
-        # capo can be provided as query string argument, if absent then use the song's suggested capo
-        @capo = params.has_key? :capo ? params[:capo].to_i : @song.capo
-        @key = @song.key        # user can play around with song key, set default value to song's default key
     end
 
     # GET /play/[id]
@@ -66,6 +69,14 @@ class SongsController < ApplicationController
         end
     end
 
+    # GET /song/[id]/define_progressions
+    def define_progressions
+        @song = Song.find(params[:id])
+        #(!) LIMIT 1 to debug why id 1 doesn't produce a form
+        @progressions = Progression.find_by_sql('SELECT pc.chord_id, pc.degree, pc.modifier, p.id, p.tag FROM progressions AS p INNER JOIN progression_chords AS pc ON pc.progression_id = p.id INNER JOIN song_progressions AS sp ON sp.progression_id = p.id AND sp.song_id = ? GROUP BY p.id LIMIT 1', [ @song.id ])
+        @new_progressions = [ Progression.new ]
+    end
+
     # GET /edit/[id]
     def edit
         @song = Song.find(params[:id])
@@ -74,6 +85,6 @@ class SongsController < ApplicationController
 
     private
     def song_params
-        params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key, :scale, song_contributions_attributes: [:id, :artist_id])
+        params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key_id, :scale_id, :new_album_name, :new_artist_name, :album_id, song_contributions_attributes: [:id, :artist_id])
     end
 end

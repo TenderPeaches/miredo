@@ -94,3 +94,7 @@
    grid-template-columns: 1fr 3fr;
    row-gap: 0.25rem;
  }
+ 
+ .progression-form {
+   display: grid;
+ }

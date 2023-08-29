@@ -24,6 +24,7 @@ class Song < ApplicationRecord
     validates :last_practiced, comparison: { less_than: DateTime.now }, allow_nil: true
     validates :capo, capo: true
     validates :bpm, comparison: { greater_than: 0, less_than_or_equal_to: 360 }, numericality: { only_integer: true }, allow_nil: true
+    validates_associated :song_contributions
 
     attr_accessor(:new_album_name, :new_artist_name)        # in case of new album/artist
 
@@ -32,13 +33,30 @@ class Song < ApplicationRecord
     accepts_nested_attributes_for :song_progressions
     accepts_nested_attributes_for :progressions
 
-    before_save :create_album_from_name
+    before_validation :create_album_from_name, :assert_song_contributions
+    after_save :set_song_contributions
 
     OUTPUT_LINE_TYPE__CHORDS = "chords"
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
 
     def create_album_from_name
         create_album(:name => new_album_name)
+    end
+
+    #! the form passes along song_contributions with artist_id == 1 when artist field is left blank (for new artists), so weed that one out before the validations are made otherwise it raises a validation error with artist_id missing
+    def assert_song_contributions
+        self.song_contributions = self.song_contributions.where.not(artist: { id: nil })
+    end
+
+    def set_song_contributions
+        # If a new artist name has been provided
+        unless new_artist_name.nil? || new_artist_name.blank?
+            # create the artist and a song_contribution entry that links them to this song
+            # adding to the array so existing song contributions are not overwritten
+            song_contributions << SongContribution.create(song_id: id, artist: Artist.create(name: new_artist_name))
+            # reset new artist name to prevent this block from triggering more than once on consecutive saves
+            new_artist_name = nil
+        end
     end
 
     # default output => display chords & lyrics on separate lines

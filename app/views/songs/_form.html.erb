@@ -1,4 +1,4 @@
-<%= form_for(song) do |form| %>
+<%= form_with model: @song, url: songs_path(@song) do |form| %>
     <% if song.errors.any? %>
         <div style="color: red">
         <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
@@ -36,8 +36,9 @@
 
         <%= form.fields_for :song_contributions do |song_contributions_form| %>
             <%= song_contributions_form.label :artist, "Artist" %>
-            <%= song_contributions_form.collection_select :artist_id, Artist.all, :id, :name %>
-            <% if song_contributions_form.object.persisted? %>
+            <%= song_contributions_form.collection_select :artist_id, Artist.all, :id, :name, :prompt => "" %>
+            
+            <% if song_contributions_form.object && song_contributions_form.object.persisted? %>
                 <div>
                     <%= song_contributions_form.check_box :_destroy, {:checked => song_contributions_form.object.persisted?}, '0', '1' %>
                     <%= song_contributions_form.label :_destroy, song_contributions_form.object.artist.name %>
@@ -55,9 +56,16 @@
             <%= form.text_field :new_album_name, placeholder: "New album" %>
         </div>
 
+        
+        <!-- define progressions --> 
+            <!-- + form to add --> 
+
+
         <div class="form-submit">
             <%= form.submit "Create song" %>
+            <%= form.submit "Set prorgessions", name: 'progressions' %>
         </div>
+
         
     </div>
 <% end %>

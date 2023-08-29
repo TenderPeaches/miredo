@@ -29,13 +29,7 @@
     <tbody>
         <% @songs.each do |song| %>
             <tr>
-                <td class="songs-list__title">
-                    <% if song.upgraded? %>
-                        <%= link_to song.name, "/show_new/" << song.id.to_s %>
-                    <% else %>
-                        <%= link_to song.name, "/" << song.id.to_s %>
-                    <% end %>
-                </td>
+                <td class="songs-list__title"><%= link_to song.name, song_path(song.id) %></td>
                 <td class="songs-list__artist"><%= song.get_artists %></td>
                 <td class="songs-list__capo"><%= song.capo %></td>
                 <td class="songs-list__play"><%= link_to "Play", "/play/" << song.id.to_s << "?from=home" %></td>
