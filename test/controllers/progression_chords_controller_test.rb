@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ProgressionChordControllerTest < ActionDispatch::IntegrationTest
+class ProgressionChordsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

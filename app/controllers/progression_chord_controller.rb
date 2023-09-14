@@ -1,2 +1,0 @@
-class ProgressionChordController < ApplicationController
-end

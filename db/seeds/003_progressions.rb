@@ -1,6 +1,7 @@
 # shortcuts
 chord__major = Chord.find_by(name: "Major Triad")
 chord__minor = Chord.find_by(name: "Minor Triad")
+chord__seventh = Chord.find_by(name: "Dominant Seventh")
 
 # brave as a noun - ajj
 song = Song.find(1)
@@ -359,3 +360,79 @@ SongProgression.create(song: song, progression: progression_1, tag: "Post-Chorus
 SongProgression.create(song: song, progression: progression_2, tag: "Verse 4", lyrics: "Well the winter came early, and the ocean froze over; You threw your belongings, onto the shoulder; Stole a pair of boots, that could handle the cold; And walked out into the frozen unknown", reps: 1)
 SongProgression.create(song: song, progression: progression_3, tag: "Chorus 4", lyrics: "And mixing your drinks with holy water; Won't cover up sins that are bound to follow; And a laugh made of wax, house made of butter; How they melted that summer, How they melted that summer", reps: 1)
 SongProgression.create(song: song, progression: progression_2, tag: "Outro", lyrics: "I'm tangled in ropes, Pulled into the shore; You wash up all heavy, Tired and bored; Had a laugh made of wax, In a house made of butter; How they melted that summer, How they melted that summer", reps: 1)
+
+# frijolero - molotov
+song = Song.find_by_name("Frijolero")
+progression_1 = Progression.create(tag: "Intro")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4)
+]
+
+progression_2 = Progression.create(tag: "Verse")
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__seventh, degree: 5, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4)
+]
+progression_3 = Progression.create(tag: "Chorus")
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__seventh, degree: 5, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4)
+]
+
+progression_4 = Progression.create(tag: "Chorus alt ending")
+progression_4.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2)
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "", reps: 2)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "Yo ya estoy hasta la madre, de que me pongan sombrero; Escucha entonces cuando digo, no me llames frijolero;", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "Y aunque exista algún respeto, Y no metamos las narices; Nunca inflamos la moneda, Haciendo guerra a otros países", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 2", lyrics: "Te pagamos con petróleo, E intereses nuestra deuda; Mientras tanto no sabemos, ¿Quién se queda con la feria?;", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 2", lyrics: "Aunque nos hagan la fama, De que somos vendedores; De la droga que sembramos, Ustedes son consumidores", reps: 1)
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 1", lyrics: "Don't call me gringo you fucking beaner; Stay on your side of that goddamn river; Don't call me gringo, you beaner", reps: 1)
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 1", lyrics: "No me digas beaner Mr. Puñetero; Te sacaré un susto por racista y culero; No me llames frijolero pinche gringo puñetero", reps: 1)
+SongProgression.create(song: song, progression: progression_1, tag: "Solo", lyrics: "", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 3", lyrics: "Now I wish I had a dime for every single time; I've gotten stared down for being in the wrong side of town", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 3", lyrics: "And a rich man I'd be, If I had that kind of chips; Lately I wanna smack the smiles off these racists", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 4", lyrics: "Podrás imaginarte desde afuera ser un mexicano cruzando la frontera; Pensando en tu familia mientras que pasas dejando todo lo tú que conoces atrás", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 4", lyrics: "Si tuvieras tú que esquivar las balas de unos cuantos gringos rancheros; ¿Les seguirás diciendo good for nothing wetbacks si tuvieras tú que empezar de cero?", reps: 1)
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 4", lyrics: "Now why don't you look down to where your feet is planted; That U.S. soil that makes you take shit for granted, If not for Santa Ana, just to let you know; That where your feet are planted would be Mexico, Correcto!", reps: 1)
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 2", lyrics: "Don't call me gringo you fucking beaner; Stay on your side of that goddamn river; Don't call me gringo, you beaner", reps: 1)
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 2", lyrics: "No me digas beaner Mr. Puñetero; Te sacaré un susto por racista y culero; No me llames frijolero pinche gringo puñetero", reps: 1)
+SongProgression.create(song: song, progression: progression_4, tag: "Finale", lyrics: "", reps: 1)
+
+# salgo a la calle 
+song = Song.find_by_id(142)
+progression_1 = Progression.create(tag: "Intro")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+]
+
+song = Song.find_by_id(142)
+progression_2 = Progression.create(tag: "Bridge")
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 1", lyrics: "Salgo a la calle para no pensar, pocas cosas me hacen reaccionar; Porque me ahogo en esta realidad, porque me agobia la necesidad; De saber que algo va a cambiar, que no todos los días van a ser igual; No resisto esta rutina d'esta mierda de vida, necesito saber qu'algo va a explotar, algo va a explotar;")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 1", lyrics: "Porque tengo.. La necesidad necesito saber que algo va a cambiar; voy viviendo sin sentido, este sistema no me deja avanzar; recorriendo a día día, esa ciudad intentando escapar del camino marcado; no volveré a no pelear x4;")
+SongProgression.create(song: song, progression: progression_2, tag: "Break", lyrics: "", reps: 2)
+SongProgression.create(song: song, progression: progression_2, tag: "Break", lyrics: "Machacados por el trabajo, Reducidos por el estado; Controladores por todos lados, defendiendo su norma socia; De esta falsia democracia x4", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Break", lyrics: "")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "Salgo a la calle para no pensar, pocas cosas me hacen reaccionar; Porque me ahogo en esta realidad, porque me agobia la necesidad; De saber que algo va a cambiar, que no todos los días van a ser igual; No resisto esta rutina d'esta mierda de vida, necesito saber qu'algo va a explotar, algo va a explotar;")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "Porque tengo.. La necesidad necesito saber que algo va a cambiar; voy viviendo sin sentido, este sistema no me deja avanzar; recorriendo a día día, esa ciudad intentando escapar del camino marcado; no volveré a no pelear x4;")

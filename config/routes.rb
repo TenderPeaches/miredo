@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "scale", to: "scales#get", as: :scale
   get "scales", to: "songs#scales", as: :scales
 
+  get "utils/print_progression_chord", to: "progression_chords#print"
+
   #get "/:id", to: "songs#show", as: :song
   #get "/play/:id", to: "songs#play", as: :play_song
   #get "/show_new/:id", to: "songs#show_new", as: :show_song_new

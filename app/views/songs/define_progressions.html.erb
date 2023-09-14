@@ -1,23 +1,20 @@
-<%= form_with(model: @song) do |form| %>
-    <% if @song.errors.any? %>
-        <div style="color: red">
-        <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
 
-        <ul>
-            <% @song.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-            <% end %>
-        </ul>
-        </div>
-    <% end %>
-
-    <div data-controller="progressions" class="form-fields">
-        <%= render 'song_progressions/define_progressions', song: @song, progressions: @progressions %>
-        <%= %>
-
-        <div class="form-submit">
-            <%= form.submit "Add progressions" %>
-        </div>
-        
+<div data-controller="progressions" class="form-fields">
+    <%= @song.name %>
+    <div class="progressions--current">
+        <% @progressions.each do |p| %>
+            <div>
+                <%= p.id %>
+                <%= p.tag %>
+                <%= p.print(@song.key, @song.scale) %>
+                <div>Render: 
+                    <%= render "progressions/form", progression: p %>
+                </div>
+            </div>
+        <% end %>
     </div>
-<% end %>
+
+    <div class="progressions--new" data-progressions-target="newProgsList">
+        <button class="button" type="button" data-action="click->progressions#add_progression_form">Define new progression</button>
+    </div>
+</div>

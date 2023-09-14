@@ -59,8 +59,18 @@ the misery and craving
 
 
 "
+"your way of life is hate
+what kind of tolerant would we be
+if we tolerated you
+so stick a thick stick down your prick
+choke on it till its a snug fit
+you're not owed respect
+time or oxygen you're a cancer
+a fiend a sad broken sorry excuse
+for a human being"
 
-
+    "cunt me down je vais te pistonner etc.
+    "
 "
 Heading down south to the land of the pines
 I'm thumbing my way into North Carolina

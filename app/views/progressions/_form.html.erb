@@ -1,4 +1,4 @@
-<%= form_with model: progression, class: "progression-form" do |form| %>
+<%= form_with model: progression, class: "progression-form", local: false do |form| %>
     <% if progression.errors.any? %>
         <div style="color: red">
         <h2><%= pluralize(progression.errors.count, "error") %> prohibited this progression from being saved:</h2>
@@ -15,7 +15,7 @@
     <%= form.text_field :tag %>
 
     <%= form.fields_for :progression_chords do |progression_chords_form| %>
-        <%= render "progression_chords/fields_for", form: progression_chords_form %>
+        <%= render "progression_chords/gen", form: progression_chords_form, progression_chord: progression_chords_form.object, key: Key.find_by_shorthand('C'), scale: Scale.find_by_name('Major') %>
     <% end %>
-    <%= link_to_add_association 'Add Chord', form, :progression_chords, { partial: "progression_chords/fields_for", form_name: "form" }%>
+    <%= link_to_add_association '+', form, :progression_chords, { partial: "progression_chords/gen", form_name: "form", render_options: { locals: { key: Key.find_by_shorthand('C'), scale: Scale.find_by_name('Major') } } }%>
 <% end %>

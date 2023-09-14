@@ -110,7 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
 
   create_table "progression_chords", force: :cascade do |t|
     t.integer "chord_id", null: false
-    t.integer "degree"
+    t.integer "degree", default: 1
     t.integer "modifier"
     t.integer "bass_degree"
     t.integer "bass_modifier"
@@ -175,8 +175,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
 
   create_table "songs", force: :cascade do |t|
     t.string "name", default: ""
-    t.integer "number", default: 0
-    t.integer "duration", default: 0
+    t.integer "number"
+    t.integer "duration"
     t.integer "nb_practices", default: 0
     t.datetime "last_practiced"
     t.integer "capo", default: 0

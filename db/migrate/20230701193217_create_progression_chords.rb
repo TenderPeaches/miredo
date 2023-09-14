@@ -2,7 +2,7 @@ class CreateProgressionChords < ActiveRecord::Migration[7.0]
   def change
     create_table :progression_chords do |t|
       t.references :chord, null: false, foreign_key: true
-      t.integer :degree                                           # degree given the progression's key
+      t.integer :degree, default: 1                                           # degree given the progression's key
       t.integer :modifier                                         # semitones modifier, for when chords are off-key and therefore don't match an exact degree
       t.integer :bass_degree                                      # for chords like C/G, A/G#, etc
       t.integer :bass_modifier                                    # if G is off-key and C/G needs to be used
