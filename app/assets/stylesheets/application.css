@@ -14,6 +14,7 @@
  *= require_self
  */
 
+ /* globals */ 
  :root {
     --color-primary: goldenrod;
     --color-accent: #dda0dd;
@@ -22,6 +23,8 @@
     /*font-family: 'Consolas', 'Courier New', Courier, monospace;*/
 
  }
+
+ /* generic */
 
  body {
     background-color: #001608;
@@ -49,8 +52,12 @@
     border-bottom: solid 1px var(--color-primary);
  }
 
- .songs-list {
-    width: 100%;
+ .hidden {
+  display: none !important;
+ }
+
+ input[type="number"] {
+  width: 45px;
  }
  
  @media screen and (min-width: 1080px) {
@@ -60,6 +67,10 @@
     .show-song {
         columns: 2;
     }
+ }
+
+ .songs-list {
+    width: 100%;
  }
 
  .song-line,
@@ -96,23 +107,48 @@
    padding: 1em;
    margin: 0.5em 0;
    border: 1px solid var(--color-primary);
+   text-align: center;
+   row-gap: 1rem;
+
+   max-width: 300px; /*! to be seen how to adjust width because the parent stretches it all the way up, just needs to wrap around content  */
+ }
+
+ .generator__display {
+  font-size: 2rem;
+  background: black;
+  padding: 0.5rem;
+  color: var(--color-accent);
  }
 
  .progression-chord-generator .generator__inputs {
    display: grid;
-   grid-template-columns: repeat(4, 1fr);
+   grid-template-columns: repeat(2, 1fr);
    grid-template-rows: auto;
    grid-template-areas: 
-      "degree     degree      modifier   modifier"
-      "degree     degree      modifier   modifier"
-      "chord_type chord_type  settings settings"
-      "duration   duration    actions  actions";
+   "chord_type    chord_type"
+   "degree        degree"
+   "modifier      modifier"
+   "duration      settings"
+   "bass_controls bass_controls"
+   "actions       actions";
+
+   row-gap: 0.5rem;
 
  }
 
  .progression-chord-generator .generator__input--degree {
+  grid-area: degree;
+ }
+
+ .progression-chord-generator .bass-controls {
+  grid-area: bass_controls;
+  display: flex;
+  flex-direction: column;
+ }
+
+ .progression-chord-generator .generator__input--degree,
+ .progression-chord-generator .generator__input--bass-degree {
    display: grid;
-   grid-area: degree;
    grid-template-columns: repeat(3, 1fr);
    grid-template-areas: 
    "degree1 degree4 degree5"
@@ -120,27 +156,35 @@
    " . degree7 none ";
 
    margin: 1em; 
+   text-align: left;
  }
 
- .degree_1 {
+ .degree_1,
+ .bass_degree_1 {
    grid-area: degree1;
  }
- .degree_2 {
+ .degree_2,
+ .bass_degree_2 {
    grid-area: degree2;
  }
- .degree_3 {
+ .degree_3,
+ .bass_degree_3 {
    grid-area: degree3;
  }
- .degree_4 {
+ .degree_4,
+ .bass_degree_4 {
    grid-area: degree4;
  }
- .degree_5 {
+ .degree_5,
+ .bass_degree_5 {
    grid-area: degree5;
  }
- .degree_6 {
+ .degree_6,
+ .bass_degree_6 {
    grid-area: degree6;
  }
- .degree_7 {
+ .degree_7,
+ .bass_degree_7 {
    grid-area: degree7;
  }
 
@@ -164,14 +208,20 @@
    grid-area: actions;
  }
 
- .modifier-markers {
-  display: flex;
+ .progression-chord-generator .generator__inputs .generator__input--bass-degree-modifier {
+   grid-area: bass_modifier;
+ }
+
+ .modifier-markers,
+ .bass_modifier-markers {
+  display: inline-flex;
   flex-direction: row;
   justify-content: space-between;
   width: 200px;
  }
   
-.modifier-markers option {
+.modifier-markers option,
+.bass_modifier-markers option {
    margin-top: 0.25em;
    padding: 0;
  }

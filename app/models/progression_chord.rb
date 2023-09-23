@@ -40,8 +40,10 @@ class ProgressionChord < ApplicationRecord
 
   # prints only the chord "C#"
   def print_chord(key, scale)
+    modifier ||= 0  #! shouldn't be nil in the first place
+
     # pitch_class associated with this chord given a key and scale, only 12 options
-    pitch_class__position = (key.pitch_class.position + scale.get_degrees_interval(degree)) % 12
+    pitch_class__position = (key.pitch_class.position + scale.get_degrees_interval(degree) + modifier) % 12
     # position == 0 doesn't exist, multiples of 12 should have their position set to 12
     if pitch_class__position == 0
       pitch_class__position = 12
@@ -52,7 +54,19 @@ class ProgressionChord < ApplicationRecord
 
   # prints the chord + duration markers
   def print(key, scale)
-    printed = print_chord(key, scale)
+    # output
+    printed = ""
+
+    # print the bass chord if present
+    unless bass_degree.nil?
+      #! use a separate method, standardise with print_chord
+      bass__pitch_class__position = (key.pitch_class.position + scale.get_degrees_interval(degree) + bass_modifier) % 12
+      if bass__pitch_class__position == 0
+        bass__pitch_class__position = 12
+      end
+      printed << PitchClass.find_by(position: bass__pitch_class__position) << "/"
+    end
+    printed << print_chord(key, scale) << " "
     duration.times do |i|
       # separate beats by groups of 4 by prepending a space on the 5th, 9th, 13th, etc. beats
       #todo could be set according to the song's time signature, for 3/4, etc.

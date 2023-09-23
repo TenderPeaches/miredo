@@ -7,65 +7,47 @@
     <div class="generator__inputs">
         <input type="hidden" id="progression_scale" name="progression[scale_id]" data-progressions-target="inputScale" value="<%= scale.id %>" />
         <input type="hidden" id="progression_key" name="progression[key_id]" data-progressions-target="inputKey" value="<%= key.id %>" />
+        <!-- degree input -->
         <%= content_tag :div, class: "generator__input generator__input--degree", "data-progressions-target" => "inputDegree" do %>
-            <% 7.times do |i| %>
-                <% i_degree = i + 1 %>
-                <% chords = scale.chords_from_key(key) %>
-                <% degrees = scale.degrees %>
-                <%= content_tag :div, class: "degree_" << i_degree.to_s do %>
-                <input data-action="change->progressions#on_degree_change" data-remote="true" data-url="utils/print_progression_chord" type="radio" value="<%= i_degree %>" name="progression[degree]" id="progression_degree_<%= i_degree %>" <%= i_degree == progression_chord.degree ? "checked" : "" %> />
-                    <%= form.label degrees[i] %> <!-- Scale.degrees -->
-                    <%= form.label chords[i] %> <!-- Scale.chords_from_key() -->
-                <% end %>
+            <%= render partial: 'progression_chords/degree_picker', locals: { scale: scale, key: key, form: form, selected_degree: progression_chord.degree } %>
+        <% end %>
+        <!-- modifier input -->
+        <div class="generator__input generator__input--degree-modifier">
+            <%= render partial: 'progression_chords/modifier_picker', locals: { } %>
+        </div>
+        <%= content_tag :div, class: "bass-controls"  << (" hidden" if progression_chord.bass_degree.nil?), "data-progressions-target" => "bassControls" do %>
+            <%= form.label "Bass note" %>
+            <!-- bass degree input -->
+            <%= content_tag :div, class: "generator__input generator__input--bass-degree", "data-progressions-target" => "inputBassDegree" do %>
+                <%= render partial: 'progression_chords/degree_picker', locals: { scale: scale, key: key, form: form, selected_degree: progression_chord.bass_degree, attr_name: 'bass_degree' } %>
+            <% end %>
+            <!-- bass modifier input, hide by default if progression chord has no bass_degree, show with front-end -->
+            <%= content_tag :div, class: "generator__input generator__input--bass-degree-modifier" do %>
+                <%= render partial: 'progression_chords/modifier_picker', locals: { attr_name: 'bass_modifier' } %>
             <% end %>
         <% end %>
-        <div class="generator__input generator__input--degree-modifier">
-            <input type="range" name="progression[modifier]" min="-3" max="3" step="1" orient="horizontal" list="modifier-markers"  data-progressions-target="inputModifier">
-            <datalist class="modifier-markers">
-                <option value="-3" label="-3"></option>
-                <option value="-2"></option>
-                <option value="-1"></option>
-                <option value="0" label="0"></option>
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3" label="3"></option>
-            </datalist>
-        </div>
-        <div class="generator__input generator__input--chord-type">
-            <%= form.label :chord %>
+        <!-- chord type input -->
+        <%= content_tag :div, class:"generator__input generator__input--chord-type" do %>
+            <% # form.label :chord %>
             <%= form.collection_select :chord_id, Chord.for_select, :id, :name, {}, { "data-progressions-target" => "inputChordType" } %>
-        </div>
+        <% end %>
+        <!-- form settings -->
         <div class="generator__input generator__input--settings">
             <%= form.label :setting_bass, "Set bass" %>
-            <%= check_box_tag "set-bass", "0", false, { "data-progressions-target" => "settingSetBass"} %>
+            <%= check_box_tag "set-bass", "0", false, { "data-progressions-target" => "settingSetBass", "data-action" => "click->progressions#on_setBass_change" } %>
         </div>
+        <!-- duration input -->
         <div class="generator__input generator__input--duration">
             <%= form.label :duration, "Duration (in ticks)" %>
             <%= form.number_field :duration, min: 1, step: 1, "data-progressions-target" => "inputDuration" %>
         </div>
+        <!-- action buttons panel -->
         <div class="generator__input generator__input--actions">
             <%= button_tag "Cancel", type: "reset", "data-action" => "click->progressions#do_stuff" %>
             <%= link_to_remove_association "Delete", form, { style: "background: red;" } %>
             <%= form.submit "Confirm", { class: "confirm", style: "background: green;" } %>
         </div>
     <!--
-        <%= form.label :chord %>
-        <%= form.collection_select :chord_id, Chord.for_select, :id, :name %>
-
-        <%= form.label :degree %>
-        <%= form.number_field :degree, in: 1...8, step: 1 %>
-
-        <%= form.label :modifier %>
-        <%= form.number_field :modifier, min: -3, max: 3, step: 1 %>
-
-        <%= form.label :bass_degree %>
-        <%= form.number_field :bass_degree, in: 1...8, step: 1 %>
-
-        <%= form.label :bass_modifier %>
-        <%= form.number_field :bass_modifier, min: -3, max: 3, step: 1 %>
-
-        <%= form.label :duration %>
-        <%= form.number_field :duration, min: 1, step: 1 %>
 
         <%= form.label :staccato %>
         <%= form.check_box :staccato %>

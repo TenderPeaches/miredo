@@ -11,31 +11,55 @@ class Scale < ApplicationRecord
         Scale.where.not(id: [1])    # don't return scale #1, it's the chromatic scale and shouldn't be selected for songs; use Scale.all if it needs to be included
     end
 
-    # degrees as labels must vary depending on what kind of chord they are
+    #! degrees as labels must vary depending on what kind of chord they are
     def degrees
         # simplest would be just numeric labels
         [ "I".freeze, "ii".freeze, "iii".freeze, "IV".freeze, "V".freeze, "vi".freeze, "vii".freeze ]
     end
 
-    def chords_from_key(key)
-        # start with the root 
-        root = PitchClass.find_by_position(key.pitch_class.position)
-        chords = [ root.letter ]
+    # modifier> number of semitones to add to each note
+    def get_degree_chords(key, modifier)
+
+        # establish the root position, adjusted with the modifier
+        root_position = key.pitch_class.position + modifier
+        # make sure the root position within positions [1..12]
+        root_position -= 12 if root_position > 12
+        root_position += 12 if root_position < 1
+        # find the root Pitch Class, with root_position having a value between [1..12]
+        root = PitchClass.find_by_position(root_position)
+        # current degree tracker
+        current_degree = 0
+        # the list of chords will, at first, contain only the letter of the root + modifier
+        chords = [ { degree: degrees[current_degree], pitch_class: root.letter } ]
+        # running_interval is running tally )in semitones) between the root and the current degree/interval being evaluated
         running_interval = 0
         # do each interval in turn
         scale_intervals.each do |scale_interval|
-            
+            # track current degree
+            current_degree += 1
             # cumulate total interval as we iterate through the scale's individual intervals
-            running_interval += scale_interval.interval.semitones
+            running_interval += scale_interval.interval.semitones + scale_interval.interval_quality.modifier
             # ensure final position remains within the 12 pitch classes
             running_interval -= 12 if running_interval + root.position > 12
-            # push the chord's notation accordingly
-            chords << PitchClass.find_by_position(running_interval + root.position).letter
-            puts "root.position: " << root.position.to_s << " , running_interval: " << running_interval.to_s << ", PitchClass: " << PitchClass.find_by_position(running_interval + root.position).inspect
+            # rule this case out otherwise the root gets added as 8th degree
+            unless running_interval == 0    
+                # push the chord's notation accordingly
+                chords << { degree: degrees[current_degree], pitch_class: PitchClass.find_by_position(running_interval + root.position).letter }
+                puts chords.inspect + scale_interval.inspect + " " + running_interval.to_s + " " + scale_interval.interval.inspect
+            end
             
+        end
+        
+        # standardize output
+        chords.each do |chord|
+            chord[:print] = chord[:pitch_class] + " - " + chord[:degree]
         end
         puts chords.inspect
         return chords
+    end
+
+    def chords_from_key(key)
+        get_degree_chords(key, 0)
     end
 
     # print the chords of this scale in the given key
