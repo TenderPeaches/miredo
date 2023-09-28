@@ -1,6 +1,16 @@
+# to ID a progression_chord:
+    # can tuck sequence/progression_id/progression_chord_id in hidden input fields in .generator-inputs
+        # parentElement.[...].children[0]       // declare one, data is already there bc the form needs it
+    # can put it all the way up in .generator
+        # .generator.children(input[name=""])   // declare once
+    # can use data-*** HTML attributes on .generator
+        # .generator.data(...)     // declare once
+    # can use data-*** HTML attributes on each input
+        # event.target.data(...)  // but have to declare on each input
+
 # when breaking a song donw into its most basic parts, consider:
 
-# SEQUENCE> A part of a song that shares the same Key and BPM
+# SONG_PROGRESSION> A part of a song that shares the same Key and BPM
     # most songs should be assumed to be single-sequenced for now but it's good to keep this in mind if more complex song structures are to be implemented at some point
     # BPM> beats per minute
     # KEY> key for this sequence; for a single-sequence song, key of the song too
@@ -16,3 +26,4 @@
 
 # pattern forms:
 # must be able to select from existing patterns -> probably sort the letters parts alphabetically
+

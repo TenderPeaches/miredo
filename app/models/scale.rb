@@ -45,7 +45,6 @@ class Scale < ApplicationRecord
             unless running_interval == 0    
                 # push the chord's notation accordingly
                 chords << { degree: degrees[current_degree], pitch_class: PitchClass.find_by_position(running_interval + root.position).letter }
-                puts chords.inspect + scale_interval.inspect + " " + running_interval.to_s + " " + scale_interval.interval.inspect
             end
             
         end
@@ -54,7 +53,6 @@ class Scale < ApplicationRecord
         chords.each do |chord|
             chord[:print] = chord[:pitch_class] + " - " + chord[:degree]
         end
-        puts chords.inspect
         return chords
     end
 

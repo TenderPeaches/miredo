@@ -4,7 +4,7 @@
     <% chords = scale.chords_from_key(key) %>
     <% degrees = scale.degrees %>
     <%= content_tag :div, class: attr_name + "_" + i_degree.to_s do %>
-        <input data-action="change->progressions#on_<%= attr_name %>_change" data-remote="true" data-url="utils/print_progression_chord" type="radio" value="<%= i_degree %>" name="progression[<%= attr_name %>]" id="progression_degree_<%= i_degree %>" <%= i_degree == selected_degree ? "checked" : "" %> />
+        <input data-action="change->progressions#on_<%= attr_name %>_change" data-remote="true" data-url="utils/print_progression_chord" type="radio" value="<%= i_degree %>" name="progression[progression_chords_attributes][<%= form.options[:child_index] %>][<%= attr_name %>]" <%= i_degree == selected_degree ? "checked" : "" %> />
         <label><%= chords[i][:print] %></label>
     <% end %>
 <% end %>

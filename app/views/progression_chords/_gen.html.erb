@@ -5,15 +5,18 @@
         <%= progression_chord.print(key,scale) %>
     </div>
     <div class="generator__inputs">
-        <input type="hidden" id="progression_scale" name="progression[scale_id]" data-progressions-target="inputScale" value="<%= scale.id %>" />
-        <input type="hidden" id="progression_key" name="progression[key_id]" data-progressions-target="inputKey" value="<%= key.id %>" />
+        <input type="hidden" data-field="progression_scale" name="progression[scale_id]" data-progressions-target="inputScale" value="<%= scale.id %>" />
+        <input type="hidden" data-field="progression_key" name="progression[key_id]" data-progressions-target="inputKey" value="<%= key.id %>" />
+        <input type="hidden" data-field="progression_id" name="progression[id]" data-progressions-target="inputId" value="<%= progression_id ||= 0 %>" />
+        <input type="hidden" data-field="progression_chord_id" name="progression[progression_chords_attributes][<%= progression_chord.sequence || 0 %>][id]" data-progressions-target="inputProgressionChordId" value="<%= progression_chord.id || 0 %>" />
+        <input type="hidden" data-field="progression_chord_sequence" name="progression[progression_chords_attributes][<%= progression_chord.sequence || 0 %>][sequence]" value="<%= progression_chord.sequence || 0 %>" />
         <!-- degree input -->
         <%= content_tag :div, class: "generator__input generator__input--degree", "data-progressions-target" => "inputDegree" do %>
             <%= render partial: 'progression_chords/degree_picker', locals: { scale: scale, key: key, form: form, selected_degree: progression_chord.degree } %>
         <% end %>
         <!-- modifier input -->
         <div class="generator__input generator__input--degree-modifier">
-            <%= render partial: 'progression_chords/modifier_picker', locals: { } %>
+            <%= render partial: 'progression_chords/modifier_picker', locals: { form: form } %>
         </div>
         <%= content_tag :div, class: "bass-controls"  << (" hidden" if progression_chord.bass_degree.nil?), "data-progressions-target" => "bassControls" do %>
             <%= form.label "Bass note" %>
@@ -23,13 +26,13 @@
             <% end %>
             <!-- bass modifier input, hide by default if progression chord has no bass_degree, show with front-end -->
             <%= content_tag :div, class: "generator__input generator__input--bass-degree-modifier" do %>
-                <%= render partial: 'progression_chords/modifier_picker', locals: { attr_name: 'bass_modifier' } %>
+                <%= render partial: 'progression_chords/modifier_picker', locals: { form: form, attr_name: 'bass_modifier' } %>
             <% end %>
         <% end %>
         <!-- chord type input -->
         <%= content_tag :div, class:"generator__input generator__input--chord-type" do %>
             <% # form.label :chord %>
-            <%= form.collection_select :chord_id, Chord.for_select, :id, :name, {}, { "data-progressions-target" => "inputChordType" } %>
+            <%= form.collection_select :chord_id, Chord.for_select, :id, :name, {}, { "data-progressions-target" => "inputChordType", "data-action" => "change->progressions#on_chordType_change", "data-progression" => progression_id, "data-sequence" => progression_chord.sequence || 0, "data-progression-chord" => progression_chord.id || 0 } %>
         <% end %>
         <!-- form settings -->
         <div class="generator__input generator__input--settings">
