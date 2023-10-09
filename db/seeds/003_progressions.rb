@@ -2,6 +2,7 @@
 chord__major = Chord.find_by(name: "Major Triad")
 chord__minor = Chord.find_by(name: "Minor Triad")
 chord__seventh = Chord.find_by(name: "Dominant Seventh")
+chord__diminished = Chord.find_by(name: "Diminished Triad")
 
 # brave as a noun - ajj
 song = Song.find(1)
@@ -142,7 +143,320 @@ SongProgression.create(song: song, progression: progression_1, sequence: 18, tag
 SongProgression.create(song: song, progression: progression_2, sequence: 19, tag: "Verse 4", lyrics: "That bees can buzz around and eat when I die; So that I might be granted one sense of purpose;")
 SongProgression.create(song: song, progression: progression_3, sequence: 20, tag: "Ending", lyrics: "")
 
-# devil's wlil - cousin boneless
+# love in the time of hpv - ajj
+song = Song.find_by_name("Love in the Time of Human Papillovirus")
+
+progression_1 = Progression.create(tag: "Riff")
+
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2, bass_degree: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2, bass_degree: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+]
+
+progression_2 = Progression.create(tag: "Verse")
+
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2, bass_degree: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+]
+
+progression_3 = Progression.create(tag: "Chorus A")
+
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 4),
+]
+
+progression_4 = Progression.create(tag: "Chorus B")
+
+progression_4.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 4),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "")
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "You will cough up crows that peck my eyes; And I will do nothing but go blind;")
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 1", lyrics: "But my heart; It has eyes; And my love; It has sight; Even though; It may be a little cloudy;")
+SongProgression.create(song: song, progression: progression_1, tag: "Break", lyrics: "")
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 2", lyrics: "And you will break my back for all the burdens I lay upon it; But I will never blame you for those bees inside this bonnet;")
+SongProgression.create(song: song, progression: progression_4, tag: "Chorus 2", lyrics: "And my lungs; Will grow cancers; And my back it will grow achey; I will buy us an acre; Of some land in the city; We could live there together or I'll live alone less happy; But I'll live... Unfortunately;")
+SongProgression.create(song: song, progression: progression_1, tag: "Ending", lyrics: "")
+
+# kokopelli face tattoo - ajj
+song = Song.find_by_name("Kokopelli Face Tattoo")
+
+progression_1 = Progression.create(tag: "Intro")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+]
+
+progression_2 = Progression.create(tag: "Verse A")
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+]
+
+progression_3 = Progression.create(tag: "Verse B")
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2, bass_degree: 3),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 4, bass_degree: 2),
+]
+
+progression_4 = Progression.create(tag: "Chorus")
+progression_4.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 1, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 1, modifier: 1),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 3, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 3),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 3, bass_degree: 3),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 3),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 3, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 3),
+]
+
+progression_5 = Progression.create(tag: "Interlude (short)")
+progression_5.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 3),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 3),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 3, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 3),
+]
+
+progression_6 = Progression.create(tag: "Interlude (long)")
+progression_6.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 3),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 3),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 3, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 3),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 1, bass_degree: 3),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 1, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 1, modifier: 1),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 2, duration: 1),
+]   
+
+progression_7 = Progression.create(tag: "Bridge")
+progression_7.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 2, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__diminished, degree: 3, duration: 2, modifier: -1),
+    ProgressionChord.create(chord: chord__major, degree: 2, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 4, bass_degree: 3),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 4, bass_degree: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+]
+
+progression_8 = Progression.create(tag: "Verse C")
+progression_8.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2, bass_degree: 3),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2, bass_degree: 3),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 4, bass_degree: 2),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "")
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "I was a sexy little viper room, in the corner of a King Tut tomb; When the hate train started, goin' \"Choo-choo\"")
+SongProgression.create(song: song, progression: progression_3, tag: "Verse 1", lyrics: "I was a rat on a burnin' ship, and when we sunk, our fire got put out; It was just like the great plague, just like the birth of underwear")
+SongProgression.create(song: song, progression: progression_4, tag: "Chorus 1", lyrics: "Hey dude, I hate everything you do; But I’m trying really hard to not hate you 'cause; Hating you won’t make you suck any less")
+SongProgression.create(song: song, progression: progression_5, tag: "Interlude 1", lyrics: "")
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 2", lyrics: "I was a wheel in a war machine, now I’m a toilet in a restaurant; Somebody’s gotta do it, I know my place")
+SongProgression.create(song: song, progression: progression_3, tag: "Verse 2", lyrics: "I was a baby-killin' Cadillac, Now I’m a drug induced heart attack; Somebody’s gotta do it, I know my place")
+SongProgression.create(song: song, progression: progression_4, tag: "Chorus 2", lyrics: "Hey dude, I hate everything you do; But I’m trying really hard to not hate you 'cause; Hating you won’t make you suck any less")
+SongProgression.create(song: song, progression: progression_6, tag: "Interlude 2", lyrics: "")
+SongProgression.create(song: song, progression: progression_7, tag: "Bridge", lyrics: "Have you ever wanted to be, have you ever wanted to see; Someone better, in the mirror? Have you ever wanted to go, have you ever wanted to know; Somewhere greener? Somewhere cleaner?; I bet you've got somethin' beautiful in mind")
+SongProgression.create(song: song, progression: progression_8, tag: "Verse 3", lyrics: "They’re gonna beat me till I’m black and blue; Give me a Kokopelli face tattoo; And I’ll tell you a secret; \"Kreuz\" is German for \"Williams\"; In the blood cult of the misled youth; I’ve got a bad case of the yellow flashlight blues; Let me tell you some weird shit; There's gonna be a big old Civil War inside my house tonight")
+SongProgression.create(song: song, progression: progression_4, tag: "Chorus 3", lyrics: "Hey dude, I hate everything you do; But I’m trying really hard to not hate you 'cause; Hating you won’t make you suck any less; Hating you won’t make you suck any less; Hating you won’t make you suck any less")
+
+# bill collector's theme song - apes of the state
+song = Song.find_by_name("Bill Collectors' Theme Song")
+
+progression_1 = Progression.create(tag:"Intro")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+]
+
+progression_2 = Progression.create(tag:"Verse")
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+]
+
+progression_3 = Progression.create(tag:"Chorus")
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 1),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+]
+
+progression_4 = Progression.create(tag:"Bridge 1")
+progression_4.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+]
+
+progression_5 = Progression.create(tag: "Bridge 2")
+progression_5.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+]
+
+progression_6 = Progression.create(tag: "Ending")
+progression_6.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "")
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "When I was just a little kid they told me to dream big; you can do anything; when I got older they told me to stop dreaming; start being more realistic, make the coffee do the dishes; but I can't seem to keep my head out of the clouds; cause whats the point of living life; to work until I die; That can't be it and if it is then I want out; and honestly I never had a dream of getting older; but here I am what can I do about it, tell me what to do about it now;")
+SongProgression.create(song: song, progression: progression_3, tag: "Chorus 1", lyrics: "Cause I never wanted to be every single stereotype of a white middle class 20-something pissed at the economy; I never meant to be the epitome of a quarter life crisis and being a junkie didn't live up to the hype;")
+SongProgression.create(song: song, progression: progression_1, tag: "Break", lyrics: "")
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 2", lyrics: "When I was just a little kid they told me I was special; Then I grew up and found out they told that to every single one of us; get addicted to our drugs then go away to universities; where we'll sell you dreams then make you work for free; They handed us an economy thats destined us for poverty; then had the nerve to call us soft and lazy for complaining; cause they're from a generation where you could be what you wanted to be; but baby I'm a 90's kid, only 90's kids will understand this;")
+SongProgression.create(song: song, progression: progression_4, tag: "Bridge", lyrics: "got bill collectors calling us to pay back student loans; but they can't ever find us if we throw away our phones; then we can sit in diners, drinking coffee smoking cigarettes outside; look in each others' eyes without cell phone lights to hide behind and; we can just kick off our shoes and make these sidewalks home; we'll write songs and sing for food;")
+SongProgression.create(song: song, progression: progression_5, tag: "Bridge", lyrics: "and we'll never be alone; never be alone, never be alone, never be alone when we're with friends; and we'll never owe shit to anyone else; no we'll never owe shit to anyone else; no we'll never owe shit to anyone else; no we'll never owe shit to anyone;")
+SongProgression.create(song: song, progression: progression_6, tag: "Ending", lyrics: "")
+
+# I listened - apes of the state
+
+song = Song.find_by_name("I Listened")
+
+progression_1 = Progression.create(tag: "Intro")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 8),
+]
+
+progression_2 = Progression.create(tag: "Verse")
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "")
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "Last night when I walked into your house I noticed that the couch had moved; And I wanted to ask you about it; But you were talking so when you finished I opened up my mouth; And you called me out for being bad at listening; So I wrote this song to tell ya just how well that I can listen; And that I think that you are really cute; And I thought that maybe I should wait to tell you that I like you but; I don't really have that much to lose; ")
+SongProgression.create(song: song, progression: progression_1, tag: "Chorus 1", lyrics: "And I could learn your favorite song and play it on my guitar; and I'll probably sing it all wrong but it might catch your attention; and I don't know your favorite song but it's probably by Mars Volta; cause you said you really like them when we talked and I listened; yeah I listened;")
+SongProgression.create(song: song, progression: progression_1, tag: "Break", lyrics: "")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "So this morning when I woke up in my bed I made a list of all the things you told me last night that I had inside my head; like that yellow is your favorite because it's a happy color; and that you have been sad for as long as you remember; and that the way your kitchen looked made you upset because it was a mess and that's the way things look when you're depressed; and you sat across the room on that rocking chair you said you hate cause it is so loud and I wished that you had sat next to me on the couch;")
+SongProgression.create(song: song, progression: progression_2, tag: "Break", lyrics: "")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 3", lyrics: "And I'm scared that this list is too long; That I can't fit all these things into a song; And still keep your attention; So I'm trying hard to mention some important things that I feel will really demonstrate; Just how well that I listened;")
+SongProgression.create(song: song, progression: progression_2, tag: "Break", lyrics: "")
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 4", lyrics: "Like how you said with tears in your eyes that you wish that being grateful was enough to keep you from feeling sad all the time; And that your favorite flowers are impatiens; And that when you love somebody you wait; Patiently for them; 2> And that your favorite movie is the Shawshank Redemption; And that serenity means listening to the water down at Tucquan Glenn; And how you make poor decisions with the people that you choose to date;")
+SongProgression.create(song: song, progression: progression_2, tag: "Verse 5", lyrics: "And you'll probably think I'm crazy for this and I'd tell you that I don't give a shit but that would be a lie because I care; What you think about me; And I just really, desperately want to be your next poor decision; Be your next poor decision; Be your next poor decision;")
+SongProgression.create(song: song, progression: progression_1, tag: "Chorus 2", lyrics: "And I could learn your favorite song and play it on my guitar; and I'll probably sing it all wrong but it might catch your attention; and I don't know your favorite song but it's probably by Mars Volta; cause you said you really like them when we talked and I listened; yeah I listened;")
+SongProgression.create(song: song, progression: progression_1, tag: "Ending", lyrics: "")
+
+# honey in the air
+
+# devil's will - cousin boneless
 song = Song.find_by(name: "Devil's Will")
 progression_1 = Progression.create(tag: "Verse")
 
@@ -436,3 +750,82 @@ SongProgression.create(song: song, progression: progression_2, tag: "Break", lyr
 SongProgression.create(song: song, progression: progression_1, tag: "Break", lyrics: "")
 SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "Salgo a la calle para no pensar, pocas cosas me hacen reaccionar; Porque me ahogo en esta realidad, porque me agobia la necesidad; De saber que algo va a cambiar, que no todos los días van a ser igual; No resisto esta rutina d'esta mierda de vida, necesito saber qu'algo va a explotar, algo va a explotar;")
 SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "Porque tengo.. La necesidad necesito saber que algo va a cambiar; voy viviendo sin sentido, este sistema no me deja avanzar; recorriendo a día día, esa ciudad intentando escapar del camino marcado; no volveré a no pelear x4;")
+
+# where is my mind
+song = Song.find_by_name('Where is my Mind?')
+
+progression_1 = Progression.create(tag: "Verse")
+
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+]
+
+progression_2 = Progression.create(tag: "Chorus")
+
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 1", lyrics: "With your feet on the air and your head on the ground; Try this trick and spin it, yeah (Yeah); Your head will collapse, and there's nothing in it; And you'll ask yourself", reps: 3)
+SongProgression.create(song: song, progression: progression_1, tag: "Chorus 1", lyrics: "Where is my mind?; Where is my mind?", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Chorus 1", lyrics: "Where is my mind?;", reps: 2)
+SongProgression.create(song: song, progression: progression_2, tag: "Chorus 1", lyrics: "Way out in the water, see it swimmin';", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "I was swimmin' in the Caribbean; Animals were hiding behind the rocks; Except the little fish; Bumped into me, I swear he was trying to talk to me, koi-koi", reps: 3)
+SongProgression.create(song: song, progression: progression_1, tag: "Chorus 2", lyrics: "Where is my mind?; Where is my mind?", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Chorus 2", lyrics: "Where is my mind?;", reps: 2)
+SongProgression.create(song: song, progression: progression_2, tag: "Chorus 2", lyrics: "Way out in the water, see it swimmin';", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 3", lyrics: "With your feet on the air and your head on the ground; Try this trick and spin it, yeah (Yeah); Your head will collapse, and there's nothing in it; And you'll ask yourself", reps: 3)
+SongProgression.create(song: song, progression: progression_1, tag: "Chorus 3", lyrics: "Where is my mind?; Where is my mind?", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Chorus 3", lyrics: "Where is my mind?;", reps: 2)
+SongProgression.create(song: song, progression: progression_2, tag: "Chorus 3", lyrics: "Way out in the water, see it swimmin';", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Outro", lyrics: "", reps: 2)
+SongProgression.create(song: song, progression: progression_1, tag: "Outro", lyrics: "With your feet on the air and your head on the ground; Try this trick and spin it, yeah (Yeah);", reps: 2)
+
+# porque te vas
+
+song = Song.find_by_name("Porque te vas")
+
+progression_1 = Progression.create(tag: "Verse")
+
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4)
+]
+
+progression_2 = Progression.create(tag: "Chorus")
+
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 1", lyrics: "Hoy en mi ventana brilla el sol; Mi corazón, se pone triste contemplando la ciudad; Por que te vas;")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "Como cada noche desperté; Pensando en vos, y en mi reloj todas las horas no terminan mas; Por que te vas;")
+SongProgression.create(song: song, progression: progression_2, tag: "Chorus 1", lyrics: "Todas las promesas de mi amor se irán contigo; Lo olvidaras, lo olvidaras; Y en mi habitación te llorare igual que un niño; Por que te vas, por que te vas")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 3", lyrics: "Yo en tu vida solamente fui; Un juego mas, y todo aquello que juraste por mi amor; Lo olvidaras")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 4", lyrics: "Como cada noche desperté; Pensando en vos, y en mi reloj las horas no terminan mas; Por que te vas")
+SongProgression.create(song: song, progression: progression_2, tag: "Chorus 2", lyrics: "Todas las promesas de mi amor se irán contigo; Lo olvidaras, lo olvidaras; Y en mi habitación te llorare igual que un niño; Por que te vas, por que te vas")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 5", lyrics: "Bajo la penumbra de un farol; Se te olvidan, todas las cosas que quedaron por decir; se te olvidan")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 6", lyrics: "Junto a las manillas de un reloj; Esperaran, todas las horas que quedaron por vivir; Esperaran")
+SongProgression.create(song: song, progression: progression_2, tag: "Chorus 3", lyrics: "Todas las promesas de mi amor se irán contigo; Lo olvidaras, lo olvidaras; Y en mi habitación te llorare igual que un niño; Por que te vas, por que te vas")

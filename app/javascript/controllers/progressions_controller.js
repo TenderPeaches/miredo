@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = [ 'newProgsList', 'display', 'inputDegree', 'inputModifier', 'inputChordType', 'settingSetBass', 'inputDuration', 'inputScale', 'inputKey', 'inputBassDegree', 'inputBassModifier', 'bassControls' ];
 
   get new_progressions_list() { return this.newProgsListTarget }
+  /*
   get display() { return this.displayTarget }
   get degree() { return this.inputDegreeTarget }
   // shortcut for radio button group inputs value
@@ -17,7 +18,7 @@ export default class extends Controller {
   get duration() { return this.inputDurationTarget }
   get scale() { return this.inputScaleTarget }
   get key() { return this.inputKeyTarget }
-  get bass_controls() { return this.bassControlsTarget }
+  get bass_controls() { return this.bassControlsTarget }*/
 
   add_progression_form(e) {
     // this.new_progressions_list.append()

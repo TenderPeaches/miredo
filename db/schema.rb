@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
     t.string "shorthand"
     t.integer "flats"
     t.integer "sharps"
+    t.string "quality"
     t.integer "pitch_class_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -111,9 +112,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
   create_table "progression_chords", force: :cascade do |t|
     t.integer "chord_id", null: false
     t.integer "degree", default: 1
-    t.integer "modifier"
+    t.integer "modifier", default: 0, null: false
     t.integer "bass_degree"
-    t.integer "bass_modifier"
+    t.integer "bass_modifier", default: 0, null: false
     t.integer "duration"
     t.integer "sequence"
     t.boolean "staccato"

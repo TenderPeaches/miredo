@@ -40,15 +40,19 @@ class Song < ApplicationRecord
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
 
     def create_album_from_name
-        create_album(:name => new_album_name)
+        # only if song is not on any album
+        if album_id.nil?
+            create_album(:name => new_album_name)
+        end
     end
 
     #! the form passes along song_contributions with artist_id == 1 when artist field is left blank (for new artists), so weed that one out before the validations are made otherwise it raises a validation error with artist_id missing
     def assert_song_contributions
-        self.song_contributions = self.song_contributions.where.not(artist: { id: nil })
+        self.song_contributions = self.song_contributions.where.not(artist_id: nil)
     end
 
     def set_song_contributions
+        
         # If a new artist name has been provided
         unless new_artist_name.nil? || new_artist_name.blank?
             # create the artist and a song_contribution entry that links them to this song

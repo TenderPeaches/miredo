@@ -13,8 +13,18 @@ class SongsController < ApplicationController
         @song = Song.find(params[:id])
         if @song.upgraded?
             # capo can be provided as query string argument, if absent then use the song's suggested capo
-            @capo = params.has_key? :capo ? params[:capo].to_i : @song.capo
-            @key = @song.key        # user can play around with song key, set default value to song's default key
+            @capo = (params.has_key? :capo) ? params[:capo].to_i : @song.capo
+
+            if @capo != @song.capo 
+                diff = @song.capo - @capo
+            end
+
+            if diff
+                @key = @song.key.shift(diff)
+            else
+                @key = @song.key    # user can play around with song key, set default value to song's default key
+            end
+
             render :show_new
         end
     end

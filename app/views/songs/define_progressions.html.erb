@@ -3,8 +3,8 @@
     <%= @song.name %>
     <div class="progressions--current">
         <% @progressions.each do |p| %>
-            <div>
-                <%= p.id %>
+            <div class="card card--progression">
+                <div class="card-identifier"><%= p.id %></div>
                 <%= p.tag %>
                 <%= p.print(@song.key, @song.scale) %>
                 <div>Render: 
@@ -17,4 +17,6 @@
     <div class="progressions--new" data-progressions-target="newProgsList">
         <button class="button" type="button" data-action="click->progressions#add_progression_form">Define new progression</button>
     </div>
+
+    <% # render "progression_chords/gen", form: progression_chords_form, progression_chord: progression_chords_form.object, key: Key.find_by_shorthand('C'), scale: Scale.find_by_name('Major'), progression_id: progression.id %>
 </div>

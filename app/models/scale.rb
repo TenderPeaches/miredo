@@ -38,7 +38,7 @@ class Scale < ApplicationRecord
             # track current degree
             current_degree += 1
             # cumulate total interval as we iterate through the scale's individual intervals
-            running_interval += scale_interval.interval.semitones + scale_interval.interval_quality.modifier
+            running_interval += scale_interval.semitones
             # ensure final position remains within the 12 pitch classes
             running_interval -= 12 if running_interval + root.position > 12
             # rule this case out otherwise the root gets added as 8th degree

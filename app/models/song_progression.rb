@@ -13,7 +13,7 @@ class SongProgression < ApplicationRecord
   end
 
   def html_lyrics
-    lyrics#.gsub! ";","<br />"
+    lyrics.gsub! ";","<br/>"
   end
 
   def show_reps?

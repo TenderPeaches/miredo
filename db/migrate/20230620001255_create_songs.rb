@@ -13,7 +13,7 @@ class CreateSongs < ActiveRecord::Migration[7.0]
       t.references :time_signature, comment: "Time signature for this song", null: true, index: true
       t.references :key, comment: "Default key the song is played it", null: true, index: true
       t.references :scale, comment: "Scale type used by this song", null: true, index: true
-      t.references :album, comment: "Album this song appears on", null: true, index: true
+      t.references :album, comment: "Album this song appears on", index: true
 
       t.timestamps
     end

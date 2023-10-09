@@ -5,7 +5,7 @@ class CreateProgressionChords < ActiveRecord::Migration[7.0]
       t.integer :degree, default: 1                                           # degree given the progression's key
       t.integer :modifier, null: false, default: 0                            # semitones modifier, for when chords are off-key and therefore don't match an exact degree
       t.integer :bass_degree                                      # for chords like C/G, A/G#, etc
-      t.integer :bass_modifier                                    # if G is off-key and C/G needs to be used
+      t.integer :bass_modifier, null: false, default: 0                                    # if G is off-key and C/G needs to be used
       t.integer :duration                                         # how many beats the chord is played for
       t.integer :sequence                                         # numerical sequence of the chord within the chord progression
       t.boolean :staccato                                         # if there is a pause between this chord and the next one

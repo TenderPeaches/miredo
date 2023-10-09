@@ -1,16 +1,16 @@
 <!-- to be used with songs whose structure is dictated by SongProgression entities, rather than plaintext -->
-<div class="show-song">
+<div class="show-song" data-controller="show-song"> 
     <%= link_to "< Back", "/", class: "button" %>
     <%= link_to "Play", "/play/" << @song.id.to_s, class: "button" %>
     <%= link_to "Edit", "/edit/" << @song.id.to_s, class: "button" %>
-    <%= form_with(url: "/show_new/" + @song.id.to_s + "?capo=" + "") do |form| %>
+    <%= form_tag song_path(@song.id), method: :get do %>
         <h1>#<%= @song.id %>: <%= @song.get_artists %> - <%= @song.name %></h1>
         <div>Key: <%= @key.shorthand %></div>
         <div>
-            <%= form.label :capo, "Capo:" %>
-        <%= form.select :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: @song.capo) %>
+            <%= label_tag :capo, "Capo:" %>
+            <%= select_tag :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: @capo) %>
         </div>
-        <%= form.submit "Apply" %>
+        <%= submit_tag "Apply" %>
     <% end %>
     <div>
         <%= @song.scale.print_in_key(Key.find(@key.id)) %>
@@ -18,8 +18,14 @@
 
     <% @song.song_progressions.order(:sequence).each do |song_progression| %>
         <div class="song-progression__chords">
+            <% beat_counter = 0 %>
             <% song_progression.progression.progression_chords.order(:sequence).each do |progression_chord| %>
-                <%= progression_chord.print(@song.key, @song.scale) %> 
+                <% beat_counter += progression_chord.duration %>
+                <% if beat_counter > 8 %>
+                    <br/>
+                    <% beat_counter = 0 %>
+                <% end %>
+                <%= progression_chord.print(@key, @song.scale) %> 
             <% end %>
             <% unless song_progression.nil? %>
                 <% if song_progression.reps > 1 %>

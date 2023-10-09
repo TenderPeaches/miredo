@@ -226,36 +226,36 @@ scale__blues.scale_intervals = [
 ]
 
 # keys
-Key.create(name: "C Major", shorthand: "C", sharps: 0, flats: 0, pitch_class: pitch_class__c)
-Key.create(name: "G Major", shorthand: "G", sharps: 1, flats: 0, pitch_class: pitch_class__g)
-Key.create(name: "D Major", shorthand: "D", sharps: 2, flats: 0, pitch_class: pitch_class__d)
-Key.create(name: "A Major", shorthand: "A", sharps: 3, flats: 0, pitch_class: pitch_class__a)
-Key.create(name: "E Major", shorthand: "E", sharps: 4, flats: 0, pitch_class: pitch_class__e)
-Key.create(name: "B Major", shorthand: "B", sharps: 5, flats: 0, pitch_class: pitch_class__b)
-Key.create(name: "F# Major", shorthand: "F#", sharps: 6, flats: 0, pitch_class: pitch_class__f_sharp)
-Key.create(name: "C# Major", shorthand: "C#", sharps: 7, flats: 0, pitch_class: pitch_class__c_sharp)
-Key.create(name: "F Major", shorthand: "F", sharps: 0, flats: 1, pitch_class: pitch_class__f)
-Key.create(name: "Bb Major", shorthand: "Bb", sharps: 0, flats: 2, pitch_class: pitch_class__a_sharp)
-Key.create(name: "Eb Major", shorthand: "Eb", sharps: 0, flats: 3, pitch_class: pitch_class__d_sharp)
-Key.create(name: "Ab Major", shorthand: "Ab", sharps: 0, flats: 4, pitch_class: pitch_class__g_sharp)
-Key.create(name: "Db Major", shorthand: "Db", sharps: 0, flats: 5, pitch_class: pitch_class__c_sharp)
-Key.create(name: "Gb Major", shorthand: "Gb", sharps: 0, flats: 6, pitch_class: pitch_class__f_sharp)
-Key.create(name: "Cb Major", shorthand: "Cb", sharps: 0, flats: 7, pitch_class: pitch_class__b)
-Key.create(name: "A Minor", shorthand: "Am", sharps: 0, flats: 0, pitch_class: pitch_class__a)
-Key.create(name: "E Minor", shorthand: "Em", sharps: 1, flats: 0, pitch_class: pitch_class__e)
-Key.create(name: "B Minor", shorthand: "Bm", sharps: 2, flats: 0, pitch_class: pitch_class__b)
-Key.create(name: "F# Minor", shorthand: "F#m", sharps: 3, flats: 0, pitch_class: pitch_class__f_sharp)
-Key.create(name: "C# Minor", shorthand: "C#m", sharps: 4, flats: 0, pitch_class: pitch_class__c_sharp)
-Key.create(name: "G# Minor", shorthand: "G#m", sharps: 5, flats: 0, pitch_class: pitch_class__g_sharp)
-Key.create(name: "D# Minor", shorthand: "D#m", sharps: 6, flats: 0, pitch_class: pitch_class__d_sharp)
-Key.create(name: "A# Minor", shorthand: "A#m", sharps: 7, flats: 0, pitch_class: pitch_class__a_sharp)
-Key.create(name: "D Minor", shorthand: "Dm", sharps: 0, flats: 1, pitch_class: pitch_class__d)
-Key.create(name: "G Minor", shorthand: "Gm", sharps: 0, flats: 2, pitch_class: pitch_class__g)
-Key.create(name: "C Minor", shorthand: "Cm", sharps: 0, flats: 3, pitch_class: pitch_class__c)
-Key.create(name: "F Minor", shorthand: "Fm", sharps: 0, flats: 4, pitch_class: pitch_class__f)
-Key.create(name: "Bb Minor", shorthand: "Bbm", sharps: 0, flats: 5, pitch_class: pitch_class__a_sharp)
-Key.create(name: "Eb Minor", shorthand: "Ebm", sharps: 0, flats: 6, pitch_class: pitch_class__d_sharp)
-Key.create(name: "Ab Minor", shorthand: "Abm", sharps: 0, flats: 7, pitch_class: pitch_class__g_sharp)
+Key.create(name: "C Major", shorthand: "C", sharps: 0, flats: 0, pitch_class: pitch_class__c, quality: "major")
+Key.create(name: "G Major", shorthand: "G", sharps: 1, flats: 0, pitch_class: pitch_class__g, quality: "major")
+Key.create(name: "D Major", shorthand: "D", sharps: 2, flats: 0, pitch_class: pitch_class__d, quality: "major")
+Key.create(name: "A Major", shorthand: "A", sharps: 3, flats: 0, pitch_class: pitch_class__a, quality: "major")
+Key.create(name: "E Major", shorthand: "E", sharps: 4, flats: 0, pitch_class: pitch_class__e, quality: "major")
+Key.create(name: "B Major", shorthand: "B", sharps: 5, flats: 0, pitch_class: pitch_class__b, quality: "major")
+Key.create(name: "F# Major", shorthand: "F#", sharps: 6, flats: 0, pitch_class: pitch_class__f_sharp, quality: "major")
+Key.create(name: "C# Major", shorthand: "C#", sharps: 7, flats: 0, pitch_class: pitch_class__c_sharp, quality: "major")
+Key.create(name: "F Major", shorthand: "F", sharps: 0, flats: 1, pitch_class: pitch_class__f, quality: "major")
+Key.create(name: "Bb Major", shorthand: "Bb", sharps: 0, flats: 2, pitch_class: pitch_class__a_sharp, quality: "major")
+Key.create(name: "Eb Major", shorthand: "Eb", sharps: 0, flats: 3, pitch_class: pitch_class__d_sharp, quality: "major")
+Key.create(name: "Ab Major", shorthand: "Ab", sharps: 0, flats: 4, pitch_class: pitch_class__g_sharp, quality: "major")
+Key.create(name: "Db Major", shorthand: "Db", sharps: 0, flats: 5, pitch_class: pitch_class__c_sharp, quality: "major")
+Key.create(name: "Gb Major", shorthand: "Gb", sharps: 0, flats: 6, pitch_class: pitch_class__f_sharp, quality: "major")
+Key.create(name: "Cb Major", shorthand: "Cb", sharps: 0, flats: 7, pitch_class: pitch_class__b, quality: "major")
+Key.create(name: "A Minor", shorthand: "Am", sharps: 0, flats: 0, pitch_class: pitch_class__a, quality: "minor")
+Key.create(name: "E Minor", shorthand: "Em", sharps: 1, flats: 0, pitch_class: pitch_class__e, quality: "minor")
+Key.create(name: "B Minor", shorthand: "Bm", sharps: 2, flats: 0, pitch_class: pitch_class__b, quality: "minor")
+Key.create(name: "F# Minor", shorthand: "F#m", sharps: 3, flats: 0, pitch_class: pitch_class__f_sharp, quality: "minor")
+Key.create(name: "C# Minor", shorthand: "C#m", sharps: 4, flats: 0, pitch_class: pitch_class__c_sharp, quality: "minor")
+Key.create(name: "G# Minor", shorthand: "G#m", sharps: 5, flats: 0, pitch_class: pitch_class__g_sharp, quality: "minor")
+Key.create(name: "D# Minor", shorthand: "D#m", sharps: 6, flats: 0, pitch_class: pitch_class__d_sharp, quality: "minor")
+Key.create(name: "A# Minor", shorthand: "A#m", sharps: 7, flats: 0, pitch_class: pitch_class__a_sharp, quality: "minor")
+Key.create(name: "D Minor", shorthand: "Dm", sharps: 0, flats: 1, pitch_class: pitch_class__d, quality: "minor")
+Key.create(name: "G Minor", shorthand: "Gm", sharps: 0, flats: 2, pitch_class: pitch_class__g, quality: "minor")
+Key.create(name: "C Minor", shorthand: "Cm", sharps: 0, flats: 3, pitch_class: pitch_class__c, quality: "minor")
+Key.create(name: "F Minor", shorthand: "Fm", sharps: 0, flats: 4, pitch_class: pitch_class__f, quality: "minor")
+Key.create(name: "Bb Minor", shorthand: "Bbm", sharps: 0, flats: 5, pitch_class: pitch_class__a_sharp, quality: "minor")
+Key.create(name: "Eb Minor", shorthand: "Ebm", sharps: 0, flats: 6, pitch_class: pitch_class__d_sharp, quality: "minor")
+Key.create(name: "Ab Minor", shorthand: "Abm", sharps: 0, flats: 7, pitch_class: pitch_class__g_sharp, quality: "minor")
 
 # chord templates
 chord__major_triad = Chord.create(name: "Major Triad", notation: "")
@@ -315,12 +315,12 @@ ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__thi
 ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)      # P5 => 7 => G
 ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__seventh, interval_quality: interval_quality__major)      # M7 => 11 => B
 
-chord__diminished_triad = Chord.create(name: "Diminished Triad", notation: "-")
+chord__diminished_triad = Chord.create(name: "Diminished Triad", notation: "dim")
 ChordComponent.create(chord: chord__diminished_triad, interval: interval__unison, interval_quality: interval_quality__perfect)        # P1 => 0 => C
 ChordComponent.create(chord: chord__diminished_triad, interval: interval__third, interval_quality: interval_quality__major)           # M3 => 4 => E
 ChordComponent.create(chord: chord__diminished_triad, interval: interval__fifth, interval_quality: interval_quality__diminished)      # d5 => 6 => F#
 
-chord__diminished_seventh = Chord.create(name: "Diminished Seventh", notation: "7-")
+chord__diminished_seventh = Chord.create(name: "Diminished Seventh", notation: "7dim")
 ChordComponent.create(chord: chord__diminished_seventh, interval: interval__unison, interval_quality: interval_quality__perfect)      # P1 => 0 => C
 ChordComponent.create(chord: chord__diminished_seventh, interval: interval__third, interval_quality: interval_quality__major)         # M3 => 4 => E
 ChordComponent.create(chord: chord__diminished_seventh, interval: interval__fifth, interval_quality: interval_quality__diminished)    # d5 => 6 => F#
