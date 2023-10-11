@@ -1,0 +1,32 @@
+.progression-as-bars {
+    width: calc(16 * 48px);
+    font-size: 1.25rem;
+}
+
+.progression-chord__bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 48px);
+    padding: 0.5rem 0.25rem;
+    
+}
+
+.progression-chord__bar .progression-chord__tile {
+    padding: 2px 5px;
+    background: white;
+    color: red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    border-right: 2px dotted red;
+}
+
+.progression-chord__bar .progression-chord__tile--end {
+    border-right: none;
+}
+
+.progression-chord__bar .progression-chord__tile--start {
+    border-left: 2px solid red;
+}
+
+.progression-chord__bar .progression-chord__tile:last-child {
+    border-right: 2px solid red;
+}

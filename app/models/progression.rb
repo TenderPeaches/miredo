@@ -37,8 +37,15 @@ class Progression < ApplicationRecord
                 # concatenate the character with the full duration string
                 duration_string << duration_char
             end
-            printed << pc.print(key, scale) << duration_string
+            printed << pc.print_chord(key, scale) << duration_string
         end
         return printed
+    end
+
+    def print_bars(key, scale)
+        printed = ""
+        progression_chords.order(:sequence).each do |pc|
+            
+        end
     end
 end

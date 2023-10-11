@@ -1,0 +1,54 @@
+<% key ||= Key.find_by_shorthand('C') %>
+<% scale ||= Scale.find_by_name('Major') %>
+
+<% tick_width = 16 # default width of the columns, in ticks. So 4x4th notes will appear as a single row %>
+<% tick_i = 0 %>
+<% chord_printed = false # helper flag %>
+<% bar_tag_closed = false # helper flag %>
+
+<div class="progression-as-bars">
+    <% # go through each of the progression's chords %>
+    <% progression.progression_chords.each do |pc| %>
+        
+        <% # go through each of the progression's bars/ticks%>
+        <% pc.duration.times do |i| %>
+            <% # if tick has been set to 0, must open a new bar %>
+            <% if tick_i == 0 %>
+                <div class="progression-chord__bar">
+                <% bar_tag_closed = false # keep track of whether this <div> has been closed with a </div> %>
+            <% end %>
+            <% # chord should be printed if it's different from previous tick, or new row %>
+            <% if i == 0 || tick_i == 0 %>
+                <% # create a new tile to denote time this progression chord is played for %>
+                <% # include a conditional for when this tile is the start & end (for duration == 1) %>
+                <div class="progression-chord__tile progression-chord__tile--start <% if i + 1 == pc.duration %>progression-chord__tile--end<% end %>">
+                    <%= pc.print_chord(key, scale) %>
+                    <% chord_printed = true %>
+                </div>
+            <% # if i+1 == duration, this is the last iteration for this particular progression_chord %>
+            <% elsif i + 1 == pc.duration %>
+                <% # create a closing tile %>
+                <div class="progression-chord__tile progression-chord__tile--end">
+                </div>
+                <% # reset the chord_printed flag in preparation for the next progression_chord %>
+                <% chord_printed = true %>
+            <% # otherwise, i>0 => not first tick in progression_chord && tick_i>0 => not the first tick in bar %>
+            <% else %>
+                <% # create a filler/empty tile %>
+                <div class="progression-chord__tile">
+                </div>
+            <% end %>
+            <% # if reached the end of a bar %>
+            <% if tick_i + 1 == tick_width %>
+                <% # close the bar tag %>
+                </div>
+                <% bar_tag_closed = true %>
+            <% end %>
+            <% tick_i += 1 %>
+        <% end %>
+    <% end %>
+    <% # bar tag won't be closed if all progression_chords have been processed before reaching the exact width of a bar, so do it here %>
+    <% if !bar_tag_closed %>
+        </div>
+    <% end %>
+</div>

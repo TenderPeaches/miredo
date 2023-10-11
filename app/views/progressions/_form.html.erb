@@ -1,3 +1,5 @@
+<% key ||= Key.find_by_shorthand('C') %>
+<% scale ||= Scale.find_by_name('Major') %>
 <%= form_with model: progression, class: "progression-form", local: false do |form| %>
     <% if progression.errors.any? %>
         <div style="color: red">
@@ -11,9 +13,11 @@
         </div>
     <% end %>
 
+    <%= render "progressions/as_bars", progression: progression, key: key, scale: scale %>
+
     <%= form.label :tag, "Tag" %>
     <%= form.text_field :tag %>
     <%= form.fields_for :progression_chords do |progression_chords_form| %>
     <% end %>
-    <%= link_to_add_association '+', form, :progression_chords, { partial: "progression_chords/gen", form_name: "form", render_options: { locals: { key: Key.find_by_shorthand('C'), scale: Scale.find_by_name('Major') } } }%>
+    <%= link_to_add_association '+', form, :progression_chords, { partial: "progression_chords/gen", form_name: "form", render_options: { locals: { key: key, scale: scale } } }%>
 <% end %>

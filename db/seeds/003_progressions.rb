@@ -454,7 +454,35 @@ SongProgression.create(song: song, progression: progression_2, tag: "Verse 5", l
 SongProgression.create(song: song, progression: progression_1, tag: "Chorus 2", lyrics: "And I could learn your favorite song and play it on my guitar; and I'll probably sing it all wrong but it might catch your attention; and I don't know your favorite song but it's probably by Mars Volta; cause you said you really like them when we talked and I listened; yeah I listened;")
 SongProgression.create(song: song, progression: progression_1, tag: "Ending", lyrics: "")
 
-# honey in the air
+# honey in the air - blackbird raum
+song = Song.find_by(name: "Honey in the Hair")
+
+progression_1 = Progression.create(tag: "Verse", reps: 4)
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 5, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 4),
+]
+
+progression_2 = Progression.create(tag: "Bridge", reps: 2)
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 5, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 4, duration: 4),
+]
+
+progression_3 = Progression.create(tag: "Ending", reps: 6)
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+]
+
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 1", lyrics: "I fill my mouth up with air, honey in the hair; Honey in the hair, honey in the hair; I fill my life up with time, asleep in the vine; Whiskey and wine, whiskey and wine; Who makes the wind blow; I don't care, my eyes roll back in my head; Who makes the wind blow; I don't care, my eyes roll back in my head; I'm just walking in circles; I see the lines in chalk on the ground; I'm just walking in circles; I see the lines in chalk on the ground;")
+SongProgression.create(song: song, progression: progression_1, tag: "Break", lyrics: "")
+SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "I fill my mouth up with air; honey in the hair; Honey in the hair, honey in the hair; I fill my life up with time, asleep in the vine; Whiskey and wine, whiskey and wine; Who makes the wind blow; I don't care, my eyes roll back in my head; Who makes the wind blow; I don't care, my eyes roll back in my head; I'm just walking in circles; I see the lines in chalk on the ground; I'm just walking in circles; I see the lines in chalk on the ground; ")
+SongProgression.create(song: song, progression: progression_2, tag: "Bridge", lyrics: "One day this will all come down; One day this will all come crashing right down;")
+SongProgression.create(song: song, progression: progression_2, tag: "Ending", lyrics: "So go on with your life; We will bring you down; One day this will all come down; One day this will all come crashing right down; So go on with your life; We will bring you down;")
 
 # devil's will - cousin boneless
 song = Song.find_by(name: "Devil's Will")

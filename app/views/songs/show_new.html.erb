@@ -3,6 +3,7 @@
     <%= link_to "< Back", "/", class: "button" %>
     <%= link_to "Play", "/play/" << @song.id.to_s, class: "button" %>
     <%= link_to "Edit", "/edit/" << @song.id.to_s, class: "button" %>
+    <%= link_to "Progressions", "/songs/" << @song.id.to_s << "/define_progressions", class: "button" %>
     <%= form_tag song_path(@song.id), method: :get do %>
         <h1>#<%= @song.id %>: <%= @song.get_artists %> - <%= @song.name %></h1>
         <div>Key: <%= @key.shorthand %></div>

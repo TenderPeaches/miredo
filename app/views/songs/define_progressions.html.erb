@@ -1,13 +1,24 @@
 
+
+<!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
 <div data-controller="progressions" class="form-fields">
-    <%= @song.name %>
+    <%= content_tag :div, style: "display: flex;" do %>
+        <% if @song.id > 1 %>
+        <%= link_to "<", "/songs/" << (@song.id - 1).to_s << "/define_progressions" %>
+        <% end %>
+        <%= @song.name %>
+        <% if @song.id < Song.last.id %>
+            <%= link_to ">", "/songs/" << (@song.id + 1).to_s << "/define_progressions" %>
+        <% end %>
+    <% end %>
     <div class="progressions--current">
-        <% @progressions.each do |p| %>
+        <% @progressions.each_with_index do |p, i| %>
             <div class="card card--progression">
-                <div class="card-identifier"><%= p.id %></div>
-                <%= p.tag %>
-                <%= p.print(@song.key, @song.scale) %>
-                <div>Render: 
+                <div class="card-title">
+                    <span class="card-identifier"><%= i + 1 %>&#41;</span>
+                    <span><%= p.tag %></span>
+                </div>
+                <div>
                     <%= render "progressions/form", progression: p %>
                 </div>
             </div>

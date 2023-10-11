@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import api from "./api"
 
 export default class extends Controller {
   static targets = [ 'newProgsList', 'display', 'inputDegree', 'inputModifier', 'inputChordType', 'settingSetBass', 'inputDuration', 'inputScale', 'inputKey', 'inputBassDegree', 'inputBassModifier', 'bassControls' ];
@@ -20,8 +21,21 @@ export default class extends Controller {
   get key() { return this.inputKeyTarget }
   get bass_controls() { return this.bassControlsTarget }*/
 
-  add_progression_form(e) {
-    // this.new_progressions_list.append()
+  async add_progression_form(e) {
+    const data = {
+      "scale": this.scale.value,
+      "key": this.key.value,
+      "modifier": this.modifier.value
+    }
+
+    const response = await fetch("/utils/get_degrees?scale=" + data.scale + "&key=" + data.key + "&modifier=" + data.modifier, {
+      method: "GET",
+      mode: "cors",
+      credentials: "same-origin",
+      headers: { "Content-Type": "application/json" }
+    })
+
+    const chords = await response.json();
   }
 
   // on page load
@@ -125,28 +139,7 @@ export default class extends Controller {
     const generator = this.get_generator_from_target(target);
     const formData = this.get_generatorData(generator);
 
-    console.log(formData);
-    debugger;
-
-    const data = {
-      /*
-      // the selected radio button's value holds the degree
-      // (!) all this is wrong, need to select the specific input 
-      "degree": this.degree_value, 
-      "modifier": this.modifier.value,
-      "chord_type": this.chord_type.value,
-      "duration": this.duration.value,
-      "scale": this.scale.value,
-      "key": this.key.value,
-      "bass_degree": this.bass_degree_value,
-      */
-    }
-    const response = await fetch("/utils/print_progression_chord?degree=" + data.degree + "&modifier=" + data.modifier + "&chord=" + data.chord_type + "&duration=" + data.duration + "&scale=" + data.scale + "&key=" + data.key, {
-      method: "GET",
-      mode: "cors",
-      credentials: "same-origin",
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = api.get("/utils/print_progression_chord?degree=" + data.degree + "&modifier=" + data.modifier + "&chord=" + data.chord_type + "&duration=" + data.duration + "&scale=" + data.scale + "&key=" + data.key);
 
     const chord = await response.text();
     //this.display.innerText = chord;               //(!) can't use target
@@ -161,12 +154,7 @@ export default class extends Controller {
       "modifier": this.modifier.value
     }
 
-    const response = await fetch("/utils/get_degrees?scale=" + data.scale + "&key=" + data.key + "&modifier=" + data.modifier, {
-      method: "GET",
-      mode: "cors",
-      credentials: "same-origin",
-      headers: { "Content-Type": "application/json" }
-    })
+    const response = await fetch("/utils/get_degrees?scale=" + data.scale + "&key=" + data.key + "&modifier=" + data.modifier);
 
     const chords = await response.json();
 

@@ -1,0 +1,111 @@
+
+.progression-chord-generator .generator__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "chord_type    chord_type"
+    "degree        degree"
+    "modifier      modifier"
+    "duration      settings"
+    "bass_controls bass_controls"
+    "actions       actions";
+ 
+    row-gap: 0.5rem;
+ 
+  }
+ 
+  .progression-chord-generator .generator__input--degree {
+   grid-area: degree;
+  }
+ 
+  .progression-chord-generator .bass-controls {
+   grid-area: bass_controls;
+   display: flex;
+   flex-direction: column;
+  }
+ 
+  .progression-chord-generator .generator__input--degree,
+  .progression-chord-generator .generator__input--bass-degree {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    "degree1 degree4 degree5"
+    "degree6 degree2 degree3"
+    " . degree7 none ";
+ 
+    margin: 1em; 
+    text-align: left;
+  }
+ 
+  .degree_1,
+  .bass_degree_1 {
+    grid-area: degree1;
+  }
+  .degree_2,
+  .bass_degree_2 {
+    grid-area: degree2;
+  }
+  .degree_3,
+  .bass_degree_3 {
+    grid-area: degree3;
+  }
+  .degree_4,
+  .bass_degree_4 {
+    grid-area: degree4;
+  }
+  .degree_5,
+  .bass_degree_5 {
+    grid-area: degree5;
+  }
+  .degree_6,
+  .bass_degree_6 {
+    grid-area: degree6;
+  }
+  .degree_7,
+  .bass_degree_7 {
+    grid-area: degree7;
+  }
+ 
+  .progression-chord-generator .generator__inputs .generator__input--degree-modifier {
+    grid-area: modifier;
+  }
+ 
+  .progression-chord-generator .generator__inputs .generator__input--chord-type {
+    grid-area: chord_type;
+  }
+ 
+  .progression-chord-generator .generator__inputs .generator__input--settings {
+    grid-area: settings;
+  }
+ 
+  .progression-chord-generator .generator__inputs .generator__input--duration {
+    grid-area: duration;
+  }
+ 
+  .progression-chord-generator .generator__inputs .generator__input--actions {
+    grid-area: actions;
+  }
+ 
+  .progression-chord-generator .generator__inputs .generator__input--bass-degree-modifier {
+    grid-area: bass_modifier;
+  }
+ 
+  .modifier-markers,
+  .bass_modifier-markers {
+   display: inline-flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 200px;
+  }
+   
+ .modifier-markers option,
+ .bass_modifier-markers option {
+    margin-top: 0.25em;
+    padding: 0;
+  }
+  
+  input[type="range"] {
+    width: 200px;
+    margin: 0;
+  }
