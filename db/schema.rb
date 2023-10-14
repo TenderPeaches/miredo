@@ -128,6 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
 
   create_table "progressions", force: :cascade do |t|
     t.string "tag"
+    t.integer "reps", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

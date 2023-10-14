@@ -1,32 +1,38 @@
+/* when printing progressions as horiztonal grids, this is the div that contains all of the progression's bars */
 .progression-as-bars {
-    width: calc(16 * 48px);
-    font-size: 1.25rem;
+    font-size: var(--font-size-bars);                               /* large font for easy reading */
 }
 
+/* an individual bar, that may or may not correspond to an entire progression */
 .progression-chord__bar {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 48px);
-    padding: 0.5rem 0.25rem;
+    display: grid;                                                  /* use a grid for consistent layout between different bars and to easily accomodate non-full bars */
+    grid-template-columns: repeat(auto-fill, var(--bar-tile-size)); /* auto-fill as necessary, use distinct tile size because it's more important to have a proper size here than to follow the rest of the layout units */
+    padding: var(--size-s);                                         /* just a bit of breathing room */
     
 }
 
+/* an individual tile, that represents a single beat more or less (up to the user's interpretation) */
 .progression-chord__bar .progression-chord__tile {
-    padding: 2px 5px;
-    background: white;
-    color: red;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
-    border-right: 2px dotted red;
+    padding: var(--size--xxxs) var(--size-xxs);                     /* some breathing room */ 
+    background: var(--color-white);                                 /* using pure white to stand out */
+    height: var(--size-l);                                          /*? play with padding, see if necessary */
+    color: var(--color-primary-dark);                               /* */
+    border-style: var(--default-border-style);                      /* to sharply delineate each tile, use a border */
+    border-width: var(--thick-border-width);                        /* to sharply delineate */
+    border-left-width: 0px;                                         /* ignore left-borders to simplify css */
+    border-color: var(--color-primary-dark);                        /* to delineate, but still mesh with background */
 }
 
+/* last tile in a bar */
 .progression-chord__bar .progression-chord__tile--end {
-    border-right: none;
+    border-right: none;                                             /* prevent overlap with bar's own border-right */
 }
 
+/* first tile in a bar */
 .progression-chord__bar .progression-chord__tile--start {
-    border-left: 2px solid red;
+    border-left-width: var(--thick-border-width);                   /* apply left border like the others */
 }
 
 .progression-chord__bar .progression-chord__tile:last-child {
-    border-right: 2px solid red;
+    border-right: 2px solid red;                                  /*? necessary? */
 }

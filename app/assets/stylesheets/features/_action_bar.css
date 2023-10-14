@@ -1,7 +1,6 @@
-
-
+/* _action_bar.css => a horizontal grouping of action buttons & links */
 .action-bar {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    display: flex;
+    margin-top: var(--size-m);        /* breathing room */
+    margin-bottom: var(--size-m);     /* breathing room */
+    display: flex;                    /* simple horizontal setup */
   }

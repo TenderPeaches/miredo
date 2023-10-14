@@ -1,9 +1,9 @@
-
+/* the inputs for the progression_chord generator */
 .progression-chord-generator .generator__inputs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas: 
+    display: grid;                                      /* elements will be displayed in a square-shaped area */
+    grid-template-columns: repeat(2, 1fr);              /* only two columns needed for this design */
+    grid-template-rows: auto;                           /* rows fill as necessary */
+    grid-template-areas:                                /* grid layout */
     "chord_type    chord_type"
     "degree        degree"
     "modifier      modifier"
@@ -11,101 +11,112 @@
     "bass_controls bass_controls"
     "actions       actions";
  
-    row-gap: 0.5rem;
+    row-gap: 0.5rem;                                    /* breathing room */
  
   }
- 
+  
+  /* degree input */
   .progression-chord-generator .generator__input--degree {
-   grid-area: degree;
+   grid-area: degree;                                   /* grid layout */
   }
  
+  /* bass setting */
   .progression-chord-generator .bass-controls {
-   grid-area: bass_controls;
-   display: flex;
-   flex-direction: column;
+   grid-area: bass_controls;                            /* grid layout */
+   display: flex;                                       /* */
+   flex-direction: column;                              /* */
   }
  
+  /* degree inputs, only one is displayed at a time */
   .progression-chord-generator .generator__input--degree,
   .progression-chord-generator .generator__input--bass-degree {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
-    "degree1 degree4 degree5"
+    display: grid;                                /* complex layout */ 
+    grid-template-columns: repeat(3, 1fr);        /* 3 columns */
+    grid-template-areas:                          /* grid layout */
+    "degree1 degree4 degree5"                     
     "degree6 degree2 degree3"
     " . degree7 none ";
  
-    margin: 1em; 
-    text-align: left;
+    margin: var(--size-l);                        /* lots of breathing room */ 
+    text-align: left;                             /*  */
   }
  
   .degree_1,
   .bass_degree_1 {
-    grid-area: degree1;
+    grid-area: degree1;                           /* grid layout */
   }
   .degree_2,
   .bass_degree_2 {
-    grid-area: degree2;
+    grid-area: degree2;                           /* grid layout */
   }
   .degree_3,
   .bass_degree_3 {
-    grid-area: degree3;
+    grid-area: degree3;                           /* grid layout */
   }
   .degree_4,
   .bass_degree_4 {
-    grid-area: degree4;
+    grid-area: degree4;                           /* grid layout */
   }
   .degree_5,
   .bass_degree_5 {
-    grid-area: degree5;
+    grid-area: degree5;                           /* grid layout */
   }
   .degree_6,
   .bass_degree_6 {
-    grid-area: degree6;
+    grid-area: degree6;                           /* grid layout */
   }
   .degree_7,
   .bass_degree_7 {
-    grid-area: degree7;
+    grid-area: degree7;                           /* grid layout */
   }
  
+  /* degree modifier input */
   .progression-chord-generator .generator__inputs .generator__input--degree-modifier {
-    grid-area: modifier;
+    grid-area: modifier;                          /* grid layout */
   }
  
+  /* chord type input */
   .progression-chord-generator .generator__inputs .generator__input--chord-type {
-    grid-area: chord_type;
+    grid-area: chord_type;                        /* grid layout */
   }
  
+  /* settings panel */
   .progression-chord-generator .generator__inputs .generator__input--settings {
-    grid-area: settings;
+    grid-area: settings;                          /* grid layout */
   }
  
+  /* duration input */
   .progression-chord-generator .generator__inputs .generator__input--duration {
-    grid-area: duration;
+    grid-area: duration;                          /* grid layout */
   }
  
+  /* action buttons */
   .progression-chord-generator .generator__inputs .generator__input--actions {
-    grid-area: actions;
+    grid-area: actions;                           /* grid layout */
   }
- 
+  
+  /* bass degree modifier input */
   .progression-chord-generator .generator__inputs .generator__input--bass-degree-modifier {
-    grid-area: bass_modifier;
+    grid-area: bass_modifier;                     /* grid layout */
   }
  
+  /* <datalist> that contains the <options> for the modifier input */
   .modifier-markers,
   .bass_modifier-markers {
-   display: inline-flex;
-   flex-direction: row;
-   justify-content: space-between;
-   width: 200px;
+   display: inline-flex;                          /* needs to stretch within the inline display */
+   flex-direction: row;                           /* overwrite parent */
+   justify-content: space-between;                /* spread as far out as possible */
+   width: 200px;                                  /* arbitrary size */
   }
    
+  /* notches that let user input a modifier value */
  .modifier-markers option,
  .bass_modifier-markers option {
-    margin-top: 0.25em;
-    padding: 0;
+    margin-top: var(--size-xxs);                   /* just enough space to pull away from the line */
+    padding: 0;                                    /* remove all padding */
   }
   
   input[type="range"] {
-    width: 200px;
-    margin: 0;
+    width: 200px;                                  /* arbitrary size, must match markers */
+    margin: 0;                                     /* remove all margins */
   }

@@ -10,78 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_tree ./globals/variables
+ *= require_tree ./globals
  *= require_tree .
  *= require_self
  */
- /* globals */ 
- :root {
-    --color-primary: goldenrod;
-    --color-accent: #dda0dd;
-    --color-contrast: #8fe86f;
 
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /*font-family: 'Consolas', 'Courier New', Courier, monospace;*/
 
- }
 
- /* generic */
-
- body {
-    background-color: #001608;
-    color: var(--color-primary);
-    max-width: 95%;
-    margin: auto;
-    padding-top: 1em;
- }
-
- a {
-    color: #dda0dd;
- }
-
- /* table */
-
- table {
-    border: solid 2px var(--color-primary);
-    border-collapse: collapse;
- }
-
- table td {
-    padding: 0.4em 2em;
- }
-
- table tr {
-    width: 100%;
-    border-bottom: solid 1px var(--color-primary);
- }
-
- /* tags */ 
-
- .hidden {
-  display: none !important;
- }
-
- .contrast-text {
-  color: var(--color-contrast);
- }
-
- input[type="number"] {
-  width: 45px;
- }
- 
- @media screen and (min-width: 1080px) {
-    body {
-        max-width: 1400px;
-    }
-    .show-song {
-        columns: 2;
-    }
- }
-
- .form-fields {
-   display: grid;
-   margin: 0.5rem;
-   padding: 0.5rem;
-   grid-template-columns: 1fr 3fr;
-   row-gap: 0.25rem;
- }
- 

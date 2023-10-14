@@ -155,12 +155,17 @@ Song.create_or_find_by(name: "Crabe", album: Album.find_or_create_by(name: ""), 
 Song.create_or_find_by(name: "Frijolero", album: Album.find_or_create_by(name: ""), number: nil, duration: nil, nb_practices: 0, last_practiced: nil, capo: 0, chords: "", lyrics: "", key: Key.find_by(shorthand: "Am"), scale: Scale.find_by(name: "Natural Minor"))
 Song.create_or_find_by(name: "Where is my Mind?", album: Album.find_or_create_by(name: ""), number: nil, duration: nil, nb_practices: 0, last_practiced: nil, capo: 0, chords: "", lyrics: "", key: Key.find_by(shorthand: "E"), scale: Scale.find_by(name: "Major"))
 Song.create_or_find_by(name: "Porque te vas", album: Album.find_or_create_by(name: ""), number: nil, duration: nil, nb_practices: 0, last_practiced: nil, capo: 0, chords: "", lyrics: "", key: Key.find_by(shorthand: "A"), scale: Scale.find_by(name: "Natural Minor"))
+Song.create_or_find_by(name: "Somewhere over the rainbow", album: Album.find_or_create_by(name: ""), number: nil, duration: nil, nb_practices: 0, last_practiced: nil, capo: 0, chords: "", lyrics: "", key: Key.find_by(shorthand: "G"), scale: Scale.find_by(name: "Major"))
+Song.create_or_find_by(name: "California Dreamin'", album: Album.find_or_create_by(name: ""), number: nil, duration: nil, nb_practices: 0, last_practiced: nil, capo: 0, chords: "", lyrics: "", key: Key.find_by(shorthand: "C#"), scale: Scale.find_by(name: "Natural Minor"))
 
-
+# deja de llorar
+# todo pinta re mal
 # jimmy eat world - the middle
 # wagon wheel
 # i cant be with you
+# california dreaming
 # carelesswhsisper
+# shove this job
 
 # artists
 Artist.create_or_find_by(name: "AJJ")
@@ -220,6 +225,8 @@ Artist.create_or_find_by(name: "Les Goules")
 Artist.create_or_find_by(name: "Molotov")
 Artist.create_or_find_by(name: "The Pixies")
 Artist.create_or_find_by(name: "Attaque 77")
+Artist.create_or_find_by(name: "Israel Kamakawiwoʻole")
+Artist.create_or_find_by(name: "The Mamas & The Papas")
 
 # song contributions
 SongContribution.create_or_find_by(song: Song.find_by(name: "Brave as a Noun"), artist: Artist.find_by(name: "AJJ"))
@@ -374,3 +381,5 @@ SongContribution.create_or_find_by(song: Song.find_by(name: "Crabe"), artist: Ar
 SongContribution.create_or_find_by(song: Song.find_by(name: "Frijolero"), artist: Artist.find_by(name: "Molotov"))
 SongContribution.create_or_find_by(song: Song.find_by(name: "Where is my Mind?"), artist: Artist.find_by(name: "The Pixies"))
 SongContribution.create_or_find_by(song: Song.find_by(name: "Porque te vas"), artist: Artist.find_by(name: "Attaque 77"))
+SongContribution.create_or_find_by(song: Song.find_by(name: "Somewhere over the rainbow"), artist: Artist.find_by(name: "Israel Kamakawiwoʻole"))
+SongContribution.create_or_find_by(song: Song.find_by(name: "California Dreamin'"), artist: Artist.find_by(name: "The Mamas & The Papas"))

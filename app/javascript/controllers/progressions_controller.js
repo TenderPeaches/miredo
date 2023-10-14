@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = [ 'newProgsList', 'display', 'inputDegree', 'inputModifier', 'inputChordType', 'settingSetBass', 'inputDuration', 'inputScale', 'inputKey', 'inputBassDegree', 'inputBassModifier', 'bassControls' ];
 
   get new_progressions_list() { return this.newProgsListTarget }
-  /*
+  
   get display() { return this.displayTarget }
   get degree() { return this.inputDegreeTarget }
   // shortcut for radio button group inputs value
@@ -19,7 +19,7 @@ export default class extends Controller {
   get duration() { return this.inputDurationTarget }
   get scale() { return this.inputScaleTarget }
   get key() { return this.inputKeyTarget }
-  get bass_controls() { return this.bassControlsTarget }*/
+  get bass_controls() { return this.bassControlsTarget }
 
   async add_progression_form(e) {
     const data = {
@@ -40,7 +40,7 @@ export default class extends Controller {
 
   // on page load
   connect() {
-    console.log(this.display, this.degree, this.degree_value, this.modifier, this.bass_degree, this.bass_degree_value, this.bass_modifier, this.chord_type, this.set_bass, this.duration, this.scale, this.key, this.bass_controls);
+    //console.log(this.display, this.degree, this.degree_value, this.modifier, this.bass_degree, this.bass_degree_value, this.bass_modifier, this.chord_type, this.set_bass, this.duration, this.scale, this.key, this.bass_controls);
     this.adjust_all_displays();
   }
 

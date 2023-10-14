@@ -38,13 +38,17 @@
                 <div class="progression-chord__tile">
                 </div>
             <% end %>
+            <% # tracking how far along the bar the current iteration is %>
+            <% tick_i += 1 %>
             <% # if reached the end of a bar %>
-            <% if tick_i + 1 == tick_width %>
+            <% if tick_i == tick_width %>
                 <% # close the bar tag %>
                 </div>
+                <% # flag the bar as having been closed (so it doesn't get closed twice) %>
                 <% bar_tag_closed = true %>
+                <% # reset the tick tracker %>
+                <% tick_i = 0 %>
             <% end %>
-            <% tick_i += 1 %>
         <% end %>
     <% end %>
     <% # bar tag won't be closed if all progression_chords have been processed before reaching the exact width of a bar, so do it here %>

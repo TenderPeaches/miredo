@@ -1,0 +1,21 @@
+/* _common.css => for common classes that aren't tied to one specific page or feature */
+
+/* class added to elements that need to be hidden from the layout */
+.hidden {
+    display: none !important;   /*! maybe only acceptable use of !important, but should still look to see if really necessary */
+}
+
+/* class added to elements that need to clash with the surrounding content */
+.contrast-text {
+    color: var(--color-accent-light);       /* clash with text (by not using secondary color) and background (by not using primary) */
+}
+
+/* fields used within a typical form */
+.form-fields {
+    display: grid;                          /* to allow for a uniform display between each field */
+    margin: var(--size-l);                  /* breathing room around */
+    padding: var(--size-l);                 /* breathing room within */
+    grid-template-columns: 1fr 3fr;         /* 1 frame for the label, 3 frames for the field itself */
+    row-gap: var(--size-s);                 /* additional breathing room between each field */
+  }
+  

@@ -1,0 +1,72 @@
+ /* global colors */ 
+ :root {
+
+    /* primary color */
+    /** used for default backgrounds */
+    --color-primary-white: hsl(104, 72%, 91%);
+    --color-primary-lightest: hsl(104, 72%, 80%);
+    --color-primary-lighter: hsl(104, 72%, 69%);
+    --color-primary-light: hsl(104, 72%, 58%);
+    --color-primary: hsl(104, 72%, 49%);
+    --color-primary-dark: hsl(104, 72%, 36%);
+    --color-primary-darker: hsl(104, 72%, 23%);
+    --color-primary-darkest: hsl(104, 72%, 11%);
+    --color-primary-black: hsl(104, 72%, 5%);
+
+    /* secondary color */
+    /** used for default foregrounds */
+    --color-secondary-white: hsl(18, 89%, 91%);
+    --color-secondary-lightest: hsl(18, 89%, 80%);
+    --color-secondary-lighter: hsl(18, 89%, 69%);
+    --color-secondary-light: hsl(18, 89%, 58%);
+    --color-secondary: hsl(18, 89%, 48%);
+    --color-secondary-dark: hsl(18, 89%, 36%);
+    --color-secondary-darker: hsl(18, 89%, 23%);
+    --color-secondary-darkest: hsl(18, 89%, 11%);
+    --color-secondary-black: hsl(18, 89%, 5%);
+
+    /* accent color */
+    /** used to clash with the primary colors */
+    --color-accent-white: hsl(300, 80%, 91%);
+    --color-accent-lightest: hsl(300, 80%, 80%);
+    --color-accent-lighter: hsl(300, 80%, 69%);
+    --color-accent-light: hsl(300, 80%, 58%);
+    --color-accent: hsl(300, 80%, 51%);
+    --color-accent-dark: hsl(300, 80%, 36%);
+    --color-accent-darker: hsl(300, 80%, 23%);
+    --color-accent-darkest: hsl(300, 80%, 11%);
+    --color-accent-black: hsl(300, 80%, 5%);
+
+    /* generic utility colors */
+    --color-success: hsl(130, 100%, 35%);
+    --color-error: hsl(0, 100%, 35%);
+    --color-black: hsl(0, 0%, 0%);
+    --color-white: hsl(0, 0%, 100%);
+
+    /* application-specific utility colors */
+    /** degree-associated colors */
+    --color-degree-first: hsl(0, 100%, 50%);
+    --color-degree-second: hsl(38, 100%, 50%);
+    --color-degree-third: hsl(55, 100%, 45%);
+    --color-degree-fourth: hsl(120, 100%, 30%);
+    --color-degree-fifth: hsl(200, 100%, 40%);
+    --color-degree-sixth: hsl(265, 100%, 55%);
+    --color-degree-seventh: hsl(310, 100%, 50%); 
+
+    --color-degree-first-dark: hsl(0, 100%, 20%); 
+    --color-degree-second-dark: hsl(38, 100%, 28%);
+    --color-degree-third-dark: hsl(55, 100%, 35%);
+    --color-degree-fourth-dark: hsl(120, 100%, 22%);
+    --color-degree-fifth-dark: hsl(200, 100%, 24%);
+    --color-degree-sixth-dark: hsl(265, 100%, 25%);
+    --color-degree-seventh-dark: hsl(310, 100%, 25%);
+
+    --color-degree-first-light: hsl(0, 100%, 78%); 
+    --color-degree-second-light: hsl(38, 100%, 60%);
+    --color-degree-third-light: hsl(55, 100%, 65%);
+    --color-degree-fourth-light: hsl(120, 100%, 70%);
+    --color-degree-fifth-light: hsl(200, 100%, 75%);
+    --color-degree-sixth-light: hsl(265, 100%, 78%);
+    --color-degree-seventh-light: hsl(310, 100%, 78%);
+
+ }

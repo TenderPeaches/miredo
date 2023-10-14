@@ -33,6 +33,7 @@
                     <%= song_progression.print_reps %>
                 <% end %>
             <% end %>
+            <!--<%= render "progressions/as_bars", progression: song_progression.progression, key: @key, scale: @song.scale %>-->
         </div>
         <div class="song-progression__lyrics">
             <%= raw song_progression.html_lyrics %>
