@@ -16,5 +16,4 @@
  *= require_self
  */
 
-
-
+/* avoid setting rules here; global rules go into /globals/, feature-specific rules into /features/ */ 

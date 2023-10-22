@@ -24,3 +24,26 @@
     color: var(--color-accent-lightest);    /* clash with background/lyrics */
     font-size: var(--font-size-lyrics);     /* big enough to read easily */
  }
+
+ /* degree/chords coloring */
+ .degree-1 {
+   color: var(--color-degree-first-light);
+ }
+ .degree-2 {
+   color: var(--color-degree-second-light);
+ }
+ .degree-3 {
+   color: var(--color-degree-third-light);
+ }
+ .degree-4 {
+   color: var(--color-degree-fourth-light);
+ }
+ .degree-5 {
+   color: var(--color-degree-fifth-light);
+ }
+ .degree-6 {
+   color: var(--color-degree-sixth-light);
+ }
+ .degree-7 {
+   color: var(--color-degree-seventh-light);
+ }

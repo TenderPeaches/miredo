@@ -1,6 +1,8 @@
 class SongProgression < ApplicationRecord
   belongs_to :song
   belongs_to :progression
+  belongs_to :key, optional: true
+  belongs_to :scale, optional: true
 
   after_save :assign_sequence_number
 

@@ -15,13 +15,13 @@ class SongsController < ApplicationController
             # capo can be provided as query string argument, if absent then use the song's suggested capo
             @capo = (params.has_key? :capo) ? params[:capo].to_i : @song.capo
 
-            if @capo != @song.capo 
-                diff = @song.capo - @capo
-            end
-
-            if diff
-                @key = @song.key.shift(diff)
+            # if there is a capo
+            if @capo != 0
+                # adjust the key accordingly, shifting from the song's base key
+                @key = @song.key.shift(@capo * -1)
+            # otherwise, no capo applied
             else
+                # use the song key as is
                 @key = @song.key    # user can play around with song key, set default value to song's default key
             end
 

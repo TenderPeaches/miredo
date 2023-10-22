@@ -1,33 +1,36 @@
 
 
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
-<div data-controller="progressions" class="form-fields">
-    <%= content_tag :div, style: "display: flex;" do %>
-        <% if @song.id > 1 %>
-        <%= link_to "<", "/songs/" << (@song.id - 1).to_s << "/define_progressions" %>
+<div data-controller="progressions">
+    <%= render "progression_chords/gen" %>
+    <%= content_tag :div, class: "form-fields" %>
+        <%= content_tag :div, style: "display: flex;" do %>
+            <% if @song.id > 1 %>
+                <%= link_to "<", "/songs/" << (@song.id - 1).to_s << "/define_progressions" %>
+            <% end %>
+            <%= @song.name %>
+            <% if @song.id < Song.last.id %>
+                <%= link_to ">", "/songs/" << (@song.id + 1).to_s << "/define_progressions" %>
+            <% end %>
         <% end %>
-        <%= @song.name %>
-        <% if @song.id < Song.last.id %>
-            <%= link_to ">", "/songs/" << (@song.id + 1).to_s << "/define_progressions" %>
-        <% end %>
+        <div class="progressions--current">
+            <% @progressions.each_with_index do |p, i| %>
+                <div class="card card--progression">
+                    <div class="card-title">
+                        <span class="card-identifier"><%= i + 1 %>&#41;</span>
+                        <span><%= p.tag %></span>
+                    </div>
+                    <div>
+                        <%= render "progressions/form", progression: p %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="progressions--new" data-progressions-target="newProgsList">
+            <button class="button" type="button" data-action="click->progressions#add_progression_form">Define new progression</button>
+        </div>
+
+        <% # render "progression_chords/gen", form: progression_chords_form, progression_chord: progression_chords_form.object, key: Key.find_by_shorthand('C'), scale: Scale.find_by_name('Major'), progression_id: progression.id %>
     <% end %>
-    <div class="progressions--current">
-        <% @progressions.each_with_index do |p, i| %>
-            <div class="card card--progression">
-                <div class="card-title">
-                    <span class="card-identifier"><%= i + 1 %>&#41;</span>
-                    <span><%= p.tag %></span>
-                </div>
-                <div>
-                    <%= render "progressions/form", progression: p %>
-                </div>
-            </div>
-        <% end %>
-    </div>
-
-    <div class="progressions--new" data-progressions-target="newProgsList">
-        <button class="button" type="button" data-action="click->progressions#add_progression_form">Define new progression</button>
-    </div>
-
-    <% # render "progression_chords/gen", form: progression_chords_form, progression_chord: progression_chords_form.object, key: Key.find_by_shorthand('C'), scale: Scale.find_by_name('Major'), progression_id: progression.id %>
 </div>

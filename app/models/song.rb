@@ -127,6 +127,14 @@ class Song < ApplicationRecord
         return output
     end
 
+    def self.random_id
+        Song.order("RANDOM()").limit(1).first.id
+    end
+
+    def self.random_id_of_capo(capo)
+        Song.where(capo: capo).order("RANDOM()").limit(1).first.id
+    end
+
     # if true => the song's chords structure and lyrics are obtained through Song_Progression entries
     # if false => the song's chord structure and lyrics are obtained through parsing the lib.txt file
     def upgraded?

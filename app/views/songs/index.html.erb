@@ -16,6 +16,10 @@
             <%= form.submit "Show me", data: { action: "scales#connect:prevent" } %>
         <% end %>
     </fieldset>
+    <fieldset>
+        <legend>Pick for me</legend>
+        <%= link_to 'Random', "/songs/" << Song.random_id.to_s %>
+    </fieldset>
 </div>
 <table class="songs-list">
     <thead>

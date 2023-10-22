@@ -3,6 +3,8 @@ class Progression < ApplicationRecord
     has_many :songs, through: :song_progressions
     has_many :progression_chords
     has_many :chords, through: :progression_chords
+    belongs_to :key, optional: true
+    belongs_to :scale, optional: true
 
     accepts_nested_attributes_for :progression_chords
 

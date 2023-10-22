@@ -84,8 +84,8 @@ class Scale < ApplicationRecord
             #> final pitch class for this degree
             puts (PitchClass.find_by(position: pitch_class__position).print)
 
-            output << PitchClass.find_by(position: pitch_class__position).print << " "
+            output << "<span class=\"degree-" << i.to_s << "\">" << PitchClass.find_by(position: pitch_class__position).print << "</span> "
         end
-        output
+        output.html_safe
     end
 end

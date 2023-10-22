@@ -41,8 +41,6 @@ class ProgressionChord < ApplicationRecord
   def get_scale_notes(key, scale)
     flats = [ 'B', 'E', 'A', 'D', 'G', 'C', 'F' ]
     sharps = [ 'F', 'C', 'G', 'D', 'A', 'E', 'B' ]
-
-    
   end
 
   # when # or b are applied, need to figure out whether to flatten a given degree or to sharpen another
@@ -128,6 +126,8 @@ class ProgressionChord < ApplicationRecord
     PitchClass.find_by(position: pitch_class__position).print + chord.notation
   end
 
+
+
   # prints the chord + duration markers
   def print(key, scale)
     # output
@@ -161,5 +161,9 @@ class ProgressionChord < ApplicationRecord
       printed << beat
     end
     printed << " "
+  end
+
+  def print_with_colors(key, scale)
+    "<span class=\"degree-".html_safe + degree.to_s + "\">".html_safe + print(key, scale) + "</span>".html_safe
   end
 end

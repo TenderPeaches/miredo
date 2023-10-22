@@ -1,6 +1,13 @@
 <!-- to be used with songs whose structure is dictated by SongProgression entities, rather than plaintext -->
 <div class="show-song" data-controller="show-song"> 
     <%= link_to "< Back", "/", class: "button" %>
+    <%= link_to 'Random', "/songs/" << Song.random_id.to_s %>
+    <% if @song.id > 1 %>
+        <%= link_to "<", "/songs/" << (@song.id - 1).to_s %>
+    <% end %>
+    <% if @song.id < Song.last.id %>
+        <%= link_to ">", "/songs/" << (@song.id + 1).to_s %>
+    <% end %>
     <%= link_to "Play", "/play/" << @song.id.to_s, class: "button" %>
     <%= link_to "Edit", "/edit/" << @song.id.to_s, class: "button" %>
     <%= link_to "Progressions", "/songs/" << @song.id.to_s << "/define_progressions", class: "button" %>
@@ -26,14 +33,13 @@
                     <br/>
                     <% beat_counter = 0 %>
                 <% end %>
-                <%= progression_chord.print(@key, @song.scale) %> 
+                <%= progression_chord.print_with_colors(@key, @song.scale) %> 
             <% end %>
             <% unless song_progression.nil? %>
                 <% if song_progression.reps > 1 %>
                     <%= song_progression.print_reps %>
                 <% end %>
             <% end %>
-            <!--<%= render "progressions/as_bars", progression: song_progression.progression, key: @key, scale: @song.scale %>-->
         </div>
         <div class="song-progression__lyrics">
             <%= raw song_progression.html_lyrics %>

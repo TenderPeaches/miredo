@@ -129,8 +129,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
   create_table "progressions", force: :cascade do |t|
     t.string "tag"
     t.integer "reps", default: 1
+    t.integer "key_id"
+    t.integer "scale_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["key_id"], name: "index_progressions_on_key_id"
+    t.index ["scale_id"], name: "index_progressions_on_scale_id"
   end
 
   create_table "scale_intervals", force: :cascade do |t|
@@ -167,11 +171,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
     t.integer "progression_id", null: false
     t.integer "sequence"
     t.integer "reps", default: 1
+    t.integer "key_id"
+    t.integer "scale_id"
     t.string "lyrics"
     t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["key_id"], name: "index_song_progressions_on_key_id"
     t.index ["progression_id"], name: "index_song_progressions_on_progression_id"
+    t.index ["scale_id"], name: "index_song_progressions_on_scale_id"
     t.index ["song_id"], name: "index_song_progressions_on_song_id"
   end
 
