@@ -21,7 +21,7 @@
     margin-top: 0.5em;                      /* breathing room */
     margin-bottom: 0.5em;                   /* breathing room */
 
-    color: var(--color-accent-lightest);    /* clash with background/lyrics */
+    color: var(--color-white);    /* clash with background/lyrics */
     font-size: var(--font-size-lyrics);     /* big enough to read easily */
  }
 
@@ -46,4 +46,13 @@
  }
  .degree-7 {
    color: var(--color-degree-seventh-light);
+ }
+
+ .options-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+ }
+
+ .options-panel * {
+  margin: 0;
  }

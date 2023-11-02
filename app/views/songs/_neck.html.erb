@@ -1,0 +1,33 @@
+<%= content_tag :div, class: "guitar" do %>
+    <%= content_tag :div, class: "neck neck--guitar" do %>
+        <% 6.times do |string| %>
+            <%= content_tag :div, class: "string" do %>
+                <% (12+1).times do |fret| %>
+                    <%= content_tag :div, class: "fret" do %>
+
+                    <% if fret == 0 %>
+                        <% if string == 0 %>
+                        E
+                        <% end %>
+                        <% if string == 1 %>
+                        B
+                        <% end %>
+                        <% if string == 2 %>
+                        G
+                        <% end %>
+                        <% if string == 3 %>
+                        D
+                        <% end %>
+                        <% if string == 4 %>
+                        A
+                        <% end %>
+                        <% if string == 5 %>
+                        E
+                        <% end %>
+                    <% end %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

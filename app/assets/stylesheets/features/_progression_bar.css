@@ -8,19 +8,29 @@
     display: grid;                                                  /* use a grid for consistent layout between different bars and to easily accomodate non-full bars */
     grid-template-columns: repeat(auto-fill, var(--bar-tile-size)); /* auto-fill as necessary, use distinct tile size because it's more important to have a proper size here than to follow the rest of the layout units */
     padding: var(--size-s);                                         /* just a bit of breathing room */
+    margin: var(--size-xs) var(--size-xs);                           /* make it stand out */
     
 }
 
 /* an individual tile, that represents a single beat more or less (up to the user's interpretation) */
 .progression-chord__bar .progression-chord__tile {
-    padding: var(--size--xxxs) var(--size-xxs);                     /* some breathing room */ 
-    background: var(--color-white);                                 /* using pure white to stand out */
-    height: var(--size-l);                                          /*? play with padding, see if necessary */
-    color: var(--color-primary-dark);                               /* */
+    padding: var(--size-m) 0;                     /* some breathing room */ 
+    background: var(--color-primary-black);                                 /* using pure white to stand out */
+    /*height: var(--size-l);                                          /*? play with padding, see if necessary */
+    color: var(--color-accent-lightest);                               /* */
     border-style: var(--default-border-style);                      /* to sharply delineate each tile, use a border */
     border-width: var(--thick-border-width);                        /* to sharply delineate */
     border-left-width: 0px;                                         /* ignore left-borders to simplify css */
-    border-color: var(--color-primary-dark);                        /* to delineate, but still mesh with background */
+    border-color: var(--color-primary-white);                        /* to delineate, but still mesh with background */
+    text-align: center;
+}
+
+.progression-chord__bar .progression-chord__tile:hover {
+    background: var(--color-accent-darkest);
+}
+
+.progression-chord__bar .progression-chord__tile:active {
+    background: var(--color-accent-dark);
 }
 
 /* last tile in a bar */
@@ -34,5 +44,7 @@
 }
 
 .progression-chord__bar .progression-chord__tile:last-child {
-    border-right: 2px solid red;                                  /*? necessary? */
+    border-right-width: var(--thick-border-width);
+    border-right-style: var(--default-border-style);
+    border-right-color: var(--color-primary-white);                                  
 }

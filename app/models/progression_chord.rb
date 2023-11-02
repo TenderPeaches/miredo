@@ -152,7 +152,7 @@ class ProgressionChord < ApplicationRecord
       if i > 1 && i % 4 == 0
         printed << " : "
       end
-      beat = "– "
+      beat = " –"
       if staccato
         beat = ". "
       elsif muted

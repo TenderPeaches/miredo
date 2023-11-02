@@ -1,0 +1,11 @@
+<%# progression_chord, progression_id %>
+<% input_name = "progressions[" + progression_id.to_s + "][chords][" + progression_chord.sequence.to_s + "]" %>
+<div class="hidden-progression-chord" data-progression-chord-id="<%= progression_chord.id %>">
+    <input type="hidden" name="<%= input_name %>[id]" value="<%= progression_chord.id %>" />
+    <input type="hidden" name="<%= input_name %>[chord_id]" value="<%= progression_chord.chord_id %>" />
+    <input type="hidden" name="<%= input_name %>[degree]" value="<%= progression_chord.degree %>" />
+    <input type="hidden" name="<%= input_name %>[duration]" value="<%= progression_chord.duration %>" />
+    <input type="hidden" name="<%= input_name %>[modifier]" value="<%= progression_chord.modifier %>" />
+    <input type="hidden" name="<%= input_name %>[bass_modifier]" value="<%= progression_chord.bass_modifier %>" />
+    <input type="hidden" name="<%= input_name %>[bass_degree]" value="<%= progression_chord.bass_degree %>" />
+</div>

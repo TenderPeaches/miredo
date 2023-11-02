@@ -1,0 +1,38 @@
+.guitar {
+    text-align: center;                                     /*~ center the neck */
+    padding: var(--size-l);                                 /* acts as margin, spacing */ 
+}
+.neck {
+    border-style: none;                                     /* the frets have their own border */
+    display: inline-flex;                                   /* center the neck, wrap it around the frets and flex-vertical the strings */
+    flex-direction: column;                                 /* vertical list the strings */    
+}
+
+.neck .string {
+    display: flex;
+}
+
+
+.neck .fret {
+    width: calc(3 * var(--size-xl));
+    height: var(--size-xl);
+
+    border-color: var(--color-primary-white);
+    border-style: solid;
+    border-width: 2px;
+
+    margin-left: -1px;
+    margin-top: -1px;
+}
+
+.neck .fret:first-child {
+    border-style: none;
+}
+
+.neck--active .fret:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary-lightest);
+    box-shadow: 2px 2px 2px var(--color-secondary-lighter);
+    
+}
+

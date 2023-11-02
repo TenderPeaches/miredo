@@ -25,6 +25,8 @@ class SongsController < ApplicationController
                 @key = @song.key    # user can play around with song key, set default value to song's default key
             end
 
+            @scale = (params.has_key? :scale) ? params[:scale].to_i : @song.scale
+
             render :show_new
         end
     end
@@ -82,7 +84,7 @@ class SongsController < ApplicationController
     # GET /song/[id]/define_progressions
     def define_progressions
         @song = Song.find(params[:id])
-        @progressions = Progression.find_by_sql('SELECT pc.chord_id, pc.degree, pc.modifier, p.id, p.tag FROM progressions AS p INNER JOIN progression_chords AS pc ON pc.progression_id = p.id INNER JOIN song_progressions AS sp ON sp.progression_id = p.id AND sp.song_id = ? GROUP BY p.id', [ @song.id ])
+        @progressions = Progression.find_by_sql('SELECT pc.chord_id, pc.degree, pc.modifier, p.id, p.tag, p.reps FROM progressions AS p INNER JOIN progression_chords AS pc ON pc.progression_id = p.id INNER JOIN song_progressions AS sp ON sp.progression_id = p.id AND sp.song_id = ? GROUP BY p.id', [ @song.id ])
         @new_progressions = [ Progression.new ]
     end
 

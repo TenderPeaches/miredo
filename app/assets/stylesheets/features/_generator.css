@@ -10,13 +10,13 @@
     text-align: center;                             /* set text centered by default, given the compact layout */
     
  
-    max-width: 300px; /*! to be seen how to adjust width because the parent stretches it all the way up, just needs to wrap around content  */
+    max-width: 500px; /*! to be seen how to adjust width because the parent stretches it all the way up, just needs to wrap around content  */
   }
  
 /* like in a calculator, the generator displays the current value at the top, center of the screen */
 .generator__display {
    font-size: var(--font-size-display);             /* the value needs to be prominent */
-   background: var(--color-primary-black);          /* black that meshes with background */ 
+   background: var(--color-black);          /* black that meshes with background */ 
    padding: var(--size-l);                          /* make the value stand out with large padding */
-   color: var(--color-accent-light);                /* contrast with inputs & other data */
+   color: var(--color-primary-light);                /* contrast with inputs & other data */
   }

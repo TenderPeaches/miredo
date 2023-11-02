@@ -13,16 +13,20 @@ class Progression < ApplicationRecord
     # sort by each chord that makes up the progression
     def sortable
         sortable_string = ""
-        progression_chords.order(:sequence).each do |pc|
+        ordered_chords.each do |pc|
             sortable_string << pc.degree.to_s << "(" << pc.duration.to_s << ")"
         end
         return sortable_string
     end
 
+    def ordered_chords
+        progression_chords.order(:sequence)
+    end
+
     # display in a given key for a select box
     def print(key, scale)
         printed = ""
-        progression_chords.order(:sequence).each do |pc|
+        ordered_chords.each do |pc|
             # duration string to be appended to a chord, for instance the "----" part of C#----, denoting number of beats
             duration_string = ""
 
@@ -46,7 +50,7 @@ class Progression < ApplicationRecord
 
     def print_bars(key, scale)
         printed = ""
-        progression_chords.order(:sequence).each do |pc|
+        ordered_chords.each do |pc|
             
         end
     end

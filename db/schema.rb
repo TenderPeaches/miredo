@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_27_055847) do
   create_table "album_contributions", force: :cascade do |t|
     t.integer "albums_id", null: false
     t.integer "artists_id", null: false
@@ -47,6 +47,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
   create_table "chords", force: :cascade do |t|
     t.string "name"
     t.string "notation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -206,6 +212,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_125627) do
   end
 
   create_table "time_signatures", force: :cascade do |t|
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tunings", force: :cascade do |t|
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

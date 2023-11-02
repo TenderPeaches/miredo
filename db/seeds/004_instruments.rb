@@ -1,0 +1,1 @@
+#tuning__standard = Tuning.create(strings: [Pitch.find_by_midi(40), Pitch.find_by_midi(45), Pitch.find_by_midi(50), Pitch.find_by_midi(55), Pitch.find_by_midi(59), Pitch.find_by_midi(64)])

@@ -1,15 +1,34 @@
+<% key ||= Key.find_by_shorthand('C') %>
+<% scale ||= Scale.find_by_name('Major') %>
+
 <% progression_chord ||= ProgressionChord.new(degree: 1, chord: Chord.find_by_name('Major Triad'), duration: 2) %>
-<div class="generator progression-chord-generator">
+<div class="generator progression-chord-generator <% if true %>hidden<% end %>" data-progressions-target="generator">
 
     <div class="generator__display" data-progressions-target="display">
         <%= progression_chord.print(key,scale) %>
     </div>
-    <div class="generator__inputs">
-        <input type="hidden" data-field="progression_scale" name="progression[scale_id]" data-progressions-target="inputScale" value="<%= scale.id %>" />
-        <input type="hidden" data-field="progression_key" name="progression[key_id]" data-progressions-target="inputKey" value="<%= key.id %>" />
-        <input type="hidden" data-field="progression_id" name="progression[id]" data-progressions-target="inputId" value="<%= progression_id ||= 0 %>" />
-        <input type="hidden" data-field="progression_chord_id" name="progression[progression_chords_attributes][<%= progression_chord.sequence || 0 %>][id]" data-progressions-target="inputProgressionChordId" value="<%= progression_chord.id || 0 %>" />
-        <input type="hidden" data-field="progression_chord_sequence" name="progression[progression_chords_attributes][<%= progression_chord.sequence || 0 %>][sequence]" value="<%= progression_chord.sequence || 0 %>" />
+    <%= form_with model: progression_chord, class: "generator__inputs" do |form| %>
+        <%# scale %>
+        <input type="hidden" data-field="progression_scale" name="progression[scale_id]" data-progressions-target="scale" value="<%= scale.id %>" />
+        <%# key %>
+        <input type="hidden" data-field="progression_key" name="progression[key_id]" data-progressions-target="key" value="<%= key.id %>" />
+        <%# progression_id of the progression being modified, 0 if new %>
+        <input type="hidden" data-field="progression_id" name="progression[id]" data-progressions-target="selectedProgression" value="<%= progression_id ||= 0 %>" />
+        <%# progression_chord_id of the chord being modified, 0 if new %>
+        <input type="hidden" data-field="progression_chord_id" name="progression[progression_chords_attributes][<%= progression_chord.sequence || 0 %>][id]" data-progressions-target="selectedProgressionChord" value="<%= progression_chord.id || 0 %>" />
+        <%# sequence of the chord within the progression, used if progression or progression_chord is new %>
+        <input type="hidden" data-field="progression_chord_sequence" name="progression[progression_chords_attributes][<%= progression_chord.sequence || 0 %>][sequence]" value="<%= progression_chord.sequence || 0 %>" data-progressions-target="progressionChordSequence" />
+        <%# progression ID %>
+        <%= content_tag :div, class: "flex-x" do %>
+            <%= content_tag :div, class: "button button--square" do %>&lt;<% end %>
+            <%= content_tag :span, class: "progression" do %>Progression #<span data-progressions-target="progressionSequenceDisplay"></span><% end %>
+            <%= content_tag :div, class: "button button--square" do %>&gt;<% end %>
+        <% end %>
+        <%= content_tag :div, class: "flex-x" do %>
+            <%= content_tag :div, class: "button button--square" do %>&lt;<% end %>
+            <%= content_tag :div, class: "sequence" do %>Chord #<span data-progressions-target="progressionChordSequenceDisplay"></span><% end %>
+            <%= content_tag :div, class: "button button--square" do %>&gt;<% end %>
+        <% end %>
         <!-- degree input -->
         <%= content_tag :div, class: "generator__input generator__input--degree", "data-progressions-target" => "inputDegree" do %>
             <%= render partial: 'progression_chords/degree_picker', locals: { scale: scale, key: key, form: form, selected_degree: progression_chord.degree } %>
@@ -48,7 +67,8 @@
         <div class="generator__input generator__input--actions">
             <%= button_tag "Cancel", type: "reset", "data-action" => "click->progressions#do_stuff" %>
             <%= link_to_remove_association "Delete", form, { style: "background: red;" } %>
-            <%= form.submit "Confirm", { class: "confirm", style: "background: green;" } %>
+            <%= button_tag "Update", type: "update", "data-action" => "click->progression_chord#update" %>
+            <%= button_tag "Add", type: "confirm", "data-action" => "click->progression_chord#add" %>
         </div>
     <!--
 
@@ -57,7 +77,7 @@
 
         <%= form.label :muted %>
         <%= form.check_box :muted %> -->
-    </div>
-    <div class="generator__actions">
-    </div>
+    <% end %>
+    <%= content_tag :div, class: "generator__actions" do %>
+    <% end %>
 </div>

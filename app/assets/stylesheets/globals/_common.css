@@ -7,15 +7,69 @@
 
 /* class added to elements that need to clash with the surrounding content */
 .contrast-text {
-    color: var(--color-accent-light);       /* clash with text (by not using secondary color) and background (by not using primary) */
+    color: var(--color-accent-light);                       /* clash with text (by not using secondary color) and background (by not using primary) */
 }
 
 /* fields used within a typical form */
 .form-fields {
-    display: grid;                          /* to allow for a uniform display between each field */
-    margin: var(--size-l);                  /* breathing room around */
-    padding: var(--size-l);                 /* breathing room within */
-    grid-template-columns: 1fr 3fr;         /* 1 frame for the label, 3 frames for the field itself */
-    row-gap: var(--size-s);                 /* additional breathing room between each field */
+    display: grid;                                          /* to allow for a uniform display between each field */
+    margin: var(--size-l);                                  /* breathing room around */
+    padding: var(--size-l);                                 /* breathing room within */
+    grid-template-columns: 1fr 3fr;                         /* 1 frame for the label, 3 frames for the field itself */
+    row-gap: var(--size-s);                                 /* additional breathing room between each field */
   }
+
+/* generic button */
+.button {
+    cursor: pointer;                                        /* standard */
+    padding: var(--size-s);                                 /* inner breathing room */
+    margin: var(--size-xxs) var(--size-s);                  /* outer breathing room */
+    border-width: var(--thick-border-width);                /* let the border pop */
+    border-style: var(--button-border-style);               /* standard */
+    border-color: var(---color-primary-white);              /* highlight against dark background */
+    transition-duration: var(--quick-duration);             /* standard */
+    text-align: center;                                     /* standard */
+}
+
+.button--square {
+    display: inline-block;                                  /* force inline-block display, otherwise flex will change the dimensions */
+    padding: 0;                                             /* set dimensions manually, remove padding for easier calculations */
+    width: var(--size-xl);                                  /* ensure same size as height */
+    height: var(--size-xl);                                 /* ensure same size as width */
+    flex-direction: column;                                 /* center vertically */
+    justify-content: center;                                /* center vertically */
+}
+
+/* generic clickable element */ 
+.clickable {
+    cursor: pointer;                                        /* standard */
+    border-color: transparent;                              /* prevent element size from changing when border is not shown */
+    border-width: var(--default-border-size);               /* simple border */
+    border-style: var(--button-border-style);               /* standard */
+
+    transition-duration: var(--quick-duration);
+}
+
+.clickable:hover,
+.button:hover {
+    border-style: outset;
+    border-color: var(--color-primary-light);
+    background: var(--color-primary-darkest);
+}
+
+.clickable:active,
+.button:active {
+    background: var(--color-primary-dark);
+}
   
+.card {
+    margin: var(--size-m);
+    padding: var(--size-m);
+}
+
+/* x-axis centered flex */
+.flex-x {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
