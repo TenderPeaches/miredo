@@ -1,8 +1,8 @@
 /* content that displays a song's lyrics, chords, etc. */ 
 .show-song {
-    columns: 2;                             /* for readability, to reduce likelyhood of user needing to scroll down */
-    padding-left: var(--size-xxxl);         /* lots of breathing room */
-    padding-right: var(--size-xxxl);        /* lots of breathing room */
+    columns: 3;                             /* for readability, to reduce likelyhood of user needing to scroll down */
+    padding-left: var(--size-s);         /* lots of breathing room */
+    padding-right: var(--size-s);        /* lots of breathing room */
  }
   
  /*! song-line is deprecated, but still used */
@@ -12,6 +12,10 @@
     margin-top: var(--size-xxs);            /* just a bit of breathing room */
     margin-bottom: var(--size-xxs);         /* just a bit of breathing room */
     font-size: var(--font-size-lyrics);     /* big enough to read easily */
+ }
+
+ .song-progression__lyrics {
+  font-size: 0.95rem;
  }
 
  /*! song-line--chord is deprecated, but still used */

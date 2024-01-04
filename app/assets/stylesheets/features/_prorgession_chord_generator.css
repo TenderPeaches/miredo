@@ -83,6 +83,14 @@
   .progression-chord-generator .generator__inputs .generator__input--degree-modifier {
     grid-area: modifier;                          /* grid layout */
   }
+
+  /* both degree modifiers input (base & bass) */
+  .progression-chord-generator .generator__inputs .generator__input--bass-degree-modifier,
+  .progression-chord-generator .generator__inputs .generator__input--degree-modifier {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
  
   /* chord type input */
   .progression-chord-generator .generator__inputs .generator__input--chord-type {

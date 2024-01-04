@@ -25,8 +25,12 @@
     margin-top: -1px;
 }
 
-.neck .fret:first-child {
-    border-style: none;
+.neck .fret--outside {
+    border-color: transparent;
+}
+
+.neck .fret--included {
+    background: var(--color-accent-darker);
 }
 
 .neck--active .fret:hover {

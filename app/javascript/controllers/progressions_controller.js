@@ -52,7 +52,29 @@ export default class extends Controller {
     this.adjust_all_displays();
   }
 
-  async select_progression(event) {
+  // ensures the progression generator is shown
+  show_generator() {
+    // If generator is hidden 
+    if (this.generator.classList.contains('hidden')) {
+      // Show generator
+      this.generator.classList.remove('hidden');
+    }
+  }
+
+  update_generator_selected_progression_display(id, sequence) {
+    
+    // Update the "progression_id" input value, so the generator knows which progression is being updated
+    this.progression.value = id;
+    // Update the generator's progression sequence display to give user feedback
+    this.progressionSequence_display.innerText = sequence;
+
+  }
+
+  select_default_progressionChord(progression_id, progresison_sequence = 0) {
+
+  }
+
+  async on_progression_click(event) {
     let target = event.target;
 
     //! watch out if the progression cards' class name changes
@@ -67,34 +89,49 @@ export default class extends Controller {
       return false;
     }
 
-    // If generator is hidden 
-    if (this.generator.classList.contains('hidden')) {
-      // Show generator
-      this.generator.classList.remove('hidden');
-    }
-    
-    // Update the "progression_id" input value, so the generator knows which progression is being updated
-    this.progression.value = target.dataset['id'];
-    // Update the generator's progression sequence display to give user feedback
-    this.progressionSequence_display.innerText = target.dataset['sequence'];
-
-    // By default, select first progression_chord 
-    this.progressionChord.value = "1";
-    // Update the generator's progression chord sequence display to give user feedback
-    this.progressionChordSequence_display.innerText = "1";
-    
-   // this.update_generator_inputs(/* progression_chord_id from where? */);
+    this.select_progression_from_card(target);
   }
 
-  select_progression_chord(event) {
+  async select_progression_from_card(target) {
+    this.select_progression(target.dataset['id'], target.dataset['sequence']);
+  }
+
+  async select_progression(id, sequence = 0) {
+    
+    // On page-load, no progression is selected so the generator is hidden
+    this.show_generator();
+
+    // Only perform the selection if it differs from the current selection
+    if (id != this.progression.value) {
+
+      // The generator displays which progression is seleted, so update those elements accordingly
+      update_generator_selected_progression_display(id, sequence);
+  
+      // By default, select first progression_chord 
+      this.progressionChord.value = "1";
+      // Update the generator's progression chord sequence display to give user feedback
+      this.progressionChordSequence_display.innerText = "1";
+      
+      // this.update_generator_inputs(/* progression_chord_id from where? */);
+
+    }
+    
+  }
+
+  on_progressionChord_click(event) {
+    this.select_progression(event.target.dataset('progressionId'), event.target.dataset('progressionSequence'))
+  }
+
+  select_progressionChord(event) {
     this.update_generator_inputs(event.target.dataset['progressionId'], event.target.dataset['progressionChordId'], event.target.dataset['sequence']);
   }
 
   next_progression() {
-
+    this.select_progression_from_card(/* select the card with sequence (current + 1) */);
   }
 
   previous_progression() {
+    this.select_progression_from_card(/* select the card with sequence (current + -1) */);
 
   }
 

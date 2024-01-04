@@ -50,6 +50,14 @@
     transition-duration: var(--quick-duration);
 }
 
+/* generic clickable disabled element */
+.clickable--disabled {
+    border-color: var(--color-disabled);
+    background-color: var(--color-disabled-dark);
+    color: var(--color-disabled);
+    pointer-events: none;
+}
+
 .clickable:hover,
 .button:hover {
     border-style: outset;

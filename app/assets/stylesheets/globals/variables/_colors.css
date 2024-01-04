@@ -42,6 +42,8 @@
    --color-error: hsl(0, 100%, 35%);
    --color-black: hsl(0, 0%, 0%);
    --color-white: hsl(0, 0%, 100%);
+   --color-disabled :hsl(0, 0%, 60%);
+   --color-disabled-dark :hsl(0, 0%, 40%);
 
    /* application-specific utility colors */
    /** degree-associated colors */

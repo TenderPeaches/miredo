@@ -1,11 +1,12 @@
-# for seeding song progressions
+song = Song.find_by_name("")
 
-song = Song.find_by(name: "")
-progression_ = Progression.create(tag: "")
-progression_.progression_chords = [
-    ProgressionChord.create(chord: chord__, degree: , duration: ),
-    ProgressionChord.create(chord: chord__, degree: , duration: ),
+progression_1 = Progression.create(tag: "")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
 ]
 
-SongProgression.create(song: song, progression: progression_, tag: "", lyrics: "", reps: 1)
-SongProgression.create(song: song, progression: progression_, tag: "", lyrics: "", reps: 1)
+song.song_progressions = [
+    SongProgression.create(song: song, progression: progression_1, tag: "", lyrics: ""),
+    SongProgression.create(song: song, progression: progression_1, tag: "", lyrics: ""),
+]

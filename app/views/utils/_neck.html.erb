@@ -1,0 +1,41 @@
+<%= content_tag :div, class: "guitar" do %>
+    <%= content_tag :div, class: "neck neck--guitar" do %>
+        <%# helper fret indicators %>
+        <%= content_tag :div, class: "string" do %>
+            <% (@frets + 1).times do |fret| %>
+                <%= content_tag :div, class: "fret fret--outside" do %>
+                    <% if fret > 0 %>
+                        <%= fret %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+        <% @tuning.low_to_high_strings.each do |string| %>
+            <%= content_tag :div, class: "string" do %>
+                <%# @frets + 1 => because @frets contain the actual number of frets, adding 1 for the "0th" fret to represent the open string %>
+                <% (@frets + 1).times do |fret| %>
+                    <% pitch_class = string.pitch.pitch_class.get_offset(fret) %>
+                    <% fret_included = @accepted_pitch_ids.include? pitch_class.id %>
+                    <% fret_class = fret_included ? " fret--included" : "" %>
+                    <% fret_class << (fret == 0 ? " fret--outside" : "") %>
+                    <%= content_tag :div, class: "fret" + fret_class, "data-pitch-class" => pitch_class, "data-pitch" => Pitch.find_by_id(string.pitch_id + fret).id do %>
+                        <%# fret == 0 => open string, display the open string pitch %>
+                        <% if fret == 0 || fret_included %>
+                            <%= pitch_class.letter %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+        <%# helper fret indicators %>
+        <%= content_tag :div, class: "string" do %>
+            <% (@frets + 1).times do |fret| %>
+                <%= content_tag :div, class: "fret fret--outside" do %>
+                    <% if fret > 0 %>
+                        <%= fret %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

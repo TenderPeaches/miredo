@@ -21,7 +21,7 @@
             <% if i == 0 || tick_i == 0 %>
                 <% # create a new tile to denote time this progression chord is played for %>
                 <% # include a conditional for when this tile is the start & end (for duration == 1) %>
-                <div class="progression-chord__tile progression-chord__tile--start <% if i + 1 == pc.duration %>progression-chord__tile--end<% end %> clickable" data-action="click->progressions#select_progression_chord" data-progression-chord-id="<%= pc.id.to_s %>" data-progression-id="<%= progression.id.to_s %>" data-sequence="<%= pc.sequence.to_s %>">
+                <div class="progression-chord__tile progression-chord__tile--start <% if i + 1 == pc.duration %>progression-chord__tile--end<% end %> clickable" data-action="click->progressions#on_progressionChord_click" data-progression-chord-id="<%= pc.id.to_s %>" data-progression-id="<%= progression.id.to_s %>" data-progression-sequence="<%= progression.sequence.to_s %>" data-sequence="<%= pc.sequence.to_s %>">
                     <%= pc.print_chord(key, scale) %>
                     <% chord_printed = true %>
                 </div>

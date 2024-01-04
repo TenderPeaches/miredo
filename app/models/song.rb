@@ -18,12 +18,12 @@ class Song < ApplicationRecord
     has_many :song_progressions
     has_many :progressions, through: :song_progressions
 
-    validates :number, comparison: { greater_than: 0 }, numericality: { only_integer: true }, allow_nil: true
-    validates :duration, comparison: { greater_than: 0 }, numericality: { only_integer: true }, allow_nil: true
+    validates :number, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
+    validates :duration, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
     validates :nb_practices, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
     validates :last_practiced, comparison: { less_than: DateTime.now }, allow_nil: true
     validates :capo, capo: true
-    validates :bpm, comparison: { greater_than: 0, less_than_or_equal_to: 360 }, numericality: { only_integer: true }, allow_nil: true
+    validates :bpm, comparison: { greater_than_or_equal_to: 0, less_than_or_equal_to: 360 }, numericality: { only_integer: true }, allow_nil: true
     validates_associated :song_contributions
 
     attr_accessor(:new_album_name, :new_artist_name)        # in case of new album/artist

@@ -30,7 +30,7 @@ class Scale < ApplicationRecord
         # current degree tracker
         current_degree = 0
         # the list of chords will, at first, contain only the letter of the root + modifier
-        chords = [ { degree: degrees[current_degree], pitch_class: root.letter } ]
+        chords = [ { degree: degrees[current_degree], pitch_class: root.letter, pitch_class_id: root.id } ]
         # running_interval is running tally )in semitones) between the root and the current degree/interval being evaluated
         running_interval = 0
         # do each interval in turn
@@ -43,8 +43,9 @@ class Scale < ApplicationRecord
             running_interval -= 12 if running_interval + root.position > 12
             # rule this case out otherwise the root gets added as 8th degree
             unless running_interval == 0    
+                pitch_class = PitchClass.find_by_position(running_interval + root.position)
                 # push the chord's notation accordingly
-                chords << { degree: degrees[current_degree], pitch_class: PitchClass.find_by_position(running_interval + root.position).letter }
+                chords << { degree: degrees[current_degree], pitch_class: pitch_class.letter, pitch_class_id: pitch_class.id }
             end
             
         end

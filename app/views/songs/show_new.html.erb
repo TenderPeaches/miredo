@@ -20,30 +20,34 @@
             <%= label_tag :capo, "Capo:" %>
             <%= select_tag :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: @capo) %>
         </div>
-        <div>
-            <%= label_tag :scale, "Scale:" %>
-            <%= select_tag :scale, options_for_select([2, 3, 4, 5]), selected: @song.scale %>
-        </div>
         <%= submit_tag "Apply" %>
     <% end %>
     <div>
         <%= @song.scale.print_in_key(Key.find(@key.id)) %>
     </div>
+    <%= render partial: "utils/neck" %>
 <div class="show-song" data-controller="show-song"> 
    
     <% @song.song_progressions.order(:sequence).each do |song_progression| %>
         <div class="song-progression__chords">
             <% beat_counter = 0 %>
+            <% if song_progression.key %>
+                <% song_progression_key = song_progression.key %>
+            <% elsif song_progression.progression.key %>
+                <% song_progression_key = song_progression.progression.key %>
+            <% else %>
+                <% song_progression_key = @song.key %>
+            <% end %>
             <% song_progression.progression.progression_chords.order(:sequence).each do |progression_chord| %>
                 <% beat_counter += progression_chord.duration %>
-                <% if beat_counter > 8 %>
+                <% if beat_counter > 16 %>
                     <br/>
-                    <% beat_counter = 0 %>
+                    <% beat_counter -= 16 %>
                 <% end %>
                 <%= progression_chord.print_with_colors(@key, @song.scale) %> 
             <% end %>
             <% unless song_progression.nil? %>
-                <% if song_progression.reps > 1 %>
+                <% if song_progression.show_reps? %>
                     <%= song_progression.print_reps %>
                 <% end %>
             <% end %>

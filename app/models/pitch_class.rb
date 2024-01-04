@@ -7,6 +7,27 @@ class PitchClass < ApplicationRecord
         PitchClass.where(letter: ['A', 'B', 'C', 'D', 'E', 'F', 'G'])
     end
 
+    def next
+        offset(1)
+    end
+
+    def previous
+        offset(-1)
+    end
+
+    def get_offset(offset = 0)
+        # adjust for positive overflow
+        if id + offset > PitchClass.count
+            PitchClass.find_by_id(id + offset - PitchClass.count)
+        # adjust for negative overflow
+        elsif id + offset < 1
+            PitchClass.find_by_id(id + offset + PitchClass.count)
+        # otherwise, id + offset is within [1,12]
+        else 
+            PitchClass.find_by_id(id + offset)
+        end 
+    end
+
     # print relative to another pitch, used especially for sharps/flats
     # !pitch param should be a natural pitch_class, otherwise this will output nonsensical stuff like C#bb
     def print_relative_to(pitch)

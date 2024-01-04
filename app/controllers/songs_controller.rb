@@ -16,7 +16,7 @@ class SongsController < ApplicationController
             @capo = (params.has_key? :capo) ? params[:capo].to_i : @song.capo
 
             # if there is a capo
-            if @capo != 0
+            if @capo != 0 && @song.key
                 # adjust the key accordingly, shifting from the song's base key
                 @key = @song.key.shift(@capo * -1)
             # otherwise, no capo applied
@@ -27,6 +27,15 @@ class SongsController < ApplicationController
 
             @scale = (params.has_key? :scale) ? params[:scale].to_i : @song.scale
 
+            @tuning = Tuning.first
+            @frets = 12
+            @accepted_pitch_ids = []
+            @accepted_pitches = @scale.chords_from_key(@key)
+    
+            @accepted_pitches.each do |pitch|
+                @accepted_pitch_ids << pitch[:pitch_class_id]
+            end
+    
             render :show_new
         end
     end

@@ -19,10 +19,10 @@ class SongProgression < ApplicationRecord
   end
 
   def show_reps?
-    reps > 1
+    reps > 1 || progression.reps > 1
   end
 
   def print_reps
-    "x" + reps.to_s
+    "x" + (reps * progression.reps).to_s
   end
 end

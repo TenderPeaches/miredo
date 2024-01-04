@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "utils/print_progression_chord", to: "progression_chords#print_from_request"
   get "utils/get_degrees", to: "scales#get_degree_chords_from_request"
   get "utils/get_progression_chord_generator_info", to: "progression_chords#generator_info"
+  get "fretboard", to: "application#fretboard", as: :fretboard
 
   #get "/:id", to: "songs#show", as: :song
   #get "/play/:id", to: "songs#play", as: :play_song

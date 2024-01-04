@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_27_055847) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_10_150346) do
   create_table "album_contributions", force: :cascade do |t|
     t.integer "albums_id", null: false
     t.integer "artists_id", null: false
@@ -217,6 +217,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_27_055847) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tuning_pitches", force: :cascade do |t|
+    t.integer "pitch_id", null: false
+    t.integer "tuning_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pitch_id"], name: "index_tuning_pitches_on_pitch_id"
+    t.index ["tuning_id"], name: "index_tuning_pitches_on_tuning_id"
+  end
+
   create_table "tunings", force: :cascade do |t|
     t.string "label"
     t.datetime "created_at", null: false
@@ -236,4 +245,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_27_055847) do
   add_foreign_key "scale_intervals", "scales"
   add_foreign_key "song_progressions", "progressions"
   add_foreign_key "song_progressions", "songs"
+  add_foreign_key "tuning_pitches", "pitches"
+  add_foreign_key "tuning_pitches", "tunings"
 end
