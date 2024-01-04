@@ -49,7 +49,8 @@ class Scale < ApplicationRecord
             end
             
         end
-        
+        puts chords.inspect
+        puts 'hello'
         # standardize output
         chords.each do |chord|
             chord[:print] = chord[:pitch_class] + " - " + chord[:degree]

@@ -14,12 +14,13 @@
 
 
 .neck .fret {
-    width: calc(3 * var(--size-xl));
+    width: calc(2.5 * var(--size-xl));
     height: var(--size-xl);
 
     border-color: var(--color-primary-white);
     border-style: solid;
     border-width: 2px;
+    padding: 0.10rem;
 
     margin-left: -1px;
     margin-top: -1px;
@@ -31,6 +32,7 @@
 
 .neck .fret--included {
     background: var(--color-accent-darker);
+    color: var(--color-white);
 }
 
 .neck--active .fret:hover {
@@ -39,4 +41,33 @@
     box-shadow: 2px 2px 2px var(--color-secondary-lighter);
     
 }
+
+.neck .fret--degree-1 {
+    background: var(--color-degree-first-dark);
+}
+
+.neck .fret--degree-2 {
+    background: var(--color-degree-second-dark);
+}
+
+.neck .fret--degree-3 {
+    background: var(--color-degree-third-dark);
+}
+
+.neck .fret--degree-4 {
+    background: var(--color-degree-fourth-dark);
+}
+
+.neck .fret--degree-5 {
+    background: var(--color-degree-fifth-dark);
+}
+
+.neck .fret--degree-6 {
+    background: var(--color-degree-sixth-dark);
+}
+
+.neck .fret--degree-7 {
+    background: var(--color-degree-seventh-dark);
+}
+
 

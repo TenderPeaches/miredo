@@ -1,0 +1,9 @@
+<%= content_tag :div, class: "string" do %>
+    <% (@frets + 1).times do |fret| %>
+        <%= content_tag :div, class: "fret fret--outside" do %>
+            <% if fret > 0 %>
+                <%= fret + @capo %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

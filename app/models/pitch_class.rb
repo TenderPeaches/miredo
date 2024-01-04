@@ -16,16 +16,12 @@ class PitchClass < ApplicationRecord
     end
 
     def get_offset(offset = 0)
-        # adjust for positive overflow
-        if id + offset > PitchClass.count
-            PitchClass.find_by_id(id + offset - PitchClass.count)
-        # adjust for negative overflow
-        elsif id + offset < 1
-            PitchClass.find_by_id(id + offset + PitchClass.count)
-        # otherwise, id + offset is within [1,12]
-        else 
-            PitchClass.find_by_id(id + offset)
-        end 
+        # find the remainder of this pitch class + offset / 12
+        pitch_class_id = (id + offset) % PitchClass.count
+        # ID 0 == PitchClass with ID of 12
+        pitch_class_id = PitchClass.count if pitch_class_id == 0
+
+        PitchClass.find_by_id(pitch_class_id)
     end
 
     # print relative to another pitch, used especially for sharps/flats

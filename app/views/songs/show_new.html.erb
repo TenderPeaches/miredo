@@ -31,12 +31,13 @@
     <% @song.song_progressions.order(:sequence).each do |song_progression| %>
         <div class="song-progression__chords">
             <% beat_counter = 0 %>
+            <%#(!) doesn't work with capo %>
             <% if song_progression.key %>
                 <% song_progression_key = song_progression.key %>
             <% elsif song_progression.progression.key %>
                 <% song_progression_key = song_progression.progression.key %>
             <% else %>
-                <% song_progression_key = @song.key %>
+                <% song_progression_key = @key %>
             <% end %>
             <% song_progression.progression.progression_chords.order(:sequence).each do |progression_chord| %>
                 <% beat_counter += progression_chord.duration %>
@@ -44,7 +45,7 @@
                     <br/>
                     <% beat_counter -= 16 %>
                 <% end %>
-                <%= progression_chord.print_with_colors(@key, @song.scale) %> 
+                <%= progression_chord.print_with_colors(song_progression_key    , @song.scale) %> 
             <% end %>
             <% unless song_progression.nil? %>
                 <% if song_progression.show_reps? %>
