@@ -22,10 +22,10 @@
         </div>
         <%= submit_tag "Apply" %>
     <% end %>
-    <div>
-        <%= @song.scale.print_in_key(Key.find(@key.id)) %>
-    </div>
-    <%= render partial: "utils/neck" %>
+    <%= content_tag :div, class: "song-top-panel" do %>
+        <%= render partial: "scales/print", locals: { scale: @song.scale, key: @key } %>
+        <%= render partial: "utils/neck" %>
+    <% end %>
 <div class="show-song" data-controller="show-song"> 
    
     <% @song.song_progressions.order(:sequence).each do |song_progression| %>

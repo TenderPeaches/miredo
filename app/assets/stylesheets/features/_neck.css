@@ -16,6 +16,7 @@
 .neck .fret {
     width: calc(2.5 * var(--size-xl));
     height: var(--size-xl);
+    color: var(--color-primary-dark);
 
     border-color: var(--color-primary-white);
     border-style: solid;

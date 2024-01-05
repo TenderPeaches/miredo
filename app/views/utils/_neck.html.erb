@@ -20,10 +20,7 @@
                     <% fret_class << (fret == 0 ? " fret--outside" : "") %>
                     <%# print the fret %>
                     <%= content_tag :div, class: "fret" + fret_class, "data-pitch-class" => pitch_class, "data-pitch" => Pitch.find_by_id(string.pitch_id + fret).id do %>
-                        <%# fret == 0 => open string, display the open string pitch %>
-                        <% if fret == 0 || fret_included %>
-                            <%= pitch_class.letter %>
-                        <% end %>
+                        <%= pitch_class.letter %>
                     <% end %>
                 <% end %>
             <% end %>

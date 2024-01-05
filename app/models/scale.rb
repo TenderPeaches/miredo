@@ -13,12 +13,38 @@ class Scale < ApplicationRecord
 
     #! degrees as labels must vary depending on what kind of chord they are
     def degrees
-        # simplest would be just numeric labels
-        [ "I".freeze, "ii".freeze, "iii".freeze, "IV".freeze, "V".freeze, "vi".freeze, "vii".freeze ]
+        # for now, because there aren't all that many scales implemented, just use a switch rather than try to algorithmically figure out the chords
+        case id
+        when 1      # chromatic
+            [ "I".freeze, "II".freeze, "III".freeze, "IV".freeze, "V".freeze, "VI".freeze, "VII".freeze, "VIII".freeze, "IX".freeze, "X".freeze, "XI".freeze, "XII".freeze]
+        when 2      # major 
+            [ "I".freeze, "ii".freeze, "iii".freeze, "IV".freeze, "V".freeze, "vi".freeze, "vii⁰".freeze ]
+        when 3      # natural minor
+            [ "i".freeze, "ii⁰".freeze, "III".freeze, "iv".freeze, "v".freeze, "VI".freeze, "VII".freeze ]
+        else
+            []
+        end
+        
+        # any other case is todo
     end
 
+    def chords
+        chord__major = Chord.find_by(name: "Major Triad")
+        chord__minor = Chord.find_by(name: "Minor Triad")
+        
+        chord__diminished = Chord.find_by(name: "Diminished Triad")
+        case id
+        when 2 
+            [ chord__major, chord__minor, chord__minor, chord__major, chord__major, chord__minor, chord__diminished ]
+        when 3
+            [ chord__minor, chord__diminished, chord__major, chord__minor, chord__minor, chord__major, chord__major ]
+        else 
+            []
+        end
+    end 
+
     # modifier> number of semitones to add to each note
-    def get_degree_chords(key, modifier)
+    def get_degree_chords(key, modifier = 0)
 
         # establish the root position, adjusted with the modifier
         root_position = key.pitch_class.position + modifier
@@ -46,14 +72,12 @@ class Scale < ApplicationRecord
                 pitch_class = PitchClass.find_by_position(running_interval + root.position)
                 # push the chord's notation accordingly
                 chords << { degree: degrees[current_degree], pitch_class: pitch_class.letter, pitch_class_id: pitch_class.id }
-            end
-            
+            end    
         end
-        puts chords.inspect
-        puts 'hello'
+        
         # standardize output
-        chords.each do |chord|
-            chord[:print] = chord[:pitch_class] + " - " + chord[:degree]
+        chords.each_with_index do |chord, i|
+            chord[:print] = chord[:pitch_class] + self.chords[i].notation
         end
         return chords
     end

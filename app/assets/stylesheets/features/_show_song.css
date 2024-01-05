@@ -4,6 +4,13 @@
     padding-left: var(--size-s);         /* lots of breathing room */
     padding-right: var(--size-s);        /* lots of breathing room */
  }
+
+ /* top side info panel */
+ .song-top-panel {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+ }
   
  /*! song-line is deprecated, but still used */
  /* lyrics line */
@@ -59,4 +66,12 @@
 
  .options-panel * {
   margin: 0;
+ }
+
+ .scale-chords {
+  width: 4rem;
+ }
+
+ .scale-chords td {
+  text-align: center;
  }
