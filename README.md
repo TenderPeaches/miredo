@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A locally-hosted web Ruby on Rails app that catalogs songs chords and lyrics. Features visual aids to help situating the musical scales of a given song on a guitar fretboard. Keeps track of when/how many times each song is played, if the goal is to practice them. <br>
 
-Things you may want to cover:
+Ruby v3.1.3<br>
+Rails v7.0.5<br>
 
-* Ruby version
+Run bin/rails s<br>
+Access 127.0.0.1:3000 on your browser<br>
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+See seeds.rb for template to add new songs<br>

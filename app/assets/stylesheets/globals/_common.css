@@ -1,5 +1,10 @@
 /* _common.css => for common classes that aren't tied to one specific page or feature */
 
+/* main application content viewport, occupies most of the screen */
+.content {
+    padding: var(--size-xxl) calc(2 * var(--size-xxxl));    /* large padding for large screens */
+}
+
 /* class added to elements that need to be hidden from the layout */
 .hidden {
     display: none !important;   /*! maybe only acceptable use of !important, but should still look to see if really necessary */
@@ -81,3 +86,13 @@
     justify-content: space-between;
     align-items: center;
 }
+
+
+/* screen-size dependent considerations */
+/* for large screens */
+@media screen and (min-width: 1080px) {
+    .content {
+        padding: var(--size-xxl) calc(2 * var(--size-xxxl));    /* large padding for large screens */
+    }
+    
+ }

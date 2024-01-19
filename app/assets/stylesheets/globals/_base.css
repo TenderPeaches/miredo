@@ -5,7 +5,6 @@ body {
     background-color: var(--color-primary-black);           /* dark-bg */
     color: var(--color-primary-white);                      /* light-fg */ 
     margin: auto;                                           /* to center content */
-    padding-top: var(--size-xxl);                           /* breathing space */ 
 }
 
 /* links */
@@ -52,5 +51,15 @@ input[type="number"] {
 @media screen and (min-width: 1080px) {
     body {
         max-width: var(--max-content-width--large-screen);  /* prevent the content from spreading over too wide an area */
+    }
+
+    /* header nav bar */
+    header {
+        display: flex;                                      /* horizontal flex */
+        gap: var(--size-m);                                 /* space out links */
+        justify-content: space-between;                     /* maximimze space */
+        padding: var(--size-l);                             /* header internal padding */
+        border-bottom: 1px ridge var(--color-primary-dark); /* bottom edge */
+        background: var(--color-black);                     /* differentiate from page content */
     }
  }

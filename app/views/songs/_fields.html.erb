@@ -1,0 +1,44 @@
+
+
+<%= form.label :name %>
+<%= form.text_field :name, placeholder: "Song name" %>
+
+<%= form.label :number, "# in Album" %>
+<%= form.number_field :number, min: 0, step: 1 %>
+
+<%= form.label :duration, "Default duration (approx, in seconds)" %>
+<%= form.number_field :duration, min: 0, step: 1 %>
+
+<%= form.label :capo, "Default capo" %>
+<%= form.select :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: 0) %>
+
+<%= form.label :bpm, "Default bpm" %>
+<%= form.number_field :bpm, in: 1..360 %>
+
+<%= form.label :key, "Default key" %>
+<%= form.collection_select :key_id, Key.for_select, :id, :shorthand %>
+
+<%= form.label :scale, "Scale" %>
+<%= form.collection_select :scale_id, Scale.for_select, :id, :name %>
+
+<%= form.fields_for :song_contributions do |song_contributions_form| %>
+    <%= song_contributions_form.label :artist, "Artist" %>
+    <%= song_contributions_form.collection_select :artist_id, Artist.all, :id, :name, :prompt => "" %>
+    
+    <% if song_contributions_form.object && song_contributions_form.object.persisted? %>
+        <div>
+            <%= song_contributions_form.check_box :_destroy, {:checked => song_contributions_form.object.persisted?}, '0', '1' %>
+            <%= song_contributions_form.label :_destroy, song_contributions_form.object.artist.name %>
+            <%= song_contributions_form.hidden_field :artist_id %>
+        </div>
+    <% else %>
+        <div></div>
+        <%= form.text_field :new_artist_name, placeholder: "New artist" %>
+    <% end %>
+<% end %>
+
+<%= form.label :album, "Album" %>
+<div class="select-or-add">
+    <%= form.collection_select :album_id, Album.all, :id, :name %>
+    <%= form.text_field :new_album_name, placeholder: "New album" %>
+</div>

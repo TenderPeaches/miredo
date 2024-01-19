@@ -505,7 +505,7 @@ song.song_progressions = [
     SongProgression.create(progression: progression_1, tag: "Break", lyrics: ""),
     SongProgression.create(progression: progression_1, tag: "Verse 2", lyrics: "I fill my mouth up with air; honey in the hair; Honey in the hair, honey in the hair; I fill my life up with time, asleep in the vine; Whiskey and wine, whiskey and wine; Who makes the wind blow; I don't care, my eyes roll back in my head; Who makes the wind blow; I don't care, my eyes roll back in my head; I'm just walking in circles; I see the lines in chalk on the ground; I'm just walking in circles; I see the lines in chalk on the ground; "),
     SongProgression.create(progression: progression_2, tag: "Bridge", lyrics: "One day this will all come down; One day this will all come crashing right down;"),
-    SongProgression.create(progression: progression_2, tag: "Ending", lyrics: "So go on with your life; We will bring you down; One day this will all come down; One day this will all come crashing right down; So go on with your life; We will bring you down;"),
+    SongProgression.create(progression: progression_3, tag: "Ending", lyrics: "So go on with your life; We will bring you down; One day this will all come down; One day this will all come crashing right down; So go on with your life; We will bring you down;"),
 ]
 
 # coal - blackbird raum
@@ -977,7 +977,7 @@ song.song_progressions = [
     SongProgression.create(progression: progression_1, tag: "Verse 2", lyrics: "Crève mon sale, t'es un pédophile; Un mangeux de crapauds; Tu sens la canisse d'huile; T'es un sniffeux de moppe; Un licheux de poubelle; J'te clouerais la langue dans le front; Pis je te ferais dire \"ananas\";"),
     SongProgression.create(progression: progression_1, tag: "Verse 3", lyrics: "Crève mon sale, m'as te faire empailler; Pis m'as te tirer dessus; M'as dire à tout le monde que t'aime le fuschia; Tu mériterais juste que je t'arrache les deux yeux; Pis que je les passe dans mon broyeur;"),
     SongProgression.create(progression: progression_1, tag: "Verse 4", lyrics: "Crève mon sale, m'a envoyer mon chien pisser sue ta tombe; Je vais aller te déterrer pour te voir pourrir; Je vais remplir ton trou avec des déchets dangereux; Pis je vais mettre le feu dedans;"),
-    SongProgression.create(progression: progression_1, tag: "Verse 5", lyrics: "Crève mon sale...; T'es un maudit écoeurant laid; Pis tu sens le swing; Tu marches comme un canard; Tu t'exprimes mal; Ton linge est même pas beau; Pis ta mère a le cul large; Comme un autobus;"),
+    SongProgression.create(progression: progression_1, tag: "Verse 5", lyrics: "Crève mon sale...; T'es un maudit écoeurant laid; Pis tu sens le swing; Tu marches comme un canard; Tu t'exprimes mal; Ton linge est même pas beau; Pis ta mère a le cul large; Comme un autobus (Pis quand t'embrasses ta soeur tu t'gênes pas s'a langue);"),
 ]
 
 # my immortal - evanescence
@@ -1415,6 +1415,132 @@ song.song_progressions = [
     SongProgression.create(progression: progression_6, tag: "Outro", lyrics: "[Instr. x1]; As I close my eyes to die, I will not fear, I will not cry; As I travel down this road, I gave my all, I took my load; As I lay my head to rest, Oh God, you know! I did my best!; Was it you, or I who turned?; Whose fault is it, That I must burn; Whose fault is it?; Whose fault is it?; That I must burn;"),
 ]
 
+# I am the living dead - harley poe
+
+song = Song.find_by_name("I Am the Living Dead")
+
+progression_1 = Progression.create(tag: "Intro")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 8),
+]
+
+progression_2 = Progression.create(tag: "Verse pt 1", reps: 6)
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+]
+
+progression_3 = Progression.create(tag: "Verse pt 2")
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+]
+
+progression_4 = Progression.create(tag: "Chorus")
+progression_4.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 1),
+]
+
+progression_5 = Progression.create(tag: "Bridge pt 1")
+progression_5.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 1),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+]
+
+progression_6 = Progression.create(tag: "Bridge pt 2")
+progression_6.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 1),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+]
+
+song.song_progressions = [
+    SongProgression.create(progression: progression_1, tag: "Intro", lyrics: ""),
+    SongProgression.create(progression: progression_2, tag: "Verse 1", lyrics: "Wake up look around everybody's dead living in this town; But we're bright and young and we don't care; ‘Cause we know that we're gonna get out of here; It's their fate their luck it's where they belong; They drag themselves around with the same old song; Who'd-have-thought they'd get a bite out of me; Fuckin' up the cards and my destiny;"),
+    SongProgression.create(progression: progression_3, tag: "Verse 1", lyrics: "I always thought I was different from the bunch; Now all I can think about is eating you for lunch;"),
+    SongProgression.create(progression: progression_4, tag: "Chorus 1", lyrics: "I am the living dead a single thought floating in my head; I got a hunger growing deep inside it's alive it's alive;"),
+    SongProgression.create(progression: progression_1, tag: "Post-Chorus 1", lyrics: ""),
+    SongProgression.create(progression: progression_2, tag: "Verse 2", lyrics: "Now I know it could be worse but is a zomibified humanity really a curse?; No fear I'm already dead never have to worry about who's in my bed; Or friends a job it's all obsolete the only thing that matters is what I will eat; Blood brains the Holy Grail I got my eye and it's focused and I'm not gonna fail;"),
+    SongProgression.create(progression: progression_3, tag: "Verse 2", lyrics: "I always thought I was special but I'm not; I'm nothing but another piece of meat making up the lot;"),
+    SongProgression.create(progression: progression_4, tag: "Chorus 2", lyrics: "I am the living dead a single thought floating in my head; I got a hunger growing deep inside it's alive it's alive;"),
+    SongProgression.create(progression: progression_5, tag: "Bridge", lyrics: "There was a time I was alive but now gone are the good old days;"),
+    SongProgression.create(progression: progression_6, tag: "Bridge", lyrics: "I had my dreams but so it seems that living was just a faze;"),
+    SongProgression.create(progression: progression_4, tag: "Chorus 3", lyrics: "I am the living dead; I am the living dead; I am the living dead; I am the living dead, a single thought floating in my head; I got a hunger growing deep inside it's alive it's alive;"),
+    SongProgression.create(progression: progression_4, tag: "Chorus 4", lyrics: "I am the living dead a single thought floating in my head; I got a hunger growing deep inside it's alive it's alive;"),
+]
+
+# ouija - harley poe
+song = Song.find_by_name("Ouija")
+
+progression_1 = Progression.create(tag: "Verse pt 1", reps: 4)
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 1),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 1),
+]
+
+progression_2 = Progression.create(tag: "Verse pt 2")
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 1),
+]
+
+progression_3 = Progression.create(tag: "Chorus", reps: 2)
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 6, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 1),
+]
+
+progression_4 = Progression.create(tag: "Ending")
+progression_4.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 1),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 1),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 1),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 1),
+    ProgressionChord.create(chord: chord__seventh, degree: 1, duration: 1),
+]
+
+song.song_progressions = [
+    SongProgression.create(song: song, progression: progression_1, tag: "Verse 1", lyrics: "Gonna play a show at a house tonight; Gonna turn up the tunes gonna turn down the lights; Kids lookin' ripe and lookin' good; Who's to say I wouldn't only if I could?; I feel I missed my road when I said no; But you can't have it all that's how things go; So I'll just play my guitar and when I'm through; I'll sit all by myself thinking of you;"),
+    SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "After awhile getting high in the bathroom gets old; Drinking too much well it's making my face look oh so old;"),
+    SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "Now let's do something different now that we're all here; Nothing wrong with dancing and drinking beer; But I'm without my Lord so I brought my board; Place your hands on the Ouija in one accord; Friend are you near? Friend can you hear?; Enter our lives you have nothing to fear; How did you die? Possess me and cry; Do as you will but don't you lie;"),
+    SongProgression.create(song: song, progression: progression_2, tag: "Verse 2", lyrics: "Can't you see can't you see can't you see I'm in pain?; Give me some truth to the other side, At least tell me your name;"),
+    SongProgression.create(song: song, progression: progression_3, tag: "Bridge", lyrics: ""),
+    SongProgression.create(song: song, progression: progression_3, tag: "Bridge", lyrics: "If you were evil then do evil (then I'll do evil); If you were good did you regret it?; Were you successful? Were you clever?; When you wanted it did you get it?; Well here's your chance do it again; Do it through me but it's still your sin; I want to taste it no consequences; We'll give each other our second chances; Do what you want, do what you want, do what you want, do what you want;", reps: 4),
+    SongProgression.create(song: song, progression: progression_3, tag: "Bridge", lyrics: "If you were evil then do evil (then I'll do evil); If you were good did you regret it?; Were you successful? Were you clever?; When you wanted it did you get it?; Well here's your chance do it again; Do it through me but it's still your sin; I want to taste it no consequences; We'll give each other our second chances; Do what you want, do what you want, do what you want, do what you want;", reps: 4),
+    SongProgression.create(song: song, progression: progression_3, tag: "Outro", lyrics: ""),
+    SongProgression.create(song: song, progression: progression_5, tag: "Outro", lyrics: " Gonna play a show, at a house tonight; Gonna turn up the tunes gonna turn down the lights; Kids lookin' ripe and lookin' good; Who's to say I won't ‘cause I know I could?"),
+]
+
 # church hymn from the condemned - johnny hobo & the freight trains
 song = Song.find_by_name("Church Hymn for the Condemned")
 
@@ -1498,6 +1624,56 @@ song.song_progressions = [
     SongProgression.create(progression: progression_1, tag: "Break 2", lyrics: ""),
     SongProgression.create(progression: progression_3, tag: "Chorus 3", lyrics: "And the sun will set for you; The sun will set for you; And the shadow of the day; Will embrace the world in grey; And the sun will set for you;"),
     SongProgression.create(progression: progression_3, tag: "Chorus 4", lyrics: "[Instr. x2]; And the shadow of the day; Will embrace the world in grey; And the sun will set for you;"),
+]
+
+# I'm going home - Pat the Bunny
+song = Song.find_by_name("I'm Going Home")
+
+progression_1 = Progression.create(tag: "Verse.1")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+]
+
+progression_2 = Progression.create(tag: "Verse.2")
+progression_2.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__minor, degree: 6, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 4),
+]
+
+progression_3 = Progression.create(tag: "Verse.3")
+progression_3.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 4),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 8),
+]
+
+progression_4 = Progression.create(tag: "Chorus")
+progression_4.progression_chords = [
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 4),
+]
+
+song.song_progressions = [
+    SongProgression.create(song: song, progression: progression_1, tag: "Verse 1", lyrics: "I was stupid enough to throw my life away on music; Like it was that simple; But if singing changed anything; They'd make it illegal;"),
+    SongProgression.create(song: song, progression: progression_2, tag: "Verse 1", lyrics: "I hate strangers, loud noises, and crowds; I'll play a show every night;"),
+    SongProgression.create(song: song, progression: progression_3, tag: "Verse 1", lyrics: "And would you, and would you believe; There are people who come to me for advice?;"),
+    SongProgression.create(song: song, progression: progression_4, tag: "Chorus 1", lyrics: "I'm driving fast as the car can go; Because I'm going home;"),
+    SongProgression.create(song: song, progression: progression_4, tag: "Post-Chorus 1", lyrics: ""),
+    SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "I was desperate enough for the feeling; Of pushing back to jump into the streets; The cops have us all surrounded; Hear them gnashing their teeth;"),
+    SongProgression.create(song: song, progression: progression_2, tag: "Verse 2", lyrics: "Ready now, bail down the alley when we hit the next light;"),
+    SongProgression.create(song: song, progression: progression_3, tag: "Verse 2", lyrics: "And would you, and would you believe; There are people who ask me how to fight?;"),
+    SongProgression.create(song: song, progression: progression_4, tag: "Chorus 2", lyrics: "I'm running fast as these legs can go; And I'm going home;"),
+    SongProgression.create(song: song, progression: progression_4, tag: "Post-Chorus 2", lyrics: ""),
+    SongProgression.create(song: song, progression: progression_1, tag: "Verse 3", lyrics: "Five years ago, I was broken enough to just shut the fuck up; I got sober by going to rehab; And not arguing so much for once;"),
+    SongProgression.create(song: song, progression: progression_2, tag: "Verse 3", lyrics: "Punk rockers ask me how I did it; Hoping for an easier way;"),
+    SongProgression.create(song: song, progression: progression_3, tag: "Verse 3", lyrics: "And would you, and would you believe; That they don't like what I have to say?;"),
+    SongProgression.create(song: song, progression: progression_4, tag: "Chorus 3", lyrics: "I pray as much as an atheist can; And then I walk home; I'm driving fast as the car can go; Because I'm going home;", reps: 2),
 ]
 
 # fear not - railyard ghosts
@@ -2095,12 +2271,12 @@ progression_4.progression_chords = [
 song.song_progressions = [
     SongProgression.create(song: song, progression: progression_1, tag: "Intro", lyrics: "", reps: 2),
     SongProgression.create(song: song, progression: progression_1, tag: "Verse 1", lyrics: "She's always asking why I like watching people die, and why I get my kicks while others scream and cry; And my friends think that I'm sick or maybe uneducated, and my family doesn't want to admit that they are related; Now monsters and madmen who rape and mutilate are perfect entertainment when I take her on a date; You can shove your sparkly vampires and family comedies, give me blood and beasts and boobs them sacred triple Bs;", reps: 4),
-    SongProgression.create(song: song, progression: progression_2, tag: "Pre-Chorus 1", lyrics: "Don't ask me why, 'cause I don't know, don't close your eyes, enjoy the show;", reps: 2),
+    SongProgression.create(song: song, progression: progression_2, tag: "Pre-Chorus 1", lyrics: "Don't ask me why, 'cause I don't know, don't close your eyes, enjoy the show;"),
     SongProgression.create(song: song, progression: progression_3, tag: "Chorus 1", lyrics: "'Cause I'm a gorehound, hellbound horror movie lover, I like my voyerism with a glass of red rum; 'Cause I'm a gorehound, hellbound, horror movie lover, good and evil are just colors on the spectrum;", reps: 2),
     SongProgression.create(song: song, progression: progression_4, tag: "Post-Chorus 1", lyrics: "One, two, three, four, nail her to the bedroom flour; Five, six, seven, eight, rape and kill and mutilate;"),
     SongProgression.create(song: song, progression: progression_1, tag: "Post-Chorus 1", lyrics: ""),
     SongProgression.create(song: song, progression: progression_1, tag: "Verse 2", lyrics: "Now who could kill a child? Whoever slew Auntie Roo? Someone's knocking at the door and they're here to visit you; Now baby don't look now but I'm sure there's nothing out there, but horror rises from the tomb and traps you in your nightmare; Now girlfriend come with me to a land of make believe, or is it based on facts it turns me on when I should grieve; You say my head is fucked, with a dark and twisted heart, well I say that it's cathartic just another form of art;", reps: 4),
-    SongProgression.create(song: song, progression: progression_2, tag: "Pre-Chorus 2", lyrics: "Don't ask me why, 'cause I don't know, don't close your eyes, enjoy the show;", reps: 2),
+    SongProgression.create(song: song, progression: progression_2, tag: "Pre-Chorus 2", lyrics: "Don't ask me why, 'cause I don't know, don't close your eyes, enjoy the show;"),
     SongProgression.create(song: song, progression: progression_3, tag: "Chorus 2", lyrics: "'Cause I'm a gorehound, hellbound horror movie lover, I like my voyerism with a glass of red rum; 'Cause I'm a gorehound, hellbound, horror movie lover, good and evil are just colors on the spectrum;", reps: 2),
 ]
 
@@ -2141,6 +2317,27 @@ song.song_progressions = [
     SongProgression.create(song: song, progression: progression_1, tag: "Verse 3", lyrics: "So now I wonder 'round the country with my pockets full of sand, I'll tear down the wall when I'm dealt the right hand; But united we fall, divided we stand, she can't tell the difference between her friends and her fans; But lady liberty, is waving a white flag so put all of your belongings in a black plastic trash bag; And walk into the sunset, fall off the edge of the Earth;", reps: 2),
 ]
 
+song = Song.find_by_name("Forty Days")
+
+progression_1 = Progression.create(tag: "Intro")
+progression_1.progression_chords = [
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+    ProgressionChord.create(chord: chord__minor, degree: 1, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 7, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 3, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
+]
+
+song.song_progressions = [
+    SongProgression.create(song: song, progression: progression_1, tag: "", lyrics: ""),
+    SongProgression.create(song: song, progression: progression_1, tag: "", lyrics: ""),
+]
+
+
+#Song.create_or_find_by!(name: "Forty Days", album: Album.find_or_create_by(name: ""), number: nil, duration: "", nb_practices: "5", last_practiced: "09/09/2020", capo: "3", chords: "1> Am-G x3 C-E x2 2> Am-G x12 3> F-G-Am-- F-G-AmGAm- x2 4> F-E-CBAm [Am-G:F-E] Am-Dm-AmEAm 1> 2> 3>  4> 1> 4>", lyrics: " 1> 2> And it's been forty days, I've tried forty ways; You will never quite leave your sins behind; They'll haunt you, taunt you until the day you die; You will never really go; You'll just think about it much but you'll need to know how the story ends; so you'll sit around, even though you should just go; Tell your friends what you have heard, show them all the lies unlearned; And when you really go, you will really know you were never meant for earth; 3> What's it worth?; If we're going to break it down with any logic, it's absurd; 4> And no matter where we go, we are not alone; When the silence turns to cries of \"Why?\"; What a way to begin: we inherit sin; And nobody's going to quench your thirst when the well runs dry; And nobody's going to hold your hand on the day you die; 1> 2> I've tasted seven sins, so they won't let me in; I knock knock knock until my knuckles are bruised and raw; Stuck in the middle with my blood in a puddle on the floor; We made our beds, we'll judge ourselves; And only then and there will we disappear to our final resting place; 3> What a waste!; So many decent people at the gates; 4> And no matter where we go, we are not alone; When the silence turns to cries of \"Why?\"; What a way to begin: we inherit sin; And nobody's going to quench your thirst when the well runs dry; And nobody's going to hold your hand on the day you die; 1> 4> And no matter who you know, you will be alone; When the silence turns to cries of \"Why?\"; What a way to begin: we inherit sin; And nobody's going to quench your thirst when the well runs dry, well runs dry; And nobody's going to hold your hand on the day you die;")
 # toxicity - system of a down
 
 song = Song.find_by(name: "Toxicity")
