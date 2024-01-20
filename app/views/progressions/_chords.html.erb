@@ -1,5 +1,8 @@
 <%= tag.div id: "#{dom_id(progression)}_chords" do %>
     <%= form.fields_for :progression_chords do |progression_chord_form| %>
-        <%= render partial: "progression_chords/fields", locals: { form: progression_chord_form } %>
+        <%= tag.fieldset class: "progression-chord-form" do %>
+            <%= tag.legend "#{t('models.progression_chord.model_name')} ##{progression_chord_form.options[:child_index] + 1}" %>
+            <%= render partial: "progression_chords/fields", locals: { form: progression_chord_form } %>
+        <% end %>
     <% end %>
 <% end %>

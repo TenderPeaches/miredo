@@ -49,12 +49,14 @@ input[type="number"] {
 /* helps with complex forms, used for submodels */
 fieldset {
     padding: var(--size-m);                                 /* internal spacing */
-    
+    margin: var(--size-m);                                  /* external spacing */
 }
 
 /* fieldset titles */
 legend {
-
+    font-size: 1.15rem;
+    padding: 0 1rem;
+    color: var(--color-secondary-lightest);
 }
 
 /* screen-size dependent considerations */
