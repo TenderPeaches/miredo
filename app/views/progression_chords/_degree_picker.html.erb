@@ -1,4 +1,4 @@
-<% 7.times do |i| %>
+<% scale.chords.count.times do |i| %>
     <% attr_name ||= 'degree' # set the form attribute filled in with this picker %>
     <% i_degree = i + 1 %>
     <% chords = scale.chords_from_key(key) %>

@@ -1,0 +1,12 @@
+/* doodad that aids navigating from one song to the next */
+.song-shifter {
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--size-m);
+    padding: var(--size-m);
+    margin: var(--size-m);
+    border-width: var(--thin-border-width);
+    border-style: var(--default-border-style);
+    border-color: var(--color-primary-white);
+    
+}

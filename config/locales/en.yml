@@ -30,4 +30,31 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  keywords:
+    ok: "OK"
+    cancel: "Cancel"
+    save: "Save"
+  actions:
+    new: "New %{thing}"
+    add: "Add %{thing}"
+    remove: "Remove %{thing}"
+    edit: "Edit %{thing}"
+    update: "Update %{thing}"
+    create: "Create %{thing}"
+    delete: "Delete %{thing}"
+  alerts:
+  cta:
+  feedback:
+    songs:
+      no_progression: "No progressions have been defined for this song"
+  models:
+    song:
+      model_name: "Song"
+      name: "Name"
+    progression:
+      model_name: "Progression"
+      tag: "Tag"
+      reps: "Reps"
+    progression_chord:
+      model_name: "Progression chord"
+

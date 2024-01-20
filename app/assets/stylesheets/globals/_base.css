@@ -46,6 +46,17 @@ input[type="number"] {
     width: var(--size-xxl);                                 /* numbers in this website's context are usually limited to 1-2 digits */
 }
 
+/* helps with complex forms, used for submodels */
+fieldset {
+    padding: var(--size-m);                                 /* internal spacing */
+    
+}
+
+/* fieldset titles */
+legend {
+
+}
+
 /* screen-size dependent considerations */
 /* for large screens */
 @media screen and (min-width: 1080px) {

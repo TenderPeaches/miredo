@@ -1,0 +1,9 @@
+<%= tag.div class: "field" do %>
+    <%= form.label :tag, t('models.progression.tag') %>
+    <%= form.text_field :tag %>
+<% end %>
+
+<%= tag.div class: "field" do %>
+    <%= form.label :reps, t('models.progression.reps') %>
+    <%= form.number_field :reps, { min: 0, step: 1 } %>
+<% end %>

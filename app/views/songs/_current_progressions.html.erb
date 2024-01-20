@@ -1,0 +1,19 @@
+<%= turbo_frame_tag "current-progressions" do %>
+    <%= tag.div class: "card progressions--current" do %>
+        <% if progressions.count > 0 %>
+            <% progressions.each_with_index do |p, i| %>
+                <div class="card card--progression clickable" data-action="click->progressions#on_progression_click:stop" data-id="<%= p.id %>" data-sequence="<%= i + 1 %>">
+                    <div class="card-title">
+                        <span class="card-identifier"><%= i + 1 %>&#41;</span>
+                        <span><%= p.tag %></span>
+                    </div>
+                    <div>
+                        <%= render "progressions/form", progression: p %>
+                    </div>
+                </div>
+            <% end %>
+        <% else %>
+            <%= t('feedback.songs.no_progression') %>
+        <% end %>
+    <% end %>
+<% end %>

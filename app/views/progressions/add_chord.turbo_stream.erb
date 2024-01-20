@@ -1,0 +1,7 @@
+<%= turbo_stream.append "new_progression_chords" do %>
+    <% ActionController::Base.helpers.fields model: @progression do |form| %>
+        <%= form.fields_for :progression_chords, @progression_chord do |progression_chord_form| %>
+            <%= render partial: "progression_chords/fields", locals: { form: form } %>
+        <% end %>
+    <% end %>
+<% end %>

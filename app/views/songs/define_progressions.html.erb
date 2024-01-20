@@ -1,43 +1,14 @@
-
-<% content_for :head do %>
-    <%= javascript_import_module_tag "api" %>
-<% end %>
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
-<div data-controller="progressions">
+<%= turbo_frame_tag "progressions" do %>
     <%= content_tag :div do %>
-        <%= content_tag :div, style: "display: flex;" do %>
-            <% if @song.id > 1 %>
-                <%= link_to "<", "/songs/" << (@song.id - 1).to_s << "/define_progressions" %>
-            <% end %>
-            <%= @song.name %>
-            <% if @song.id < Song.last.id %>
-                <%= link_to ">", "/songs/" << (@song.id + 1).to_s << "/define_progressions" %>
-            <% end %>
-        <% end %>
-        <%= render partial: "progression_chords/gen", locals: { key: @song.key, scale: @song.scale, hidden: "true" } %>
-        <div class="progressions--current">
-            <% @progressions.each_with_index do |p, i| %>
-                <div class="card card--progression clickable" data-action="click->progressions#on_progression_click:stop" data-id="<%= p.id %>" data-sequence="<%= i + 1 %>">
-                    <div class="card-title">
-                        <span class="card-identifier"><%= i + 1 %>&#41;</span>
-                        <span><%= p.tag %></span>
-                    </div>
-                    <div>
-                        <%= render "progressions/form", progression: p %>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-
-        <div class="progressions--new" data-progressions-target="newProgsList">
-            <button class="button" type="button" data-action="click->progressions#add_progression_form">Define new progression</button>
-        </div>
+        <%= render partial: "songs/define_progressions_song_shifter", locals: { song: @song } %>
+        <%= render partial: "songs/current_progressions", locals: { progressions: @progressions, scale: @song.scale, key: @song.key } %>
+        <%= render partial: "songs/new_progressions", locals: { progressions: [], scale: @song.scale, key: @song.key } %>
     <% end %>
+    
     <%= form_tag("/songs/" + @song.id.to_s + "/progressions", class: "hidden-progression-form") do %>
-        
         <% @progressions.each do |progression| %>
             <%= render partial: "progressions/hidden_data", locals: { progression: progression } %>
         <% end %>
-        <%= submit_tag %>
     <% end %>
-</div>
+<% end %>

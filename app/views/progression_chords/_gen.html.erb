@@ -7,7 +7,7 @@
     <div class="generator__display" data-progressions-target="display">
         <%= progression_chord.print(key,scale) %>
     </div>
-    <%= form_with model: progression_chord, class: "generator__inputs" do |form| %>
+    <%= form_with model: progression_chord, url: progression_progression_chords_path(progression), class: "generator__inputs" do |form| %>
         <%# scale %>
         <input type="hidden" data-field="progression_scale" name="progression[scale_id]" data-progressions-target="scale" value="<%= scale.id %>" />
         <%# key %>

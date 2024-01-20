@@ -1,7 +1,9 @@
 class ProgressionChordsController < ApplicationController
 
+    def 
     
     def create
+        puts params.inspect
         if progression_chord_params[:id] > 0
             update
         else

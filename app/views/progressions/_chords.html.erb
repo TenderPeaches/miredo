@@ -1,0 +1,5 @@
+<%= tag.div id: "#{dom_id(progression)}_chords" do %>
+    <%= form.fields_for :progression_chords do |progression_chord_form| %>
+        <%= render partial: "progression_chords/fields", locals: { form: progression_chord_form } %>
+    <% end %>
+<% end %>

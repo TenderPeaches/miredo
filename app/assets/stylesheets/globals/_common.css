@@ -87,6 +87,16 @@
     align-items: center;
 }
 
+/* form fields */
+.field {
+    margin: var(--size-m);
+}
+
+.field label {
+    display: inline-block;
+    width: calc(var(--size-xxxl) * 3);    
+}
+
 
 /* screen-size dependent considerations */
 /* for large screens */

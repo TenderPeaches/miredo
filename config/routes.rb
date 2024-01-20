@@ -4,9 +4,16 @@ Rails.application.routes.draw do
     member do
       get 'define_progressions', to: "songs#define_progressions"
     end
+    get 'new_progression', to: "progressions#new", as: :new_progression
   end
 
-  resources :progressions, :progression_chords
+  resources :progressions do
+    resources :progression_chords, shallow: true
+  end 
+
+  #scope :progressions do 
+    get 'add_progression_chord', controller: :progressions, action: :add_chord, as: :add_chord_to_progression
+  #end
 
   root "songs#index"
 

@@ -7,6 +7,11 @@ class ProgressionsController < ApplicationController
     end
 
     def new
+        @progression = Progression.new 
+
+        respond_to do |format|
+            format.turbo_stream { render "songs/add_progression" }
+        end
     end
 
     def create
@@ -25,6 +30,14 @@ class ProgressionsController < ApplicationController
     end
 
     def destroy 
+    end
+
+    def add_chord
+        @progression_chord = ProgressionChord.new
+
+        respond_to do |format|
+            format.turbo_stream { render "progressions/add_chord" }
+        end
     end
 
     private

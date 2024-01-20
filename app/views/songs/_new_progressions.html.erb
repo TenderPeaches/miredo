@@ -1,0 +1,6 @@
+<%= tag.div id: "new-progressions", class: "card progressions--new" do %>
+    <% progressions.each do |progression| %>
+        <%= render partial: "progressions/form", locals: { progression: progression, key: key, scale: scale } %>
+    <% end %>
+<% end %>
+<%= link_to '+', new_progression_path, class: "button", data: { turbo_stream: true } %>
