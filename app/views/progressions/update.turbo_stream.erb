@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "#{dom_id(@progression)}__form" do %>
+    <%= render partial: "progressions/form", locals: { progression: @progression } %>
+<% end %>

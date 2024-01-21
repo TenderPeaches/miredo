@@ -1,5 +1,6 @@
 class ProgressionsController < ApplicationController
     before_action :set_or_new_progression, only: %i[ add_chord ]
+    before_action :set_progression, only: %i[ update ]
     
     def index
         # doesn't apply
@@ -20,13 +21,15 @@ class ProgressionsController < ApplicationController
     end 
 
     def update 
-        @progression = Progression.find_by_id(progression_params[:id])
+        puts @progression.inspect
         # through /songs/:id/define_progressions
         respond_to do |format|
             if @progression.update(progression_params)
                 format.html { render json: { success: 'yes' }, notice: "success" }
+                format.turbo_stream
             else 
                 format.json { render json: @progression.errors, status: :unprocessable_entity }
+                format.turbo_stream { render 'progressions/update', status: :unprocessable_entity }
             end
         end
     end
@@ -54,6 +57,6 @@ class ProgressionsController < ApplicationController
     end
 
     def progression_params 
-        params.require(:progression).permit(:tag, :scale, :key, :id, :degree, :modifier, :bass_modifier, :bass_degree, progression_chord_attributes: [:id, :chord_id, :duration] )
+        params.require(:progression).permit(:tag, :scale, :key, :reps, :id, progression_chords_attributes: [:id, :degree, :modifier, :bass_modifier, :bass_degree, :chord_id, :duration, :staccato, :muted] )
     end
 end
