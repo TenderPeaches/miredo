@@ -6,7 +6,7 @@ class Progression < ApplicationRecord
     belongs_to :key, optional: true
     belongs_to :scale, optional: true
 
-    accepts_nested_attributes_for :progression_chords
+    accepts_nested_attributes_for :progression_chords, allow_destroy: true
 
     public
     # need to sort progressions in order to show user a list to select from somehow
@@ -30,18 +30,20 @@ class Progression < ApplicationRecord
             # duration string to be appended to a chord, for instance the "----" part of C#----, denoting number of beats
             duration_string = ""
 
-            pc.duration.times do 
-                # regular chords use dashes
-                duration_char = '-'
-                if pc.staccato 
-                    # for staccato, use dots
-                    duration_char = '.'
-                elsif pc.muted
-                    # for muted chords, use Xs
-                    duration_char = 'x'
+            if pc.duration 
+                pc.duration.times do 
+                    # regular chords use dashes
+                    duration_char = '-'
+                    if pc.staccato 
+                        # for staccato, use dots
+                        duration_char = '.'
+                    elsif pc.muted
+                        # for muted chords, use Xs
+                        duration_char = 'x'
+                    end
+                    # concatenate the character with the full duration string
+                    duration_string << duration_char
                 end
-                # concatenate the character with the full duration string
-                duration_string << duration_char
             end
             printed << pc.print_chord(key, scale) << duration_string
         end

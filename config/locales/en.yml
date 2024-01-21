@@ -34,6 +34,7 @@ en:
     ok: "OK"
     cancel: "Cancel"
     save: "Save"
+    delete: "Delete"
   actions:
     new: "New %{thing}"
     add: "Add %{thing}"

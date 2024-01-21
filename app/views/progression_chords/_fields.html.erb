@@ -38,3 +38,8 @@
     <%= form.label :muted %>
     <%= form.check_box :muted %>
 <% end %>
+
+<%= tag.div class: "field" do %>
+    <%= form.label t('keywords.delete') %>
+    <%= form.check_box :_destroy %>
+<% end %>

@@ -38,7 +38,7 @@ class ProgressionsController < ApplicationController
     end
 
     def add_chord
-        @progression_chord = ProgressionChord.new
+        @progression_chord = @progression.progression_chords.build
 
         respond_to do |format|
             format.turbo_stream { render "progressions/add_chord" }
@@ -57,6 +57,6 @@ class ProgressionsController < ApplicationController
     end
 
     def progression_params 
-        params.require(:progression).permit(:tag, :scale, :key, :reps, :id, progression_chords_attributes: [:id, :degree, :modifier, :bass_modifier, :bass_degree, :chord_id, :duration, :staccato, :muted] )
+        params.require(:progression).permit(:tag, :scale, :key, :reps, :id, progression_chords_attributes: [:id, :degree, :modifier, :bass_modifier, :bass_degree, :chord_id, :duration, :staccato, :muted, :_destroy] )
     end
 end
