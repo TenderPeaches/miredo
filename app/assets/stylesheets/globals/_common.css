@@ -18,22 +18,30 @@
 /* fields used within a typical form */
 .form-fields {
     display: grid;                                          /* to allow for a uniform display between each field */
-    margin: var(--size-l);                                  /* breathing room around */
-    padding: var(--size-l);                                 /* breathing room within */
+    margin: var(--size-l);                                  /* spacing around */
+    padding: var(--size-l);                                 /* spacing within */
     grid-template-columns: 1fr 3fr;                         /* 1 frame for the label, 3 frames for the field itself */
-    row-gap: var(--size-s);                                 /* additional breathing room between each field */
+    row-gap: var(--size-s);                                 /* additional spacing between each field */
   }
 
 /* generic button */
-.button {
+.button,
+input[type="submit"] {
     cursor: pointer;                                        /* standard */
-    padding: var(--size-s);                                 /* inner breathing room */
-    margin: var(--size-xxs) var(--size-s);                  /* outer breathing room */
+    padding: var(--size-s);                                 /* inner spacing */
+    margin: var(--size-m);                                  /* outer spacing */
     border-width: var(--thick-border-width);                /* let the border pop */
     border-style: var(--button-border-style);               /* standard */
-    border-color: var(---color-primary-white);              /* highlight against dark background */
     transition-duration: var(--quick-duration);             /* standard */
     text-align: center;                                     /* standard */
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.button {
+    background-color: var(--color-primary-darkest);
+    border-color: var(---color-primary-white);              /* highlight against dark background */
+    color: var(--color-primary-white);
 }
 
 .button--square {
@@ -67,12 +75,28 @@
 .button:hover {
     border-style: outset;
     border-color: var(--color-primary-light);
-    background: var(--color-primary-darkest);
+    background: var(--color-primary);
+    color: var(--color-primary-black);
 }
 
 .clickable:active,
 .button:active {
-    background: var(--color-primary-dark);
+    background: var(--color-primary-darkest);
+}
+
+input[type="submit"] {
+    border-color: var(--color-accent-white);
+    background: var(--color-accent-darkest);
+    color: var(--color-accent-white);
+}
+
+input[type="submit"]:hover {
+    background: var(--color-accent);
+    color: var(--color-accent-black);
+}
+  
+input[type="submit"]:active {
+    background: var(--color-accent-darker);
 }
   
 .card {
