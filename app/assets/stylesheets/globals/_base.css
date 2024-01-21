@@ -54,9 +54,9 @@ fieldset {
 
 /* fieldset titles */
 legend {
-    font-size: 1.15rem;
-    padding: 0 1rem;
-    color: var(--color-secondary-lightest);
+    font-size: 1.15rem;                                     /* fieldset legends act as headers */
+    padding: 0 1rem;                                        /* space out from the fieldset border */
+    color: var(--color-secondary-lightest);                 /* to aid navigation */
 }
 
 /* screen-size dependent considerations */

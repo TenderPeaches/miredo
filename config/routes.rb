@@ -9,10 +9,13 @@ Rails.application.routes.draw do
 
   resources :progressions do
     resources :progression_chords, shallow: true
+    member do
+      get 'add_progression_chord', controller: :progressions, action: :add_chord, as: :add_chord_to
+    end
   end 
 
   #scope :progressions do 
-    get 'add_progression_chord', controller: :progressions, action: :add_chord, as: :add_chord_to_progression
+    #get 'add_progression_chord', controller: :progressions, action: :add_chord, as: :add_chord_to_progression
   #end
 
   root "songs#index"

@@ -19,7 +19,7 @@
 
         <% puts progression.inspect %>
 
-        <%= link_to t('actions.add', thing: t('models.progression_chord.model_name')), add_chord_to_progression_path, data: { turbo_stream: true } %>
+        <%= link_to t('actions.add', thing: t('models.progression_chord.model_name')), add_chord_to_progression_path(progression.id || 0.to_s), data: { turbo_stream: true } %>
         <%# link_to_add_association t('actions.add', thing: t('models.progression_chord.model_name') ), form, :progression_chords, { partial: "progression_chords/gen", form_name: "form", render_options: { locals: { key: key, scale: scale } } }%>
 
         <%= form.submit t('actions.create', thing: t('models.progression.model_name')) %>

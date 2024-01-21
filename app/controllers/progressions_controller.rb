@@ -1,4 +1,6 @@
 class ProgressionsController < ApplicationController
+    before_action :set_or_new_progression, only: %i[ add_chord ]
+    
     def index
         # doesn't apply
     end
@@ -41,6 +43,16 @@ class ProgressionsController < ApplicationController
     end
 
     private
+    def set_progression
+        @progression = Progression.find_by_id(params[:id])
+    end
+
+    def set_or_new_progression
+        unless set_progression
+            @progression = Progression.new
+        end
+    end
+
     def progression_params 
         params.require(:progression).permit(:tag, :scale, :key, :id, :degree, :modifier, :bass_modifier, :bass_degree, progression_chord_attributes: [:id, :chord_id, :duration] )
     end
