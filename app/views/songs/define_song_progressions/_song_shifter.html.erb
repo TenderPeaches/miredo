@@ -1,0 +1,9 @@
+<%= tag.div class: "song-shifter" do %>
+    <% if song.id > 1 %>
+        <%= link_to "<", "/songs/" << (song.id - 1).to_s << "/define_song_progressions" %>
+    <% end %>
+    <%= song.name %>
+    <% if song.id < Song.last.id %>
+        <%= link_to ">", "/songs/" << (song.id + 1).to_s << "/define_song_progressions" %>
+    <% end %>
+<% end %>

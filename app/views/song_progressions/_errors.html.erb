@@ -1,0 +1,11 @@
+<% if song_progression.errors.any? %>
+    <div class="alert model-error">
+        <h2><%= pluralize(song_progression.errors.count, "error") %> prohibited this song_progression from being saved:</h2>
+
+        <ul>
+            <% song_progression.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

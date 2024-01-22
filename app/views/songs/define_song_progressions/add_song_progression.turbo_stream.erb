@@ -1,0 +1,6 @@
+<%= turbo_stream.append "new-song-progressions" do %>
+    <%= tag.fieldset do %>
+        <%= tag.legend t('actions.new', thing: t('models.song_progression.model_name')) %>
+        <%= render partial: "song_progressions/form", locals: { song_progression: @song_progression, song: @song } %>
+    <% end %>
+<% end %>

@@ -13,7 +13,7 @@ class ProgressionsController < ApplicationController
         @progression = Progression.new 
 
         respond_to do |format|
-            format.turbo_stream { render "songs/add_progression" }
+            format.turbo_stream { render "songs/define_progressions/add_progression" }
         end
     end
 

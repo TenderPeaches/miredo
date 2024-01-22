@@ -113,6 +113,7 @@ input[type="submit"]:active {
 
 /* form fields */
 .field {
+    display: flex;
     margin: var(--size-m);
 }
 
@@ -121,6 +122,9 @@ input[type="submit"]:active {
     width: calc(var(--size-xxxl) * 3);    
 }
 
+.field textarea {
+    resize: none;
+}
 
 /* screen-size dependent considerations */
 /* for large screens */

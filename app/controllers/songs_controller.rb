@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+    before_action :set_song, only: %i[ show play define_progression define_song_progressions ]
     # GET /
     def index
         @songs = Song.includes(:artists) 
@@ -10,7 +11,6 @@ class SongsController < ApplicationController
 
     # GET /[id]/
     def show
-        @song = Song.find(params[:id])
         if @song.upgraded?
             # capo can be provided as query string argument, if absent then use the song's suggested capo
             @capo = (params.has_key? :capo) ? params[:capo].to_i : @song.capo
@@ -75,13 +75,12 @@ class SongsController < ApplicationController
 
     # GET /play/[id]
     def play
-        song = Song.find(params[:id])
-        if song.nb_practices.nil? 
-            song.nb_practices = 1
+        if @song.nb_practices.nil? 
+            @song.nb_practices = 1
         else
-            song.nb_practices += 1
+            @song.nb_practices += 1
         end
-        song.save
+        @song.save
 
         if (params[:from] == 'home')
             redirect_to "/"
@@ -92,9 +91,11 @@ class SongsController < ApplicationController
 
     # GET /song/[id]/define_progressions
     def define_progressions
-        @song = Song.find(params[:id])
         @progressions = Progression.find_by_sql('SELECT pc.chord_id, pc.degree, pc.modifier, p.id, p.tag, p.reps FROM progressions AS p INNER JOIN progression_chords AS pc ON pc.progression_id = p.id INNER JOIN song_progressions AS sp ON sp.progression_id = p.id AND sp.song_id = ? GROUP BY p.id', [ @song.id ])
         @new_progressions = [ Progression.new ]
+    end
+
+    def define_song_progressions
     end
 
     # GET /edit/[id]
@@ -104,6 +105,10 @@ class SongsController < ApplicationController
     end
 
     private
+    def set_song 
+        @song = Song.find(params[:id])
+    end 
+
     def song_params
         params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key_id, :scale_id, :new_album_name, :new_artist_name, :album_id, song_contributions_attributes: [:id, :artist_id ])
     end

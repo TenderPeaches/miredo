@@ -1,0 +1,5 @@
+<%= tag.div id: "new-song-progressions", class: "card song-progressions--new" do %>
+    <% progressions.each do |progression| %>
+        <%= render partial: "song_progressions/form", locals: { song_progression: progression, song: song } %>
+    <% end %>
+<% end %>

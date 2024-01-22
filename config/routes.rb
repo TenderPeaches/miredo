@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :songs do
     member do
       get 'define_progressions', to: "songs#define_progressions"
+      get 'define_song_progressions', to: "songs#define_song_progressions"
     end
     get 'new_progression', to: "progressions#new", as: :new_progression
   end
@@ -14,9 +15,11 @@ Rails.application.routes.draw do
     end
   end 
 
-  #scope :progressions do 
-    #get 'add_progression_chord', controller: :progressions, action: :add_chord, as: :add_chord_to_progression
-  #end
+  resources :song_progressions do
+
+  end
+
+  post 'new_song_progression_form', to: "song_progressions#new", as: :new_song_progression_form
 
   root "songs#index"
 

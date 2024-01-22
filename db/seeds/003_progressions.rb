@@ -1728,7 +1728,7 @@ progression_2.progression_chords = [
 
 progression_3 = Progression.create(tag: "Chorus", reps: 4)
 progression_3.progression_chords = [
-    ProgressionChord.create(chord: chord__major, degree: 2, duration: 2),
+    ProgressionChord.create(chord: chord__major, degree: 1, duration: 2),
     ProgressionChord.create(chord: chord__minor, degree: 6, duration: 2),
     ProgressionChord.create(chord: chord__major, degree: 5, duration: 2),
     ProgressionChord.create(chord: chord__major, degree: 4, duration: 2),

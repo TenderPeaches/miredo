@@ -23,6 +23,26 @@ class Progression < ApplicationRecord
         progression_chords.order(:sequence)
     end
 
+    def active_key
+        if key
+            key
+        elsif songs.first&.key
+            songs.first.key
+        else
+            Key.first
+        end
+    end
+
+    def active_scale
+        if scale
+            scale
+        elsif songs.first&.scale
+            songs.first.scale
+        else
+            Scale.second
+        end
+    end
+
     # display in a given key for a select box
     def print(key, scale)
         printed = ""
@@ -48,6 +68,10 @@ class Progression < ApplicationRecord
             printed << pc.print_chord(key, scale) << duration_string
         end
         return printed
+    end
+
+    def print_for_select
+        "#{id}) #{print(active_key, active_scale)} x#{reps.to_s}"
     end
 
     def print_bars(key, scale)

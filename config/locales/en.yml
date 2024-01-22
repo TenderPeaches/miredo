@@ -43,11 +43,13 @@ en:
     update: "Update %{thing}"
     create: "Create %{thing}"
     delete: "Delete %{thing}"
+    select: "Select %{thing}"
   alerts:
   cta:
   feedback:
     songs:
       no_progression: "No progressions have been defined for this song"
+      no_song_progression: "No song progressions have been defined for this song"
   models:
     song:
       model_name: "Song"
@@ -58,4 +60,6 @@ en:
       reps: "Reps"
     progression_chord:
       model_name: "Progression chord"
+    song_progression: 
+      model_name: "Song Progression"
 

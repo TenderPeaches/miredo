@@ -1,0 +1,13 @@
+<%= form_with model: song_progression, class: "snog-progression-form", id: "#{dom_id(song_progression)}__form", local: false do |form| %>
+    <%= render partial: "song_progressions/errors", locals: { song_progression: song_progression } %>
+    <%= tag.div class: "field progression-print" do %>
+        <%= tag.div "#{t('models.progression.model_name')} ##{song_progression.progression.id} : #{song_progression.progression.print(song.key, song.scale)}" %>
+    <% end %>
+    <%= render partial: "song_progressions/fields", locals: { form: form } %>
+
+    <% if song_progression.id == nil %>
+        <%= form.submit t('actions.create', thing: t('models.song_progression.model_name')) %>
+    <% else %>
+        <%= form.submit t('actions.update', thing: t('models.song_progression.model_name')) %>
+    <% end %>
+<% end %>

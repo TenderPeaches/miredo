@@ -1,0 +1,25 @@
+<%= tag.div class: "field" do %>
+    <%= form.label :tag %>
+    <%= form.text_field :tag %>
+<% end %>
+
+<%= tag.div class: "field" do %>
+    <%= form.label :lyrics %>
+    <%= form.text_area :lyrics, cols: 50, rows: 4 %>
+<% end %>
+
+<%= tag.div class: "field" do %>
+    <%= form.label :reps %>
+    <%= form.number_field :reps, { min: 0, step: 1 } %>
+<% end %>
+
+<%= tag.div class: "field" do %>
+    <%= form.label :key %>
+    <%= form.collection_select :key_id, Key.for_select, :id, :shorthand %>
+<% end %>
+
+<%= tag.div class: "field" do %>
+    <%= form.label :scale %>
+    <%= form.collection_select :scale_id, Scale.for_select, :id, :name %>
+<% end %>
+
