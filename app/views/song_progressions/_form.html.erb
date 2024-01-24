@@ -5,6 +5,11 @@
     <% end %>
     <%= render partial: "song_progressions/fields", locals: { form: form } %>
 
+    <%# if uid local variable assigned, create a hidden field so that the controller can target this form in its response %>
+    <% if defined? uid %>
+        <%= form.hidden_field :uid, value: uid.to_s %>
+    <% end %>
+
     <% if song_progression.id == nil %>
         <%= form.submit t('actions.create', thing: t('models.song_progression.model_name')) %>
     <% else %>

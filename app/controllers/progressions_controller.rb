@@ -11,6 +11,7 @@ class ProgressionsController < ApplicationController
 
     def new
         @progression = Progression.new 
+        @song = Song.find_by_id(params[:song_id])
 
         respond_to do |format|
             format.turbo_stream { render "songs/define_progressions/add_progression" }
@@ -18,6 +19,19 @@ class ProgressionsController < ApplicationController
     end
 
     def create
+        @progression = Progression.new(progression_params)
+        song = Song.find_by_id(params[:progression][:song_id])
+        @progression_index = song.progressions.distinct.count + 1 
+
+        respond_to do |format|
+            if @progression.save 
+                format.turbo_stream { render "songs/define_progressions/create_progression" }
+            else
+
+            end
+        end
+
+        
     end 
 
     def update 
@@ -57,6 +71,6 @@ class ProgressionsController < ApplicationController
     end
 
     def progression_params 
-        params.require(:progression).permit(:tag, :scale, :key, :reps, :id, progression_chords_attributes: [:id, :degree, :modifier, :bass_modifier, :bass_degree, :chord_id, :duration, :staccato, :muted, :_destroy] )
+        params.require(:progression).permit(:tag, :uid, :scale, :key, :reps, :id, :song_id, progression_chords_attributes: [:id, :degree, :modifier, :bass_modifier, :bass_degree, :chord_id, :duration, :staccato, :muted, :_destroy] )
     end
 end

@@ -6,8 +6,17 @@
     <%= tag.div class: "field progression-print" do %>
         <%= progression.print(key, scale) %>
     <% end %>
-    
     <%= render partial: "progressions/chords", locals: { form: form, progression: progression } %>
+    
+    <%# if uid local variable assigned, create a hidden field so that the controller can target this form in its response %>
+    <% if defined? uid %>
+        <%= form.hidden_field :uid, value: uid.to_s %>
+    <% end %>
+
+    <%# track the song that this progression was created for %>
+    <% if defined? song %>
+        <%= form.hidden_field :song_id, value: song.id %>
+    <% end %>
 
     <%= link_to t('actions.add', thing: t('models.progression_chord.model_name')), add_chord_to_progression_path(progression.id || 0.to_s), class: "button", data: { turbo_stream: true } %>
 

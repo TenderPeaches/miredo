@@ -15,11 +15,11 @@
 
 <%= tag.div class: "field" do %>
     <%= form.label :key %>
-    <%= form.collection_select :key_id, Key.for_select, :id, :shorthand %>
+    <%= form.collection_select :key_id, Key.for_select, :id, :shorthand, { include_blank: true } %>
 <% end %>
 
 <%= tag.div class: "field" do %>
     <%= form.label :scale %>
-    <%= form.collection_select :scale_id, Scale.for_select, :id, :name %>
+    <%= form.collection_select :scale_id, Scale.for_select, :id, :name, { include_blank: true } %>
 <% end %>
 

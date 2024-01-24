@@ -1,4 +1,4 @@
-.song-progressions--current {
+#current-song-progressions {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }

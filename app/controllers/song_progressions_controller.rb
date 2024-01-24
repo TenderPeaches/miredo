@@ -14,6 +14,12 @@ class SongProgressionsController < ApplicationController
         respond_to do |format|
             format.turbo_stream { render "songs/define_song_progressions/add_song_progression" }
         end
-
     end 
+
+    def create
+        
+    end
+
+    def update 
+    end
 end

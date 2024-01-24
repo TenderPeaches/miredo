@@ -8,6 +8,9 @@ class Progression < ApplicationRecord
 
     accepts_nested_attributes_for :progression_chords, allow_destroy: true
 
+    attr_accessor :uid
+    attr_accessor :song_id
+
     public
     # need to sort progressions in order to show user a list to select from somehow
     # sort by each chord that makes up the progression

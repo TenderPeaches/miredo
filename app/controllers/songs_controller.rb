@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-    before_action :set_song, only: %i[ show play define_progression define_song_progressions ]
+    before_action :set_song, only: %i[ show play define_progressions define_song_progressions ]
     # GET /
     def index
         @songs = Song.includes(:artists) 
@@ -92,7 +92,6 @@ class SongsController < ApplicationController
     # GET /song/[id]/define_progressions
     def define_progressions
         @progressions = Progression.find_by_sql('SELECT pc.chord_id, pc.degree, pc.modifier, p.id, p.tag, p.reps FROM progressions AS p INNER JOIN progression_chords AS pc ON pc.progression_id = p.id INNER JOIN song_progressions AS sp ON sp.progression_id = p.id AND sp.song_id = ? GROUP BY p.id', [ @song.id ])
-        @new_progressions = [ Progression.new ]
     end
 
     def define_song_progressions

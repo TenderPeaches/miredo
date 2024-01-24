@@ -1,14 +1,12 @@
-<%= turbo_frame_tag "current-progressions" do %>
-    <%= tag.div class: "card progressions--current" do %>
-        <% if progressions.count > 0 %>
-            <% progressions.each_with_index do |progression, i| %>
-                <%= tag.fieldset id: dom_id(progression) do %>
-                    <%= tag.legend "#{(i + 1).to_s}) #{progression.tag}" %>
-                    <%= render partial: "progressions/form", locals: { progression: progression } %>    
-                <% end %>   
-            <% end %>
-        <% else %>
-            <%= t('feedback.songs.no_progression') %>
+<%= tag.div id: "current-progressions", class: "card" do %>
+    <% if progressions.count > 0 %>
+        <% progressions.each_with_index do |progression, i| %>
+            <%= tag.fieldset id: dom_id(progression) do %>
+                <%= tag.legend "#{(i + 1).to_s}) #{progression.tag}" %>
+                <%= render partial: "progressions/form", locals: { progression: progression } %>    
+            <% end %>   
         <% end %>
+    <% else %>
+        <%= t('feedback.songs.no_progression') %>
     <% end %>
 <% end %>
