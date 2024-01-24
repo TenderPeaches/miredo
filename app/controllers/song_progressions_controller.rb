@@ -1,4 +1,5 @@
 class SongProgressionsController < ApplicationController
+    before_action :set_song_progression, only: %i[ destroy ]
     def new 
         @song = Song.find_by_id(params[:song_id])
         @progression = Progression.find_by_id(params[:progression_id])
@@ -34,6 +35,12 @@ class SongProgressionsController < ApplicationController
     end
 
     def update 
+    end
+
+    def destroy
+        @song_progression.destroy
+
+        render 'songs/define_song_progressions/destroy_song_progression'
     end
 
     private 
