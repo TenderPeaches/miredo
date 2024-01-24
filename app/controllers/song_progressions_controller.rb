@@ -18,8 +18,30 @@ class SongProgressionsController < ApplicationController
 
     def create
         
+        @song_progression = SongProgression.new(song_progression_params)
+        @song = Song.find_by_id(song_progression_params[:song_id])
+        @song_progression_index = @song.song_progressions.count + 1
+
+        respond_to do |format|
+            if @song_progression.save 
+                format.turbo_stream { render "songs/define_song_progressions/create_song_progression" }
+            else
+                flash.now[:alert] = t('errors.invalid_form', model: t('models.song_progression.model_name'), errors: @song_progression.errors.full_messages)
+                format.turbo_stream { render plain: @song_progression.errors.full_messages }
+            end
+        end
+
     end
 
     def update 
+    end
+
+    private 
+    def set_song_progression
+        @song_progression = SongProgression.find_by_id(params[:id])
+    end 
+
+    def song_progression_params 
+        params.require(:song_progression).permit(:progression_id, :song_id, :uid, :tag, :lyrics, :reps, :key_id, :scale_id)
     end
 end

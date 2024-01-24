@@ -47,7 +47,9 @@ en:
   confirm: 
     delete: "Are you sure you wish to delete %{model}?"
   alerts:
+    invalid_form: "Error: invalid %{model} form. Please check the following: %{errors}"
   cta:
+    define_song_progressions: "Define song progressions"
   feedback:
     songs:
       no_progression: "No progressions have been defined for this song"

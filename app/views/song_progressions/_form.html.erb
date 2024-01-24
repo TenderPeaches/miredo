@@ -1,4 +1,4 @@
-<%= form_with model: song_progression, class: "snog-progression-form", id: "#{dom_id(song_progression)}__form", local: false do |form| %>
+<%= form_with model: song_progression, class: "song-progression-form", id: "#{dom_id(song_progression)}__form", local: false do |form| %>
     <%= render partial: "song_progressions/errors", locals: { song_progression: song_progression } %>
     <%= tag.div class: "field progression-print" do %>
         <%= tag.div "#{t('models.progression.model_name')} ##{song_progression.progression.id} : #{song_progression.progression.print(song.key, song.scale)}" %>
@@ -9,6 +9,9 @@
     <% if defined? uid %>
         <%= form.hidden_field :uid, value: uid.to_s %>
     <% end %>
+
+    <%= form.hidden_field :song_id, value: song.id %>
+    <%= form.hidden_field :progression_id, value: song_progression.progression.id %>
 
     <% if song_progression.id == nil %>
         <%= form.submit t('actions.create', thing: t('models.song_progression.model_name')) %>

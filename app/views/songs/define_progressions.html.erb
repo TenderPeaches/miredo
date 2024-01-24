@@ -4,5 +4,6 @@
         <%= render partial: "songs/define_progressions/song_shifter", locals: { song: @song } %>
         <%= render partial: "songs/define_progressions/current_progressions", locals: { progressions: @song.progressions, scale: @song.scale, key: @song.key } %>
         <%= render partial: "songs/define_progressions/new_progressions", locals: { progressions: [], song: @song, scale: @song.scale, key: @song.key } %>
+        <%= link_to t('cta.define_song_progressions'), define_song_progressions_song_path(@song), class: "button", data: { turbo: false } %>
     <% end %>
 <% end %>

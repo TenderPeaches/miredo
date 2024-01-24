@@ -6,6 +6,8 @@ class SongProgression < ApplicationRecord
 
   after_save :assign_sequence_number
 
+  attr_accessor :uid
+
   def assign_sequence_number
     # only assign if none already assigned
     if sequence.nil?
