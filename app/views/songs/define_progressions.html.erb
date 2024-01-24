@@ -2,7 +2,7 @@
 <%= turbo_frame_tag "progressions" do %>
     <%= content_tag :div do %>
         <%= render partial: "songs/define_progressions/song_shifter", locals: { song: @song } %>
-        <%= render partial: "songs/define_progressions/current_progressions", locals: { progressions: @progressions, scale: @song.scale, key: @song.key } %>
+        <%= render partial: "songs/define_progressions/current_progressions", locals: { progressions: @song.progressions, scale: @song.scale, key: @song.key } %>
         <%= render partial: "songs/define_progressions/new_progressions", locals: { progressions: [], song: @song, scale: @song.scale, key: @song.key } %>
     <% end %>
 <% end %>

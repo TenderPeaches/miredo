@@ -1,15 +1,14 @@
 class Progression < ApplicationRecord
     has_many :song_progressions
-    has_many :songs, through: :song_progressions
-    has_many :progression_chords
+    has_many :progression_chords, dependent: :destroy
     has_many :chords, through: :progression_chords
+    belongs_to :song
     belongs_to :key, optional: true
     belongs_to :scale, optional: true
 
     accepts_nested_attributes_for :progression_chords, allow_destroy: true
 
     attr_accessor :uid
-    attr_accessor :song_id
 
     public
     # need to sort progressions in order to show user a list to select from somehow
@@ -29,8 +28,8 @@ class Progression < ApplicationRecord
     def active_key
         if key
             key
-        elsif songs.first&.key
-            songs.first.key
+        elsif song.key
+            song.key
         else
             Key.first
         end
@@ -39,8 +38,8 @@ class Progression < ApplicationRecord
     def active_scale
         if scale
             scale
-        elsif songs.first&.scale
-            songs.first.scale
+        elsif song.scale
+            song.scale
         else
             Scale.second
         end

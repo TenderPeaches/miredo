@@ -1,6 +1,6 @@
 class ProgressionsController < ApplicationController
     before_action :set_or_new_progression, only: %i[ add_chord ]
-    before_action :set_progression, only: %i[ update ]
+    before_action :set_progression, only: %i[ update destroy ]
     
     def index
         # doesn't apply
@@ -20,7 +20,7 @@ class ProgressionsController < ApplicationController
 
     def create
         @progression = Progression.new(progression_params)
-        song = Song.find_by_id(params[:progression][:song_id])
+        song = Song.find_by_id(progression_params[:song_id])
         @progression_index = song.progressions.distinct.count + 1 
 
         respond_to do |format|
@@ -49,6 +49,9 @@ class ProgressionsController < ApplicationController
     end
 
     def destroy 
+        @progression.destroy
+
+        render 'songs/define_progressions/destroy_progression'
     end
 
     def add_chord

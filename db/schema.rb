@@ -121,7 +121,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_10_150346) do
     t.integer "modifier", default: 0, null: false
     t.integer "bass_degree"
     t.integer "bass_modifier", default: 0, null: false
-    t.integer "duration"
+    t.integer "duration", default: 1
     t.integer "sequence"
     t.boolean "staccato"
     t.boolean "muted"
@@ -135,12 +135,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_10_150346) do
   create_table "progressions", force: :cascade do |t|
     t.string "tag"
     t.integer "reps", default: 1
+    t.integer "song_id", null: false
     t.integer "key_id"
     t.integer "scale_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["key_id"], name: "index_progressions_on_key_id"
     t.index ["scale_id"], name: "index_progressions_on_scale_id"
+    t.index ["song_id"], name: "index_progressions_on_song_id"
   end
 
   create_table "scale_intervals", force: :cascade do |t|

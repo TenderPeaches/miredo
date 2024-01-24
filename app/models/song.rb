@@ -13,10 +13,10 @@ class Song < ApplicationRecord
     belongs_to :key, optional: true
     belongs_to :scale, optional: true
     belongs_to :time_signature, optional: true
-    has_many :song_contributions
+    has_many :song_contributions, dependent: :destroy
     has_many :artists, through: :song_contributions
-    has_many :song_progressions
-    has_many :progressions, through: :song_progressions
+    has_many :song_progressions, dependent: :destroy
+    has_many :progressions, dependent: :destroy
 
     validates :number, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
     validates :duration, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true

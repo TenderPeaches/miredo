@@ -84,6 +84,22 @@ input[type="submit"] {
     background: var(--color-primary-darkest);
 }
 
+.button--alert {
+    background-color: var(--color-error);
+    border-color: var(--color-white);
+    color: var(--color-white);
+}
+
+.button--alert:hover {
+    background-color: var(--color-white);
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.button--alert:active {
+    background-color: var(--color-error-light);
+}
+
 input[type="submit"] {
     border-color: var(--color-accent-white);
     background: var(--color-accent-darkest);
