@@ -80,12 +80,13 @@ class SongsController < ApplicationController
         else
             @song.nb_practices += 1
         end
-        @song.save
+        
+        # last_practiced must be in the past so set a minute in the past
+        @song.last_practiced = 1.minute.ago
 
-        if (params[:from] == 'home')
-            redirect_to "/"
-        else
-            redirect_to "/" << params[:id] << "/"
+        unless @song.save
+            puts "#{@song.errors.full_messages} (#{@song.last_practiced})"
+            flash.alert = @song.errors.full_messages
         end
     end
 
@@ -104,7 +105,7 @@ class SongsController < ApplicationController
 
     private
     def set_song 
-        @song = Song.find(params[:id])
+        @song = Song.find_by_id(params[:id])
     end 
 
     def song_params

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     member do
       get 'define_progressions', to: "songs#define_progressions"
       get 'define_song_progressions', to: "songs#define_song_progressions"
+      get :play, to: "songs#play", as: :play
     end
     get 'new_progression', to: "progressions#new", as: :new_progression
   end
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
   get "fretboard", to: "application#fretboard", as: :fretboard
 
   #get "/:id", to: "songs#show", as: :song
-  #get "/play/:id", to: "songs#play", as: :play_song
   #get "/show_new/:id", to: "songs#show_new", as: :show_song_new
   #get "/edit/:id", to: "songs#edit", as: :edit_song
   #get "/songs/new", to: "songs#new", as: :new_song

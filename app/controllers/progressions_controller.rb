@@ -35,7 +35,6 @@ class ProgressionsController < ApplicationController
     end 
 
     def update 
-        puts @progression.inspect
         # through /songs/:id/define_progressions
         respond_to do |format|
             if @progression.update(progression_params)
@@ -43,7 +42,7 @@ class ProgressionsController < ApplicationController
                 format.turbo_stream
             else 
                 format.json { render json: @progression.errors, status: :unprocessable_entity }
-                format.turbo_stream { render 'progressions/update', status: :unprocessable_entity }
+                format.turbo_stream { render plain: @progression.errors.full_messages, status: :unprocessable_entity }
             end
         end
     end

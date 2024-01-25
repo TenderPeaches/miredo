@@ -6,3 +6,4 @@
         <%= render partial: "song_progressions/form", locals: { song_progression: @song_progression, song: @song, uid: uid } %>
     <% end %>
 <% end %>
+<%= turbo_stream.remove "no-song-progressions" %>

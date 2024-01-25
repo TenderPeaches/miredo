@@ -1,7 +1,7 @@
 <div class="show-song">
     <%= link_to "< Back", "/", class: "button" %>
     <%= link_to 'Random', "/songs/" << Song.random_id.to_s %>
-    <%= link_to "Play", "/play/" << @song.id.to_s, class: "button" %>
+    <%= link_to "Play", play_song_path(@song.id), class: "button", data: { turbo_stream: true } %>
     <h1 class="song-title"><%= @song.name %></h1>
     <h3 class="song-artist"><%= @song.get_artists %></h3>
     <h5 class="song-capo">Capo <%= @song.capo %></h5>

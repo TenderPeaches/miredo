@@ -54,10 +54,13 @@ en:
     songs:
       no_progression: "No progressions have been defined for this song"
       no_song_progression: "No song progressions have been defined for this song"
+  hints:
+    progression_form: ""
   models:
     song:
       model_name: "Song"
       name: "Name"
+      practiced: "Practiced %{times} times"
     progression:
       model_name: "Progression"
       tag: "Tag"

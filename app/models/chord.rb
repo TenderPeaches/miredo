@@ -6,4 +6,8 @@ class Chord < ApplicationRecord
     def self.for_select
         Chord.all
     end
+
+    def for_select
+        "#{name} (#{notation})"
+    end 
 end

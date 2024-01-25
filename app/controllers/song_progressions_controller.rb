@@ -1,5 +1,5 @@
 class SongProgressionsController < ApplicationController
-    before_action :set_song_progression, only: %i[ destroy ]
+    before_action :set_song_progression, only: %i[ destroy update ]
     def new 
         @song = Song.find_by_id(params[:song_id])
         @progression = Progression.find_by_id(params[:progression_id])
@@ -35,6 +35,11 @@ class SongProgressionsController < ApplicationController
     end
 
     def update 
+        if @song_progression.update(song_progression_params)
+            render 'songs/define_song_progressions/update_song_progression'
+        else
+            render plain: @song_progression.errors.full_messages, status: :unprocessable_entity
+        end
     end
 
     def destroy

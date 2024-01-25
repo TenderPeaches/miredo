@@ -6,7 +6,7 @@
 
 <%= tag.div class: "field" do %>
     <%= form.label :chord %>
-    <%= form.collection_select :chord_id, Chord.for_select, :id, :name %>
+    <%= form.collection_select :chord_id, Chord.for_select, :id, :for_select %>
 <% end %>
 
 <%= tag.div class: "field" do %>

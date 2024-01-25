@@ -12,7 +12,7 @@
         <% if @song.id < Song.last.id %>
             <%= link_to ">", "/songs/" << (@song.id + 1).to_s, class: "button" %>
         <% end %>
-        <%= link_to "Play", "/play/" << @song.id.to_s, class: "button" %>
+        <%= link_to "Play", play_song_path(@song.id), class: "button", data: { turbo_stream: true } %>
     <% end %>
     <%= form_tag song_path(@song.id), method: :get do %>
         <h1>#<%= @song.id %>: <%= @song.get_artists %> - <%= @song.name %></h1>
@@ -20,6 +20,9 @@
         <div>
             <%= label_tag :capo, "Capo:" %>
             <%= select_tag :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: @capo) %>
+            <%= content_tag :div, id: "song-play-count" do %>
+                <%= t('models.song.practiced', times: @song.nb_practices.to_s) %>
+            <% end %>
         </div>
         <%= submit_tag "Apply" %>
     <% end %>
