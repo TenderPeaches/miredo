@@ -3,6 +3,8 @@
         <legend>Sort by</legend>
         <%= link_to 'Reset', '/' %>
         <%= link_to 'Capo', '?sort=capo' %>
+        <%= link_to 'Most Played', '?sort=plays' %>
+        <%= link_to 'Last Played', '?sort=last_played' %>
     </fieldset>
     <fieldset>
         <legend>Admin</legend>
@@ -28,6 +30,8 @@
             <th>Song</th>
             <th>Artists</th>
             <th>Capo</th>
+            <th>Plays</th>
+            <th>Last Played
             <th>...</th>
         </tr>
     </thead>
@@ -37,7 +41,9 @@
                 <td class="songs-list__title"><%= link_to song.name, song_path(song.id), class: ("contrast-text" if song.upgraded?) %></td>
                 <td class="songs-list__artist"><%= song.get_artists %></td>
                 <td class="songs-list__capo"><%= song.capo %></td>
-                <td class="songs-list__play"><%= link_to "Play", "/play/" << song.id.to_s << "?from=home" %></td>
+                <td class="songs-list__plays"><%= song.nb_practices %></td>
+                <td class="songs-list__last-played"><%= song.last_practiced&.strftime("%Y-%m-%d") %></td>
+                <td class="songs-list__play"><%= link_to "Play", play_song_path(song.id), data: { turbo_stream: true } %></td>
             </tr>
         <% end %>
     </tbody>

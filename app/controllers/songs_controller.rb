@@ -5,7 +5,11 @@ class SongsController < ApplicationController
         @songs = Song.includes(:artists) 
 
         if (params[:sort] == 'capo')
-            @songs = @songs.order('capo')
+            @songs = @songs.order(capo: :asc)
+        elsif params[:sort] == 'plays'
+            @songs = @songs.order(nb_practices: :desc)
+        elsif params[:sort] == 'last_played'
+            @songs = @songs.order(last_practiced: :desc)
         end
     end
 
