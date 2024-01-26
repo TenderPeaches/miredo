@@ -14,8 +14,10 @@
   <body>
     <%= render partial: "layouts/header" %>
     <%= tag.div class: "content" do %>
-      <%= tag.div class: "notice" do %><%= notice %><% end %>
-      <%= tag.div class: "alert" do %><%= alert %><% end %>
+      <%= tag.div class: "flashes" do %>
+        <%= tag.div class: "notice" do %><%= notice %><% end %>
+        <%= tag.div class: "alert" do %><%= alert %><% end %>
+      <% end %>
       <%= yield %>
     <% end %>
   </body>

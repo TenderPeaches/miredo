@@ -86,7 +86,7 @@ class SongsController < ApplicationController
         end
         
         # last_practiced must be in the past so set a minute in the past
-        @song.last_practiced = 1.minute.ago
+        @song.last_practiced = 1.hour.ago
 
         unless @song.save
             puts "#{@song.errors.full_messages} (#{@song.last_practiced})"

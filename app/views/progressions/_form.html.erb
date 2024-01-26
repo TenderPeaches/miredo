@@ -1,10 +1,8 @@
-<% key ||= Key.find_by_shorthand('C') %>
-<% scale ||= Scale.find_by_name('Major') %>
 <%= form_with model: progression, class: "progression-form", id: "#{dom_id(progression)}__form", local: false do |form| %>
     <%= render partial: "progressions/errors", locals: { progression: progression } %>
     <%= render partial: "progressions/fields", locals: { form: form } %>
     <%= tag.div class: "field progression-print" do %>
-        <%= progression.print(key, scale) %>
+        <%= progression.print %>
     <% end %>
     <%= render partial: "progressions/chords", locals: { form: form, progression: progression } %>
     

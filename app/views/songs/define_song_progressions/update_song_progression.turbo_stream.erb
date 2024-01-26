@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "#{dom_id(@song_progression)}__form" do %>
+    <%= render partial: "song_progressions/form", locals: { song_progression: @song_progression, song: @song_progression.song } %>
+<% end %>

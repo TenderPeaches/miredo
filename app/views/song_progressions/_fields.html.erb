@@ -1,4 +1,9 @@
 <%= tag.div class: "field" do %>
+    <%= form.label :progression %>
+    <%= form.collection_select :progression_id, form.object.song.progressions, :id, :print_for_select %>
+<% end %>
+
+<%= tag.div class: "field" do %>
     <%= form.label :tag %>
     <%= form.text_field :tag %>
 <% end %>

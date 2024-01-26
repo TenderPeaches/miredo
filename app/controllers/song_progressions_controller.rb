@@ -38,7 +38,7 @@ class SongProgressionsController < ApplicationController
         if @song_progression.update(song_progression_params)
             render 'songs/define_song_progressions/update_song_progression'
         else
-            render plain: @song_progression.errors.full_messages, status: :unprocessable_entity
+            render plain: @song_progression.errors.full_messages, status: :unprocessable_entity, alert: @song_progression.errors.full_messages
         end
     end
 

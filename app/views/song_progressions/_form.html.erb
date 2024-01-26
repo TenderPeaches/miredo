@@ -11,7 +11,6 @@
     <% end %>
 
     <%= form.hidden_field :song_id, value: song.id %>
-    <%= form.hidden_field :progression_id, value: song_progression.progression.id %>
 
     <% unless song_progression.new_record? %>
         <%= link_to t('actions.delete', thing: t('models.song_progression.model_name')), song_progression_path(song_progression.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: t('models.song_progression.model_name')) } %>

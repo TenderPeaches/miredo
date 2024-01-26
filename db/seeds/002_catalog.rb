@@ -184,7 +184,6 @@ Song.create_or_find_by!(name: "Sur mon épaule", album: Album.create(), nb_pract
 
 # todo pinta re mal
 # jimmy eat world - the middle
-# wagon wheel
 # i cant be with you
 # shove this job
 # bring me to life lol

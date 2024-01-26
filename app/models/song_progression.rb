@@ -19,6 +19,7 @@ class SongProgression < ApplicationRecord
   def html_lyrics
     if lyrics.include? (";")
       lyrics.gsub! ";","<br/>"
+      lyrics.gsub! "\n","<br/>"
     else 
       "#{lyrics}<br/>"
     end

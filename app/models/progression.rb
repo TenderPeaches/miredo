@@ -46,7 +46,7 @@ class Progression < ApplicationRecord
     end
 
     # display in a given key for a select box
-    def print(key, scale)
+    def print(key = active_key, scale = active_scale)
         printed = ""
         ordered_chords.each do |pc|
             # duration string to be appended to a chord, for instance the "----" part of C#----, denoting number of beats
