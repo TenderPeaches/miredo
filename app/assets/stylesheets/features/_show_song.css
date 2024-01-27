@@ -5,6 +5,11 @@
     padding-right: var(--size-s);        /* lots of breathing room */
  }
 
+ .title {
+    display: flex;
+    flex-direction: row;
+ }
+
  .show-song .song-actions {
     display: grid;
     grid-template-columns: repeat(1fr, 2);
