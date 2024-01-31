@@ -26,6 +26,8 @@ class Progression < ApplicationRecord
     end
 
     def active_key
+        puts self.inspect
+        puts song.inspect
         if key
             key
         elsif song.key

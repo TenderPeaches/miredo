@@ -1,6 +1,7 @@
 <%= form_with model: song_progression, class: "song-progression-form", id: "#{dom_id(song_progression)}__form", local: false do |form| %>
     <%= render partial: "song_progressions/errors", locals: { song_progression: song_progression } %>
     <%= tag.div class: "field progression-print" do %>
+        <% puts song.inspect %>
         <%= tag.div "#{t('models.progression.model_name')} ##{song_progression.progression.id} : #{song_progression.progression.print(song.key, song.scale)}" %>
     <% end %>
     <%= render partial: "song_progressions/fields", locals: { form: form } %>

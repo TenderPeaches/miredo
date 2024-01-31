@@ -64,6 +64,24 @@ class SongsController < ApplicationController
         end
     end
 
+    def update
+        set_song
+
+        respond_to do |format|
+            if @song.save
+                if @song.progressions.count > 0
+                    format.html { redirect_to show_song_new_path }
+                else 
+                    format.html { redirect_to define_progressions_song_path }
+                end
+            else
+                flash.alert = @song.errors.full_messages
+                format.html { render: :new, status: :unprocessable_entity }
+            end
+        end
+    end
+
+
     # PATCH /save/[id]
     def save
     end
@@ -103,8 +121,7 @@ class SongsController < ApplicationController
 
     # GET /edit/[id]
     def edit
-        @song = Song.find(params[:id])
-        @progressions = Progression.all.sort { |a, b| a.sortable <=> b.sortable }
+        set_song
     end
 
     private

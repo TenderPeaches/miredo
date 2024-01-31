@@ -1,3 +1,7 @@
+<%= content_for :header do %>
+    <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song(@song) %>
+<% end %>
+
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
 <%= turbo_frame_tag "progressions" do %>
     <%= content_tag :div do %>
