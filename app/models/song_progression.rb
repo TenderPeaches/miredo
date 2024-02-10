@@ -32,4 +32,10 @@ class SongProgression < ApplicationRecord
   def print_reps
     "x" + (reps * progression.reps).to_s
   end
+
+  def duration
+    # https://www.rubysos.com/std-lib/how-to-sum-properties-of-the-objects-within-an-array-in-ruby/
+    # could also do .map() => .sum()
+    progression.progression_chords.reduce(0) { |acc, obj| acc + obj.duration}
+  end
 end

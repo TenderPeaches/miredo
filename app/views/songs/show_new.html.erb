@@ -33,11 +33,17 @@
         <%= render partial: "utils/neck" %>
     <% end %>
 <div class="show-song" data-controller="show-song"> 
+    <%= Songs::Printer.new(@song, @key, @song.scale).print %>
    
     <% @song.song_progressions.order(:sequence).each do |song_progression| %>
+    <%#! debug %>
+    <% end %>
+    <% if false %>
         <div class="song-progression__chords">
             <% beat_counter = 0 %>
             <%#(!) doesn't work with capo %>
+            <%# set key to print in %>
+            <%#! ugly, doesn't belong here %>
             <% if song_progression.key %>
                 <% song_progression_key = song_progression.key %>
             <% elsif song_progression.progression.key %>
@@ -45,6 +51,7 @@
             <% else %>
                 <% song_progression_key = @key %>
             <% end %>
+            <%#! ugly %>
             <% song_progression.progression.progression_chords.order(:sequence).each do |progression_chord| %>
                 <% beat_counter += progression_chord.duration %>
                 <% if beat_counter > 16 %>

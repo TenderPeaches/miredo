@@ -76,7 +76,7 @@ class SongsController < ApplicationController
                 end
             else
                 flash.alert = @song.errors.full_messages
-                format.html { render: :new, status: :unprocessable_entity }
+                format.html { render :new, status: :unprocessable_entity }
             end
         end
     end
