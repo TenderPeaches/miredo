@@ -146,7 +146,7 @@ input[type="submit"]:active {
 /* for large screens */
 @media screen and (min-width: 1080px) {
     .content {
-        padding: var(--size-xxl) calc(2 * var(--size-xxxl));    /* large padding for large screens */
+        padding: calc(3 * var(--size-xxl)) calc(2 * var(--size-xxxl));    /* large padding for large screens */
     }
     
  }

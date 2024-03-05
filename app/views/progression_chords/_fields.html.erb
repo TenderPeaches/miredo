@@ -5,6 +5,11 @@
 <% end %>
 
 <%= tag.div class: "field" do %>
+    <%= form.label :duration %>
+    <%= form.number_field :duration, min: 1, step: 1 %>
+<% end %>
+
+<%= tag.div class: "field" do %>
     <%= form.label :chord %>
     <%= form.collection_select :chord_id, Chord.for_select, :id, :for_select %>
 <% end %>
@@ -22,11 +27,6 @@
 <%= tag.div class: "field" do %>
     <%= form.label :bass_modifier %>
     <%= form.number_field :bass_modifier, min: -3, max: 3, step: 1 %>
-<% end %>
-
-<%= tag.div class: "field" do %>
-    <%= form.label :duration %>
-    <%= form.number_field :duration, min: 1, step: 1 %>
 <% end %>
 
 <%= tag.div class: "field" do %>

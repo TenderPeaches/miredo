@@ -46,13 +46,17 @@ class Song < ApplicationRecord
         end
     end
 
+    def keyscale
+        "#{key.shorthand} #{scale.name}"
+    end
+
     #! the form passes along song_contributions with artist_id == 1 when artist field is left blank (for new artists), so weed that one out before the validations are made otherwise it raises a validation error with artist_id missing
     def assert_song_contributions
         self.song_contributions = self.song_contributions.where.not(artist_id: nil)
     end
 
     def set_song_contributions
-        
+
         # If a new artist name has been provided
         unless new_artist_name.nil? || new_artist_name.blank?
             # create the artist and a song_contribution entry that links them to this song
@@ -70,7 +74,7 @@ class Song < ApplicationRecord
 
         # finds chords, muted strums, etc. : 1> 3x Am,  2> Bmaj7 xx .., etc.
         chords_pattern = /(([\d]+>)[ ]*(([[ABCDEFG#maj67bdi\-:\\]\.\/ ](?!>))*[ ]*?(x\d)*)*)/
-        # list of chord patterns found 
+        # list of chord patterns found
         chord_patterns = []
 
         # splitter pattern to split "1> Am" into "1>" and "Am"
@@ -83,7 +87,7 @@ class Song < ApplicationRecord
         chords.scan(chords_pattern) do |match|
             # extract the pattern id from "1>" => "1"
             current_pattern_id = match[1].match(splitter_pattern)[1]
-            
+
             # chords are meant to be declared in order, so first pattern to be declared is 1>
             # thus, when 1> is first encountered, chord_patterns.size is 0; then when 2> is first encountered, chord_patterns.size is 1, etc.
             if chord_patterns.size < current_pattern_id.to_i
@@ -109,7 +113,7 @@ class Song < ApplicationRecord
 
             output << {type: OUTPUT_LINE_TYPE__LYRICS, content: line}
         end
-        
+
         return output
     end
 
@@ -143,8 +147,8 @@ class Song < ApplicationRecord
     end
 
     def song_progressions_attributes=(song_progressions_attributes)
-        song_progressions_attributes.each do |spa| 
-            
+        song_progressions_attributes.each do |spa|
+
         end
     end
 end

@@ -33,3 +33,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+miredo.code-workspace
+
+# Ignore own songs
+/db/compos/*
+.vscode/settings.json

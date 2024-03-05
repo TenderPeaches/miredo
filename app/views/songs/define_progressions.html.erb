@@ -1,12 +1,21 @@
 <%= content_for :header do %>
-    <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song(@song) %>
+    <%= render "scales/print_for_header", scale: @song.scale, key: @song.key %>
+    <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(@song) %>
 <% end %>
+
+<%# show song scale, degrees %>
+<%= @song.keyscale %>
 
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
 <%= turbo_frame_tag "progressions" do %>
     <%= content_tag :div do %>
         <%= render partial: "songs/define_progressions/song_shifter", locals: { song: @song } %>
         <%= render partial: "songs/define_progressions/current_progressions", locals: { progressions: @song.progressions, scale: @song.scale, key: @song.key } %>
+        <%= tag.div do %>
+            <% unless @song.chords.empty? %>
+                <%= @song.chords %>
+            <% end %>
+        <% end %>
         <%= render partial: "songs/define_progressions/new_progressions", locals: { progressions: [], song: @song, scale: @song.scale, key: @song.key } %>
         <%= link_to t('cta.define_song_progressions'), define_song_progressions_song_path(@song), class: "button", data: { turbo: false } %>
     <% end %>

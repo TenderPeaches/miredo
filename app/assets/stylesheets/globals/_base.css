@@ -7,6 +7,10 @@ body {
     margin: auto;                                           /* to center content */
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* links */
 a {
     color: var(--color-accent-lightest);                    /* contrast with regular content, light-fg */
@@ -43,7 +47,7 @@ table {
 
  /* number-style inputs */
 input[type="number"] {
-    width: var(--size-xxl);                                 /* numbers in this website's context are usually limited to 1-2 digits */
+    width: var(--size-xxxl);                                 /* numbers in this website's context are usually limited to 1-2 digits */
 }
 
 /* helps with complex forms, used for submodels */
@@ -68,11 +72,14 @@ legend {
 
     /* header nav bar */
     header {
+        position: fixed;
         display: flex;                                      /* horizontal flex */
+        width: 100vw;
         gap: var(--size-m);                                 /* space out links */
         justify-content: space-between;                     /* maximimze space */
-        padding: var(--size-l);                             /* header internal padding */
+        padding: var(--size-xxs) var(--size-l);                             /* header internal padding */
         border-bottom: 1px ridge var(--color-primary-dark); /* bottom edge */
         background: var(--color-black);                     /* differentiate from page content */
+        align-items: center;
     }
  }
