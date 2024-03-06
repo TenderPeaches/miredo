@@ -1,9 +1,9 @@
 class ProgressionChord < ApplicationRecord
   belongs_to :chord
   belongs_to :progression
-  
+
   before_save :assign_sequence_number
-  
+
   def assign_sequence_number
     if sequence.nil?
       # OR with 0 because if no other progression_chords, then max will be nil
@@ -11,31 +11,12 @@ class ProgressionChord < ApplicationRecord
     end
   end
 
-  def index 
-    @progression_chords = ProgressionChord.all
+  def is_first?
+      self.sequence == 1
   end
 
-  def show
-  end
-
-  def new
-    @progression_chord = ProgressionChord.new
-  end
-
-  def edit
-  end
-
-  def create
-    @progression_chord = ProgressionChord.new(progression_chord_params)
-
-    respond_to do |format|
-      if @progression_chord.save
-        format.json { render :show, status: :created, location: @progression_chord }
-      else        
-        format.json { render json: @progression_chord.errors, status: :unprocessable_entity }
-      end
-
-    end
+  def is_last?
+      ProgressionChord.where(progression: self.progression).maximum(:sequence) == self.sequence
   end
 
   def get_scale_notes(key, scale)
@@ -58,7 +39,7 @@ class ProgressionChord < ApplicationRecord
 
     # process:
     # use the key's flats/sharps values to figure out whether we are adding sharps or flat
-    if key.flats > 0 
+    if key.flats > 0
       process = "flatten"
     elsif key.sharps > 0
       process = "sharpen"
@@ -100,7 +81,7 @@ class ProgressionChord < ApplicationRecord
         #if notes.key?()
         degrees[i]
       # else, the natural version of the running pitch is higher
-      else 
+      else
         puts "natural is higher"
         puts degree.inspect << notes.inspect << statuses.inspect
         puts running_interval.to_s << " " << running_pitch.inspect
@@ -135,7 +116,7 @@ class ProgressionChord < ApplicationRecord
 
     # print the main chord
     printed << print_chord(key, scale)
-    
+
     # print the bass chord if present
     unless bass_degree.nil?
       #! use a separate method, standardise with print_chord
@@ -157,7 +138,7 @@ class ProgressionChord < ApplicationRecord
         beat = ". "
       elsif muted
         beat = "x."
-      end 
+      end
       printed << beat
     end
     printed << " "

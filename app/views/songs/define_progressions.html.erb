@@ -7,7 +7,7 @@
 <%= @song.keyscale %>
 
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
-<%= turbo_frame_tag "progressions" do %>
+<%= tag.div id: "progressions" do %>
     <%= content_tag :div do %>
         <%= render partial: "songs/define_progressions/song_shifter", locals: { song: @song } %>
         <%= render partial: "songs/define_progressions/current_progressions", locals: { progressions: @song.progressions, scale: @song.scale, key: @song.key } %>

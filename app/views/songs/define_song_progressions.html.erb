@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "song-progressions" do %>
+<%= tag.div id: "song-progressions" do %>
     <%= tag.div do %>
         <%= render partial: "songs/define_song_progressions/song_shifter", locals: { song: @song } %>
         <%= render partial: "songs/define_song_progressions/progression_picker", locals: { progressions: @song.progressions.distinct, song: @song } %>

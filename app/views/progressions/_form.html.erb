@@ -1,4 +1,4 @@
-<%= form_with model: progression, class: "progression-form", id: "#{dom_id(progression)}__form", local: false do |form| %>
+<%= form_with model: progression, class: "progression-form", id: progressions_form_id(progression), local: false do |form| %>
     <%= render partial: "progressions/errors", locals: { progression: progression } %>
     <%= render partial: "progressions/fields", locals: { form: form } %>
     <%= tag.div class: "field progression-print" do %>

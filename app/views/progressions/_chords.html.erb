@@ -1,8 +1,19 @@
 <%= tag.div id: "#{dom_id(progression)}_chords" do %>
-    <%= form.fields_for :progression_chords do |progression_chord_form| %>
-        <%= tag.fieldset class: "progression-chord-form" do %>
-            <%= tag.legend "#{t('models.progression_chord.model_name')} ##{progression_chord_form.options[:child_index] + 1}" %>
-            <%= render partial: "progression_chords/fields", locals: { form: progression_chord_form } %>
+    <% form.object.progression_chords.order(:sequence).each_with_index do |progression_chord, i| %>
+        <%= form.fields_for progression_chord do |progression_chord_form| %>
+            <%= tag.fieldset class: "progression-chord-form" do %>
+                <%= tag.legend "#{t('models.progression_chord.model_name')} ##{i + 1}" %>
+                <%= render partial: "progression_chords/fields", locals: { form: progression_chord_form } %>
+
+                <%= tag.div class: "actions" do %>
+                    <% unless progression_chord_form.object.is_first? %>
+                        <%= link_to "&#8593;".html_safe, new_progression_chord_shift_path(progression_chord_id: progression_chord_form.object.id, shift: -1), class: "button", data: { turbo_stream: true } %>
+                    <% end %>
+                    <% unless progression_chord_form.object.is_last? %>
+                        <%= link_to "&#8595;".html_safe, new_progression_chord_shift_path(progression_chord_id: progression_chord_form.object.id, shift: 1), class: "button", data: { turbo_stream: true } %>
+                    <% end %>
+                <% end %>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>

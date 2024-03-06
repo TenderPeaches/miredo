@@ -16,11 +16,13 @@ Rails.application.routes.draw do
     member do
       get 'add_progression_chord', controller: :progressions, action: :add_chord, as: :add_chord_to
     end
-  end 
+  end
 
   resources :song_progressions do
 
   end
+
+  resources :progression_chord_shifts, only: [:new]
 
   post 'new_song_progression_form', to: "song_progressions#new", as: :new_song_progression_form
 
