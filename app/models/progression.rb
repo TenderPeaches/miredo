@@ -54,11 +54,11 @@ class Progression < ApplicationRecord
             # duration string to be appended to a chord, for instance the "----" part of C#----, denoting number of beats
             duration_string = ""
 
-            if pc.duration 
-                pc.duration.times do 
+            if pc.duration
+                pc.duration.times do
                     # regular chords use dashes
                     duration_char = '-'
-                    if pc.staccato 
+                    if pc.staccato
                         # for staccato, use dots
                         duration_char = '.'
                     elsif pc.muted
@@ -75,13 +75,13 @@ class Progression < ApplicationRecord
     end
 
     def print_for_select
-        "#{id}) #{print(active_key, active_scale)} x#{reps.to_s}"
+        "#{tag} (#{print(active_key, active_scale)} x#{reps.to_s})"
     end
 
     def print_bars(key, scale)
         printed = ""
         ordered_chords.each do |pc|
-            
+
         end
     end
 end

@@ -32,42 +32,6 @@
         <%= render partial: "scales/print", locals: { scale: @song.scale, key: @key } %>
         <%= render partial: "utils/neck" %>
     <% end %>
-<div class="show-song" data-controller="show-song"> 
+<%= tag.div class: "show-song", data: { controller: "show-song" } do %> 
     <%= Songs::Printer.new(@song, @key, @song.scale).print %>
-   
-    <% @song.song_progressions.order(:sequence).each do |song_progression| %>
-    <%#! debug %>
-    <% end %>
-    <% if false %>
-        <div class="song-progression__chords">
-            <% beat_counter = 0 %>
-            <%#(!) doesn't work with capo %>
-            <%# set key to print in %>
-            <%#! ugly, doesn't belong here %>
-            <% if song_progression.key %>
-                <% song_progression_key = song_progression.key %>
-            <% elsif song_progression.progression.key %>
-                <% song_progression_key = song_progression.progression.key %>
-            <% else %>
-                <% song_progression_key = @key %>
-            <% end %>
-            <%#! ugly %>
-            <% song_progression.progression.progression_chords.order(:sequence).each do |progression_chord| %>
-                <% beat_counter += progression_chord.duration %>
-                <% if beat_counter > 16 %>
-                    <br/>
-                    <% beat_counter -= 16 %>
-                <% end %>
-                <%= progression_chord.print_with_colors(song_progression_key    , @song.scale) %> 
-            <% end %>
-            <% unless song_progression.nil? %>
-                <% if song_progression.show_reps? %>
-                    <%= song_progression.print_reps %>
-                <% end %>
-            <% end %>
-        </div>
-        <div class="song-progression__lyrics">
-            <%= raw song_progression.html_lyrics %>
-        </div>
-    <% end %>
-</div>
+<% end %>

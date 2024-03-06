@@ -2,7 +2,7 @@ class SongsController < ApplicationController
     before_action :set_song, only: %i[ show play define_progressions define_song_progressions ]
     # GET /
     def index
-        @songs = Song.includes(:artists) 
+        @songs = Song.includes(:artists)
 
         if (params[:sort] == 'capo')
             @songs = @songs.order(capo: :asc)
@@ -35,17 +35,17 @@ class SongsController < ApplicationController
             @frets = 12
             @accepted_pitch_ids = []
             @accepted_pitches = @scale.chords_from_key(@key)
-    
+
             @accepted_pitches.each do |pitch|
                 @accepted_pitch_ids << pitch[:pitch_class_id]
             end
-    
+
             render :show_new
         end
     end
 
     # POST /songs
-    def create 
+    def create
         @song = Song.new(song_params)
 
         respond_to do |format|
@@ -68,10 +68,10 @@ class SongsController < ApplicationController
         set_song
 
         respond_to do |format|
-            if @song.save
+            if @song.update(song_params)
                 if @song.progressions.count > 0
                     format.html { redirect_to show_song_new_path }
-                else 
+                else
                     format.html { redirect_to define_progressions_song_path }
                 end
             else
@@ -86,7 +86,7 @@ class SongsController < ApplicationController
     def save
     end
 
-    def new 
+    def new
         @song = Song.new
         @song.song_contributions << SongContribution.new
     end
@@ -97,12 +97,12 @@ class SongsController < ApplicationController
 
     # GET /play/[id]
     def play
-        if @song.nb_practices.nil? 
+        if @song.nb_practices.nil?
             @song.nb_practices = 1
         else
             @song.nb_practices += 1
         end
-        
+
         # last_practiced must be in the past so set a minute in the past
         @song.last_practiced = 1.hour.ago
 
@@ -125,11 +125,11 @@ class SongsController < ApplicationController
     end
 
     private
-    def set_song 
+    def set_song
         @song = Song.find_by_id(params[:id])
-    end 
+    end
 
     def song_params
-        params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key_id, :scale_id, :new_album_name, :new_artist_name, :album_id, song_contributions_attributes: [:id, :artist_id ])
+        params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key_id, :scale_id, :new_album_name, :new_artist_name, :album_id, song_contributions_attributes: [:id, :artist_id, :_destroy])
     end
 end

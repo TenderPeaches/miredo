@@ -1,10 +1,12 @@
 <%= content_for :header do %>
-    <%= render "scales/print_for_header", scale: @song.scale, key: @song.key %>
+    <%= render "scales/print_for_header", scale: @song.scale || Scale.default, key: @song.key || Key.default %>
     <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(@song) %>
 <% end %>
 
 <%# show song scale, degrees %>
-<%= @song.keyscale %>
+<% if @song.key && @song.scale %>
+    <%= @song.keyscale %>
+<% end %>
 
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
 <%= tag.div id: "progressions" do %>

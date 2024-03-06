@@ -20,9 +20,11 @@ class SongProgression < ApplicationRecord
     if lyrics.include? (";")
       html_lyrics = lyrics.gsub ";","<br/>"
       html_lyrics = html_lyrics.gsub "\n","<br/>"
-    else 
-      "#{lyrics}<br/>"
+    else
+      html_lyrics = "#{lyrics}<br/>"
     end
+
+    html_lyrics.html_safe
   end
 
   def show_reps?

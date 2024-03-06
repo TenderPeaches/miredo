@@ -2,7 +2,11 @@ class Key < ApplicationRecord
     belongs_to :pitch_class
     has_many :songs
 
-    def shift(shift) 
+    def self.default
+        Key.find_by_shorthand('C')
+    end
+
+    def shift(shift)
         shifted_key = pitch_class_id + shift
         shifted_key -= 12 if shifted_key > 12
         shifted_key += 12 if shifted_key < 1

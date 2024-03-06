@@ -1,6 +1,10 @@
 class Scale < ApplicationRecord
     has_many :scale_intervals
 
+    def self.default
+        Scale.find_by_name('Major')
+    end
+
     # get interval in semitones between nth degree and scale root
     def get_degrees_interval(degree)
         # 0-index the degree: 1st degree is the root, so it has 0 semitones interval by definition
@@ -17,31 +21,31 @@ class Scale < ApplicationRecord
         case id
         when 1      # chromatic
             [ "I".freeze, "II".freeze, "III".freeze, "IV".freeze, "V".freeze, "VI".freeze, "VII".freeze, "VIII".freeze, "IX".freeze, "X".freeze, "XI".freeze, "XII".freeze]
-        when 2      # major 
+        when 2      # major
             [ "I".freeze, "ii".freeze, "iii".freeze, "IV".freeze, "V".freeze, "vi".freeze, "vii⁰".freeze ]
         when 3      # natural minor
             [ "i".freeze, "ii⁰".freeze, "III".freeze, "iv".freeze, "v".freeze, "VI".freeze, "VII".freeze ]
         else
             []
         end
-        
+
         # any other case is todo
     end
 
     def chords
         chord__major = Chord.find_by(name: "Major Triad")
         chord__minor = Chord.find_by(name: "Minor Triad")
-        
+
         chord__diminished = Chord.find_by(name: "Diminished Triad")
         case id
-        when 2 
+        when 2
             [ chord__major, chord__minor, chord__minor, chord__major, chord__major, chord__minor, chord__diminished ]
         when 3
             [ chord__minor, chord__diminished, chord__major, chord__minor, chord__minor, chord__major, chord__major ]
-        else 
+        else
             []
         end
-    end 
+    end
 
     # modifier> number of semitones to add to each note
     def get_degree_chords(key, modifier = 0)
@@ -68,13 +72,13 @@ class Scale < ApplicationRecord
             # ensure final position remains within the 12 pitch classes
             running_interval -= 12 if running_interval + root.position > 12
             # rule this case out otherwise the root gets added as 8th degree
-            unless running_interval == 0    
+            unless running_interval == 0
                 pitch_class = PitchClass.find_by_position(running_interval + root.position)
                 # push the chord's notation accordingly
                 chords << { degree: degrees[current_degree], pitch_class: pitch_class.letter, pitch_class_id: pitch_class.id }
-            end    
+            end
         end
-        
+
         # standardize output
         chords.each_with_index do |chord, i|
             chord[:print] = chord[:pitch_class] + self.chords[i].notation
@@ -89,9 +93,9 @@ class Scale < ApplicationRecord
     # print the chords of this scale in the given key
     def print_in_key(key)
         output = ""
-        
-        # for each of the 7 degrees 
-        (1..7).each do |i| 
+
+        # for each of the 7 degrees
+        (1..7).each do |i|
             #> degree
             puts ('i: ' << i.to_s)
             #> pitch_class
@@ -105,7 +109,7 @@ class Scale < ApplicationRecord
             if pitch_class__position == 0
                 pitch_class__position = 12
             end
-            #> final position 
+            #> final position
             puts (pitch_class__position)
             #> final pitch class for this degree
             puts (PitchClass.find_by(position: pitch_class__position).print)
