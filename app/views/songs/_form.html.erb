@@ -16,12 +16,9 @@
         <!-- define progressions --> 
             <!-- + form to add --> 
 
-
         <div class="form-submit">
             <%= form.submit "#{song.new_record? ? "Create" : "Update"} song" %>
             <%= form.submit "Set progessions", name: 'progressions' %>
-        </div>
-
-        
+        </div>        
     </div>
 <% end %>

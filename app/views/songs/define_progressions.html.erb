@@ -11,14 +11,13 @@
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
 <%= tag.div id: "progressions" do %>
     <%= content_tag :div do %>
+        <%# shift from one song to the previous/next, for now by ID %>
         <%= render partial: "songs/define_progressions/song_shifter", locals: { song: @song } %>
+        <%# show currently instanciated Progressions %>
         <%= render partial: "songs/define_progressions/current_progressions", locals: { progressions: @song.progressions, scale: @song.scale, key: @song.key } %>
-        <%= tag.div do %>
-            <% unless @song.chords.empty? %>
-                <%= @song.chords %>
-            <% end %>
-        <% end %>
+        <%# show new progression forms %>
         <%= render partial: "songs/define_progressions/new_progressions", locals: { progressions: [], song: @song, scale: @song.scale, key: @song.key } %>
+        <%# link to the the page that sets SongProgressions %>
         <%= link_to t('cta.define_song_progressions'), define_song_progressions_song_path(@song), class: "button", data: { turbo: false } %>
     <% end %>
 <% end %>

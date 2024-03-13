@@ -10,9 +10,18 @@ class ProgressionsController < ApplicationController
     end
 
     def new
-        @progression = Progression.new
-        @song = Song.find_by_id(params[:song_id])
-        @progression.song = @song
+        if params[:progression_id]
+            original = Progression.find_by_id(params[:progression_id]).dup
+            @progression = original.dup
+            original.progression_chords.each do |progression_chord|
+                @progression.progression_chords = progression_chord.dup
+            end
+            @song = @progression.song
+        else
+            @progression = Progression.new
+            @song = Song.find_by_id(params[:song_id])
+            @progression.song = @song
+        end
 
         respond_to do |format|
             format.turbo_stream { render "songs/define_progressions/add_progression" }

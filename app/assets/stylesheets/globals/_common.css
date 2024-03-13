@@ -27,6 +27,7 @@
 /* generic button */
 .button,
 input[type="submit"] {
+    display: inline-block;                                  /* occupy a block */
     cursor: pointer;                                        /* standard */
     padding: var(--size-s);                                 /* inner spacing */
     margin: var(--size-m);                                  /* outer spacing */
