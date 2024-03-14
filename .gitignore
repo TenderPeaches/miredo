@@ -38,3 +38,6 @@ miredo.code-workspace
 # Ignore own songs
 /db/compos/*
 .vscode/settings.json
+
+# Ignore exports
+/db/exports/*

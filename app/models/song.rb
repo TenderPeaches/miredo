@@ -17,6 +17,7 @@ class Song < ApplicationRecord
     has_many :artists, through: :song_contributions
     has_many :song_progressions, dependent: :destroy
     has_many :progressions, dependent: :destroy
+    has_many :song_plays, dependent: :destroy
 
     validates :number, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
     validates :duration, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
@@ -38,6 +39,10 @@ class Song < ApplicationRecord
 
     OUTPUT_LINE_TYPE__CHORDS = "chords"
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
+
+    def plays(user)
+        song_plays.where(user: user).size
+    end
 
     def create_album_from_name
         # only if song is not on any album

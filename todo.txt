@@ -1,0 +1,17 @@
+x Export script
+Must export those from old laptop to new
+
+* Create users
+* Create user associations & tables:
+    song.tabbed_by
+    SongPlay => user.id, song.id
+    ?? that's pretty much it
+* Create user views:
+    * auth
+    * my songs w/ "contribute!" CTA
+
+Then down the line
+* Commentable => user.id, commentable.id
+* SongComment => song.id, user.id
+* ProgressionComment => progression.id, user.id
+* SPComment => song_progression.id, user.id

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  # devise_for :admins
   devise_for :users
 
   resources :songs do
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
     get 'new_progression', to: "progressions#new", as: :new_progression
   end
+
+  resources :song_plays, only: [ :create ]
 
   resources :progressions do
     resources :progression_chords, shallow: true
@@ -35,12 +37,4 @@ Rails.application.routes.draw do
   get "utils/get_degrees", to: "scales#get_degree_chords_from_request"
   get "utils/get_progression_chord_generator_info", to: "progression_chords#generator_info"
   get "fretboard", to: "application#fretboard", as: :fretboard
-
-  #get "/:id", to: "songs#show", as: :song
-  #get "/show_new/:id", to: "songs#show_new", as: :show_song_new
-  #get "/edit/:id", to: "songs#edit", as: :edit_song
-  #get "/songs/new", to: "songs#new", as: :new_song
-  #post "/songs", to: "songs#create", as: :songs
-
-  # get "/edit/:id/progressions"
 end
