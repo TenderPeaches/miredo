@@ -1,0 +1,58 @@
+:root {
+    --piano-key-width: 20px;
+    --piano-key-height: 80px;
+    --piano-key-sharp-width: 16px;
+    --piano-key-sharp-height: 55px;
+}
+
+.piano {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+.piano-key {
+    width: var(--piano-key-width);
+    height: var(--piano-key-height);
+    background: var(--color-white);
+    border: var(--color-primary-dark) 1px solid;
+}
+
+.piano-key--sharp {
+    position: relative;
+    background: var(--color-black);
+    width: var(--piano-key-sharp-width);
+    margin-right: calc(var(--piano-key-sharp-width) * -1);
+    height: var(--piano-key-sharp-height);
+    z-index: 1;
+    left: calc(var(--piano-key-sharp-width) / -2);
+}
+
+
+.piano-key--degree-1 {
+    background: var(--color-degree-first-dark);
+}
+
+.piano-key--degree-2 {
+    background: var(--color-degree-second-dark);
+}
+
+.piano-key--degree-3 {
+    background: var(--color-degree-third-dark);
+}
+
+.piano-key--degree-4 {
+    background: var(--color-degree-fourth-dark);
+}
+
+.piano-key--degree-5 {
+    background: var(--color-degree-fifth-dark);
+}
+
+.piano-key--degree-6 {
+    background: var(--color-degree-sixth-dark);
+}
+
+.piano-key--degree-7 {
+    background: var(--color-degree-seventh-dark);
+}

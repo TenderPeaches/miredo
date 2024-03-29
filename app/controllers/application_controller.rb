@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
         end
 
         respond_to do |format|
-            format.html { render 'utils/fretboard' }
+            format.html { render 'instruments/fretboard' }
         end
     end
 

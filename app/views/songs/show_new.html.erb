@@ -26,11 +26,16 @@
             <% end %>
         </div>
         <%= submit_tag "Apply" %>
-        <%= link_to "Play", play_song_path(@song.id), class: "button", data: { turbo_stream: true } %>  
+        <%= turbo_link_button "Play", play_song_path(@song.id) %>  
+        <%= turbo_link_button "Piano", instrument_choice_path(song_id: @song.id, instrument_id: Instrument.find_by_name("Piano").id), :post %>
+        <%= %>
     <% end %>
     <%= content_tag :div, class: "song-top-panel" do %>
-        <%= render partial: "scales/print", locals: { scale: @song.scale, key: @key } %>
-        <%= render partial: "utils/neck" %>
+        <%= render "scales/print", scale: @song.scale, key: @key %> 
+        <%= tag.div id: "instrument" do %>
+            <%= render "instruments/guitar/neck" %>
+            <%# render "instruments/piano/keys", song: @song, scale_pitch_ids: @accepted_pitch_ids %>
+        <% end %>
     <% end %>
 <%= tag.div class: "show-song", data: { controller: "show-song" } do %> 
     <%= Songs::Printer.new(@song, @key, @song.scale).print %>

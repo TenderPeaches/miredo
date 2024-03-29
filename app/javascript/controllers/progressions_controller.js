@@ -36,7 +36,7 @@ export default class extends Controller {
       "modifier": this.modifier.value
     }
 
-    const response = await fetch("/utils/get_degrees?scale=" + data.scale + "&key=" + data.key + "&modifier=" + data.modifier, {
+    const response = await fetch("/instruments/get_degrees?scale=" + data.scale + "&key=" + data.key + "&modifier=" + data.modifier, {
       method: "GET",
       mode: "cors",
       credentials: "same-origin",
@@ -167,7 +167,7 @@ export default class extends Controller {
       this.bass_degree.value = document.querySelector(selector + '[bass_degree]"]').value;
 
       // Update the generator's chord display
-      const request = new FetchRequest('get', "/utils/print_progression_chord?degree=" + data.degree + "&modifier=" + data.modifier + "&chord=" + data.chord_type + "&duration=" + data.duration + "&scale=" + data.scale + "&key=" + data.key);
+      const request = new FetchRequest('get', "/instruments/print_progression_chord?degree=" + data.degree + "&modifier=" + data.modifier + "&chord=" + data.chord_type + "&duration=" + data.duration + "&scale=" + data.scale + "&key=" + data.key);
       const response = await request.perform();
       if (response.ok) {
         this.display.innerText = await response.text;
@@ -277,7 +277,7 @@ export default class extends Controller {
     data["key"] = this.key.value;
     data["scale"] = this.scale.value;
     
-    const response = await Api.get("/utils/print_progression_chord?degree=" + data.degree + "&modifier=" + data.modifier + "&chord=" + data.chord_type + "&duration=" + data.duration + "&bass_degree=" + data.bass_degree + "&bass_modifier=" + data.bass_modifier + "&scale=" + data.scale + "&key=" + data.key);
+    const response = await Api.get("/instruments/print_progression_chord?degree=" + data.degree + "&modifier=" + data.modifier + "&chord=" + data.chord_type + "&duration=" + data.duration + "&bass_degree=" + data.bass_degree + "&bass_modifier=" + data.bass_modifier + "&scale=" + data.scale + "&key=" + data.key);
 
     const chord = await response.text();
       
@@ -293,7 +293,7 @@ export default class extends Controller {
       "modifier": this.modifier.value
     }
 
-    const response = await fetch("/utils/get_degrees?scale=" + data.scale + "&key=" + data.key + "&modifier=" + data.modifier);
+    const response = await fetch("/instruments/get_degrees?scale=" + data.scale + "&key=" + data.key + "&modifier=" + data.modifier);
 
     const chords = await response.json();
 
@@ -311,7 +311,7 @@ export default class extends Controller {
       "modifier": this.bass_modifier.value
     }
 
-    const response = await fetch("/utils/get_degrees?scale=" + data.scale + "&key=" + data.key + "&modifier=" + data.modifier, {
+    const response = await fetch("/instruments/get_degrees?scale=" + data.scale + "&key=" + data.key + "&modifier=" + data.modifier, {
       method: "GET",
       mode: "cors",
       credentials: "same-origin",
