@@ -18,6 +18,15 @@ namespace :song do
         end
     end
 
+    task :export_plays => [:environment] do |task|
+        File.open("db/exports/song_plays.rb", "w") do |file|
+            plays = {}
+            Song.all.each do |song|
+                plays[song.id] = { nb_practices: song.nb_practices, last_practiced: song.last_practiced }
+            end
+        end
+    end
+
     private
     def export_song(song)
 
