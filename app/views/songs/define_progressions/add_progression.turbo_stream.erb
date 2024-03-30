@@ -3,7 +3,7 @@
     <% uid = Time.now.to_i %>
     <%= tag.fieldset id: "new-progression_#{uid}" do %>
         <%= tag.legend t('actions.new', thing: t('models.progression.model_name')) %>
-        <%= render partial: "progressions/form", locals: { progression: @progression, uid: uid, song: @song } %>
+        <%= render "progressions/form", progression: @progression, uid: uid, song: @song %>
     <% end %>
 <% end %>
 <%= turbo_stream.remove "no-progressions" %>

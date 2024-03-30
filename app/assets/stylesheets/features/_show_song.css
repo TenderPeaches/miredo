@@ -86,3 +86,9 @@
  .scale-chords td {
   text-align: center;
  }
+
+ .instruments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }

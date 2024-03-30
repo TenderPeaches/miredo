@@ -31,21 +31,21 @@
         <% end %>
         <!-- degree input -->
         <%= content_tag :div, class: "generator__input generator__input--degree", "data-progressions-target" => "inputDegree" do %>
-            <%= render partial: 'progression_chords/degree_picker', locals: { scale: scale, key: key, form: form, selected_degree: progression_chord.degree } %>
+            <%= render 'progression_chords/degree_picker', scale: scale, key: key, form: form, selected_degree: progression_chord.degree %>
         <% end %>
         <!-- modifier input -->
         <div class="generator__input generator__input--degree-modifier">
-            <%= render partial: 'progression_chords/modifier_picker', locals: { form: form } %>
+            <%= render 'progression_chords/modifier_picker', form: form %>
         </div>
         <%= content_tag :div, class: "bass-controls"  << (" hidden" if progression_chord.bass_degree.nil?), "data-progressions-target" => "bassControls" do %>
             <%= form.label "Bass note" %>
             <!-- bass degree input -->
             <%= content_tag :div, class: "generator__input generator__input--bass-degree", "data-progressions-target" => "inputBassDegree" do %>
-                <%= render partial: 'progression_chords/degree_picker', locals: { scale: scale, key: key, form: form, selected_degree: progression_chord.bass_degree, attr_name: 'bass_degree' } %>
+                <%= render 'progression_chords/degree_picker', scale: scale, key: key, form: form, selected_degree: progression_chord.bass_degree, attr_name: 'bass_degree' %>
             <% end %>
             <!-- bass modifier input, hide by default if progression chord has no bass_degree, show with front-end -->
             <%= content_tag :div, class: "generator__input generator__input--bass-degree-modifier" do %>
-                <%= render partial: 'progression_chords/modifier_picker', locals: { form: form, attr_name: 'bass_modifier' } %>
+                <%= render 'progression_chords/modifier_picker', form: form, attr_name: 'bass_modifier' %>
             <% end %>
         <% end %>
         <!-- chord type input -->

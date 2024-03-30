@@ -1,12 +1,12 @@
 <%= form_tag fretboard_path, method: :get do |form| %>
         
     <%= label_tag :key, "Key" %>
-    <%= select_tag :key, options_from_collection_for_select(Key.for_select, :id, :shorthand, @key.id) %>
+    <%= select_tag :key, options_from_collection_for_select(Key.for_select, :id, :shorthand, key.id) %>
 
     <%= label_tag :scale, "Scale" %>
-    <%= select_tag :scale, options_from_collection_for_select(Scale.for_select, :id, :name, @scale.id) %>
+    <%= select_tag :scale, options_from_collection_for_select(Scale.for_select, :id, :name, scale.id) %>
 
     <%= submit_tag "Show" %>
 <% end %>
 
-<%= render partial: "instruments/guitar/neck" %>
+<%= render "instruments/guitar/neck", tuning: tuning, key: key, scale: scale %>

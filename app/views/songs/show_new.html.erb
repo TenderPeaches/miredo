@@ -32,9 +32,9 @@
     <% end %>
     <%= content_tag :div, class: "song-top-panel" do %>
         <%= render "scales/print", scale: @song.scale, key: @key %> 
-        <%= tag.div id: "instrument" do %>
-            <%= render "instruments/guitar/neck" %>
-            <%# render "instruments/piano/keys", song: @song, scale_pitch_ids: @accepted_pitch_ids %>
+        <%= tag.div id: "instruments", class: "instruments" do %>
+            <%= render "instruments/piano/keys", song: @song, scale_pitch_ids: @accepted_pitch_ids %>
+            <%= render "instruments/guitar/neck", key: @key, scale: @scale, tuning: @tuning, frets: @frets, capo: @capo, accepted_pitch_ids: @accepted_pitch_ids %>
         <% end %>
     <% end %>
 <%= tag.div class: "show-song", data: { controller: "show-song" } do %> 

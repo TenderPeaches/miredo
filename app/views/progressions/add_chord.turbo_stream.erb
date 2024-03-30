@@ -4,7 +4,7 @@
         <% form.fields_for :progression_chords, @progression_chord, child_index: Time.now.to_i do |progression_chord_form| %>
             <%= tag.fieldset class: "progression-chord-form" do %>
                 <%= tag.legend t('actions.new', thing: t('models.progression_chord.model_name')) %>
-                <%= render partial: "progression_chords/fields", locals: { form: progression_chord_form } %>           
+                <%= render "progression_chords/fields", form: progression_chord_form %>           
             <% end %>
         <% end %>
     <% end %>

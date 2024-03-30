@@ -2,6 +2,6 @@
 <%= turbo_stream.append "current-progressions" do %>
     <%= tag.fieldset id: dom_id(@progression) do %>
         <%= tag.legend "#{@progression_index.to_s}) #{@progression.tag}" %>
-        <%= render partial: "progressions/form", locals: { progression: @progression } %>    
+        <%= render "progressions/form", progression: @progression %>    
     <% end %>   
 <% end %>

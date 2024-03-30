@@ -3,7 +3,7 @@
         <% progressions.each_with_index do |progression, i| %>
             <%= tag.fieldset id: dom_id(progression) do %>
                 <%= tag.legend "#{(i + 1).to_s}) #{progression.tag}" %>
-                <%= render partial: "progressions/form", locals: { progression: progression } %>    
+                <%= render "progressions/form", progression: progression %>    
             <% end %>   
         <% end %>
     <% else %>

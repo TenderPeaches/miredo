@@ -1,10 +1,10 @@
 <%= model_form_with model: progression, class: "progression-form", id: progressions_form_id(progression), local: false do |form| %>
-    <%= render partial: "progressions/errors", locals: { progression: progression } %>
-    <%= render partial: "progressions/fields", locals: { form: form } %>
+    <%= render "progressions/errors", progression: progression %>
+    <%= render "progressions/fields", form: form %>
     <%= tag.div class: "field progression-print" do %>
         <%= progression.print %>
     <% end %>
-    <%= render partial: "progressions/chords", locals: { form: form, progression: progression } %>
+    <%= render "progressions/chords", form: form, progression: progression %>
     
     <%# if uid local variable assigned, create a hidden field so that the controller can target this form in its response %>
     <% if defined? uid %>

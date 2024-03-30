@@ -18,27 +18,18 @@ class SongsController < ApplicationController
         if @song.upgraded?
             # capo can be provided as query string argument, if absent then use the song's suggested capo
             @capo = (params.has_key? :capo) ? params[:capo].to_i : @song.capo
+            # same for the key, either the user specifies a shift from the original key or the original is used
+            @key = (params.has_key? :key_shift) ? @song.key.shift(params[:key_shift].to_i) : @song.key
 
-            # if there is a capo
-            if @capo != 0 && @song.key
-                # adjust the key accordingly, shifting from the song's base key
-                @key = @song.key.shift(@capo * -1)
-            # otherwise, no capo applied
-            else
-                # use the song key as is
-                @key = @song.key    # user can play around with song key, set default value to song's default key
-            end
+            @scale = @song.scale
 
-            @scale = (params.has_key? :scale) ? params[:scale].to_i : @song.scale
+            # the key when adjusting with the capo
+            @key_with_capo = @key.shift(@capo * -1)
 
             @tuning = Tuning.first
             @frets = 12
-            @accepted_pitch_ids = []
-            @accepted_pitches = @scale.chords_from_key(@key)
 
-            @accepted_pitches.each do |pitch|
-                @accepted_pitch_ids << pitch[:pitch_class_id]
-            end
+            @accepted_pitch_ids = @scale.chords_from_key(@song.key.shift(@capo)).map {|p| p[:pitch_class_id]}
 
             render :show_new
         end

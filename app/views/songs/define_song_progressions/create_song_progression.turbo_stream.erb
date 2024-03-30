@@ -2,6 +2,6 @@
 <%= turbo_stream.append "current-song-progressions" do %>
     <%= tag.fieldset id: dom_id(@song_progression) do %>
         <%= tag.legend "#{@song_progression_index.to_s}) #{@song_progression.tag}" %>
-        <%= render partial: "song_progressions/form", locals: { song_progression: @song_progression, song: @song } %>    
+        <%= render "song_progressions/form", song_progression: @song_progression, song: @song %>    
     <% end %>   
 <% end %>
