@@ -3,9 +3,9 @@
     <%= content_tag :div, class: "options-panel" do %>
         <%= link_to "< Back", "/", class: "button" %>
         <%= link_to "Edit", "/edit/" << @song.id.to_s, class: "button" %>
-        <%= link_to "Progressions", "/songs/" << @song.id.to_s << "/define_progressions", class: "button" %>
-        <%= link_to "Song Progressions", "/songs/" << @song.id.to_s << "/define_song_progressions", class: "button" %>
-        <%= link_to 'Random', "/songs/" << Song.random_id.to_s, class: "button" %>
+        <%= link_to "Progressions", song_progressions_path(@song), class: "button" %>
+        <%= link_to "Song Progressions", song_song_progressions_path(@song), class: "button" %>
+        <%= link_to 'Random', song_path(Song.random_id), class: "button" %>
     <% end %>
     <%= form_tag song_path(@song.id), method: :get do %>
         <%= tag.div class: "title" do %>

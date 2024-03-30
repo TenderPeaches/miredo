@@ -1,4 +1,9 @@
 class SongPlaysController < ApplicationController
+    def new
+        set_song
+        @song_play = SongPlay.new
+    end
+
     def create
         set_song
         @song_play = Songs::Player.new(current_user).play(@song).song_play

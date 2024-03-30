@@ -1,12 +1,8 @@
 class ProgressionsController < ApplicationController
     before_action :set_or_new_progression, only: %i[ add_chord ]
-    before_action :set_progression, only: %i[ update destroy ]
 
     def index
-        # doesn't apply
-    end
 
-    def show
     end
 
     def new
@@ -22,45 +18,23 @@ class ProgressionsController < ApplicationController
             @song = Song.find_by_id(params[:song_id])
             @progression.song = @song
         end
-
-        respond_to do |format|
-            format.turbo_stream { render "songs/define_progressions/add_progression" }
-        end
     end
 
     def create
         @progression = Progression.new(progression_params)
         song = Song.find_by_id(progression_params[:song_id])
         @progression_index = song.progressions.distinct.count + 1
-
-        respond_to do |format|
-            if @progression.save
-                format.turbo_stream { render "songs/define_progressions/create_progression" }
-            else
-
-            end
-        end
-
-
+        @progression.save
     end
 
     def update
-        # through /songs/:id/define_progressions
-        respond_to do |format|
-            if @progression.update(progression_params)
-                format.html { render json: { success: 'yes' }, notice: "success" }
-                format.turbo_stream
-            else
-                format.json { render json: @progression.errors, status: :unprocessable_entity }
-                format.turbo_stream { render plain: @progression.errors.full_messages, status: :unprocessable_entity }
-            end
-        end
+        set_progression
+        @progression.update(progression_params)
     end
 
     def destroy
+        set_progression
         @progression.destroy
-
-        render 'songs/define_progressions/destroy_progression'
     end
 
     def add_chord

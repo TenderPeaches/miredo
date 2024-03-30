@@ -1,9 +1,10 @@
 class SongsController < ApplicationController
-    before_action :set_song, only: %i[ show play define_progressions define_song_progressions ]
+    before_action :set_song, only: %i[ play ]
     # GET /
     def index
         @songs = Song.includes(:artists)
 
+        # sort the list
         if (params[:sort] == 'capo')
             @songs = @songs.order(capo: :asc)
         elsif params[:sort] == 'plays'
@@ -15,6 +16,7 @@ class SongsController < ApplicationController
 
     # GET /[id]/
     def show
+        set_song
         if @song.upgraded?
 
             @key_shift = params[:key_shift]
@@ -42,36 +44,29 @@ class SongsController < ApplicationController
     def create
         @song = Song.new(song_params)
 
-        respond_to do |format|
-            if @song.save
-                # if redirect to define_progressions
-                if params[:progressions]
-                    format.html { redirect_to define_progressions_song_path(@song), notice: "Song was successfully created." }
-                else
-                    format.html { redirect_to song_url(@song), notice: "Song was successfully created." }
-                end
-                format.json { render :show, status: :created, location: @song }
+        if @song.save
+            if params[:progressions]
+                redirect_to song_progressions_path(@song), notice: "Song was successfully created."
             else
-                format.html { render :new, status: :unprocessable_entity }
-                format.json { render json: @song.errors, status: :unprocessable_entity }
+                redirect_to song_url(@song), notice: "Song was successfully created."
             end
+        else
+            render :new, status: :unprocessable_entity
         end
     end
 
     def update
         set_song
 
-        respond_to do |format|
-            if @song.update(song_params)
-                if @song.progressions.count > 0
-                    format.html { redirect_to show_song_new_path }
-                else
-                    format.html { redirect_to define_progressions_song_path }
-                end
+        if @song.update(song_params)
+            if @song.progressions.count > 0
+                redirect_to show_song_new_path
             else
-                flash.alert = @song.errors.full_messages
-                format.html { render :new, status: :unprocessable_entity }
+                redirect_to song_progressions_path
             end
+        else
+            flash.alert = @song.errors.full_messages
+            render :new, status: :unprocessable_entity
         end
     end
 
@@ -85,11 +80,8 @@ class SongsController < ApplicationController
         @song.song_contributions << SongContribution.new
     end
 
-    def scales
-        render json: { body: params }
-    end
-
     # GET /play/[id]
+    #! to be obsoleted by SongPlay
     def play
         if @song.nb_practices.nil?
             @song.nb_practices = 1
@@ -104,13 +96,6 @@ class SongsController < ApplicationController
             puts "#{@song.errors.full_messages} (#{@song.last_practiced})"
             flash.alert = @song.errors.full_messages
         end
-    end
-
-    # GET /song/[id]/define_progressions
-    def define_progressions
-    end
-
-    def define_song_progressions
     end
 
     # GET /edit/[id]

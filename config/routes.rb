@@ -3,17 +3,18 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :songs do
+    resources :progressions, only: [ :index ]
+    resources :song_progressions, only: [ :index ]
+    #! to be obsoleted by SongPlay
     member do
-      get 'define_progressions', to: "songs#define_progressions"
-      get 'define_song_progressions', to: "songs#define_song_progressions"
       get :play, to: "songs#play", as: :play
     end
     get 'new_progression', to: "progressions#new", as: :new_progression
   end
 
-  resources :song_plays, only: [ :create ]
+  resources :song_plays, only: [ :new, :create ]
 
-  resources :progressions do
+  resources :progressions, except: [ :index, :show ] do
     resources :progression_chords, shallow: true
     member do
       get 'add_progression_chord', controller: :progressions, action: :add_chord, as: :add_chord_to
@@ -24,17 +25,11 @@ Rails.application.routes.draw do
 
   end
 
+  resources :scales, only: [ :index ]
+
   resources :progression_chord_shifts, only: [:new]
 
   post 'new_song_progression_form', to: "song_progressions#new", as: :new_song_progression_form
 
   root "songs#index"
-
-  get "scale", to: "scales#get", as: :scale
-  get "scales", to: "songs#scales", as: :scales
-
-  get "utils/print_progression_chord", to: "progression_chords#print_from_request"
-  get "utils/get_degrees", to: "scales#get_degree_chords_from_request"
-  get "utils/get_progression_chord_generator_info", to: "progression_chords#generator_info"
-  get "fretboard", to: "application#fretboard", as: :fretboard
 end

@@ -12,12 +12,12 @@
 <%= tag.div id: "progressions" do %>
     <%= content_tag :div do %>
         <%# shift from one song to the previous/next, for now by ID %>
-        <%= render "songs/define_progressions/song_shifter", song: @song %>
+        <%= render "progressions/song_shifter", song: @song %>
         <%# show currently instanciated Progressions %>
-        <%= render "songs/define_progressions/current_progressions", progressions: @song.progressions, scale: @song.scale, key: @song.key %>
+        <%= render "progressions/current_progressions", progressions: @song.progressions, scale: @song.scale, key: @song.key %>
         <%# show new progression forms %>
-        <%= render "songs/define_progressions/new_progressions", progressions: [], song: @song, scale: @song.scale, key: @song.key %>
+        <%= render "progressions/new_progressions", progressions: [], song: @song, scale: @song.scale, key: @song.key %>
         <%# link to the the page that sets SongProgressions %>
-        <%= link_to t('cta.define_song_progressions'), define_song_progressions_song_path(@song), class: "button", data: { turbo: false } %>
+        <%= link_to t('cta.define_song_progressions'), song_song_progressions_path(@song), class: "button", data: { turbo: false } %>
     <% end %>
 <% end %>
