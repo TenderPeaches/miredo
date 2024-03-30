@@ -1,5 +1,5 @@
 <%= content_tag :div, class: "guitar" do %>
-    <%= content_tag :div, class: "neck neck--guitar" do %>
+    <%= content_tag :div, class: "fretboard fretboard--guitar" do %>
         <%# helper fret indicators %>
         <%= render "instruments/guitar/fret_indicators", frets: frets, capo: capo %>
         <% tuning.low_to_high_strings.each do |string| %>

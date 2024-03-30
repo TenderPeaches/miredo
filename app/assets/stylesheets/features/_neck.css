@@ -1,19 +1,20 @@
 .guitar {
-    text-align: center;                                     /*~ center the neck */
+    text-align: center;                                     /*~ center the fretboard */
     padding: var(--size-l);                                 /* acts as margin, spacing */ 
 }
-.neck {
+
+.fretboard {
     border-style: none;                                     /* the frets have their own border */
-    display: inline-flex;                                   /* center the neck, wrap it around the frets and flex-vertical the strings */
+    display: inline-flex;                                   /* center the fretboard, wrap it around the frets and flex-vertical the strings */
     flex-direction: column;                                 /* vertical list the strings */    
 }
 
-.neck .string {
+.fretboard .string {
     display: flex;
 }
 
 
-.neck .fret {
+.fretboard .fret {
     width: calc(2.5 * var(--size-xl));
     height: var(--size-xl);
     color: var(--color-primary-dark);
@@ -27,47 +28,47 @@
     margin-top: -1px;
 }
 
-.neck .fret--outside {
+.fretboard .fret--outside {
     border-color: transparent;
 }
 
-.neck .fret--included {
+.fretboard .fret--included {
     background: var(--color-accent-darker);
     color: var(--color-white);
 }
 
-.neck--active .fret:hover {
+.fretboard--active .fret:hover {
     background: var(--color-secondary);
     border-color: var(--color-secondary-lightest);
     box-shadow: 2px 2px 2px var(--color-secondary-lighter);
     
 }
 
-.neck .fret--degree-1 {
+.fretboard .fret--degree-1 {
     background: var(--color-degree-first-dark);
 }
 
-.neck .fret--degree-2 {
+.fretboard .fret--degree-2 {
     background: var(--color-degree-second-dark);
 }
 
-.neck .fret--degree-3 {
+.fretboard .fret--degree-3 {
     background: var(--color-degree-third-dark);
 }
 
-.neck .fret--degree-4 {
+.fretboard .fret--degree-4 {
     background: var(--color-degree-fourth-dark);
 }
 
-.neck .fret--degree-5 {
+.fretboard .fret--degree-5 {
     background: var(--color-degree-fifth-dark);
 }
 
-.neck .fret--degree-6 {
+.fretboard .fret--degree-6 {
     background: var(--color-degree-sixth-dark);
 }
 
-.neck .fret--degree-7 {
+.fretboard .fret--degree-7 {
     background: var(--color-degree-seventh-dark);
 }
 
