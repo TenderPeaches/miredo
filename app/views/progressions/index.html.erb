@@ -10,7 +10,7 @@
 
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
 <%= tag.div id: "progressions" do %>
-    <%= content_tag :div do %>
+    <%= tag.div do %>
         <%# shift from one song to the previous/next, for now by ID %>
         <%= render "progressions/song_shifter", song: @song %>
         <%# show currently instanciated Progressions %>

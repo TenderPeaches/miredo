@@ -1,11 +1,11 @@
 <% modifier ||= 0 %>
-<%= content_tag :table, class: "scale-chords" do %>
+<%= tag.table, class: "scale-chords" do %>
     <% scale.get_degree_chords(key, modifier).each_with_index do |chord, i| %>
-        <%= content_tag :tr do %>
-            <%= content_tag :th do %>
+        <%= tag.tr do %>
+            <%= tag.th do %>
                 <%= chord[:degree] %>
             <% end %>
-            <%= content_tag :td, class: "degree-#{i + 1}" do %>
+            <%= tag.td, class: "degree-#{i + 1}" do %>
                 <%= chord[:print] %>
             <% end %>
         <% end %>

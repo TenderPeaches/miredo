@@ -1,0 +1,4 @@
+<%= tag.fieldset do %>
+    <%= tag.legend "Pick for me" %>
+    <%= link_to 'Random', song_path(Song.random_id) %>
+<% end %>

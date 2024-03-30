@@ -1,16 +1,20 @@
 <%= tag.div class: "piano" do %>
-    <%# scale_pitch_ids.inspect %>
     <% piano_pitches.each do |pitch| %>
-        <%# pitch.inspect %>
+        <%# sharp keys %>
         <% if pitch.is_sharp? %>
+            <%# in scale %>
             <% if scale_pitch_ids.include? pitch.pitch_class_id %>
                 <%= tag.div class: "piano-key piano-key--sharp piano-key--degree-#{scale_pitch_ids.index(pitch.pitch_class.id) + 1}" %>
+            <%# not in scale %>
             <% else %>
                 <%= tag.div class: "piano-key piano-key--sharp" %>
             <% end %>
+        <%# natural keys %>
         <% else %>
+            <%# in scale %>
             <% if scale_pitch_ids.include? pitch.pitch_class_id %>
                 <%= tag.div class: "piano-key piano-key--degree-#{scale_pitch_ids.index(pitch.pitch_class.id) + 1}" %>
+            <%# not in scale %>
             <% else %>
                 <%= tag.div class: "piano-key" %>
             <% end %>

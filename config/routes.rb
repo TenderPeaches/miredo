@@ -15,10 +15,7 @@ Rails.application.routes.draw do
   resources :song_plays, only: [ :new, :create ]
 
   resources :progressions, except: [ :index, :show ] do
-    resources :progression_chords, shallow: true
-    member do
-      get 'add_progression_chord', controller: :progressions, action: :add_chord, as: :add_chord_to
-    end
+      resources :progression_chords, shallow: true
   end
 
   resources :song_progressions do

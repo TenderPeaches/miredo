@@ -1,9 +1,0 @@
-<%# progression %>
-<% id = progression.id || 0 %>
-<div class="hidden-progression" data-progression-id="<%= id %>">
-    <input type="hidden" name="progressions[<%= id %>][tag]" value="<%= progression.tag %>" />
-    <input type="hidden" name="progressions[<%= id %>][reps]" value="<%= progression.reps %>" />
-    <% progression.ordered_chords.each do |pc| %>
-        <%= render "progression_chords/hidden_data", progression_chord: pc, progression_id: progression.id %>
-    <% end %>
-</div>

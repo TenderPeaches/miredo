@@ -1,5 +1,4 @@
 class ProgressionsController < ApplicationController
-    before_action :set_or_new_progression, only: %i[ add_chord ]
 
     def index
 
@@ -35,14 +34,6 @@ class ProgressionsController < ApplicationController
     def destroy
         set_progression
         @progression.destroy
-    end
-
-    def add_chord
-        @progression_chord = @progression.progression_chords.build
-
-        respond_to do |format|
-            format.turbo_stream { render "progressions/add_chord" }
-        end
     end
 
     private

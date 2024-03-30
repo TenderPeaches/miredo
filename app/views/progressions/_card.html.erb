@@ -1,7 +1,0 @@
-<%= tag.fieldset do %>
-    <%= tag.legend progression.tag do %>
-        <% progression.progression_chords.each do |progression_chord| %>
-            <%= "#{progression_chord.print_chord(key, scale)} x #{progression_chord.duration}" %>
-        <% end %>
-    <% end %>
-<% end %>

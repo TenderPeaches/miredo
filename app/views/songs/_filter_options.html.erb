@@ -1,0 +1,9 @@
+<%= tag.fieldset do %>
+    <%= tag.legend "Filters" %>
+        <%= form_with url: scales_path, method: :get do |form| %>
+            <%= form.collection_select :key, Key.all, :id, :shorthand %>
+            <%= form.collection_select :scale, Scale.all, :id, :name %>
+            <%= form.submit "(fix me!)", data: { action: "scales#connect:prevent" } %>
+        <% end %>
+    <% end %>
+<% end %>

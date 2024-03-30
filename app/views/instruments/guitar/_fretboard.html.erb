@@ -1,9 +1,9 @@
-<%= content_tag :div, class: "guitar" do %>
-    <%= content_tag :div, class: "fretboard fretboard--guitar" do %>
+<%= tag.div, class: "guitar" do %>
+    <%= tag.div, class: "fretboard fretboard--guitar" do %>
         <%# helper fret indicators %>
         <%= render "instruments/guitar/fret_indicators", frets: frets, capo: capo %>
         <% tuning.low_to_high_strings.each do |string| %>
-            <%= content_tag :div, class: "string" do %>
+            <%= tag.div, class: "string" do %>
                 <%# @frets + 1 => because @frets contain the actual number of frets, adding 1 for the "0th" fret to represent the open string %>
                 <% (frets + 1).times do |fret| %>
                     <%# set the fret's data: pitch_class dependent on string tuning + capo + fret %>
@@ -19,7 +19,7 @@
                     <%# 0th fret (open string) gets a special class %>
                     <% fret_class << (fret == 0 ? " fret--outside" : "") %>
                     <%# print the fret %>
-                    <%= content_tag :div, class: "fret" + fret_class, "data-pitch-class" => pitch_class, "data-pitch" => Pitch.find_by_id(string.pitch_id + fret).id do %>
+                    <%= tag.div, class: "fret" + fret_class, "data-pitch-class" => pitch_class, "data-pitch" => Pitch.find_by_id(string.pitch_id + fret).id do %>
                         <%= pitch_class.letter %>
                     <% end %>
                 <% end %>

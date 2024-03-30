@@ -1,49 +1,42 @@
-<div class="action-bar">
-    <fieldset>
-        <legend>Sort by</legend>
-        <%= link_to 'Reset', '/' %>
-        <%= link_to 'Capo', '?sort=capo' %>
-        <%= link_to 'Most Played', '?sort=plays' %>
-        <%= link_to 'Last Played', '?sort=last_played' %>
-    </fieldset>
-    <fieldset>
-        <legend>Admin</legend>
-        <%= link_to 'New Song', '/songs/new' %>
-    </fieldset>
-    <fieldset data-controller="scales">
-        <legend>Scale stuff</legend>
-        <%= form_with url: scales_path, method: :get do |form| %>
-            <%= form.collection_select :key, Key.all, :id, :shorthand %>
-            <%= form.collection_select :scale, Scale.all, :id, :name %>
-            <%= form.submit "Show me", data: { action: "scales#connect:prevent" } %>
+<%= tag.div "action-bar" do %>
+    <%= render "songs/sort_options" %>
+    <%= render "songs/admin_options" %>
+    <%= render "songs/filter_options" %>
+    <%= render "songs/selection_options" %>
+<% end %>
+<%= tag.table class: "songs-list" do %>
+    <%= tag.thead do %>
+        <%= tag.tr do %>
+            <%= tag.th do %>Song<% end %>
+            <%= tag.th do %>Artists<% end %>
+            <%= tag.th do %>Capo<% end %>
+            <%= tag.th do %>Plays<% end %>
+            <%= tag.th do %>Last Played<% end %>
+            <%= tag.th do %>...<% end %>
         <% end %>
-    </fieldset>
-    <fieldset>
-        <legend>Pick for me</legend>
-        <%= link_to 'Random', "/songs/" << Song.random_id.to_s %>
-    </fieldset>
-</div>
-<table class="songs-list">
-    <thead>
-        <tr>
-            <th>Song</th>
-            <th>Artists</th>
-            <th>Capo</th>
-            <th>Plays</th>
-            <th>Last Played
-            <th>...</th>
-        </tr>
-    </thead>
-    <tbody>
+    <% end %>
+    <%= tag.tbody do %>
         <% @songs.each do |song| %>
-            <tr>
-                <td class="songs-list__title"><%= link_to song.name, song_path(song.id), class: ("contrast-text" if song.upgraded?) %></td>
-                <td class="songs-list__artist"><%= song.get_artists %></td>
-                <td class="songs-list__capo"><%= song.capo %></td>
-                <td class="songs-list__plays"><%= song.nb_practices %></td>
-                <td class="songs-list__last-played"><%= song.last_practiced&.strftime("%Y-%m-%d") %></td>
-                <td class="songs-list__play"><%= link_to "Play", play_song_path(song.id), data: { turbo_stream: true } %></td>
-            </tr>
+            <%= tag.tr do %>
+                <%= tag.td class: "songs-list__title"%>
+                    <%= link_to song.name, song_path(song.id), class: ("contrast-text" if song.upgraded?) %>
+                <% end %>
+                <%= tag.td class: "songs-list__artist" do %>
+                    <%= song.get_artists %>
+                <% end %>
+                <%= tag.td class: "songs-list__capo" do %>
+                    <%= song.capo %>
+                <% end %>
+                <%= tag.td class: "songs-list__plays" do %>
+                    <%= song.nb_practices %>
+                <% end %>
+                <%= tag.td class: "songs-list__last- do %>
+                    layed"><%= song.last_practiced&.strftime("%Y-%m-%d") %>
+                <% end %>
+                <%= tag.td class: "songs-list__play" do %>
+                    <%= link_to "Play", play_song_path(song.id), data: { turbo_stream: true } %>
+                <% end %>
+            <% end %>
         <% end %>
-    </tbody>
-</table>
+    <% end %>
+<% end %>
