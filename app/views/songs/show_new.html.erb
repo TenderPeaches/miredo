@@ -18,13 +18,17 @@
             <% end %>
         <% end %>
         <div>Key: <%= @key.shorthand %></div>
-        <div>
+        <%= tag.div do %>
             <%= label_tag :capo, "Capo:" %>
             <%= select_tag :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: @capo) %>
+            <%= tag.div do %>
+                <%= label_tag :key_shift, "Shift key:" %>
+                <%= number_field_tag :key_shift, @key_shift || 0, in: -6...7 %>
+            <% end %>
             <%= content_tag :div, id: "song-play-count" do %>
                 <%= t('models.song.practiced', times: @song.nb_practices.to_s) %>
             <% end %>
-        </div>
+        <% end %>
         <%= submit_tag "Apply" %>
         <%= turbo_link_button "Play", play_song_path(@song.id) %>  
         <%= turbo_link_button "Piano", instrument_choice_path(song_id: @song.id, instrument_id: Instrument.find_by_name("Piano").id), :post %>
@@ -33,10 +37,10 @@
     <%= content_tag :div, class: "song-top-panel" do %>
         <%= render "scales/print", scale: @song.scale, key: @key %> 
         <%= tag.div id: "instruments", class: "instruments" do %>
-            <%= render "instruments/piano/keys", song: @song, scale_pitch_ids: @accepted_pitch_ids %>
-            <%= render "instruments/guitar/neck", key: @key, scale: @scale, tuning: @tuning, frets: @frets, capo: @capo, accepted_pitch_ids: @accepted_pitch_ids %>
+            <%= render "instruments/piano/keys", song: @song, scale_pitch_ids: @key_pitch_ids %>
+            <%= render "instruments/guitar/neck", key: @key, scale: @scale, tuning: @tuning, frets: @frets, capo: @capo, accepted_pitch_ids: @key_pitch_ids %>
         <% end %>
     <% end %>
 <%= tag.div class: "show-song", data: { controller: "show-song" } do %> 
-    <%= Songs::Printer.new(@song, @key, @song.scale).print %>
+    <%= Songs::Printer.new(@song, @key_with_capo, @song.scale).print %>
 <% end %>

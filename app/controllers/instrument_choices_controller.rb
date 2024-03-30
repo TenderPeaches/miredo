@@ -17,12 +17,7 @@ class InstrumentChoicesController < ApplicationController
         puts Instrument.find_by_name("Piano").inspect
 
 
-        @accepted_pitch_ids = []
-        @accepted_pitches = @song.scale.chords_from_key(@key)
-
-        @accepted_pitches.each do |pitch|
-            @accepted_pitch_ids << pitch[:pitch_class_id]
-        end
+        @key_pitch_ids = @song.scale.chords_from_key(@key).map {|p| p[:pitch_class_ids]}
 
         if @instrument == Instrument.find_by_name("Piano")
             render "instrument_choices/use_piano"

@@ -16,10 +16,12 @@ class SongsController < ApplicationController
     # GET /[id]/
     def show
         if @song.upgraded?
+
+            @key_shift = params[:key_shift]
             # capo can be provided as query string argument, if absent then use the song's suggested capo
             @capo = (params.has_key? :capo) ? params[:capo].to_i : @song.capo
             # same for the key, either the user specifies a shift from the original key or the original is used
-            @key = (params.has_key? :key_shift) ? @song.key.shift(params[:key_shift].to_i) : @song.key
+            @key = @key_shift ? @song.key.shift(@key_shift.to_i) : @song.key
 
             @scale = @song.scale
 
@@ -29,7 +31,8 @@ class SongsController < ApplicationController
             @tuning = Tuning.first
             @frets = 12
 
-            @accepted_pitch_ids = @scale.chords_from_key(@song.key.shift(@capo)).map {|p| p[:pitch_class_id]}
+            @key_pitch_ids = @scale.chords_from_key(@key).map {|p| p[:pitch_class_id]}
+            @capo_pitch_ids = @scale.chords_from_key(@key_with_capo).map {|p| p[:pitch_class_id]}
 
             render :show_new
         end
