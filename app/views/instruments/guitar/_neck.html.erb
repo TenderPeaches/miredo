@@ -1,7 +1,7 @@
 <%= content_tag :div, class: "guitar" do %>
     <%= content_tag :div, class: "neck neck--guitar" do %>
         <%# helper fret indicators %>
-        <%= render "instruments/guitar/fret_indicators" %>
+        <%= render "instruments/guitar/fret_indicators", frets: frets, capo: capo %>
         <% tuning.low_to_high_strings.each do |string| %>
             <%= content_tag :div, class: "string" do %>
                 <%# @frets + 1 => because @frets contain the actual number of frets, adding 1 for the "0th" fret to represent the open string %>

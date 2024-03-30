@@ -41,3 +41,4 @@ miredo.code-workspace
 
 # Ignore exports
 /db/exports/*
+key.txt
