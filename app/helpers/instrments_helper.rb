@@ -1,4 +1,4 @@
-module InstrumentChoicesHelper
+module InstrumentsHelper
     def piano_pitches(options = {})
         # https://upload.wikimedia.org/wikipedia/commons/a/ad/Piano_key_frequencies.png
         if options[:all]

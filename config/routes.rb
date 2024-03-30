@@ -20,8 +20,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :instrument_choice, only: [ :new, :create ]
-
   resources :song_progressions do
 
   end

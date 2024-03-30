@@ -31,7 +31,6 @@
         <% end %>
         <%= submit_tag "Apply" %>
         <%= turbo_link_button "Play", play_song_path(@song.id) %>  
-        <%= turbo_link_button "Piano", instrument_choice_path(song_id: @song.id, instrument_id: Instrument.find_by_name("Piano").id), :post %>
         <%= %>
     <% end %>
     <%= content_tag :div, class: "song-top-panel" do %>
