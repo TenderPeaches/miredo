@@ -14,9 +14,9 @@ Rails.application.routes.draw do
 
   resources :song_plays, only: [ :new, :create ]
 
-  resources :progressions, except: [ :index, :show ] do
-      resources :progression_chords, shallow: true
-  end
+  resources :progressions, except: [ :index, :show ]
+
+  resources :progression_chords, except: [ :index, :show ]
 
   resources :song_progressions do
 

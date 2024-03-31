@@ -1,6 +1,7 @@
 class SongProgressionsController < ApplicationController
-    def index
 
+    def index
+        @song = Song.find_by_id(params[:song_id])
     end
 
     def new

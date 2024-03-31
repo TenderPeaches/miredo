@@ -1,4 +1,4 @@
-<%= tag.div "action-bar" do %>
+<%= tag.div class: "action-bar" do %>
     <%= render "songs/sort_options" %>
     <%= render "songs/admin_options" %>
     <%= render "songs/filter_options" %>
@@ -18,7 +18,7 @@
     <%= tag.tbody do %>
         <% @songs.each do |song| %>
             <%= tag.tr do %>
-                <%= tag.td class: "songs-list__title"%>
+                <%= tag.td class: "songs-list__title" do %>
                     <%= link_to song.name, song_path(song.id), class: ("contrast-text" if song.upgraded?) %>
                 <% end %>
                 <%= tag.td class: "songs-list__artist" do %>
@@ -30,8 +30,8 @@
                 <%= tag.td class: "songs-list__plays" do %>
                     <%= song.nb_practices %>
                 <% end %>
-                <%= tag.td class: "songs-list__last- do %>
-                    layed"><%= song.last_practiced&.strftime("%Y-%m-%d") %>
+                <%= tag.td class: "songs-list__last-played" do %>
+                    <%= song.last_practiced&.strftime("%Y-%m-%d") %>
                 <% end %>
                 <%= tag.td class: "songs-list__play" do %>
                     <%= link_to "Play", play_song_path(song.id), data: { turbo_stream: true } %>

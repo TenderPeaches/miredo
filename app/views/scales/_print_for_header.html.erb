@@ -1,6 +1,6 @@
 <% modifier ||= 0 %>
 <% degree_chords = scale.get_degree_chords(key, modifier) %>
-<%= tag.table, class: "scale-chords" do %>
+<%= tag.table class: "scale-chords" do %>
     <%= tag.tr do %>
         <% degree_chords.each do |chord| %>
             <%= tag.th chord[:degree] %>

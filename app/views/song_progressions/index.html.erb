@@ -1,14 +1,14 @@
 <%= tag.div id: "song-progressions" do %>
     <%= tag.div do %>
-        <%= render "songs/song_progressions/song_shifter", song: @song %>
-        <%= render "songs/song_progressions/progression_picker", progressions: @song.progressions.distinct, song: @song %>
-        <%= render "songs/song_progressions/current_progressions", progressions: @song.song_progressions, song: @song %>
+        <%= render "song_progressions/song_shifter", song: @song %>
+        <%= render "song_progressions/progression_picker", progressions: @song.progressions.distinct, song: @song %>
+        <%= render "song_progressions/current_progressions", progressions: @song.song_progressions, song: @song %>
         <%= tag.div @song.lyrics %>
-        <%= render "songs/song_progressions/new_progressions", progressions: [], song: @song %>
+        <%= render "song_progressions/new_progressions", progressions: [], song: @song %>
 
         <%# if there are more than 4 progressions or more, add another picker at the bottom so that there's no need to scroll all the way back up to add a new song progression %>
         <% if @song.song_progressions.count >= 4 %>
-            <%= render "songs/song_progressions/progression_picker", progressions: @song.progressions.distinct, song: @song %>
+            <%= render "/song_progressions/progression_picker", progressions: @song.progressions.distinct, song: @song %>
         <% end %>
     <% end %>
 <% end %>

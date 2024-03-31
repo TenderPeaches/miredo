@@ -1,24 +1,11 @@
-<%= form_with model: song, url: song_path(song) do |form| %>
-    <% if song.errors.any? %>
-        <div style="color: red">
-        <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
+<%= model_form_with model: song do |form| %>
+    <%= render "songs/errors", song: song %>
 
-        <ul>
-            <% song.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-            <% end %>
-        </ul>
-        </div>
-    <% end %>
-
-    <div class="form-fields">
+    <% tag.div class: "form-fields" do %>
         <%= render "songs/fields", form: form %>
-        <!-- define progressions --> 
-            <!-- + form to add --> 
-
-        <div class="form-submit">
+        <%= tag.div class: "form-submit" do %>
             <%= form.submit "#{song.new_record? ? "Create" : "Update"} song" %>
             <%= form.submit "Set progessions", name: 'progressions' %>
-        </div>        
-    </div>
+        <% end %>        
+    <% end %>
 <% end %>

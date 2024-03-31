@@ -1,6 +1,6 @@
 <!-- to be used with songs whose structure is dictated by SongProgression entities, rather than plaintext -->
  <%# options_panel %>
-    <%= tag.div, class: "options-panel" do %>
+    <%= tag.div class: "options-panel" do %>
         <%= link_to "< Back", "/", class: "button" %>
         <%= link_to "Edit", "/edit/" << @song.id.to_s, class: "button" %>
         <%= link_to "Progressions", song_progressions_path(@song), class: "button" %>
@@ -25,7 +25,7 @@
                 <%= label_tag :key_shift, "Shift key:" %>
                 <%= number_field_tag :key_shift, @key_shift || 0, in: -6...7 %>
             <% end %>
-            <%= tag.div, id: "song-play-count" do %>
+            <%= tag.div id: "song-play-count" do %>
                 <%= t('models.song.practiced', times: @song.nb_practices.to_s) %>
             <% end %>
         <% end %>
@@ -33,7 +33,7 @@
         <%= turbo_link_button "Play", play_song_path(@song.id) %>  
         <%= %>
     <% end %>
-    <%= tag.div, class: "song-top-panel" do %>
+    <%= tag.div class: "song-top-panel" do %>
         <%= render "scales/print", scale: @song.scale, key: @key %> 
         <%= tag.div id: "instruments", class: "instruments" do %>
             <%= render "instruments/piano/keys", song: @song, scale_pitch_ids: @key_pitch_ids %>
