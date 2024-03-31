@@ -33,8 +33,6 @@ module Songs
             def rep
                 @song_plays.first
             end
-
-
         end
     end
 end

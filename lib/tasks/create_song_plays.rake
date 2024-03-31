@@ -1,11 +1,14 @@
 namespace :song do
     desc "using the deprecated nb_practices attribute, creates a matching number of SongPlays"
-    task :create_plays, [:song_id] => [:environment] do |task, args|
-        create_song_plays(Song.find(args[:song_id]))
+    task :create_plays => [:environment] do |task|
+        player = Songs::Player.new(User.first)
+        Song.each do |song|
+            create_song_plays(song, player)
+        end
     end
 
     private
-    def create_song_plays(song)
-        Songs::Player.new(User.first)
+    def create_song_plays(song, player = Songs::Player.new(User.first))
+        player.play({song_id: song.id}, song.nb_practices)
     end
 end

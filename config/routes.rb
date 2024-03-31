@@ -5,11 +5,6 @@ Rails.application.routes.draw do
   resources :songs do
     resources :progressions, only: [ :index ]
     resources :song_progressions, only: [ :index ]
-    #! to be obsoleted by SongPlay
-    member do
-      get :play, to: "songs#play", as: :play
-    end
-    get 'new_progression', to: "progressions#new", as: :new_progression
   end
 
   resources :song_plays, only: [ :new, :create ]
@@ -18,9 +13,7 @@ Rails.application.routes.draw do
 
   resources :progression_chords, except: [ :index, :show ]
 
-  resources :song_progressions do
-
-  end
+  resources :song_progressions
 
   resources :scales, only: [ :index ]
 
