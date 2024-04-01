@@ -31,7 +31,7 @@
         <% end %>
         <%= submit_tag "Apply" %>
         <%= turbo_link_button "Play", song_plays_path(song_id: @song.id), :post %>  
-        <%= turbo_link_button "Play (by heart)", song_plays_path(song_id: @song.id, by_heart: true), :post %>  
+        <%= turbo_link_button "Play+", song_plays_path(song_id: @song.id, by_heart: true), :post %>  
         <%= %>
     <% end %>
     <%= tag.div class: "song-top-panel" do %>

@@ -1,0 +1,4 @@
+.songs-list__play {
+    display: flex;
+    gap: var(--size-xl);
+}

@@ -75,11 +75,35 @@ legend {
         position: fixed;
         display: flex;                                      /* horizontal flex */
         width: 100vw;
-        gap: var(--size-m);                                 /* space out links */
-        justify-content: space-between;                     /* maximimze space */
-        padding: var(--size-xxs) var(--size-l);                             /* header internal padding */
+        justify-content: space-between;                     /* title to the left, nav to the right */
+        padding: var(--size-xxs) var(--size-l);             /* header internal padding */
         border-bottom: 1px ridge var(--color-primary-dark); /* bottom edge */
         background: var(--color-black);                     /* differentiate from page content */
         align-items: center;
+        font-size: 1.5rem;
+    }
+
+    /* header bat title */
+    header h2 {
+        padding-left: var(--size-xxxl);
+    }
+
+    /* header bar navigational links */
+    header nav {
+        display: flex;
+        gap: var(--size-xxxl);                              /* space out links */
+    }
+
+    /* header links */
+    header a {
+        text-decoration: none;                  /* remove underline */ 
+    }
+
+    header a:hover {
+        color: var(--color-white);
+    }
+
+    header a, header a:hover {
+        transition: var(--quick-duration);
     }
  }

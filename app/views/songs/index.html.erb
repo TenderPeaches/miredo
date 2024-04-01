@@ -1,7 +1,8 @@
 <%= tag.div class: "action-bar" do %>
     <%= render "songs/sort_options" %>
     <%= render "songs/admin_options" %>
-    <%= render "songs/filter_options" %>
+    <%#todo implement filters %>
+    <% render "songs/filter_options" %>
     <%= render "songs/selection_options" %>
 <% end %>
 <%= tag.table class: "songs-list" do %>
@@ -35,7 +36,7 @@
                 <% end %>
                 <%= tag.td class: "songs-list__play" do %>
                     <%= link_to "Play", song_plays_path(song_id: song.id), data: { turbo_stream: true, turbo_method: :post } %>
-                    <%= link_to "Play (by Heart)", song_plays_path(song_id: song.id, by_heart: true), data: { turbo_stream: true, turbo_method: :post } %>
+                    <%= link_to "Play+", song_plays_path(song_id: song.id, by_heart: true), data: { turbo_stream: true, turbo_method: :post } %>
                 <% end %>
             <% end %>
         <% end %>

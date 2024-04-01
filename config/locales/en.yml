@@ -19,6 +19,9 @@ en:
   alerts:
     invalid_form: "Error: invalid %{model} form. Please check the following: %{errors}"
   cta:
+    log_in: "Log in"
+    log_out: "Log out"
+    sign_up: "Sign up"
     define_progressions: "Define progression templates"
     define_song_progressions: "Define song progressions"
   feedback:
