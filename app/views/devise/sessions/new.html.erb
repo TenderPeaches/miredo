@@ -16,7 +16,7 @@
 
     <%# "remember me?" checkbox %>
     <% if devise_mapping.rememberable? %>
-        <%= tag.div class: "field" do %>
+        <%= tag.div class: "checkbox-field" do %>
             <%= form.check_box :remember_me %>
             <%= form.label :remember_me %>
         <% end %>
@@ -24,7 +24,12 @@
 
     <%= tag.div class: "actions" do %>
         <%= form.submit t('cta.log_in') %>
+        <%= link_to t('cta.sign_up'), new_registration_path(resource_name), class: "button" %>
+    <% end %>
+
+    <%= tag.div class: "actions" do %>
+        <%= link_to t('cta.forgot_password'), new_password_path(resource_name), class: "button" %>
+        <%= link_to t('cta.resend_confirmation'), new_confirmation_path(resource_name), class: "button" %>
     <% end %>
 <% end %>
 
-<%= render "devise/shared/links" %>

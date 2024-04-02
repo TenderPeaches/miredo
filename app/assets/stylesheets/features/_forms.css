@@ -1,0 +1,58 @@
+form {
+    width: min(95vw, 900px);            /* stretch to 900px or most of the screen, whichever is smaller */
+    margin: auto;                       /* horizontal center */
+    display: flex;                      /* vertical-flex */
+    flex-direction: column;             /* vertical-flex */
+    align-items: stretch;                /* center items along y-axis */
+}
+
+form .actions {
+    display: flex;
+    flex-direction: column;
+}
+
+form .actions * {
+    flex: 1;
+}
+
+/* all form fields */
+.field, .checkbox-field {
+    display: flex;
+    align-items: center;
+    margin: var(--size-m);
+}
+
+/* default form fields */
+.field {
+    justify-content: space-between;
+}
+
+/* checkbox form fields */
+.checkbox-field {
+    justify-content: center;        /* the contents of checkbox fields are smushed down the middle */
+}
+
+/* default form field labels */
+.field label {
+    display: inline-block;
+    width: min(40vw, calc(var(--size-xxxl) * 6));   /* set fixed width so the flex displays in grid-like manner */ 
+    text-align: left;               /*? could do right */
+    margin-right: var(--size-xxl);  /* space away from the input */
+}
+
+/* for labels that follow the input */
+.checkbox-field label {
+    width: initial;             /* remove the fixed width, to allow for good centering */
+    margin-right: initial;
+}
+
+.field textarea {
+    resize: none;
+}
+
+@media screen and (min-width: 720px) {
+    form .actions {
+        flex-direction: row;
+
+    }
+}

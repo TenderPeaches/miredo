@@ -52,7 +52,7 @@ class Song < ApplicationRecord
     end
 
     def keyscale
-        "#{key.shorthand} #{scale.name}"
+        "#{key.natural_shorthand} #{scale.name}"
     end
 
     #! the form passes along song_contributions with artist_id == 1 when artist field is left blank (for new artists), so weed that one out before the validations are made otherwise it raises a validation error with artist_id missing

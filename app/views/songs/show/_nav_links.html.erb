@@ -1,0 +1,13 @@
+<%= tag.nav class: "nav-links" do %>
+    <% if song.id > 1 %>
+        <%= link_to "Previous", song_path(song.id - 1), class: "button" %>
+    <% else %>
+        <%= link_to "Songs", songs_path, class: "button" %>
+    <% end %>
+    <%= link_to 'Random', song_path(Song.random_id), class: "button" %>
+    <% if song.id < Song.last.id %>
+        <%= link_to "Next", song_path(song.id + 1), class: "button" %>
+    <% else %>
+        <%= link_to "New Song", new_song_path, class: "button" %>
+    <% end %>
+<% end %>

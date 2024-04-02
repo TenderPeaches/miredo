@@ -3,16 +3,17 @@
     <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(@song) %>
 <% end %>
 
-<%# show song scale, degrees %>
-<% if @song.key && @song.scale %>
-    <%= @song.keyscale %>
-<% end %>
-
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
 <%= tag.div id: "progressions" do %>
     <%= tag.div do %>
         <%# shift from one song to the previous/next, for now by ID %>
         <%= render "progressions/song_shifter", song: @song %>
+
+        <%# show song scale, degrees %>
+        <% if @song.key && @song.scale %>
+            <%= @song.keyscale %>
+        <% end %>
+
         <%# show currently instanciated Progressions %>
         <%= render "progressions/current_progressions", progressions: @song.progressions, scale: @song.scale, key: @song.key %>
         <%# show new progression forms %>

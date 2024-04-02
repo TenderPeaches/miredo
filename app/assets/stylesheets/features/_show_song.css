@@ -3,6 +3,8 @@
     columns: 3;                             /* for readability, to reduce likelyhood of user needing to scroll down */
     padding-left: var(--size-s);         /* lots of breathing room */
     padding-right: var(--size-s);        /* lots of breathing room */
+    text-align: left;
+    margin-top: var(--size-l);
  }
 
  .title {
@@ -70,12 +72,13 @@
    color: var(--color-degree-seventh-light);
  }
 
- .options-panel {
+ .admin-actions, .nav-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin: var(--size-m) var(--size-xxl);
  }
 
- .options-panel * {
+ .admin-actions *, .nav-links * {
   margin: 0;
  }
 
@@ -85,6 +88,10 @@
 
  .scale-chords td {
   text-align: center;
+ }
+
+ .actions form {
+   
  }
 
  .instruments {

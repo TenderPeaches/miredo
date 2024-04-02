@@ -1,5 +1,5 @@
-.progressions-current {
-    
+.current-progressions, .new-progressions {
+    text-align: left;    
 }
 
 .progression-chord-form {

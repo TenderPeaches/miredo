@@ -1,0 +1,26 @@
+/* all standard text-ish input */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+select {
+    background: var(--color-primary-lightest);
+    color: var(--color-primary-darkest);
+    padding: var(--size-xs);
+    font-size: var(--font-size-xl);
+}
+
+ /* number-style inputs */
+ input[type="number"],
+ select[name="capo"] {
+    width: calc(2 * var(--size-xxxl));                                 /* numbers in this website's context are usually limited to 1-2 digits */
+}
+
+/* checkboxes */
+input[type="checkbox"] {
+    transform: scale(2);
+    margin: 0 var(--size-xl);
+}

@@ -13,6 +13,10 @@ class Key < ApplicationRecord
         Key.find_by(pitch_class_id: shifted_key, quality: quality)
     end
 
+    def natural_shorthand
+        shorthand.sub "m", ""
+    end
+
     def self.for_select
         Key.all
     end

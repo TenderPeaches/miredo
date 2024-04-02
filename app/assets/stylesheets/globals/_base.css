@@ -45,10 +45,9 @@ table {
     border-bottom-color: var(--color-primary-darker);       /* mesh with background, low contrast */           
  }
 
- /* number-style inputs */
-input[type="number"] {
-    width: var(--size-xxxl);                                 /* numbers in this website's context are usually limited to 1-2 digits */
-}
+ table td {
+    text-align: left;
+ }
 
 /* helps with complex forms, used for submodels */
 fieldset {
@@ -58,9 +57,13 @@ fieldset {
 
 /* fieldset titles */
 legend {
-    font-size: 1.15rem;                                     /* fieldset legends act as headers */
+    font-size: var(--font-size-l);                                     /* fieldset legends act as headers */
     padding: 0 1rem;                                        /* space out from the fieldset border */
     color: var(--color-secondary-lightest);                 /* to aid navigation */
+}
+
+label {
+    font-size: var(--font-size-l);
 }
 
 /* screen-size dependent considerations */
@@ -80,7 +83,8 @@ legend {
         border-bottom: 1px ridge var(--color-primary-dark); /* bottom edge */
         background: var(--color-black);                     /* differentiate from page content */
         align-items: center;
-        font-size: 1.5rem;
+        font-size: var(--font-size-xxl);              /* everything on header is important */
+        z-index: 10;                    /* prevent clipping */
     }
 
     /* header bat title */
