@@ -9,7 +9,9 @@
 
  .title {
     display: flex;
+    justify-content: center;
     flex-direction: row;
+    color: var(--color-secondary-lightest);
  }
 
  .show-song .song-actions {

@@ -1,13 +1,13 @@
 x Export script
-Must export those from old laptop to new
+x Must export those from old laptop to new
 
-* Create users
-* Create user associations & tables:
+x Create users
+x Create user associations & tables:
     song.tabbed_by
     SongPlay => user.id, song.id
     ?? that's pretty much it
-* Create user views:
-    * auth
+x Create user views:
+    x auth
     * my songs w/ "contribute!" CTA
 
 Then down the line

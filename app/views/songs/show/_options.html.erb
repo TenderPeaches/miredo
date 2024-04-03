@@ -1,18 +1,28 @@
+<%# song options form %>
 <%= form_tag song_path(song.id), class: "song-options", method: :get do %>
+    <%# song title %>
     <%= tag.div class: "title" do %>
         <%= tag.h1 "#{song.id}) #{song.get_artists} - #{song.name}" %>
     <% end %>
+    <%# helpful song info %>
     <%= tag.div class: "song-info" do %>
+        <%# original song key & scale %>
         <%= tag.div "Originally in #{song.keyscale}" %>
+        <%# number of times practiced %>
         <%= tag.div "Practiced #{song.nb_practices + SongPlay.where(song: song, user: current_user).count} times"%>
+        <%# user who submitted the song tab %>
+        <%= tag.div "Submitted by #{song.submitter&.username || "Anon"}" %>
     <% end %>
+    <%# capo selection %>
     <%= tag.div class: "field" do %>
         <%= label_tag :capo, "Capo:" %>
         <%= select_tag :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: @capo) %>
     <% end %>
+    <%# key selection %>
     <%= tag.div class: "field" do %>
         <%= label_tag :key_shift, "Shift key (by this many semitones):" %>
         <%= number_field_tag :key_shift, @key_shift || 0, in: -6...7 %>
     <% end %>
+
     <%= submit_tag "Apply" %>
 <% end %>

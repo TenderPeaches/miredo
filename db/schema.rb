@@ -242,11 +242,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225536) do
     t.integer "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tabber_id"
+    t.integer "submitter_id"
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["key_id"], name: "index_songs_on_key_id"
     t.index ["scale_id"], name: "index_songs_on_scale_id"
-    t.index ["tabber_id"], name: "index_songs_on_tabber_id"
+    t.index ["submitter_id"], name: "index_songs_on_submitter_id"
     t.index ["time_signature_id"], name: "index_songs_on_time_signature_id"
   end
 
@@ -308,7 +308,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225536) do
   add_foreign_key "song_plays", "users"
   add_foreign_key "song_progressions", "progressions"
   add_foreign_key "song_progressions", "songs"
-  add_foreign_key "songs", "users", column: "tabber_id"
+  add_foreign_key "songs", "users", column: "submitter_id"
   add_foreign_key "tuning_pitches", "pitches"
   add_foreign_key "tuning_pitches", "tunings"
 end

@@ -14,6 +14,7 @@ class CreateSongs < ActiveRecord::Migration[7.0]
       t.references :key, comment: "Default key the song is played it", null: true, index: true
       t.references :scale, comment: "Scale type used by this song", null: true, index: true
       t.references :album, comment: "Album this song appears on", index: true
+      t.references :submitter, null: true, index: true, foreign_key: { to_table: :users }, comment: "User who submitted the song"
 
       t.timestamps
     end

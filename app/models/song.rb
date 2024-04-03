@@ -13,6 +13,7 @@ class Song < ApplicationRecord
     belongs_to :key, optional: true
     belongs_to :scale, optional: true
     belongs_to :time_signature, optional: true
+    belongs_to :submitter, class_name: "User", optional: true
     has_many :song_contributions, dependent: :destroy
     has_many :artists, through: :song_contributions
     has_many :song_progressions, dependent: :destroy
