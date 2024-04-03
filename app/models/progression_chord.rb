@@ -107,10 +107,8 @@ class ProgressionChord < ApplicationRecord
     PitchClass.find_by(position: pitch_class__position).print + chord.notation
   end
 
-
-
   # prints the chord + duration markers
-  def print(key, scale)
+  def print(key = progression.key ? progression.key : progression.song.key,   scale = progression.song.scale)
     # output
     printed = ""
 

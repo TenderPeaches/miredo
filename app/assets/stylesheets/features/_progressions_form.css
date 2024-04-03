@@ -4,9 +4,18 @@
 
 .progression-chord-form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     margin: var(--size-m);
+}
+
+.progression-chord-form input[type="checkbox"] {
+    margin: 0;
+}
+
+.progression-chord-print,
+.progression-print {
+    align-self: center;
 }
 
 .progression-print {

@@ -1,8 +1,8 @@
 <%= model_form_with model: progression, class: "progression-form", id: progressions_form_id(progression), local: false do |form| %>
     <%= render "progressions/errors", progression: progression %>
     <%= render "progressions/fields", form: form %>
-    <%= tag.div class: "field progression-print" do %>
-        <%= progression.print %>
+    <%= tag.div class: "progression-print" do %>
+        <%= tag.h2 progression.print, class: "progression-print" %>
     <% end %>
     <%= render "progressions/chords", form: form, progression: progression %>
     
