@@ -1,6 +1,6 @@
 /* content that displays a song's lyrics, chords, etc. */ 
 .show-song {
-    columns: 3;                             /* for readability, to reduce likelyhood of user needing to scroll down */
+    columns: 2;                             /* for readability, to reduce likelyhood of user needing to scroll down */
     padding-left: var(--size-s);         /* lots of breathing room */
     padding-right: var(--size-s);        /* lots of breathing room */
     text-align: left;

@@ -1,12 +1,14 @@
 /* doodad that aids navigating from one song to the next */
 .song-shifter {
-    display: flex;
-    justify-content: flex-start;
-    gap: var(--size-m);
-    padding: var(--size-m);
-    margin: var(--size-m);
-    border-width: var(--thin-border-width);
-    border-style: var(--default-border-style);
-    border-color: var(--color-primary-white);
-    
+    display: flex;                      /* horizontal flex */
+    justify-content: center;            /* center screen */
+    gap: var(--size-xl);                /* space out elements */
+    padding: var(--size-m);             /* internal spacing */
+    margin: var(--size-m);              /* external spacing */ 
+}
+
+/* song shifter links */ 
+.song-shifter a {
+    text-decoration: none;              /* remove underline */  
+    font-size: var(--font-size-xxxl);   /* prominent links */
 }

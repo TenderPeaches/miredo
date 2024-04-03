@@ -1,4 +1,9 @@
 #current-song-progressions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+.progression-picker select,
+.field.progression select {
+    max-width: 80%;
 }
