@@ -8,9 +8,9 @@ class SongsController < ApplicationController
         if (params[:sort] == 'capo')
             @songs = @songs.order(capo: :asc)
         elsif params[:sort] == 'plays'
-            @songs = @songs.order(nb_practices: :desc)
+            @songs = @songs.left_joins(:song_plays).where('song_plays.user_id = ?', User.first.id).group(:song_id).order('COUNT(song_plays.id) DESC').first
         elsif params[:sort] == 'last_played'
-            @songs = @songs.order(last_practiced: :desc)
+            @songs = @songs.left_joins(:song_plays).select('songs.id', 'songs.name', 'songs.capo', 'MAX(song_plays.played_at) AS "last_played_date"').where('song_plays.user_id = ?', User.first.id).group(:song_id).order(:last_played_date => :desc)
         end
     end
 

@@ -20,7 +20,7 @@
         <% @songs.each do |song| %>
             <%= tag.tr do %>
                 <%= tag.td class: "songs-list__title" do %>
-                    <%= link_to song.name, song_path(song.id), class: ("contrast-text" if song.upgraded?) %>
+                    <%= link_to "#{song.id}) #{song.name}", song_path(song.id), class: ("contrast-text" if song.upgraded?) %>
                 <% end %>
                 <%= tag.td class: "songs-list__artist" do %>
                     <%= song.get_artists %>
