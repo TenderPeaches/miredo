@@ -29,10 +29,10 @@
                     <%= song.capo %>
                 <% end %>
                 <%= tag.td class: "songs-list__plays" do %>
-                    <%= song.nb_practices %>
+                    <%= song.plays current_user %>
                 <% end %>
                 <%= tag.td class: "songs-list__last-played" do %>
-                    <%= song.last_practiced&.strftime("%Y-%m-%d") %>
+                    <%= song.last_played(current_user)&.strftime("%Y-%m-%d") %>
                 <% end %>
                 <%= tag.td class: "songs-list__play" do %>
                     <%= link_to "Play", song_plays_path(song_id: song.id), data: { turbo_stream: true, turbo_method: :post } %>

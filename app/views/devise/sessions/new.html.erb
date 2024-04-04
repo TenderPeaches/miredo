@@ -29,7 +29,9 @@
 
     <%= tag.div class: "actions" do %>
         <%= link_to t('cta.forgot_password'), new_password_path(resource_name), class: "button" %>
-        <%= link_to t('cta.resend_confirmation'), new_confirmation_path(resource_name), class: "button" %>
+        <% if devise_mapping.confirmable? %>
+            <%= link_to t('cta.resend_confirmation'), new_confirmation_path(resource_name), class: "button" %>
+        <% end %>
     <% end %>
 <% end %>
 

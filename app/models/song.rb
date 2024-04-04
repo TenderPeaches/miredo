@@ -45,6 +45,14 @@ class Song < ApplicationRecord
         song_plays.where(user: user).size
     end
 
+    def last_play(user)
+        song_plays.where(user: user).where.not(played_at: nil).last
+    end
+
+    def last_played(user)
+        last_play(user)&.played_at
+    end
+
     def create_album_from_name
         # only if song is not on any album
         if album_id.nil?
