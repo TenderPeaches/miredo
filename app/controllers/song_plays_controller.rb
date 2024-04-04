@@ -6,7 +6,7 @@ class SongPlaysController < ApplicationController
 
     def create
         set_song
-        @song_play = Songs::Player.new(current_user).play({song_id: @song.id, by_heart: (params[:by_heart] || false)}).song_play
+        @song_plays = Songs::Player.new(current_user).play({song_id: @song.id, by_heart: (params[:by_heart] || false)}).song_plays
     end
 
     private

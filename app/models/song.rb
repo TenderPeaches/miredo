@@ -53,6 +53,10 @@ class Song < ApplicationRecord
         last_play(user)&.played_at
     end
 
+    def can_edit?(user)
+        self.submitter == user || user.is_admin?
+    end
+
     def create_album_from_name
         # only if song is not on any album
         if album_id.nil?

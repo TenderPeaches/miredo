@@ -122,8 +122,20 @@ input[type="submit"]:active {
     padding: var(--size-m);
 }
 
-.accent {
+.text-secondary {
+    color: var(--color-secondary-lightest);
+}
+
+.bg-secondary {
+    background: var(--color-secondary-darkest);
+}
+
+.text-accent {
     color: var(--color-accent-lightest);
+}
+
+.bg-accent {
+    background: var(--color-accent-darkest);
 }
 
 /* x-axis centered flex */

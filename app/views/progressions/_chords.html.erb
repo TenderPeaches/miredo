@@ -3,7 +3,7 @@
         <%= form.fields_for :progression_chords, progression_chord do |progression_chord_form| %>
             <%= tag.fieldset class: "progression-chord-form" do %>
                 <%= tag.legend "#{t('models.progression_chord.model_name')} ##{i + 1}" %>
-                <%= tag.h2 progression_chord.print, class: "accent progression-chord-print" %>
+                <%= tag.h2 progression_chord.print, class: "text-accent progression-chord-print" %>
                 <%= render "progression_chords/fields", form: progression_chord_form %>
 
                 <%= tag.div class: "actions" do %>

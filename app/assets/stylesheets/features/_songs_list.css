@@ -2,3 +2,6 @@
     display: flex;
     gap: var(--size-xl);
 }
+.songs-list__title a {
+    text-decoration: none;
+}

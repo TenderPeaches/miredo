@@ -1,6 +1,7 @@
-<% if song.submitter == current_user || current_user.is_admin? %>
-<%= tag.div class: "admin-actions" do %>
-    <%= link_to "Edit", edit_song_path(song), class: "button" %>
-    <%= link_to "Define Progressions", song_progressions_path(song), class: "button" %>
-    <%= link_to "Assign Progressions", song_song_progressions_path(song), class: "button" %>
+<% if song.can_edit? current_user %>
+    <%= tag.div class: "admin-actions" do %>
+        <%= link_to "Edit", edit_song_path(song), class: "button" %>
+        <%= link_to "Define Progressions", song_progressions_path(song), class: "button" %>
+        <%= link_to "Assign Progressions", song_song_progressions_path(song), class: "button" %>
+    <% end %>
 <% end %>

@@ -4,6 +4,12 @@ class SongsController < ApplicationController
     def index
         @songs = Song.includes(:artists)
 
+        # if request specified a user ID
+        if params[:user_id]
+            # only show songs submitted by the given user
+            @songs = @songs.where(submitter_id: params[:user_id])
+        end
+
         # sort the list
         if (params[:sort] == 'capo')
             @songs = @songs.order(capo: :asc)
