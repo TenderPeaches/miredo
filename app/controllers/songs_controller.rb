@@ -2,7 +2,11 @@ class SongsController < ApplicationController
     before_action :set_song, only: %i[ play ]
     # GET /
     def index
-        @songs = Song.includes(:artists)
+        if user_signed_in?
+            @songs = Song.includes(:artists).where(is_public: true).or(Song.where(submitter_id: current_user.id))
+        else
+            @songs = Song.includes(:artists).where(is_public: true)
+        end
 
         # if request specified a user ID
         if params[:user_id]
@@ -14,7 +18,7 @@ class SongsController < ApplicationController
         if (params[:sort] == 'capo')
             @songs = @songs.order(capo: :asc)
         elsif params[:sort] == 'plays'
-            @songs = @songs.left_joins(:song_plays).where('song_plays.user_id = ?', User.first.id).group(:song_id).order('COUNT(song_plays.id) DESC').first
+            @songs = @songs.left_joins(:song_plays).where('song_plays.user_id = ?', User.first.id).group(:song_id).order('COUNT(song_plays.id) DESC')
         elsif params[:sort] == 'last_played'
             @songs = @songs.left_joins(:song_plays).select('songs.id', 'songs.name', 'songs.capo', 'MAX(song_plays.played_at) AS "last_played_date"').where('song_plays.user_id = ?', User.first.id).group(:song_id).order(:last_played_date => :desc)
         end

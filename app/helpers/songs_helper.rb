@@ -21,4 +21,16 @@ module SongsHelper
             end
         end
     end
+
+    def song_row_color(song, user = current_user)
+
+        last_play = song.last_play(current_user)
+        if last_play&.by_heart
+            "bg-accent"
+        elsif last_play&.played_at
+            if last_play.played_at > Time.now - 1.week
+                  "song-row--green"
+            end
+        end
+    end
 end

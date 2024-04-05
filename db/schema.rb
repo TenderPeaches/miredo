@@ -243,6 +243,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "submitter_id"
+    t.boolean "is_public"
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["key_id"], name: "index_songs_on_key_id"
     t.index ["scale_id"], name: "index_songs_on_scale_id"

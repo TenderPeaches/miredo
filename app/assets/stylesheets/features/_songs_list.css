@@ -5,3 +5,7 @@
 .songs-list__title a {
     text-decoration: none;
 }
+
+.song-row--green {
+    background-color: #006100;
+}

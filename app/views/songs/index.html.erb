@@ -18,7 +18,7 @@
     <% end %>
     <%= tag.tbody do %>
         <% @songs.each do |song| %>
-            <%= tag.tr class: "#{song.last_play(current_user)&.by_heart ? "bg-accent" : ""}" do %>
+            <%= tag.tr class: song_row_color(song) do %>
                 <%= tag.td class: "songs-list__title" do %>
                     <%= link_to "#{song.id}) #{song.name}#{song.upgraded? ? "" : " (*)"}", song_path(song.id) %>
                 <% end %>
@@ -32,7 +32,7 @@
                     <%= song.plays current_user %>
                 <% end %>
                 <%= tag.td class: "songs-list__last-played" do %>
-                    <%= "#{song.last_played(current_user)&.strftime("%Y-%m-%d")}#{song.last_play(current_user)&.by_heart ? "+" : ""}" %>
+                    <%= "#{song.last_played(current_user)&.strftime("%Y-%m-%d")}" %>
                 <% end %>
                 <%= tag.td class: "songs-list__play" do %>
                     <%= link_to "Play", song_plays_path(song_id: song.id), data: { turbo_stream: true, turbo_method: :post } %>
