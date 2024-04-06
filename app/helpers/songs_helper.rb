@@ -26,10 +26,16 @@ module SongsHelper
 
         last_play = song.last_play(current_user)
         if last_play&.by_heart
-            "bg-accent"
+            "song-row--by-heart"
         elsif last_play&.played_at
-            if last_play.played_at > Time.now - 1.week
-                  "song-row--green"
+            if last_play.played_at > Time.now - 4.days
+                "song-row--green"
+            elsif last_play.played_at > Time.now - 9.days
+                "song-row--yellow"
+            elsif last_play.played_at > Time.now - 20.days
+                "song-row--orange"
+            elsif last_play.played_at > Time.now - 32.days
+                "song-row--red"
             end
         end
     end

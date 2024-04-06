@@ -28,25 +28,29 @@ class SongsController < ApplicationController
     def show
         set_song
         if @song.upgraded?
+            if @song.key.nil?
+                render :edit
+            else
 
-            @key_shift = params[:key_shift]
-            # capo can be provided as query string argument, if absent then use the song's suggested capo
-            @capo = (params.has_key? :capo) ? params[:capo].to_i : @song.capo
-            # same for the key, either the user specifies a shift from the original key or the original is used
-            @key = @key_shift ? @song.key.shift(@key_shift.to_i) : @song.key
+                @key_shift = params[:key_shift]
+                # capo can be provided as query string argument, if absent then use the song's suggested capo
+                @capo = (params.has_key? :capo) ? params[:capo].to_i : @song.capo
+                # same for the key, either the user specifies a shift from the original key or the original is used
+                @key = @key_shift ? @song.key.shift(@key_shift.to_i) : @song.key
 
-            @scale = @song.scale
+                @scale = @song.scale
 
-            # the key when adjusting with the capo
-            @key_with_capo = @key.shift(@capo * -1)
+                # the key when adjusting with the capo
+                @key_with_capo = @key.shift(@capo * -1)
 
-            @tuning = Tuning.first
-            @frets = 12
+                @tuning = Tuning.first
+                @frets = 12
 
-            @key_pitch_ids = @scale.chords_from_key(@key).map {|p| p[:pitch_class_id]}
-            @capo_pitch_ids = @scale.chords_from_key(@key_with_capo).map {|p| p[:pitch_class_id]}
+                @key_pitch_ids = @scale.chords_from_key(@key).map {|p| p[:pitch_class_id]}
+                @capo_pitch_ids = @scale.chords_from_key(@key_with_capo).map {|p| p[:pitch_class_id]}
 
-            render :show_new
+                render :show_new
+            end
         end
     end
 
@@ -70,7 +74,7 @@ class SongsController < ApplicationController
 
         if @song.update(song_params)
             if @song.progressions.count > 0
-                redirect_to show_song_new_path
+                redirect_to show_song_path @song
             else
                 redirect_to song_progressions_path
             end

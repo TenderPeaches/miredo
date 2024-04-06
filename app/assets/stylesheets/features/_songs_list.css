@@ -1,11 +1,30 @@
+/* "play song" cell */
 .songs-list__play {
-    display: flex;
-    gap: var(--size-xl);
+    display: flex;              /* accomodate two elements placed in a row */ 
+    gap: var(--size-xl);        /* space them apart */
 }
+
+/* any link within the title cell */
 .songs-list__title a {
-    text-decoration: none;
+    text-decoration: none;      /* remove underline */
+}
+
+.song-row--by-heart {
+    background-color: var(--color-practice--by-heart);
 }
 
 .song-row--green {
-    background-color: #006100;
+    background-color: var(--color-practice--green);
+}
+
+.song-row--yellow {
+    background-color: var(--color-practice--yellow);
+}
+
+.song-row--orange {
+    background-color: var(--color-practice--orange);
+}
+
+.song-row--red {
+    background-color: var(--color-practice--red);
 }

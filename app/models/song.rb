@@ -54,7 +54,9 @@ class Song < ApplicationRecord
     end
 
     def can_edit?(user)
-        self.submitter == user || user.is_admin?
+        if user
+            self.submitter == user || user.is_admin?
+        end
     end
 
     def create_album_from_name

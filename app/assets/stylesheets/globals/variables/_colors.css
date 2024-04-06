@@ -72,4 +72,11 @@
    --color-degree-sixth-light: hsl(265, 100%, 78%);
    --color-degree-seventh-light: hsl(310, 100%, 78%);
 
+   /** practice-priority colors */
+   --color-practice--by-heart: var(--color-accent-darkest);
+   --color-practice--green: #006100;
+   --color-practice--yellow: #687400;
+   --color-practice--orange: #7e3d00;
+   --color-practice--red: #700000;
+
 }

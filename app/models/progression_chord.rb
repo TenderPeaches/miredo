@@ -114,7 +114,6 @@ class ProgressionChord < ApplicationRecord
 
     # print the main chord
     printed << print_chord(key, scale)
-
     # print the bass chord if present
     unless bass_degree.nil?
       #! use a separate method, standardise with print_chord
