@@ -2035,6 +2035,25 @@ ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, b
 ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: "false" ,muted: "false" ,progression: progression_4)
 ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: "false" ,muted: "false" ,progression: progression_4)
 
+# same in the end - sublime
+song = Song.find_by_id(101)
+progression_1 = Progression.create(tag: "Verse" ,reps: 4, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 1, staccato: "false" ,muted: "false" ,progression: progression_1)
+SongProgression.create(song_id: 101, sequence: nil, reps: 1, key_id: nil, scale_id: nil, lyrics: "Down in Mississippi where the sun beats down from the sky; They give it up and they give it up and they give it up but they never ask why; Daddy was a rollin' rollin' stone; He rolled away one day and he never came home;" ,tag: "Verse 1" ,song: song, progression: progression_1)
+SongProgression.create(song_id: 101, sequence: nil, reps: 1, key_id: nil, scale_id: nil, lyrics: "You only see what you want to believe; When you light up in the back with those tricks up your sleeve; That don't mean I can't hang but the day that I die; Will be the day that I shut my mouth and put down my guitar; Sunday morning hold church down at the bar; Get down on your knees and start to pray; Pray my itchy rash will go away; " ,tag: "Verse 2" ,song: song, progression: progression_1)
+SongProgression.create(song_id: 101, sequence: nil, reps: 1, key_id: nil, scale_id: nil, lyrics: "I only hear what you told me to be, I'm a backward-ass hillbilly, I'm Dick Butkiss; You know I lie, I get mean, I'm a thief in the dark, I'm a ragin' machine; I'm a triple rectified ass son of a bitch; Rec-tite(tm) on my ass and it makes me itch; I can see for miles and miles and miles; My broken heart makes me smile;" ,tag: "Verse 3" ,song: song, progression: progression_1)
+SongProgression.create(song_id: 101, sequence: nil, reps: 1, key_id: nil, scale_id: nil, lyrics: "You only see what you want to believe; When you creep from the back I got tricks up my sleeve; 24/7 the devil's best friend, it makes no difference it's all the same in the end;" ,tag: "Verse 4" ,song: song, progression: progression_1)
+progression_2 = Progression.create(tag: "Chorus" ,reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: "false" ,muted: "false" ,progression: progression_2)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: "false" ,muted: "false" ,progression: progression_2)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: "false" ,muted: "false" ,progression: progression_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: "false" ,muted: "false" ,progression: progression_2)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: "false" ,muted: "false" ,progression: progression_2)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: "false" ,muted: "false" ,progression: progression_2)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 7, staccato: "false" ,muted: "false" ,progression: progression_2)
+SongProgression.create(song_id: 101, sequence: nil, reps: 1, key_id: nil, scale_id: nil, lyrics: " It ain't hard to understand, this ain't Hitler's master plan; What it takes to be a man; In my mind, in my brain, I roll it over like a steamin' freight train; It ain't hard to ascertain;" ,tag: "Chorus 1" ,song: song, progression: progression_2)
+SongProgression.create(song_id: 101, sequence: nil, reps: 1, key_id: nil, scale_id: nil, lyrics: "Back up y'all it ain't me, Kentucky Fried Chicken is all I see; It's a hellified way to start your day; If I make you cry all night, me and daddy gonna have a fist fight; It ain't personal, it ain't me;" ,tag: "Chorus 2" ,song: song, progression: progression_2)
+SongProgression.create(song_id: 101, sequence: nil, reps: 1, key_id: nil, scale_id: nil, lyrics: "In my mind, in my brain, I go back and go completely insane; It ain't personal, it ain't me; If I make you cry I might, be your daddy at the end of the night; Take a load from my big gun;" ,tag: "Chorus 3" ,song: song, progression: progression_2)
 
 # house of the rising sun - the animals
 song = Song.find_by_name("House of the Rising Sun")
