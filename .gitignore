@@ -42,3 +42,7 @@ miredo.code-workspace
 # Ignore exports
 /db/exports/*
 key.txt
+
+# ignore old seeds imports
+scripts/song_seeds_1.rb
+scripts/song_seeds_2.rb

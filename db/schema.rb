@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_13_225536) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -202,7 +202,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225536) do
     t.integer "user_id", null: false
     t.integer "song_id", null: false
     t.datetime "played_at"
-    t.boolean "by_heart"
+    t.boolean "by_heart", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["song_id"], name: "index_song_plays_on_song_id"
@@ -230,20 +230,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225536) do
     t.string "name", default: ""
     t.integer "number"
     t.integer "duration"
-    t.integer "nb_practices", default: 0
-    t.datetime "last_practiced"
     t.integer "capo", default: 0
     t.string "chords", default: ""
     t.string "lyrics", default: ""
     t.integer "bpm", default: 120
+    t.boolean "is_public", default: true
     t.integer "time_signature_id"
     t.integer "key_id"
     t.integer "scale_id"
     t.integer "album_id"
+    t.integer "submitter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "submitter_id"
-    t.boolean "is_public"
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["key_id"], name: "index_songs_on_key_id"
     t.index ["scale_id"], name: "index_songs_on_scale_id"
@@ -273,6 +271,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225536) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.boolean "is_admin", default: false, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "username", default: "", null: false
@@ -289,7 +288,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225536) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
