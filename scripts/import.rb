@@ -4,11 +4,11 @@
 lib = File.open("lib.txt")
 
 # list of songs in the library
-songs = []    
+songs = []
 
 current_song = {}
 
-def read_lib_line(line) 
+def read_lib_line(line)
     begin
         # eg "#name:Hysteria"
         match = line.match(/#([\w]+):(.*)/)
@@ -17,7 +17,7 @@ def read_lib_line(line)
         # eg "Hysteria"
         value = match[2]
 
-        return { 'label' => label, 'value' => value } 
+        return { 'label' => label, 'value' => value }
     rescue => exception
         p 'Following line throws ArgumentError: ' << line << "\n" << exception
 
@@ -45,7 +45,7 @@ lib.each do |line|
     rescue => exception
         print line
     else
-        
+
     end
 end
 
@@ -61,7 +61,7 @@ def seed_artists(artists, songs)
         seeds_file.puts artist_seed << "\n"
     end
 
-    seeds_file.puts "\n# song contributions" 
+    seeds_file.puts "\n# song contributions"
     songs.each do |song|
         song_contribution_seed = 'SongContribution.create_or_find_by(song: Song.find_by(name: "%{song}"), artist: Artist.find_by(name: "%{artist}"))' % {song: song['song'], artist: song['artist']}
         seeds_file.puts song_contribution_seed << "\n"
@@ -87,13 +87,13 @@ def songs_hash_to_seeds(songs, seeds_file)
 
         # sanitize lyrics input for double quotes
         song_lyrics = song_hash['lyrics']
-        song_lyrics.gsub(/"/, '\"')    
+        song_lyrics.gsub(/"/, '\"')
 
-        song_seed = 'Song.create_or_find_by(name: "%{name}", album: Album.find_or_create_by(name: "%{album}"), number: "%{number}", duration: "%{duration}", nb_practices: "%{nb_practices}", last_practiced: "%{last_practice}", capo: "%{capo}", chords: "%{chords}", lyrics: "%{lyrics}")' % {name: song_hash['song'], album: song_hash['album'], number: song_hash['songnumber'], duration: song_hash['duration'], nb_practices: song_hash['nbpractice'], last_practice: song_hash['lastpractice'], capo: song_hash['capo'], chords: song_hash['chords'], lyrics: song_lyrics}
+        song_seed = 'Song.create_or_find_by(name: "%{name}", album: Album.find_or_create_by(name: "%{album}"), number: "%{number}", duration: "%{duration}", nb_practices: "%{nb_practices}",  capo: "%{capo}", chords: "%{chords}", lyrics: "%{lyrics}")' % {name: song_hash['song'], album: song_hash['album'], number: song_hash['songnumber'], duration: song_hash['duration'], nb_practices: song_hash['nbpractice'], last_practice: song_hash['lastpractice'], capo: song_hash['capo'], chords: song_hash['chords'], lyrics: song_lyrics}
         seeds_file.puts song_seed << "\n"  # disable when done so as to not overwrite
     end
 
     seed_artists(artists, songs)
 end
 
-songs_hash_to_seeds(songs, seeds_file) 
+songs_hash_to_seeds(songs, seeds_file)

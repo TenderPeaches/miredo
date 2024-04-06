@@ -10,7 +10,7 @@
     <h3 class="song-artist"><%= @song.get_artists %></h3>
     <h5 class="song-capo">Capo <%= @song.capo %></h5>
     <h5 class="song-key">Key <%= @song.key %></h5>
-    <h5>Practiced: <%= @song.nb_practices %>x</h5>
+    <h5>Practiced: <%= @song.plays(current_user) %>x</h5>
     <%= @song.chords %>
     <% @song.default_output.each do |line| %>
         <% if line[:type] == Song::OUTPUT_LINE_TYPE__CHORDS %>

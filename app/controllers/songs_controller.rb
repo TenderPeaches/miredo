@@ -94,24 +94,6 @@ class SongsController < ApplicationController
         @song.song_contributions << SongContribution.new
     end
 
-    # GET /play/[id]
-    #! to be obsoleted by SongPlay
-    def play
-        if @song.nb_practices.nil?
-            @song.nb_practices = 1
-        else
-            @song.nb_practices += 1
-        end
-
-        # last_practiced must be in the past so set a minute in the past
-        @song.last_practiced = 1.hour.ago
-
-        unless @song.save
-            puts "#{@song.errors.full_messages} (#{@song.last_practiced})"
-            flash.alert = @song.errors.full_messages
-        end
-    end
-
     # GET /edit/[id]
     def edit
         set_song

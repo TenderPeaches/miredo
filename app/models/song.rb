@@ -22,8 +22,6 @@ class Song < ApplicationRecord
 
     validates :number, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
     validates :duration, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
-    validates :nb_practices, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
-   # validates :last_practiced, allow_nil: true
     validates :capo, capo: true
     validates :bpm, comparison: { greater_than_or_equal_to: 0, less_than_or_equal_to: 360 }, numericality: { only_integer: true }, allow_nil: true
     validates_associated :song_contributions
@@ -42,7 +40,11 @@ class Song < ApplicationRecord
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
 
     def plays(user)
-        song_plays.where(user: user).size
+        if user
+            song_plays.where(user: user).size
+        else
+            0
+        end
     end
 
     def last_play(user)
