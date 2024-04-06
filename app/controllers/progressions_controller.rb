@@ -4,14 +4,19 @@ class ProgressionsController < ApplicationController
         @song = Song.find_by_id(params[:song_id])
     end
 
+    # show new progression form
     def new
+        # if progression_id param is set, the form's progression should be a copy of the corresponding progression
         if params[:progression_id]
             original = Progression.find_by_id(params[:progression_id]).dup
             @progression = original.dup
+
+            # duplicate the original progression's chords
             original.progression_chords.each do |progression_chord|
                 @progression.progression_chords = progression_chord.dup
             end
             @song = @progression.song
+        # otherwise, create a new progression from scratch
         else
             @progression = Progression.new
             @song = Song.find_by_id(params[:song_id])

@@ -2,7 +2,7 @@
     <% if song.id > 1 %>
         <%= link_to "<", song_progressions_path(song.id - 1) %>
     <% end %>
-    <%= song.name %>
+    <%= tag.h1 song.name %>
     <% if song.id < Song.last.id %>
         <%= link_to ">", song_progressions_path(song.id + 1) %>
     <% end %>

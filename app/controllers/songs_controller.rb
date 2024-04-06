@@ -60,7 +60,7 @@ class SongsController < ApplicationController
 
         if @song.save
             if params[:progressions]
-                redirect_to song_progressions_path(@song), notice: "Song was successfully created."
+                redirect_to progressions_path(@song), notice: "Song was successfully created."
             else
                 redirect_to song_url(@song), notice: "Song was successfully created."
             end
@@ -73,10 +73,10 @@ class SongsController < ApplicationController
         set_song
 
         if @song.update(song_params)
-            if @song.progressions.count > 0
-                redirect_to show_song_path @song
+            if params[:progressions]
+                redirect_to song_progressions_path @song
             else
-                redirect_to song_progressions_path
+                redirect_to song_path @song
             end
         else
             flash.alert = @song.errors.full_messages
@@ -105,6 +105,6 @@ class SongsController < ApplicationController
     end
 
     def song_params
-        params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key_id, :scale_id, :new_album_name, :new_artist_name, :album_id, song_contributions_attributes: [:id, :artist_id, :_destroy])
+        params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key_id, :scale_id, :is_public, :new_album_name, :new_artist_name, :album_id, song_contributions_attributes: [:id, :artist_id, :_destroy])
     end
 end

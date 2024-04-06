@@ -1,6 +1,5 @@
 <%= content_for :header do %>
     <%= render "scales/print_for_header", scale: @song.scale || Scale.default, key: @song.key || Key.default %>
-    <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(@song) %>
 <% end %>
 
 <!-- Use modal/single progression_chord generator, that all chords will use, just keep track of a selected pc and voilà -->
@@ -18,7 +17,12 @@
         <%= render "progressions/current_progressions", progressions: @song.progressions, scale: @song.scale, key: @song.key %>
         <%# show new progression forms %>
         <%= render "progressions/new_progressions", progressions: [], song: @song, scale: @song.scale, key: @song.key %>
-        <%# link to the the page that sets SongProgressions %>
-        <%= link_to t('cta.define_song_progressions'), song_song_progressions_path(@song), class: "button", data: { turbo: false } %>
+
+        <%# "new progressions" button %>
+        <%= link_to t('actions.new', thing: t('models.progression.model_name')), new_progression_path(song_id: @song.id.to_s), class: "button", data: { turbo_stream: true } %>
+        <%# "edit song" button %>
+        <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(@song), class: "button" %>
+        <%# "define song progressions" button %>
+        <%= link_to t('cta.define_song_progressions'), song_song_progressions_path(@song), class: "button" %>
     <% end %>
 <% end %>

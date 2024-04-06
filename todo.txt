@@ -10,6 +10,9 @@ x Create user views:
     x auth
     * my songs w/ "contribute!" CTA
 
+* Progression => ProgressionTemplate
+* SongProgression => Progression
+
 Then down the line
 * Commentable => user.id, commentable.id
 * SongComment => song.id, user.id

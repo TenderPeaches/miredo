@@ -74,17 +74,11 @@ class ProgressionChord < ApplicationRecord
         notes[running_pitch.letter] = i
       # else if the natural version of the running pitch is lower
       elsif (natural_pitches.find_by(letter: running_pitch.natural).position < running_pitch.position)
-        puts "natural is lower"
-        puts degree.inspect << notes.inspect << statuses.inspect
-        puts "natural: " << natural_pitches.find_by(letter: running_pitch.natural).inspect << ", running: " << running_pitch.inspect
         statuses[i] = "lower_natural"
         #if notes.key?()
         degrees[i]
       # else, the natural version of the running pitch is higher
       else
-        puts "natural is higher"
-        puts degree.inspect << notes.inspect << statuses.inspect
-        puts running_interval.to_s << " " << running_pitch.inspect
         statuses[i] = "higher_natural"
       end
     end
@@ -95,7 +89,7 @@ class ProgressionChord < ApplicationRecord
   end
 
   # prints only the chord "C#"
-  def print_chord(key, scale)
+  def print_chord(key = Key.default, scale = Scale.default)
 
     # pitch_class associated with this chord given a key and scale, only 12 options
     pitch_class__position = (key.pitch_class.position + scale.get_degrees_interval(degree) + modifier) % 12
@@ -108,7 +102,7 @@ class ProgressionChord < ApplicationRecord
   end
 
   # prints the chord + duration markers
-  def print(key = progression.key ? progression.key : progression.song.key,   scale = progression.song.scale)
+  def print(key = progression.key ? progression.key : (progression.song.key || Key.default), scale = progression.song.scale || Scale.default)
     # output
     printed = ""
 
@@ -141,7 +135,7 @@ class ProgressionChord < ApplicationRecord
     printed << " "
   end
 
-  def print_with_colors(key, scale)
+  def print_with_colors(key = Key.default, scale = Scale.default)
     "<span class=\"degree-".html_safe + degree.to_s + "\">".html_safe + print(key, scale) + "</span>".html_safe
   end
 end
