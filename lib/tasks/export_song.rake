@@ -32,7 +32,7 @@ namespace :song do
 
         File.open("db/exports/song_#{song.id}.rb", 'w') do |file|
 
-            excluded_keys = ['created_at', 'updated_at', 'id', 'progression_template_id']
+            excluded_keys = ['created_at', 'updated_at', 'id', 'progression_template_id', 'nb_practices', 'last_practiced']
 
             file.puts "song = Song.find_by_id(#{song.id})"
             file.puts "unless song"
@@ -41,7 +41,6 @@ namespace :song do
 
             song_params = attributes_hash_to_string(song_attributes)
 
-            #song_attributes["last_practiced"] = "'#{song_attributes["last_practiced"]}'"
             file.puts "  song = Song.create(#{song_params})"
             file.puts "end"
 
@@ -76,7 +75,10 @@ namespace :song do
                     file.puts "Progression.create(#{progression_params})"
                 end
             end
+
+            file.puts "Songs::Player.new(User.first).play({played_at: \"#{song.last_practiced.to_s}\", song_id: #{song.id}}, #{song.nb_practices})"
         end
+
 
         puts "Exported song ##{song.id}: #{song.name} to db/exports/song_#{song.id}.rb"
     end
@@ -87,10 +89,10 @@ namespace :song do
         hash.each do |key, value|
             if value.nil?
                 string << "#{key}: nil, "
-            elsif value.is_a? Integer
-                string << "#{key}: #{value}, "
+            elsif value.is_a? String
+                string << "#{key}: \"#{value.gsub("\"", "\\\"")}\","
             else
-                string << "#{key}: \"#{value.gsub("\"", "\\\"")}\" ,"
+                string << "#{key}: #{value}, "
             end
         end
 
