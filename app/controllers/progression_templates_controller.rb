@@ -1,4 +1,4 @@
-classProgressionTemplatesController < ApplicationController
+class ProgressionTemplatesController < ApplicationController
 
     def index
         @song = Song.find_by_id(params[:song_id])

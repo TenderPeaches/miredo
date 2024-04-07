@@ -1,0 +1,24 @@
+<%= form_with model: progression, url: song_progressions_path(song_id: progression.song), class: "song-progression-form", id: "#{dom_id(progression)}__form" do |form| %>
+    <%= render "progressions/errors", progression: progression %>
+    <%= tag.div class: "progression-template-print" do %>
+        <%= tag.div "#{progression.progression_template.print(song.key, song.scale)}" %>
+    <% end %>
+    <%= render "progressions/fields", form: form %>
+
+    <%# if uid local variable assigned, create a hidden field so that the controller can target this form in its response %>
+    <% if defined? uid %>
+        <%= form.hidden_field :uid, value: uid.to_s %>
+    <% end %>
+
+    <%= form.hidden_field :song_id, value: song.id %>
+
+    <% unless progression.new_record? %>
+        <%= link_to t('actions.delete', thing: t('models.progression.model_name')), progression_path(progression.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: t('models.progression.model_name')) } %>
+    <% end %>
+
+    <% if progression.id == nil %>
+        <%= form.submit t('actions.create', thing: t('models.progression.model_name')) %>
+    <% else %>
+        <%= form.submit t('actions.update', thing: t('models.progression.model_name')) %>
+    <% end %>
+<% end %>

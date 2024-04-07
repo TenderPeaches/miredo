@@ -10,7 +10,7 @@ FactoryBot.define do
         trait :with_progressions do
             after(:build) do |song|
                 3.times {
-                    song.song_progressions << create(:song_progression)
+                    song.progressions << create(:progression)
                 }
             end
         end

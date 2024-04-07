@@ -23,6 +23,6 @@
         <%# "edit song" button %>
         <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(@song), class: "button" %>
         <%# "define song progressions" button %>
-        <%= link_to t('cta.define_song_progressions'), song_song_progressions_path(@song), class: "button" %>
+        <%= link_to t('cta.define_progressions'), progressions_path(@song), class: "button" %>
     <% end %>
 <% end %>

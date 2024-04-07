@@ -23,11 +23,11 @@ en:
     log_out: "Log out"
     sign_up: "Sign up"
     define_progression_templates: "Define progression templates"
-    define_song_progressions: "Define song progressions"
+    define_progressions: "Define song progressions"
   feedback:
     songs:
       no_progression_template: "No progression_templates have been defined for this song"
-      no_song_progression: "No song progressions have been defined for this song"
+      no_progression: "No song progressions have been defined for this song"
   hints:
     progression_template_form: ""
   models:
@@ -41,6 +41,6 @@ en:
       reps: "Reps"
     progression_chord:
       model_name: "Progression chord"
-    song_progression: 
+    progression: 
       model_name: "Song Progression"
 

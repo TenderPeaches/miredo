@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :progression_chords, except: [ :index, :show ]
 
-  resources :song_progressions, except: [ :show, :index ]
+  resources :progressions, except: [ :show, :index ]
 
   resources :scales, only: [ :index ]
 
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :songs do
     resources :progression_templates, only: [ :index ]
-    resources :song_progressions, only: [ :index ]
+    resources :progressions, only: [ :index ]
   end
 
   root "songs#index"

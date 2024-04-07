@@ -3,10 +3,10 @@
         <% progression_templates.each_with_index do |progression_template, i| %>
             <%= tag.fieldset id: dom_id(progression_template) do %>
                 <%= tag.legend "#{(i + 1).to_s}) #{progression_template.tag}" %>
-                <%= render "song_progressions/form", song_progression: progression_template, song: song %>    
+                <%= render "progressions/form", progression: progression_template, song: song %>    
             <% end %>   
         <% end %>
     <% else %>
-        <%= tag.div t('feedback.songs.no_song_progression'), id: "no-songprogression-templates" %>
+        <%= tag.div t('feedback.songs.no_progression'), id: "no-songprogression-templates" %>
     <% end %>
 <% end %>

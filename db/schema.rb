@@ -209,7 +209,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
     t.index ["user_id"], name: "index_song_plays_on_user_id"
   end
 
-  create_table "song_progressions", force: :cascade do |t|
+  create_table "progressions", force: :cascade do |t|
     t.integer "song_id", null: false
     t.integer "progression_template_id", null: false
     t.integer "sequence"
@@ -220,10 +220,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
     t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["key_id"], name: "index_song_progressions_on_key_id"
-    t.index ["progression_template_id"], name: "index_song_progressions_on_template_id"
-    t.index ["scale_id"], name: "index_song_progressions_on_scale_id"
-    t.index ["song_id"], name: "index_song_progressions_on_song_id"
+    t.index ["key_id"], name: "index_progressions_on_key_id"
+    t.index ["progression_template_id"], name: "index_progressions_on_template_id"
+    t.index ["scale_id"], name: "index_progressions_on_scale_id"
+    t.index ["song_id"], name: "index_progressions_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -306,8 +306,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
   add_foreign_key "scale_intervals", "scales"
   add_foreign_key "song_plays", "songs"
   add_foreign_key "song_plays", "users"
-  add_foreign_key "song_progressions", "progression_templates"
-  add_foreign_key "song_progressions", "songs"
+  add_foreign_key "progressions", "progression_templates"
+  add_foreign_key "progressions", "songs"
   add_foreign_key "songs", "users", column: "submitter_id"
   add_foreign_key "tuning_pitches", "pitches"
   add_foreign_key "tuning_pitches", "tunings"

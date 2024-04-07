@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "#{dom_id(@progression)}__form" do %>
+    <%= render "progressions/form",progression: @progression, song: @progression.song %>
+<% end %>

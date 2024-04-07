@@ -1,0 +1,10 @@
+<%# as the song progression has been created, remove it from the list of new song progressions %>
+<%= turbo_stream.remove "new-song-progression_#{@progression.uid}" %>
+
+<%# append the song progression to the list of (created) song progressions %>
+<%= turbo_stream.append "current-song-progressions" do %>
+    <%= tag.fieldset id: dom_id(@progression) do %>
+        <%= tag.legend "#{@progression_index.to_s}) #{@progression.tag}" %>
+        <%= render "progressions/form", progression: @progression, song: @song %>    
+    <% end %>   
+<% end %>

@@ -66,14 +66,14 @@ namespace :song do
                     file.puts "ProgressionChord.create(#{progression_chord_params})"
                 end
 
-                progression_template.song_progressions.each do |song_progression|
-                    song_progression_attributes = song_progression.serializable_hash.delete_if{|k,v|excluded_keys.include? k}
+                progression_template.progressions.each do |progression|
+                    progression_attributes = progression.serializable_hash.delete_if{|k,v|excluded_keys.include? k}
 
-                    song_progression_params = attributes_hash_to_string(song_progression_attributes)
+                    progression_params = attributes_hash_to_string(progression_attributes)
 
-                    song_progression_params << "song: song, progression_template: progression_template_#{i+1}"
+                    progression_params << "song: song, progression_template: progression_template_#{i+1}"
 
-                    file.puts "SongProgression.create(#{song_progression_params})"
+                    file.puts "Progression.create(#{progression_params})"
                 end
             end
         end

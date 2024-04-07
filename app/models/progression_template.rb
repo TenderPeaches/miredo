@@ -1,5 +1,5 @@
 class ProgressionTemplate < ApplicationRecord
-    has_many :song_progressions
+    has_many :progressions
     has_many :progression_chords, dependent: :destroy
     has_many :chords, through: :progression_chords
     belongs_to :song
