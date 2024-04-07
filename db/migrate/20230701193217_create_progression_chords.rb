@@ -10,7 +10,7 @@ class CreateProgressionChords < ActiveRecord::Migration[7.0]
       t.integer :sequence                                         # numerical sequence of the chord within the chord progression
       t.boolean :staccato                                         # if there is a pause between this chord and the next one
       t.boolean :muted                                            # if this chord is palm muted
-      t.references :progression, null: false, foreign_key: true   
+      t.references :progression_template, null: false, foreign_key: true
 
       t.timestamps
     end

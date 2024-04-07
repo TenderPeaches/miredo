@@ -90,7 +90,7 @@ namespace :song do
             elsif value.is_a? Integer
                 string << "#{key}: #{value}, "
             else
-                string << "#{key}: \"#{value}\" ,"
+                string << "#{key}: \"#{value.gsub("\"", "\\\"")}\" ,"
             end
         end
 
