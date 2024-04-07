@@ -1,6 +1,6 @@
-<%= tag.div class: "field progression" do %>
-    <%= form.label :progression %>
-    <%= form.collection_select :progression_id, form.object.song.progressions, :id, :print_for_select %>
+<%= tag.div class: "field progression_template" do %>
+    <%= form.label :progression_template %>
+    <%= form.collection_select :progression_template_id, form.object.song.progression_templates, :id, :print_for_select %>
 <% end %>
 
 <%= tag.div class: "field" do %>

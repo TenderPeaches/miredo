@@ -1,12 +1,12 @@
-<%= tag.div id: "current-song-progression-templates", class: "card" do %>
+<%= tag.div id: "current-progression-templates", class: "card current-progression-templates" do %>
     <% if progression_templates.count > 0 %>
         <% progression_templates.each_with_index do |progression_template, i| %>
             <%= tag.fieldset id: dom_id(progression_template) do %>
                 <%= tag.legend "#{(i + 1).to_s}) #{progression_template.tag}" %>
-                <%= render "song_progressions/form", song_progression: progression_template, song: song %>    
+                <%= render "progression_templates/form", progression_template: progression_template %>    
             <% end %>   
         <% end %>
     <% else %>
-        <%= tag.div t('feedback.songs.no_song_progression'), id: "no-songprogression-templates" %>
+        <%= tag.div t('feedback.songs.no_progression_template'), id: "no-progression-templates" %>
     <% end %>
 <% end %>

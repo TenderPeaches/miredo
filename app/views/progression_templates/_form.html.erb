@@ -1,0 +1,31 @@
+<%= model_form_with model: progression_template, class: "progression-template-form", id: progression_templates_form_id(progression_template), local: false do |form| %>
+    <%= render "progression_templates/errors", progression_template: progression_template %>
+    <%= render "progression_templates/fields", form: form %>
+    <%= tag.div class: "progression-template-print" do %>
+        <%= tag.h2 progression_template.print, class: "progression-template-print" %>
+    <% end %>
+    <%= render "progression_templates/chords", form: form, progression_template: progression_template %>
+    
+    <%# if uid local variable assigned, create a hidden field so that the controller can target this form in its response %>
+    <% if defined? uid %>
+        <%= form.hidden_field :uid, value: uid.to_s %>
+    <% end %>
+
+    <%# track the song that this progression_template was created for %>
+    <% if defined? song %>
+        <%= form.hidden_field :song_id, value: song.id %>
+    <% end %>
+
+    <%= turbo_link_button t('actions.add', thing: t('models.progression_chord.model_name')), new_progression_chord_path(id: progression_template.id || 0.to_s) %>
+    
+    <% unless progression_template.new_record? %>
+        <%= turbo_link_button t('actions.copy', thing: t('models.progression_template.model_name')), new_progression_template_path(progression_template_id: progression_template.id) %>
+        <%= link_to t('actions.delete', thing: t('models.progression_template.model_name')), progression_template_path(progression_template.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: t('models.progression_template.model_name')) } %>
+    <% end %>
+
+    <% if progression_template.id == nil %>
+        <%= form.submit t('actions.create', thing: t('models.progression_template.model_name')) %>
+    <% else %>
+        <%= form.submit t('actions.update', thing: t('models.progression_template.model_name')) %>
+    <% end %>
+<% end %>

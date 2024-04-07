@@ -1,0 +1,11 @@
+<% if progression_template.errors.any? %>
+    <div class="alert model-error">
+        <h2><%= pluralize(progression_template.errors.count, "error") %> prohibited this progression_template from being saved:</h2>
+
+        <ul>
+            <% progression_template.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

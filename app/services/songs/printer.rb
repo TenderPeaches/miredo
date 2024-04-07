@@ -22,7 +22,7 @@ module Songs
                 tick_counter = 0
 
                 # loop over song progression chords in sequential order
-                song_progression.progression.progression_chords.order(:sequence).each do |progression_chord|
+                song_progression.progression_template.progression_chords.order(:sequence).each do |progression_chord|
                     # increase tick counter for however long the chord lasts
                     tick_counter += progression_chord.duration
 

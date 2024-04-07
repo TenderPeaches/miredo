@@ -4,7 +4,7 @@
         <%= link_to 'Random', song_path(Song.random_id.to_s), class: "button" %>
         <%= turbo_link_button "Play", song_plays_path(song_id: @song.id), :post %>  
         <%= turbo_link_button "Play+", song_plays_path(song_id: @song.id, by_heart: true), :post %>  
-        <%= link_to "Define Progressions", song_progressions_path(@song), class: "button" %>
+        <%= link_to "Define Progression Templates", song_progressions_path(@song), class: "button" %>
     <% end %>
     <h1 class="song-title"><%= @song.name %></h1>
     <h3 class="song-artist"><%= @song.get_artists %></h3>

@@ -1,5 +1,5 @@
 <%= tag.div id: "new-song-progressions", class: "card song-progressions--new" do %>
-    <% progressions.each do |progression| %>
-        <%= render "song_progressions/form", song_progression: progression, song: song %>
+    <% progression_templates.each do |progression_template| %>
+        <%= render "song_progressions/form", song_progression: progression_template, song: song %>
     <% end %>
 <% end %>

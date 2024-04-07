@@ -1,0 +1,15 @@
+<%= tag.div id: "new-progression-templates", class: "card new-progression-templates" do %>
+    <% progression_templates.each do |progression_template| %>
+        <%= render "progression_templates/form", progression_template: progression_template, song: song, key: key, scale: scale %>
+    <% end %>
+<% end %>
+
+<%# helper for transcribing from the old method, showing the chords & reps that need to be turned into progression_templates %>
+<%= tag.div do %>
+    <% unless song.chords.empty? %>
+        <%= song.chords %>
+    <% end %>
+    <% unless song.lyrics.empty? %>
+        <%= song.lyrics %>
+    <% end %>
+<% end %>

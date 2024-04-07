@@ -22,21 +22,21 @@ en:
     log_in: "Log in"
     log_out: "Log out"
     sign_up: "Sign up"
-    define_progressions: "Define progression templates"
+    define_progression_templates: "Define progression templates"
     define_song_progressions: "Define song progressions"
   feedback:
     songs:
-      no_progression: "No progressions have been defined for this song"
+      no_progression_template: "No progression_templates have been defined for this song"
       no_song_progression: "No song progressions have been defined for this song"
   hints:
-    progression_form: ""
+    progression_template_form: ""
   models:
     song:
       model_name: "Song"
       name: "Name"
       practiced: "Practiced %{times} times"
-    progression:
-      model_name: "Progression"
+    progression_template:
+      model_name: "Progression Template"
       tag: "Tag"
       reps: "Reps"
     progression_chord:

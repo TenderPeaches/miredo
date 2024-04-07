@@ -17,7 +17,7 @@ class Song < ApplicationRecord
     has_many :song_contributions, dependent: :destroy
     has_many :artists, through: :song_contributions
     has_many :song_progressions, dependent: :destroy
-    has_many :progressions, dependent: :destroy
+    has_many :progression_templates, dependent: :destroy
     has_many :song_plays, dependent: :destroy
 
     validates :number, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
@@ -31,7 +31,7 @@ class Song < ApplicationRecord
     accepts_nested_attributes_for :artists
     accepts_nested_attributes_for :song_contributions, :allow_destroy => true
     accepts_nested_attributes_for :song_progressions
-    accepts_nested_attributes_for :progressions
+    accepts_nested_attributes_for :progression_templates
 
     before_validation :create_album_from_name, :assert_song_contributions
     after_save :set_song_contributions

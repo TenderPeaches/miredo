@@ -1,4 +1,4 @@
-/* when printing progressions as horiztonal grids, this is the div that contains all of the progression's bars */
+/* when printing progression_templates as horiztonal grids, this is the div that contains all of the progression's bars */
 .progression-as-bars {
     font-size: var(--font-size-bars);                               /* large font for easy reading */
 }

@@ -5,7 +5,7 @@
         <%= render "songs/fields", form: form %>
         <%= tag.div class: "form-submit" do %>
             <%= form.submit "#{song.new_record? ? "Create" : "Update"} song" %>
-            <%= form.submit "Set progessions", name: 'progressions' %>
+            <%= form.submit "Set progessions", name: 'progression_templates' %>
         <% end %>        
     <% end %>
 <% end %>

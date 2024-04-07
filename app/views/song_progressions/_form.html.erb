@@ -1,7 +1,7 @@
 <%= form_with model: song_progression, url: song_progressions_path(song_id: song_progression.song), class: "song-progression-form", id: "#{dom_id(song_progression)}__form" do |form| %>
     <%= render "song_progressions/errors", song_progression: song_progression %>
-    <%= tag.div class: "progression-print" do %>
-        <%= tag.div "#{song_progression.progression.print(song.key, song.scale)}" %>
+    <%= tag.div class: "progression-template-print" do %>
+        <%= tag.div "#{song_progression.progression_template.print(song.key, song.scale)}" %>
     <% end %>
     <%= render "song_progressions/fields", form: form %>
 

@@ -1,13 +1,13 @@
 class ProgressionChord < ApplicationRecord
   belongs_to :chord
-  belongs_to :progression
+  belongs_to :progression_template
 
   before_save :assign_sequence_number
 
   def assign_sequence_number
     if sequence.nil?
       # OR with 0 because if no other progression_chords, then max will be nil
-      self.sequence = (progression.progression_chords.maximum(:sequence) || 0) + 1
+      self.sequence = (progression_template.progression_chords.maximum(:sequence) || 0) + 1
     end
   end
 
@@ -16,7 +16,7 @@ class ProgressionChord < ApplicationRecord
   end
 
   def is_last?
-      ProgressionChord.where(progression: self.progression).maximum(:sequence) == self.sequence
+      ProgressionChord.where(progression_template: self.progression_template).maximum(:sequence) == self.sequence
   end
 
   def get_scale_notes(key, scale)
@@ -102,7 +102,7 @@ class ProgressionChord < ApplicationRecord
   end
 
   # prints the chord + duration markers
-  def print(key = progression.key ? progression.key : (progression.song.key || Key.default), scale = progression.song.scale || Scale.default)
+  def print(key = progression_template.key ? progression_template.key : (progression_template.song.key || Key.default), scale = progression_template.song.scale || Scale.default)
     # output
     printed = ""
 

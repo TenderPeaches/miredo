@@ -149,14 +149,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
     t.integer "sequence"
     t.boolean "staccato"
     t.boolean "muted"
-    t.integer "progression_id", null: false
+    t.integer "progression_template_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chord_id"], name: "index_progression_chords_on_chord_id"
-    t.index ["progression_id"], name: "index_progression_chords_on_progression_id"
+    t.index ["progression_template_id"], name: "index_progression_chords_on_template_id"
   end
 
-  create_table "progressions", force: :cascade do |t|
+  create_table "progression_templates", force: :cascade do |t|
     t.string "tag"
     t.integer "reps", default: 1
     t.integer "song_id", null: false
@@ -164,9 +164,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
     t.integer "scale_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["key_id"], name: "index_progressions_on_key_id"
-    t.index ["scale_id"], name: "index_progressions_on_scale_id"
-    t.index ["song_id"], name: "index_progressions_on_song_id"
+    t.index ["key_id"], name: "index_progression_templates_on_key_id"
+    t.index ["scale_id"], name: "index_progression_templates_on_scale_id"
+    t.index ["song_id"], name: "index_progression_templates_on_song_id"
   end
 
   create_table "scale_intervals", force: :cascade do |t|
@@ -211,7 +211,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
 
   create_table "song_progressions", force: :cascade do |t|
     t.integer "song_id", null: false
-    t.integer "progression_id", null: false
+    t.integer "progression_template_id", null: false
     t.integer "sequence"
     t.integer "reps", default: 1
     t.integer "key_id"
@@ -221,7 +221,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["key_id"], name: "index_song_progressions_on_key_id"
-    t.index ["progression_id"], name: "index_song_progressions_on_progression_id"
+    t.index ["progression_template_id"], name: "index_song_progressions_on_template_id"
     t.index ["scale_id"], name: "index_song_progressions_on_scale_id"
     t.index ["song_id"], name: "index_song_progressions_on_song_id"
   end
@@ -300,13 +300,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
   add_foreign_key "pitches", "pitch_classes"
   add_foreign_key "pitches", "pitch_standards"
   add_foreign_key "progression_chords", "chords"
-  add_foreign_key "progression_chords", "progressions"
+  add_foreign_key "progression_chords", "progression_templates"
   add_foreign_key "scale_intervals", "interval_qualities"
   add_foreign_key "scale_intervals", "intervals"
   add_foreign_key "scale_intervals", "scales"
   add_foreign_key "song_plays", "songs"
   add_foreign_key "song_plays", "users"
-  add_foreign_key "song_progressions", "progressions"
+  add_foreign_key "song_progressions", "progression_templates"
   add_foreign_key "song_progressions", "songs"
   add_foreign_key "songs", "users", column: "submitter_id"
   add_foreign_key "tuning_pitches", "pitches"

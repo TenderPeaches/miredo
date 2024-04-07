@@ -1,4 +1,4 @@
-.current-progressions, .new-progressions {
+.current-progression-templates, .new-progression-templates {
     text-align: left;    
 }
 
@@ -14,11 +14,11 @@
 }
 
 .progression-chord-print,
-.progression-print {
+.progression-template-print {
     align-self: center;
 }
 
-.progression-print {
+.progression-template-print {
     font-size: 1.5rem;
     color: var(--color-accent-lightest);
 }

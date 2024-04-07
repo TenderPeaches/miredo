@@ -32,7 +32,7 @@ namespace :song do
 
         File.open("db/exports/song_#{song.id}.rb", 'w') do |file|
 
-            excluded_keys = ['created_at', 'updated_at', 'id', 'progression_id']
+            excluded_keys = ['created_at', 'updated_at', 'id', 'progression_template_id']
 
             file.puts "song = Song.find_by_id(#{song.id})"
             file.puts "unless song"
@@ -45,33 +45,33 @@ namespace :song do
             file.puts "  song = Song.create(#{song_params})"
             file.puts "end"
 
-            progressions = {}
+            progression_templates = {}
 
-            song.progressions.each_with_index do |progression, i|
+            song.progression_templates.each_with_index do |progression_template, i|
 
-                progression_attributes = progression.serializable_hash.delete_if{|k,v|excluded_keys.include? k}
-                progression_attributes.delete("song_id")
-                progression_params = attributes_hash_to_string(progression_attributes)
-                progression_params << "song: song"
+                progression_template_attributes = progression_template.serializable_hash.delete_if{|k,v|excluded_keys.include? k}
+                progression_template_attributes.delete("song_id")
+                progression_template_params = attributes_hash_to_string(progression_template_attributes)
+                progression_template_params << "song: song"
 
-                file.puts "progression_#{i+1} = Progression.create(#{progression_params})"
+                file.puts "progression_template_#{i+1} = ProgressionTemplate.create(#{progression_template_params})"
 
-                progression.progression_chords.each do |progression_chord|
+                progression_template.progression_chords.each do |progression_chord|
                     progression_chord_attributes = progression_chord.serializable_hash.delete_if{|k,v|excluded_keys.include? k}
 
                     progression_chord_params = attributes_hash_to_string(progression_chord_attributes)
 
-                    progression_chord_params << "progression: progression_#{i+1}"
+                    progression_chord_params << "progression_template: progression_template_#{i+1}"
 
                     file.puts "ProgressionChord.create(#{progression_chord_params})"
                 end
 
-                progression.song_progressions.each do |song_progression|
+                progression_template.song_progressions.each do |song_progression|
                     song_progression_attributes = song_progression.serializable_hash.delete_if{|k,v|excluded_keys.include? k}
 
                     song_progression_params = attributes_hash_to_string(song_progression_attributes)
 
-                    song_progression_params << "song: song, progression: progression_#{i+1}"
+                    song_progression_params << "song: song, progression_template: progression_template_#{i+1}"
 
                     file.puts "SongProgression.create(#{song_progression_params})"
                 end

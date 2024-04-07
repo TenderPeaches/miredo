@@ -1,7 +1,7 @@
 class ProgressionChordsController < ApplicationController
     def new
-        @progression = Progression.find_by_id(params[:id]) || Progression.new
-        @progression_chord = @progression.progression_chords.build
+        @progression_template = ProgressionTemplate.find_by_id(params[:id]) || ProgressionTemplate.new
+        @progression_chord = @progression_template.progression_chords.build
     end
 
     def create
@@ -21,6 +21,6 @@ class ProgressionChordsController < ApplicationController
 
     private
     def progression_chord_params
-        params.require(:progression_chord).permit(:progression_id, :chord_id, :degree, :duration, :modifier, :bass_modifier, :bass_degree, :sequence)
+        params.require(:progression_chord).permit(:progression_template_id, :chord_id, :degree, :duration, :modifier, :bass_modifier, :bass_degree, :sequence)
     end
 end

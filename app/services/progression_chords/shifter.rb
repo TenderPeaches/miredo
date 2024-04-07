@@ -12,7 +12,7 @@ module ProgressionChords
 
             # swap however many times by adjusting each progression chord's sequence number
             shift.abs.times do |i|
-                swapped_chord = ProgressionChord.where(progression: @progression_chord.progression, sequence: @progression_chord.sequence + step).first
+                swapped_chord = ProgressionChord.where(progression_template: @progression_chord.progression_template, sequence: @progression_chord.sequence + step).first
 
                 # if not found, assume end (or beginning) of sequence has been reached so break out of the loop
                 if swapped_chord.nil?

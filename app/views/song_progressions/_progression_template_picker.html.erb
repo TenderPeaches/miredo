@@ -1,0 +1,13 @@
+<%= tag.fieldset do %>
+    <%= tag.legend t('actions.select', thing: t('models.progression_template.model_name')) %>
+    <%= form_tag new_song_progression_path, class: "progression-template-picker", method: :get, data: { turbo_stream: true } do %>
+        <%= tag.div class: "field" do %>
+            <%= label_tag t('models.progression_template.model_name') %>
+            <%= select_tag :progression_template_id, options_from_collection_for_select(progression_templates, :id, :print_for_select, 1) %>
+        <% end %>
+        <%= hidden_field_tag :song_id, song.id %>
+        <%= submit_tag t('actions.new', thing: t('models.song_progression.model_name')) %>
+        <%= link_to t('cta.define_progression_templates'), progression_templates_path(song_id: song), class: "button" %>
+        <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(song), class: "button" %>
+    <% end %>
+<% end %>

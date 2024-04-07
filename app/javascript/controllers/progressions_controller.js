@@ -4,7 +4,7 @@ import Api from "../core/api.js"
 export default class extends Controller {
   static targets = [ 'generator', 'newProgsList', 'display', 'inputDegree', 'inputModifier', 'inputChordType', 'settingSetBass', 'inputDuration', 'scale', 'key', 'inputBassDegree', 'inputBassModifier', 'bassControls', 'selectedProgression', 'selectedProgressionChord', 'progressionChordSequence', 'progressionSequenceDisplay', 'progressionChordSequenceDisplay', 'progressionSequence'];
 
-  get new_progressions_list() { return this.newProgsListTarget }
+  get new_progression_templates_list() { return this.newProgsListTarget }
   
   get generator() { return this.generatorTarget }
   get display() { return this.displayTarget }
@@ -153,7 +153,7 @@ export default class extends Controller {
     else {
       // make sure generator is shown
       this.generator.classList.remove('hidden');
-      const selector = '.hidden-progression-form input[name="progressions[' + progression_id + '][chords][' + sequence + ']';
+      const selector = '.hidden-progression-template-form input[name="progression_templates[' + progression_id + '][chords][' + sequence + ']';
 
       debugger;
       // Load the hidden form data onto the generator's input fields

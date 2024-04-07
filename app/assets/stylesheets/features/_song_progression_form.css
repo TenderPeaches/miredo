@@ -3,7 +3,7 @@
     grid-template-columns: 1fr;
 }
 
-.progression-picker select,
+.progression-template-picker select,
 .field.progression select {
     max-width: 80%;
 }

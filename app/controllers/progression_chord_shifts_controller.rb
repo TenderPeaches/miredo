@@ -7,7 +7,7 @@ class ProgressionChordShiftsController < ApplicationController
         end
 
         # the progression's display will need to be updated to reflect the chord shift, make sure the view can access it
-        @progression = @progression_chord.progression
+        @progression_template = @progression_chord.progression_template
     end
 
     private

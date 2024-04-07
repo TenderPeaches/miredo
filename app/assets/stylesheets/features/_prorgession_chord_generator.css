@@ -4,7 +4,7 @@
     grid-template-columns: repeat(2, 1fr);              /* only two columns needed for this design */
     grid-template-rows: auto;                           /* rows fill as necessary */
     grid-template-areas:                                /* grid layout */
-    "progression   sequence"
+    "progression_template   sequence"
     "chord_type    chord_type"
     "degree        degree"
     "modifier      modifier"
@@ -16,8 +16,8 @@
  
   }
 
-  .progression-chord-generator .progression {
-    grid-area: progression;
+  .progression-chord-generator .progression-template {
+    grid-area: progression_template;
   }
 
   .progression-chord-generator .sequence {

@@ -6,7 +6,7 @@ class SongProgressionsController < ApplicationController
 
     def new
         set_song
-        set_progression
+        set_progression_template
 
         # @song might be a new record
         if @song
@@ -15,8 +15,8 @@ class SongProgressionsController < ApplicationController
             @song_progression = SongProgression.new
         end
 
-        # the progression can be specified before requesting the new song progression
-        @song_progression.progression = @progression
+        # the progression_template can be specified before requesting the new song progression
+        @song_progression.progression_template = @progression_template
     end
 
     def create
@@ -51,8 +51,8 @@ class SongProgressionsController < ApplicationController
         @song = Song.find_by_id(params[:song_id])
     end
 
-    def set_progression
-        @progression = Progression.find_by_id(params[:progression_id])
+    def set_progression_template
+        @progression_template = ProgressionTemplate.find_by_id(params[:progression_template_id])
     end
 
     def alert_errors
@@ -60,6 +60,6 @@ class SongProgressionsController < ApplicationController
     end
 
     def song_progression_params
-        params.require(:song_progression).permit(:progression_id, :song_id, :uid, :tag, :lyrics, :reps, :key_id, :scale_id)
+        params.require(:song_progression).permit(:progression_template_id, :song_id, :uid, :tag, :lyrics, :reps, :key_id, :scale_id)
     end
 end

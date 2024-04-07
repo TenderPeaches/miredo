@@ -59,8 +59,8 @@ class SongsController < ApplicationController
         @song = Song.new(song_params)
 
         if @song.save
-            if params[:progressions]
-                redirect_to progressions_path(@song), notice: "Song was successfully created."
+            if params[:progression_templates]
+                redirect_to progression_templates_path(@song), notice: "Song was successfully created."
             else
                 redirect_to song_url(@song), notice: "Song was successfully created."
             end
@@ -73,7 +73,7 @@ class SongsController < ApplicationController
         set_song
 
         if @song.update(song_params)
-            if params[:progressions]
+            if params[:progression_templates]
                 redirect_to song_progressions_path @song
             else
                 redirect_to song_path @song

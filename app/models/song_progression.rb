@@ -1,6 +1,6 @@
 class SongProgression < ApplicationRecord
   belongs_to :song
-  belongs_to :progression
+  belongs_to :progression_template
   belongs_to :key, optional: true
   belongs_to :scale, optional: true
 
@@ -28,16 +28,16 @@ class SongProgression < ApplicationRecord
   end
 
   def show_reps?
-    reps > 1 || progression.reps > 1
+    reps > 1 || progression_template.reps > 1
   end
 
   def print_reps
-    "x" + (reps * progression.reps).to_s
+    "x" + (reps * progression_template.reps).to_s
   end
 
   def duration
     # https://www.rubysos.com/std-lib/how-to-sum-properties-of-the-objects-within-an-array-in-ruby/
     # could also do .map() => .sum()
-    progression.progression_chords.reduce(0) { |acc, obj| acc + obj.duration}
+    progression_template.progression_chords.reduce(0) { |acc, obj| acc + obj.duration}
   end
 end

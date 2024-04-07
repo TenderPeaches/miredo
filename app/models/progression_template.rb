@@ -1,4 +1,4 @@
-class Progression < ApplicationRecord
+class ProgressionTemplate < ApplicationRecord
     has_many :song_progressions
     has_many :progression_chords, dependent: :destroy
     has_many :chords, through: :progression_chords
@@ -11,8 +11,8 @@ class Progression < ApplicationRecord
     attr_accessor :uid
 
     public
-    # need to sort progressions in order to show user a list to select from somehow
-    # sort by each chord that makes up the progression
+    # need to sort progression_templates in order to show user a list to select from somehow
+    # sort by each chord that makes up the progression_template
     def sortable
         sortable_string = ""
         ordered_chords.each do |pc|
