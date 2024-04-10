@@ -13,6 +13,15 @@
             <%= @song.keyscale %>
         <% end %>
 
+        <% if @song.progression_templates.any? %>
+            <%# "new progression templates" button %>
+            <%= link_to t('actions.new', thing: t('models.progression_template.model_name')), new_progression_template_path(song_id: @song.id.to_s), class: "button", data: { turbo_stream: true } %>
+            <%# "edit song" button %>
+            <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(@song), class: "button" %>
+            <%# "define song progressions" button %>
+            <%= link_to t('cta.define_progressions'), song_progressions_path(@song), class: "button" %>
+        <% end %>
+
         <%# show currently instanciated ProgressionTemplates %>
         <%= render "progression_templates/current_progression_templates", progression_templates: @song.progression_templates, scale: @song.scale, key: @song.key %>
         <%# show new progression_template forms %>
@@ -23,6 +32,6 @@
         <%# "edit song" button %>
         <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(@song), class: "button" %>
         <%# "define song progressions" button %>
-        <%= link_to t('cta.define_progressions'), progressions_path(@song), class: "button" %>
+        <%= link_to t('cta.define_progressions'), song_progressions_path(@song), class: "button" %>
     <% end %>
 <% end %>

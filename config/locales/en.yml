@@ -26,7 +26,7 @@ en:
     define_progressions: "Define song progressions"
   feedback:
     songs:
-      no_progression_template: "No progression_templates have been defined for this song"
+      no_progression_template: "No progression templates have been defined for this song"
       no_progression: "No song progressions have been defined for this song"
   hints:
     progression_template_form: ""

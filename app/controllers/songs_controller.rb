@@ -74,7 +74,7 @@ class SongsController < ApplicationController
 
         if @song.update(song_params)
             if params[:progression_templates]
-                redirect_to progressions_path @song
+                redirect_to song_progressions_path @song
             else
                 redirect_to song_path @song
             end

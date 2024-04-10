@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # devise_for :admins
   devise_for :users
 
+  resources :users do
+      resources :songs, only: [ :index ], controller: :user_songs
+  end
 
   resources :song_plays, only: [ :new, :create ]
 

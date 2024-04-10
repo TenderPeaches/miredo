@@ -1,4 +1,4 @@
-<div class="show-song">
+<%= tag.div class: "song-header" do %>
     <%= tag.div class: "song-actions" do %>
         <%= link_to "< Back", root_path, class: "button" %>
         <%= link_to 'Random', song_path(Song.random_id.to_s), class: "button" %>
@@ -12,6 +12,8 @@
     <h5 class="song-key">Key <%= @song.key %></h5>
     <h5>Practiced: <%= @song.plays(current_user) %>x</h5>
     <%= @song.chords %>
+<% end %>
+<div class="show-song">
     <% @song.default_output.each do |line| %>
         <% if line[:type] == Song::OUTPUT_LINE_TYPE__CHORDS %>
             <div class="song-line song-line--chords"> 

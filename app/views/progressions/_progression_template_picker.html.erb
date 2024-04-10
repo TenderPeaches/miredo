@@ -7,7 +7,7 @@
         <% end %>
         <%= hidden_field_tag :song_id, song.id %>
         <%= submit_tag t('actions.new', thing: t('models.progression.model_name')) %>
-        <%= link_to t('cta.define_progression_templates'), progression_templates_path(song_id: song), class: "button" %>
+        <%= link_to t('cta.define_progression_templates'), song_progression_templates_path(song_id: song), class: "button" %>
         <%= link_to t('actions.edit', thing: t('models.song.model_name')), edit_song_path(song), class: "button" %>
     <% end %>
 <% end %>

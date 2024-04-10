@@ -77,9 +77,6 @@ label {
 /* screen-size dependent considerations */
 /* for large screens */
 @media screen and (min-width: 1080px) {
-    body {
-        max-width: var(--max-content-width--large-screen);  /* prevent the content from spreading over too wide an area */
-    }
 
     /* header nav bar */
     header {

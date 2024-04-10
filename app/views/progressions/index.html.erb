@@ -2,9 +2,9 @@
     <%= tag.div do %>
         <%= render "progressions/song_shifter", song: @song %>
         <%= render "progressions/progression_template_picker", progression_templates: @song.progression_templates.distinct, song: @song %>
-        <%= render "progressions/current_progression_templates", progression_templates: @song.progressions, song: @song %>
+        <%= render "progressions/current_progressions", progressions: @song.progressions, song: @song %>
         <%= tag.div @song.lyrics %>
-        <%= render "progressions/new_progression_templates", progression_templates: [], song: @song %>
+        <%= render "progressions/new_progressions", progressions: [], song: @song %>
 
         <%# if there are more than 4 progression_templates or more, add another picker at the bottom so that there's no need to scroll all the way back up to add a new song progression %>
         <% if @song.progressions.count >= 4 %>
