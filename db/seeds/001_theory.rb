@@ -191,7 +191,7 @@ scale__minor_natural.scale_intervals = [
     ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 5),
     ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 6),
     ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__major, sequence: 7),
-] 
+]
 
 # minor harmonic scale 2-1-2-2-1-3-1
 scale__minor_harmonic.scale_intervals = [
@@ -202,7 +202,7 @@ scale__minor_harmonic.scale_intervals = [
     ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 5),
     ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__augmented, sequence: 6),
     ScaleInterval.create(interval: interval__second, interval_quality: interval_quality__minor, sequence: 7),
-] 
+]
 
 # minor melodic scale 2-1-2-2-2-2-1
 scale__minor_melodic.scale_intervals = [
@@ -309,7 +309,7 @@ ChordComponent.create(chord: chord__minor_seventh, interval: interval__third, in
 ChordComponent.create(chord: chord__minor_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)            # P5 => 7 => G
 ChordComponent.create(chord: chord__minor_seventh, interval: interval__seventh, interval_quality: interval_quality__minor)            # m7 => 10 => A#
 
-chord__minor_major_seventh = Chord.create(name: "Minor-major Seventh", notation: "m/M7")
+chord__minor_major_seventh = Chord.create(name: "Minor-major Seventh", notation: "mM7")
 ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__unison, interval_quality: interval_quality__perfect)     # P1 => 0 => C
 ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__third, interval_quality: interval_quality__minor)        # m3 => 3 => Eb
 ChordComponent.create(chord: chord__minor_major_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)      # P5 => 7 => G

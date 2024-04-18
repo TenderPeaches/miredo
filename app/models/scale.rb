@@ -32,15 +32,19 @@ class Scale < ApplicationRecord
         # any other case is todo
     end
 
-    def chords
+    def temp_chords
         chord__major = Chord.find_by(name: "Major Triad")
         chord__minor = Chord.find_by(name: "Minor Triad")
 
         chord__diminished = Chord.find_by(name: "Diminished Triad")
         case id
+        when 1
+            [ chord__major, chord__minor, chord__minor, chord__major, chord__major, chord__minor, chord__diminished ]
         when 2
             [ chord__major, chord__minor, chord__minor, chord__major, chord__major, chord__minor, chord__diminished ]
         when 3
+            [ chord__minor, chord__diminished, chord__major, chord__minor, chord__minor, chord__major, chord__major ]
+        when 4
             [ chord__minor, chord__diminished, chord__major, chord__minor, chord__minor, chord__major, chord__major ]
         else
             []
@@ -60,7 +64,7 @@ class Scale < ApplicationRecord
         # current degree tracker
         current_degree = 0
         # the list of chords will, at first, contain only the letter of the root + modifier
-        chords = [ { degree: degrees[current_degree], pitch_class: root.letter, pitch_class_id: root.id } ]
+        chords = [ { degree_int: current_degree + 1, degree: degrees[current_degree], pitch_class: root.letter, pitch_class_id: root.id } ]
         # running_interval is running tally )in semitones) between the root and the current degree/interval being evaluated
         running_interval = 0
         # do each interval in turn
@@ -75,13 +79,13 @@ class Scale < ApplicationRecord
             unless running_interval == 0
                 pitch_class = PitchClass.find_by_position(running_interval + root.position)
                 # push the chord's notation accordingly
-                chords << { degree: degrees[current_degree], pitch_class: pitch_class.letter, pitch_class_id: pitch_class.id }
+                chords << { degree_int: current_degree + 1, degree: degrees[current_degree], pitch_class: pitch_class.letter, pitch_class_id: pitch_class.id }
             end
         end
 
         # standardize output
         chords.each_with_index do |chord, i|
-            chord[:print] = chord[:pitch_class] + self.chords[i].notation
+            chord[:print] = chord[:pitch_class] + temp_chords[i]&.notation
         end
         return chords
     end

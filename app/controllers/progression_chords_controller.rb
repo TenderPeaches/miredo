@@ -1,6 +1,6 @@
 class ProgressionChordsController < ApplicationController
     def new
-        @progression_template = ProgressionTemplate.find_by_id(params[:id]) || ProgressionTemplate.new
+        @progression_template = ProgressionTemplate.find_by_id(params[:progression_template_id]) || ProgressionTemplate.new(song_id: params[:song_id])
         @progression_chord = @progression_template.progression_chords.build
     end
 

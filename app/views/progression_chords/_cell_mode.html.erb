@@ -1,0 +1,7 @@
+<%= tag.table id: "#{dom_id(progression_template)}_chords" do %>
+    <% progression_template.progression_chords.order(:sequence).each_with_index do |progression_chord, i| %>
+        <%= tag.tr do %>
+            <%= render "progression_chords/cell", progression_chord: progression_chord, key: progression_template.active_key, scale: progression_template.active_scale %>
+        <% end %>
+    <% end %>
+<% end %>

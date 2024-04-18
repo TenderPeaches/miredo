@@ -4,7 +4,10 @@
     <%= tag.div class: "progression-template-print" do %>
         <%= tag.h2 progression_template.print, class: "progression-template-print" %>
     <% end %>
-    <%= render "progression_templates/chords", form: form, progression_template: progression_template %>
+    
+    <%# render "progression_templates/chords", form: form, progression_template: progression_template %>
+    
+    <%= form.field :cypher, as: :text %>
     
     <%# if uid local variable assigned, create a hidden field so that the controller can target this form in its response %>
     <% if defined? uid %>
@@ -12,11 +15,11 @@
     <% end %>
 
     <%# track the song that this progression_template was created for %>
-    <% if defined? song %>
-        <%= form.hidden_field :song_id, value: song.id %>
+    <% if defined? progression_template.song %>
+        <%= form.hidden_field :song_id, value: progression_template.song.id %>
     <% end %>
 
-    <%= turbo_link_button t('actions.add', thing: t('models.progression_chord.model_name')), new_progression_chord_path(id: progression_template.id || 0.to_s) %>
+    <%= turbo_link_button t('actions.add', thing: t('models.progression_chord.model_name')), new_progression_chord_path(progression_template_id: progression_template.id || 0.to_s, song_id: progression_template.song.id) %>
     
     <% unless progression_template.new_record? %>
         <%= turbo_link_button t('actions.copy', thing: t('models.progression_template.model_name')), new_progression_template_path(progression_template_id: progression_template.id) %>

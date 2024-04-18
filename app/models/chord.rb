@@ -9,5 +9,20 @@ class Chord < ApplicationRecord
 
     def for_select
         "#{name} (#{notation})"
-    end 
+    end
+
+    def self.regex_selector
+        selector = ""
+
+        Chord.all.each do |chord|
+            unless chord.notation.empty?
+                unless selector.empty?
+                    selector << "|"
+                end
+                  selector << chord.notation.gsub("/", "\/")
+            end
+        end
+
+        selector
+    end
 end

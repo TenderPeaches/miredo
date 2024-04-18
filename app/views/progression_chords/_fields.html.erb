@@ -1,7 +1,7 @@
-
 <%= tag.div class: "field" do %>
     <%= form.label :degree %>
-    <%= form.number_field :degree, in: 1...8, step: 1 %>
+    <%# form.number_field :degree, in: 1...8, step: 1 %>
+    <%= degree_select form %>
 <% end %>
 
 <%= tag.div class: "field" do %>

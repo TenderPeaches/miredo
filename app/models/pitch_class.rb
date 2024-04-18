@@ -8,11 +8,11 @@ class PitchClass < ApplicationRecord
     end
 
     def next
-        offset(1)
+        get_offset(1)
     end
 
     def previous
-        offset(-1)
+        get_offset(-1)
     end
 
     def get_offset(offset = 0)
@@ -31,11 +31,11 @@ class PitchClass < ApplicationRecord
         # interval in semitones between the two pitches
         diff = pitch.position - position
 
-        # solving problem case: self = 12 (B), pitch = 1 (C), diff = 1 - 12 = -11         
+        # solving problem case: self = 12 (B), pitch = 1 (C), diff = 1 - 12 = -11
         if diff < -6
             # turning a large negative gap into a small positive one
             diff += 12
-        # solving problem case: self = 1 (C), pitch = 12 (B), diff = 12 - 1 = 11        
+        # solving problem case: self = 1 (C), pitch = 12 (B), diff = 12 - 1 = 11
         elsif diff > 6
             # turning a large positive gap into a small negative one
             diff -= 12
