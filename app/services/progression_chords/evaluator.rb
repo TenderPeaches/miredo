@@ -86,7 +86,7 @@ module ProgressionChords
 
             # in case there is no exact match, keep track of the closest matches - pitch classes within a 1 or 2 semitones interval
             close_matches = { 1 => [], 2 => [] }
-            puts intervals.inspect
+
             # go through each degree's interval
             intervals.each do |degree, interval|
                 # if the interval is 0, pitch_class matches the degree exactly

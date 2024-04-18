@@ -21,8 +21,6 @@ module ProgressionChords
                 debugger
             end
 
-            puts "Cypher!! #{cypher.inspect}"
-
             # extract the pitch class and assess where it fits within the scale, given the key
             pitch_class = extract_pitch_class_from_cypher cypher[0]
             evaluator = Evaluator.new(@key, @scale)

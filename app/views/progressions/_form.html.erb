@@ -1,4 +1,4 @@
-<%= form_with model: progression, url: song_progressions_path(song_id: progression.song), class: "song-progression-form", id: "#{dom_id(progression)}__form" do |form| %>
+<%= form_with model: progression, url: progressions_path(song_id: progression.song), class: "song-progression-form", id: "#{dom_id(progression)}__form" do |form| %>
     <%= render "progressions/errors", progression: progression %>
     <%= tag.div class: "progression-template-print" do %>
         <%= tag.div "#{progression.progression_template.print(song.key, song.scale)}" %>

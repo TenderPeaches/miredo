@@ -2,6 +2,12 @@ class ProgressionTemplatesController < ApplicationController
 
     def index
         @song = Song.find_by_id(params[:song_id])
+
+        # if the song's key and scale aren't both defined, redirect to the edit song view to let the user define them
+        if @song.key.nil? || @song.scale.nil?
+            flash[:alert] = "Set the song's key and scale before defining its progressions"
+            redirect_to edit_song_path(@song)
+        end
     end
 
     # show new progression_template form
@@ -26,13 +32,24 @@ class ProgressionTemplatesController < ApplicationController
 
     def create
         @progression_template = ProgressionTemplate.new(progression_template_params)
-        song = Song.find_by_id(progression_template_params[:song_id])
+        @song = Song.find_by_id(progression_template_params[:song_id])
         @progression_template_index = song.progression_templates.distinct.count + 1
+        update_chords_from_cypher
         @progression_template.save
     end
 
     def update
         set_progression_template
+        @song = @progression_template.song
+        cypher_interpreter = interpreter
+        cypher_interpretation = interpret_cypher cypher_interpreter
+
+        # if the cypher from the chords defined in the user cypher (converting back instead of using the cypher itself to make sure any extra whitespaces are ignored) is identical to the cypher from the progression chords already assigned to this progression template, there is no need to update the chords as they are functionally identical
+        unless cypher_interpreter.to_cypher(cypher_interpretation.progression_chords) == cypher_interpreter.to_cypher(@progression_template.progression_chords)
+            # otherwise, update the progression chords accordingly - don't try and isolate which ones for now, just dump the whole lot and recreate them. ID real estate is not a concern
+            update_chords_from_cypher cypher_interpreter
+            @progression_template.save
+        end
         @progression_template.update(progression_template_params)
     end
 
@@ -52,7 +69,22 @@ class ProgressionTemplatesController < ApplicationController
         end
     end
 
+    def interpret_cypher(interpreter = self.interpreter)
+        interpreter.from_cypher(params[:progression_template][:cypher])
+    end
+
+    def interpreter
+        ProgressionTemplates::Interpreter.new(@song.key, @song.scale)
+    end
+
+    def update_chords_from_cypher(interpreter = self.interpreter)
+        cypher_interpretation = interpret_cypher interpreter
+        if cypher_interpretation.valid?
+            @progression_template.progression_chords = cypher_interpretation.progression_chords
+        end
+    end
+
     def progression_template_params
-        params.require(:progression_template).permit(:tag, :uid, :scale, :key, :reps, :id, :song_id, progression_chords_attributes: [:id, :degree, :modifier, :bass_modifier, :bass_degree, :chord_id, :duration, :staccato, :muted, :_destroy] )
+        params.require(:progression_template).permit(:tag, :uid, :scale, :cypher, :key, :reps, :id, :song_id, progression_chords_attributes: [:id, :degree, :modifier, :bass_modifier, :bass_degree, :chord_id, :duration, :staccato, :muted, :_destroy] )
     end
 end

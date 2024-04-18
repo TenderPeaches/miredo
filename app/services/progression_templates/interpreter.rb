@@ -54,17 +54,17 @@ module ProgressionTemplates
             Result.new(progression_chords, cypher, invalid_cyphers)
         end
 
-        # interpret a progression chord to create a cypher
-        def to_cypher(progression_template)
+        # interpret a set of progression chord to create a cypher
+        def to_cypher(progression_chords)
             cypher = ""
-            progression_chord_interpreter = ProgressionChords::Interpreter.new(progression_template.active_key, progression_template.active_scale)
+            progression_chord_interpreter = ProgressionChords::Interpreter.new(@key, @scale)
 
             # print each chord's cypher sequentially
-            progression_template.progression_chords.each do |progression_template_chord|
-                cypher << progression_chord_interpreter.to_cypher(progression_template_chord).cypher
+            progression_chords.each do |progression_chord|
+                cypher << progression_chord_interpreter.to_cypher(progression_chord).cypher
             end
 
-            Result.new(progression_template.progression_chords, cypher)
+            Result.new(progression_chords, cypher)
         end
 
         class Result

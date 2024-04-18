@@ -8,7 +8,7 @@ class ProgressionTemplate < ApplicationRecord
 
     accepts_nested_attributes_for :progression_chords, allow_destroy: true
 
-    attr_accessor :uid
+    attr_accessor :uid, :cypher
 
     public
     # need to sort progression_templates in order to show user a list to select from somehow
@@ -47,7 +47,7 @@ class ProgressionTemplate < ApplicationRecord
 
     # display in a given key for a select box
     def print(key = active_key, scale = active_scale)
-        ProgressionTemplates::Interpreter.new(key,scale).to_cypher(self).cypher
+        ProgressionTemplates::Interpreter.new(key,scale).to_cypher(self.progression_chords).cypher
     end
 
     def print_for_select
