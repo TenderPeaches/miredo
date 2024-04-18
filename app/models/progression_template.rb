@@ -47,29 +47,7 @@ class ProgressionTemplate < ApplicationRecord
 
     # display in a given key for a select box
     def print(key = active_key, scale = active_scale)
-        printed = ""
-        ordered_chords.each do |pc|
-            # duration string to be appended to a chord, for instance the "----" part of C#----, denoting number of beats
-            duration_string = ""
-
-            if pc.duration
-                pc.duration.times do
-                    # regular chords use dashes
-                    duration_char = '-'
-                    if pc.staccato
-                        # for staccato, use dots
-                        duration_char = '.'
-                    elsif pc.muted
-                        # for muted chords, use Xs
-                        duration_char = 'x'
-                    end
-                    # concatenate the character with the full duration string
-                    duration_string << duration_char
-                end
-            end
-            printed << pc.print_chord(key, scale) << duration_string
-        end
-        return printed
+        ProgressionTemplates::Interpreter.new(key,scale).to_cypher(self).cypher
     end
 
     def print_for_select

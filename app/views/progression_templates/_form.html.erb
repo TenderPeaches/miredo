@@ -6,8 +6,7 @@
     <% end %>
     
     <%# render "progression_templates/chords", form: form, progression_template: progression_template %>
-    
-    <%= form.field :cypher, as: :text %>
+    <%= form.field :cypher, class: "field--progression-cypher", value: ProgressionTemplates::Interpreter.new(progression_template.active_key, progression_template.active_scale).to_cypher(progression_template).cypher %>
     
     <%# if uid local variable assigned, create a hidden field so that the controller can target this form in its response %>
     <% if defined? uid %>

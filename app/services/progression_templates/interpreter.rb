@@ -28,12 +28,6 @@ module ProgressionTemplates
             # remove all whitespace and find progression chord patterns in the cypher
             progression_chord_cyphers = cypher.gsub(/\s+/, "").scan(regexp)
 
-            p cypher.inspect
-            p cypher.gsub(/\s+/, "").inspect
-            p regexp.inspect
-            p cypher.gsub(/\s+/,"").scan(regexp).inspect
-            p cypher.scan(regexp).inspect
-            p progression_chord_cyphers.inspect
             # compile two sets:
             # the valid progression chords gleaned from the cypher
             progression_chords = []

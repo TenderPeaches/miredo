@@ -22,3 +22,7 @@
     font-size: 1.5rem;
     color: var(--color-accent-lightest);
 }
+
+.field--progression-cypher {
+    width: min(75%, 50vw);          /* smallest between 75% of the content row or half of the screen for mobile */
+}

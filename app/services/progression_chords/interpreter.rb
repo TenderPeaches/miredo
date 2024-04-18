@@ -60,7 +60,7 @@ module ProgressionChords
             # bass note if present
             if progression_chord.bass_degree
                 # the position of the bass note is the key's pitch class + bass degree's interval + the bass-specific modifier, within [0,11]
-                bass_pitch_class_position = (key.pitch_class.position + scale.get_degrees_interval(progression_chord.bass_degree) + progression_chord.bass_modifier) % 12
+                bass_pitch_class_position = (@key.pitch_class.position + @scale.get_degrees_interval(progression_chord.bass_degree) + progression_chord.bass_modifier) % 12
 
                 # 0th position is really 12th
                 bass_pitch_class_position = 12 if bass_pitch_class_position == 0
