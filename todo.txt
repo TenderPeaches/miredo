@@ -16,9 +16,11 @@ x SongProgression => Progression
 * References: 
     * Chord types
 * Inputs 
-    * Degree
-    * Duration
-    * Text method!
+    x Text method!
+
+* Improve Progressions form UI
+* Aid hints
+* Flash alerts
 
 Then down the line
 * Commentable => user.id, commentable.id

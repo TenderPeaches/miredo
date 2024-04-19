@@ -5,10 +5,7 @@
         <%= render "progressions/current_progressions", progressions: @song.progressions, song: @song %>
         <%= tag.div @song.lyrics %>
         <%= render "progressions/new_progressions", progressions: [], song: @song %>
-
-        <%# if there are more than 4 progression_templates or more, add another picker at the bottom so that there's no need to scroll all the way back up to add a new song progression %>
-        <% if @song.progressions.count >= 4 %>
-            <%= render "/progressions/progression_template_picker", progression_templates: @song.progression_templates.distinct, song: @song %>
-        <% end %>
+        <%# if there is any progression already, add another picker at the bottom so that there's one at the top and bottom %>
+        <%= render "/progressions/progression_template_picker", progression_templates: @song.progression_templates.distinct, song: @song, is_hidden: @song.progressions.empty? %>
     <% end %>
 <% end %>

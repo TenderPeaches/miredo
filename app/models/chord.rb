@@ -19,7 +19,7 @@ class Chord < ApplicationRecord
                 unless selector.empty?
                     selector << "|"
                 end
-                  selector << chord.notation.gsub("/", "\/")
+                  selector << chord.notation.gsub("/", "\/").gsub("+", "\+").gsub("*", "\*")
             end
         end
 

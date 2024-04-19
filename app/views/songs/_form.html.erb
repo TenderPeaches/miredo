@@ -1,7 +1,9 @@
 <%= model_form_with model: song do |form| %>
     <%= render "songs/errors", song: song %>
 
-    <% tag.div class: "form-fields" do %>
+    <%= song.chords %>
+
+    <%= tag.div class: "form-fields" do %>
         <%= render "songs/fields", form: form %>
         <%= tag.div class: "form-submit" do %>
             <%= form.submit "#{song.new_record? ? "Create" : "Update"} song" %>

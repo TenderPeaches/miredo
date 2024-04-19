@@ -27,6 +27,14 @@ class ProgressionsController < ApplicationController
         unless @progression.save
             alert_errors
         end
+
+        if params[:create_another]
+            @new_progression = @song ? @song.progressions.build : Progression.new
+            @new_progression.progression_template = @progression.progression_template
+            render :create_another
+        else
+            render :create
+        end
     end
 
     def update

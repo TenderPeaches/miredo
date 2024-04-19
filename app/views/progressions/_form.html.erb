@@ -1,4 +1,4 @@
-<%= form_with model: progression, url: progressions_path(song_id: progression.song), class: "song-progression-form", id: "#{dom_id(progression)}__form" do |form| %>
+<%= form_with model: progression, url: progression.new_record? ? progressions_path(song_id: progression.song.id) : progression_path(id: progression.id, song_id: progression.song.id), class: "song-progression-form", id: "#{dom_id(progression)}__form" do |form| %>
     <%= render "progressions/errors", progression: progression %>
     <%= tag.div class: "progression-template-print" do %>
         <%= tag.div "#{progression.progression_template.print(song.key, song.scale)}" %>
@@ -18,6 +18,7 @@
 
     <% if progression.id == nil %>
         <%= form.submit t('actions.create', thing: t('models.progression.model_name')) %>
+        <%= form.submit t('actions.create', thing: t('keywords.another')), name: :create_another %>
     <% else %>
         <%= form.submit t('actions.update', thing: t('models.progression.model_name')) %>
     <% end %>

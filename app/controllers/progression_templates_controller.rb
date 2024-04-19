@@ -33,7 +33,7 @@ class ProgressionTemplatesController < ApplicationController
     def create
         @progression_template = ProgressionTemplate.new(progression_template_params)
         @song = Song.find_by_id(progression_template_params[:song_id])
-        @progression_template_index = song.progression_templates.distinct.count + 1
+        @progression_template_index = @song.progression_templates.distinct.count + 1
         update_chords_from_cypher
         @progression_template.save
     end

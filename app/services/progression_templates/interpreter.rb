@@ -8,7 +8,7 @@ module ProgressionTemplates
         # interpret a cypher to create a progression chord
         def from_cypher(cypher)
             # remove white spaces and look for the progression chord patterns
-            regexp = /([ABCDEFG][#b]?([#{Chord.regex_selector}])?(\/[ABCDEFG][#b]?)?[\u2013.x\-]*)/
+            regexp = /([ABCDEFG][#b]?(#{Chord.regex_selector})?(\/[ABCDEFG][#b]?)?[\u2013.x\-]*)/
 =begin
             regexp = /
                 ([ABCDEFG]                  # pitch class

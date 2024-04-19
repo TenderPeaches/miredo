@@ -98,7 +98,7 @@ class ProgressionChord < ApplicationRecord
       pitch_class__position = 12
     end
     #todo option to use solfège aswell
-    PitchClass.find_by(position: pitch_class__position).print + chord.notation
+    PitchClass.find_by(position: pitch_class__position).print + (chord&.notation || "")
   end
 
   # prints the chord + duration markers

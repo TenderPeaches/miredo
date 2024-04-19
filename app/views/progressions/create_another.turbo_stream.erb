@@ -1,0 +1,15 @@
+<%= render "progressions/create", progression: @progression, progression_index: @progression_index %>
+
+<%# new should be a partial _new called from both new and create_another, and progression creation should be a service not controller actions, for now just ctrl-c ctrl-v from new.turbo_stream.erb %>
+
+<%# append the form for this new song progression to the list of new song progressions %>
+<%= turbo_stream.append "new-song-progressions" do %>
+    <%# use random unique identifier to easily pluck this element without needing to rely on the progression's DB ID, which is not assigned yet (as a new but unsaved progression) %>
+    <% uid = Time.now.to_i %>
+    <%= tag.fieldset id: "new-song-progression_#{uid}" do %>
+        <%= tag.legend t('actions.new', thing: t('models.progression.model_name')) %>
+        <%= render "progressions/form", progression: @new_progression, song: @song, uid: uid %>
+    <% end %>
+<% end %>
+
+<%= turbo_stream.remove "no-song-progressions" %>
