@@ -71,22 +71,24 @@ class SongsController < ApplicationController
 
     def update
         set_song
-
-        if @song.update(song_params)
-            if params[:progression_templates]
-                redirect_to song_progression_templates_path @song
-            else
-                redirect_to song_path @song
+        # if updating progression order sequence
+        if params[:progressions]
+            # update the progression themselves because @song.update doesn't do anything about it
+            song_params[:progressions_attributes].each do |i, progression|
+                Progression.find(progression[:id]).update(sequence: progression[:sequence])
             end
         else
-            flash.alert = @song.errors.full_messages
-            render :new, status: :unprocessable_entity
+            if @song.update(song_params)
+                if params[:progression_templates]
+                    redirect_to song_progression_templates_path @song
+                else
+                    redirect_to song_path @song
+                end
+            else
+                flash.alert = @song.errors.full_messages
+                render :new, status: :unprocessable_entity
+            end
         end
-    end
-
-
-    # PATCH /save/[id]
-    def save
     end
 
     def new
@@ -105,6 +107,6 @@ class SongsController < ApplicationController
     end
 
     def song_params
-        params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key_id, :scale_id, :is_public, :new_album_name, :new_artist_name, :album_id, song_contributions_attributes: [:id, :artist_id, :_destroy])
+        params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key_id, :scale_id, :is_public, :new_album_name, :new_artist_name, :album_id, song_contributions_attributes: [:id, :artist_id, :_destroy], progressions_attributes: [:sequence, :id])
     end
 end

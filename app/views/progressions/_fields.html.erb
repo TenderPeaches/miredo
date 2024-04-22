@@ -1,30 +1,8 @@
-<%= tag.div class: "field progression_template" do %>
-    <%= form.label :progression_template %>
-    <%= form.collection_select :progression_template_id, form.object.song.progression_templates, :id, :print_for_select %>
-<% end %>
+<%= form.field :progression_template_id, collection: form.object.song.progression_templates, text_method: :print_for_select, value_method: :id %>
 
-<%= tag.div class: "field" do %>
-    <%= form.label :tag %>
-    <%= form.text_field :tag %>
-<% end %>
-
-<%= tag.div class: "field" do %>
-    <%= form.label :lyrics %>
-    <%= form.text_area :lyrics, cols: 50, rows: 4 %>
-<% end %>
-
-<%= tag.div class: "field" do %>
-    <%= form.label :reps %>
-    <%= form.number_field :reps, { min: 0, step: 1 } %>
-<% end %>
-
-<%= tag.div class: "field" do %>
-    <%= form.label :key %>
-    <%= form.collection_select :key_id, Key.for_select, :id, :shorthand, { include_blank: true } %>
-<% end %>
-
-<%= tag.div class: "field" do %>
-    <%= form.label :scale %>
-    <%= form.collection_select :scale_id, Scale.for_select, :id, :name, { include_blank: true } %>
-<% end %>
-
+<%= form.field :tag %>
+<%= form.field :lyrics, as: :text, input_html: { cols: 100, rows: 4 } %>
+<%= form.field :reps, input_html: { min: 0, step: 1 } %>
+<%= form.field :sequence, input_html: { min: 1, step: 1 } %>
+<%= form.field :key_id, collection: Key.for_select, text_method: :shorthand, select_options: { include_blank: true } %>
+<%= form.field :scale_id, collection: Scale.for_select, select_options: { include_blank: true } %>

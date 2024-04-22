@@ -18,7 +18,8 @@ x SongProgression => Progression
 * Inputs 
     x Text method!
 
-* Improve Progressions form UI
+x Improve Progressions form UI
+* Add Sequence back to Progressions
 * Aid hints
 * Flash alerts
 

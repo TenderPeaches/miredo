@@ -49,7 +49,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
         field_block(attribute, options) do
             safe_join [
                 (field_label(attribute, options[:label]) unless options[:label] == false),
-                string_field(attribute, merge_input_options({class: "#{"is-invalid" if has_error?(attribute)}"}, options)),
+                string_field(attribute, merge_input_options({class: "#{"is-invalid" if has_error?(attribute)}"}, options[:input_html])),
             ]
         end
     end
@@ -58,7 +58,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
         field_block(attribute, options) do
             safe_join [
             (field_label(attribute, options[:label]) unless options[:label] == false),
-            text_area(attribute, merge_input_options({class: "#{"is-invalid" if has_error?(attribute)}"}, options)),
+            text_area(attribute, merge_input_options({class: "#{"is-invalid" if has_error?(attribute)}"}, options[:input_html])),
             ]
         end
     end
@@ -67,7 +67,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
         field_block(attribute, options) do
             tag.div(class: "checkbox-field") do
             safe_join [
-                check_box(attribute, merge_input_options({class: "checkbox-input"}, options)),
+                check_box(attribute, merge_input_options({class: "checkbox-input"}, options[:input_html])),
                 label(attribute, options[:label], class: "checkbox-label"),
             ]
             end
@@ -85,14 +85,14 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
 
     def select_input(attribute, options = {})
 
-        value_method = options[:value_method] || :to_s
-        text_method = options[:text_method] || :to_s
+        value_method = options[:value_method] || :id
+        text_method = options[:text_method] || :name
         input_options = options || {}
 
         multiple = input_options[:multiple]
 
         collection_input(attribute, options) do
-            collection_select(attribute, options[:collection], value_method, text_method, options, merge_input_options({class: "#{"custom-select" unless multiple} #{"is-invalid" if has_error?(attribute)}"}, options))
+            collection_select(attribute, options[:collection], value_method, text_method, options[:select_options] || {}, merge_input_options({class: "#{"custom-select" unless multiple} #{"is-invalid" if has_error?(attribute)}"}, options[:input_html]))
         end
     end
 
@@ -100,7 +100,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
 
         # We probably need to go back later and adjust this for more customization
         collection_input(attribute, options) do
-        grouped_collection_select(attribute, options[:collection], :last, :first, :to_s, :to_s, options, merge_input_options({class: "custom-select #{"is-invalid" if has_error?(attribute)}"}, options))
+        grouped_collection_select(attribute, options[:collection], :last, :first, :to_s, :to_s, options, merge_input_options({class: "custom-select #{"is-invalid" if has_error?(attribute)}"}, options[:input_html]))
       end
     end
 

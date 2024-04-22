@@ -68,6 +68,6 @@ class ProgressionsController < ApplicationController
     end
 
     def progression_params
-        params.require(:progression).permit(:progression_template_id, :song_id, :uid, :tag, :lyrics, :reps, :key_id, :scale_id)
+        params.require(:progression).permit(:progression_template_id, :song_id, :uid, :tag, :lyrics, :reps, :key_id, :scale_id, :sequence)
     end
 end

@@ -1,0 +1,31 @@
+<%= tag.section id: "progressions-orderer" do %>
+    <%= form_with model: song do |form| %>
+        <%= tag.table do %>
+            <%= tag.thead do %>
+                <%= tag.tr do %>
+                    <%= tag.th "Progression" %>
+                    <%= tag.th "Template Tag" %>
+                    <%= tag.th "Sequence ID" %>
+                <% end %>
+            <% end %>
+            <%= tag.tbody do %>
+                <% song.progressions.order(:sequence, :id).each do |progression| %>
+                    <%= tag.tr do %>
+                        <%= tag.td progression.tag %>
+                        <%= tag.td progression.progression_template.tag %>
+                        <%= tag.td do %>
+                            <%= form.fields_for :progressions, progression do |progression_form| %>
+                                <%= progression_form.text_field :sequence %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <%= tag.tfoot do %>
+                <%= tag.td colspan: 3 do %>
+                    <%= form.submit "Adjust Progression Sequences", name: "progressions" %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
