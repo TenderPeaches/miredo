@@ -1,7 +1,7 @@
 <% if song.can_edit? current_user %>
     <%= tag.div class: "admin-actions" do %>
-        <%= link_to "Edit", edit_song_path(song), class: "button" %>
-        <%= link_to "Define Progression Templates", song_progression_templates_path(song), class: "button" %>
-        <%= link_to "Assign Progression Templates", song_progressions_path(song), class: "button" %>
+        <%= link_to t('cta.edit_song'), edit_song_path(song), class: "button" %>
+        <%= link_to t('cta.define_progression_templates'), song_progression_templates_path(song), class: "button" %>
+        <%= link_to t('cta.define_progressions'), song_progressions_path(song), class: "button" %>
     <% end %>
 <% end %>

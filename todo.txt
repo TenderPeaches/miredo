@@ -19,11 +19,17 @@ x SongProgression => Progression
     x Text method!
 
 x Improve Progressions form UI
-* Add Sequence back to Progressions
+x Add Sequence back to Progressions
+* User Options:
+    * Instruments shown
+        * Other stringed than guitar: bass, banjo, etc.
+    * Color scheme
+    * Copy song progression
 * Aid hints
 * Flash alerts
 
 Then down the line
+* List to a select -> show dynamic UI, for progressions, songs, etc.
 * Commentable => user.id, commentable.id
 * SongComment => song.id, user.id
 * ProgressionComment => progression.id, user.id

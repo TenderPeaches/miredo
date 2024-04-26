@@ -1,0 +1,5 @@
+<%= tag.nav class: "nav-links" do %>
+    <%= link_to t('cta.define_progression_templates'), song_progression_templates_path(song_id: song), class: "button" %>
+    <%= link_to t('cta.edit_song'), edit_song_path(song), class: "button" %>
+    <%= link_to t('cta.view_song'), song_path(song), class: "button" %>
+<% end %>

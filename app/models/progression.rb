@@ -10,12 +10,13 @@ class Progression < ApplicationRecord
     attr_accessor :uid
 
     def html_lyrics
-        if lyrics.include? (";")
-          html_lyrics = lyrics.gsub ";","<br/>"
-          html_lyrics = html_lyrics.gsub "\n","<br/>"
-        else
-          html_lyrics = "#{lyrics}<br/>"
-        end
+        html_lyrics = lyrics
+        # generate newlines with ; if there is one that immediately follows it
+        html_lyrics = html_lyrics.gsub(/;[\w]*\n/, "<br/>")
+        # ... or if it ends the lyrics (especially important in order to remove the ; as it's not meant to be printed)
+        html_lyrics = html_lyrics.gsub(/;\z/, "<br/>")
+        # replace new lines by HTML line breaks
+        html_lyrics = html_lyrics.gsub "\n","<br/>"
 
         html_lyrics.html_safe
     end

@@ -1,8 +1,9 @@
 <%= tag.div id: "song-progressions" do %>
     <%= tag.div do %>
         <%= render "progressions/song_shifter", song: @song %>
+        <%= render "progressions/index/nav_links", song: @song %>
         <%= render "progressions/progression_template_picker", progression_templates: @song.progression_templates.distinct, song: @song %>
-        <%= render "progressions/sequencer", song: @song if @song.progressions.any? { |p| p.sequence.nil? } || @song.has_sequence_gap? || true %>
+        <%= render "progressions/sequencer", song: @song if @song.progressions.any? %>
         <%= render "progressions/current_progressions", progressions: @song.progressions.order(:sequence), song: @song %>
         <%= tag.div @song.lyrics %>
         <%= render "progressions/new_progressions", progressions: [], song: @song %>
