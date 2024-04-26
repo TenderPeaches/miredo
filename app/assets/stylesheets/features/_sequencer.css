@@ -1,0 +1,7 @@
+.sequencer-buttons {
+    display: flex;
+}
+
+.sequencer-buttons a {
+    margin: var(--size-xs);
+}

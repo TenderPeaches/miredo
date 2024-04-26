@@ -77,6 +77,22 @@ class Song < ApplicationRecord
         self.song_contributions = self.song_contributions.where.not(artist_id: nil)
     end
 
+    def next_sequence_gap
+        sequences = progressions.map { |p| p.sequence }
+        # find any gap in the sequence numbers
+        gap = sequences.compact.inject { |a, e| e == a.next ? e : (break a.next)}
+
+        if sequences.include? gap
+            nil
+        else
+            gap
+        end
+    end
+
+    def has_sequence_gap?
+        !next_sequence_gap.nil?
+    end
+
     def set_song_contributions
 
         # If a new artist name has been provided

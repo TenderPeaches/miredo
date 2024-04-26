@@ -8,29 +8,28 @@ class ProgressionsController < ApplicationController
         set_song
         set_progression_template
 
-        # @song might be a new record
-        if @song
-            @progression = @song.progressions.build
-        else
-            @progression = Progression.new
-        end
-
-        # the progression_template can be specified before requesting the new song progression
-        @progression.progression_template = @progression_template
+        @progression = Progressions::Creator.new(@song, current_user).build(@progression_template).progression
     end
 
     def create
         set_song
-        @progression = Progression.new(progression_params)
-        @progression_index = @song.progressions.count + 1
 
-        unless @progression.save
+        # called more than once so save as a separate variable
+        progression_creator = Progressions::Creator.new(@song, current_user)
+
+        # create the progression
+        @progression = progression_creator.create(progression_params).progression
+
+        # unique ID to list the progression until it has a proper tag
+        @progression_index = @song.progressions.count
+
+        # alert errors if any
+        if @progression.errors.any?
             alert_errors
         end
 
         if params[:create_another]
-            @new_progression = @song ? @song.progressions.build : Progression.new
-            @new_progression.progression_template = @progression.progression_template
+            @new_progression = progression_creator.build(@progression.progression_template).progression
             render :create_another
         else
             render :create

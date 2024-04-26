@@ -1,0 +1,38 @@
+<%= tag.section id: "progressions-sequencer" do %>
+    <%= "#{song.chords} #{song.lyrics}" %>
+    <%= form_with model: song do |form| %>
+        <%= tag.table do %>
+            <%= tag.thead do %>
+                <%= tag.tr do %>
+                    <%= tag.th "Progression" %>
+                    <%= tag.th "Lyrics" %>
+                    <%= tag.th "Template Tag" %>
+                    <%= tag.th "Sequencing" %>
+                    <%= tag.th "Sequence #" %>
+                <% end %>
+            <% end %>
+            <%= tag.tbody do %>
+                <% song.progressions.order(:sequence, :id).each do |progression| %>
+                    <%= tag.tr do %>
+                        <%= tag.td progression.tag %>
+                        <%= tag.td progression_lyrics_preview(progression) %>
+                        <%= tag.td progression.progression_template.tag %>
+                        <%= tag.td class: "sequencer-buttons" do %>
+                            <%# https://www.toptal.com/designers/htmlarrows/arrows/up-paired-arrows/ %>
+                            <%= turbo_link_button "⇈", new_progression_sequence_adjustment_path(progression_id: progression.id, direction: :up, all: true) %>
+                            <%= turbo_link_button "↑", new_progression_sequence_adjustment_path(progression_id: progression.id, direction: :up) %>
+                            <%= turbo_link_button "↓", new_progression_sequence_adjustment_path(progression_id: progression.id, direction: :down) %>
+                            <%= turbo_link_button "⇊", new_progression_sequence_adjustment_path(progression_id: progression.id, direction: :down, all: true) %>
+                        <% end %>
+                        <%= tag.td progression.sequence %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <%= tag.tfoot do %>
+                <%= tag.td colspan: 3 do %>
+                    <%= form.submit "Adjust Progression Sequences", name: "progressions" %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

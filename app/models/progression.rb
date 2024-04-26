@@ -4,36 +4,10 @@ class Progression < ApplicationRecord
     belongs_to :key, optional: true
     belongs_to :scale, optional: true
 
-    before_save :assign_sequence_number
-    after_save :adjust_other_sequence_numbers, if: :saved_change_to_sequence?
+    #before_save :assign_sequence_number
+    #after_save :adjust_other_sequence_numbers, if: :saved_change_to_sequence?
 
     attr_accessor :uid
-
-    def assign_sequence_number
-      # only assign if none already assigned
-      if sequence.nil?
-        # get the maximum sequence number for this progression and use that + 1
-        sequence = (song.progressions.maximum(:sequence) || 0) + 1
-      end
-    end
-
-    # when given a sequence number, ensure that it is unique within the song's progressions
-    def adjust_other_sequence_numbers
-        conflict = false
-        # loop over each progression with a sequence number equal or higher to this one
-        song.progressions.where(sequence: sequence..).order(:sequence).each do |progression|
-            # if there is a sequence conflict, flag it for subsequent loops
-            if progression.sequence == sequence && progression.id != id
-                conflict = true
-            end
-
-            # when there is a conflict
-            if conflict
-                # bump up each progression's sequence number by 1, unless it is nil
-                progression.update(sequence: progression.sequence + 1) unless progression.sequence.nil?
-            end
-        end
-    end
 
     def html_lyrics
         if lyrics.include? (";")

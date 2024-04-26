@@ -73,9 +73,28 @@ class SongsController < ApplicationController
         set_song
         # if updating progression order sequence
         if params[:progressions]
+            sequencer = Progressions::Sequencer.new(@song)
+            # just an annoying way to deal with ActionController Parameters because otherwise can't use .filter on them zzzz
+            progressions = song_params[:progressions_attributes]
+            progression_hashes = []
+            progressions.each do |i, progression_hash|
+                progression_hashes << {id: progression_hash["id"].to_i, sequence: progression_hash["sequence"].to_i}
+            end
+
+            sequencer_result = sequencer.set_all(progression_hashes)
+=begin
             # update the progression themselves because @song.update doesn't do anything about it
             song_params[:progressions_attributes].each do |i, progression|
-                Progression.find(progression[:id]).update(sequence: progression[:sequence])
+                progression = Progression.find(progression[:id])
+                progression.sequence = progression[:sequence]
+                sequencer.set(Progression.find(progression[:id]))
+            end
+=end
+            if @song.has_sequence_gap? || @song.progressions.any? {|p| p.sequence.nil?}
+                render :show_sequencer
+            else
+                # update sequencer
+                render :hide_sequencer
             end
         else
             if @song.update(song_params)

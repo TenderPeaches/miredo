@@ -1,0 +1,2 @@
+module ProgressionSequenceAdjustmentsHelper
+end
