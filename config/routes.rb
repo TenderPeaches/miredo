@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :progressions do
-      resources :sequence_adjustment, only: [ :new ]
+      resources :sequence_adjustments, only: [ :new ], controller: :progression_sequence_adjustments
   end
 
   root "songs#index"

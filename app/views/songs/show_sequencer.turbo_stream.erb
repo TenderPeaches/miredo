@@ -1,1 +1,3 @@
-<%= turbo_stream.show "progressions-sequencer" %>
+<%= turbo_stream.replace "progressions-sequencer" do %>
+    <%= render "progressions/sequencer", song: @song || @progression.song %>
+<% end %>

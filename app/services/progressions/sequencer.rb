@@ -140,16 +140,19 @@ module Progressions
         ##
         # shift a progression a flat number of times
         def shift_flat(progression, shift_size = 1)
+
             #shifted_sequence_range = direction == :down ? (progression.sequence + 1).. : ..(progression.sequence - 1)
             return false if shift_size == 0
 
             # if shifting progression 1, 2, 3 positions down (higher sequence, so positive shift)
             if shift_size.positive?
-                # we will pick {shift_size} progressions that follow the shifted progression in order of sequence
+                # we will pick {shift_size} progressions that follow the shifted progression in order of sequence;
+                # say progressions with sequences [1,2,3,4,5] and we want to shift progression with sequence 1 to the end, shifted_sequence_range must equal 2..5 => the sequence numbers of all the progressions that must be shifted back to accomodate the shift forward of the first progression
                 shifted_sequence_range = (progression.sequence + 1)..(progression.sequence + shift_size)
             # opposite for negative shifts
             else
-                shifted_sequence_range = (progression.sequence - shift_size)..(progression.sequence - 1)
+                # shift_size is negative!
+                shifted_sequence_range = (progression.sequence + shift_size)..(progression.sequence - 1)
             end
             shifted_progressions = Progression.where(song: @song, sequence: shifted_sequence_range)
 
@@ -158,8 +161,8 @@ module Progressions
 
             # for each progression that the shifted progression passes through
             shifted_progressions.each do |shifted_progression|
-                # shift them by adjusting their sequence number by 1 or -1, depending on the direction of the shift
-                shifted_progression.update(sequence: shifted_progression.sequence + (shift_size / shift_size.abs))
+                # shift them by adjusting their sequence number by the opposite polarity of the original shift: if progression_1 needs to move from sequence 1 to 2 (a shift of +1), then progression_2 with sequence 2 needs to be moved to sequence 1 (a shift of -1); hence multiplying shift_size / |shift_size| by -1
+                shifted_progression.update(sequence: shifted_progression.sequence + (shift_size / shift_size.abs * -1))
             end
 
             # update the shifted progression's sequence number by however many progressions were shifted or shift_size, whichever is relevant
