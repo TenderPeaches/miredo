@@ -8,7 +8,16 @@ class ProgressionsController < ApplicationController
         set_song
         set_progression_template
 
-        @progression = Progressions::Creator.new(@song, current_user).build(@progression_template).progression
+        # if copying form an existing progression, the request will have a progression_id of the progression to be copied
+        if params[:progression_id]
+            original = Progression.find(params[:progression_id])
+            @progression = original.dup
+
+            # reset the sequence to nil, because it doesn't make sense to have two progressions with the same sequence number
+            @progression.sequence = nil
+        else
+            @progression = Progressions::Creator.new(@song, current_user).build(@progression_template).progression
+        end
     end
 
     def create

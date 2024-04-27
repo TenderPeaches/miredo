@@ -14,7 +14,7 @@ class ProgressionTemplatesController < ApplicationController
     def new
         # if progression_template_id param is set, the form's progression_template should be a copy of the corresponding progression_template
         if params[:progression_template_id]
-            original = ProgressionTemplate.find_by_id(params[:progression_template_id]).dup
+            original = ProgressionTemplate.find_by_id(params[:progression_template_id])
             @progression_template = original.dup
 
             # duplicate the original progression's chords
@@ -36,6 +36,11 @@ class ProgressionTemplatesController < ApplicationController
         @progression_template_index = @song.progression_templates.distinct.count + 1
         update_chords_from_cypher
         @progression_template.save
+
+        if params[:create_another]
+            @new_progression_template = @song.progression_templates.build
+            render :create_another
+        end
     end
 
     def update

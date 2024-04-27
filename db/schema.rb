@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_26_223131) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -272,6 +272,23 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_instruments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "instrument_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instrument_id"], name: "index_user_instruments_on_instrument_id"
+    t.index ["user_id"], name: "index_user_instruments_on_user_id"
+  end
+
+  create_table "user_settings", force: :cascade do |t|
+    t.integer "color_scheme"
+    t.integer "font_size"
+    t.integer "colorblind_mode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.boolean "is_admin", default: false, null: false
     t.string "email", default: "", null: false
@@ -313,4 +330,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_13_225339) do
   add_foreign_key "songs", "users", column: "submitter_id"
   add_foreign_key "tuning_pitches", "pitches"
   add_foreign_key "tuning_pitches", "tunings"
+  add_foreign_key "user_instruments", "instruments"
+  add_foreign_key "user_instruments", "users"
 end

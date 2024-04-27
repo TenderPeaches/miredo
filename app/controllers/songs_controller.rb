@@ -34,7 +34,7 @@ class SongsController < ApplicationController
 
                 @key_shift = params[:key_shift]
                 # capo can be provided as query string argument, if absent then use the song's suggested capo
-                @capo = (params.has_key? :capo) ? params[:capo].to_i : @song.capo
+                @capo = (params.has_key? :capo) ? params[:capo].to_i : (@song.capo || 0)
                 # same for the key, either the user specifies a shift from the original key or the original is used
                 @key = @key_shift ? @song.key.shift(@key_shift.to_i) : @song.key
 

@@ -13,6 +13,7 @@
     <%= form.hidden_field :song_id, value: song.id %>
 
     <% unless progression.new_record? %>
+        <%= turbo_link_button t('actions.copy', thing: t('models.progression.model_name')), new_progression_path(progression_id: progression.id) %>
         <%= link_to t('actions.delete', thing: t('models.progression.model_name')), progression_path(progression.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: t('models.progression.model_name')) } %>
     <% end %>
 
