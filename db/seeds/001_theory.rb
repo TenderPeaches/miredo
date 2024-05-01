@@ -164,7 +164,7 @@ interval__fourth = Interval.create(name: "Fourth", shorthand: "4", semitones: 5)
 interval__fifth = Interval.create(name: "Fifth", shorthand: "5", semitones: 7)
 interval__sixth = Interval.create(name: "Sixth", shorthand: "6", semitones: 9)
 interval__seventh = Interval.create(name: "Seventh", shorthand: "7", semitones: 11)
-interval__octave = Interval.create(name: "Octave", shorthand: "7", semitones: 12)
+interval__octave = Interval.create(name: "Octave", shorthand: "8", semitones: 12)
 
 # scale intervals
 

@@ -13,9 +13,9 @@ x Create user views:
 x Progression => ProgressionTemplate
 x SongProgression => Progression
 
-* References: 
-    * Chord types
-* Inputs 
+x References: 
+    x Chord types
+x Inputs 
     x Text method!
 
 x Improve Progressions form UI

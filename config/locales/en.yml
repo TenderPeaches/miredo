@@ -35,6 +35,8 @@ en:
   hints:
     page_name: "Help"
     progression_template_form: ""
+  references: 
+    page_name: "References"
   models:
     song:
       model_name: "Song"

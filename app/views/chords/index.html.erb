@@ -1,0 +1,18 @@
+<%= tag.table class: "chords-table" do %>
+    <%= tag.thead do %>
+        <%= tag.tr do %>
+            <%= tag.th "Chord Type" %>
+            <%= tag.th "Notation" %>
+            <%= tag.th "Intervals" %>
+        <% end %>
+    <% end %>
+    <%= tag.tbody do %>
+        <% @chords.each do |chord| %>
+            <%= tag.tr do %>
+                <%= tag.td chord.name %>
+                <%= tag.td chord.notation %>
+                <%= tag.td chord_intervals(chord) %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
