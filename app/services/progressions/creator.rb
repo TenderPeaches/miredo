@@ -8,8 +8,8 @@ module Progressions
         end
 
         ##
-        # build a progression with id=nil,
-        def build(progression_template = nil)
+        # build a progression with id=nil, from an optional progression
+        def build(progression_base = nil)
 
             # @song might be a new record
             if @song
@@ -18,7 +18,8 @@ module Progressions
                 progression = Progression.new
             end
 
-            progression.progression_template = progression_template
+            progression.progression_template = progression_base&.progression_template
+            progression.tag = progression_base&.tag
 
             Result.new(progression)
         end

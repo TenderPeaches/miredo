@@ -1,8 +1,10 @@
 <%= tag.header do %>
-    <%= tag.h2 "Miredo" %>
+    <%= link_to root_path do %> 
+        <%= tag.h2 "Miredo" %>
+    <% end %>
     <%= tag.nav do %>
         <%= yield :header %>
-        <%= link_to "Songs", root_path %>
+        <%= link_to t('hints.page_name'), hints_path %>
         <% if user_signed_in? %>
             <%= link_to t('cta.log_out'), destroy_user_session_path, data: { turbo_method: :delete } %>
         <% else %>

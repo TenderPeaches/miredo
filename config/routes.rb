@@ -27,5 +27,7 @@ Rails.application.routes.draw do
       resources :sequence_adjustments, only: [ :new ], controller: :progression_sequence_adjustments
   end
 
+  resources :hints, only: [:index]
+
   root "songs#index"
 end

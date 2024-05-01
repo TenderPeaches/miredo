@@ -11,12 +11,16 @@ class Progression < ApplicationRecord
 
     def html_lyrics
         html_lyrics = lyrics
-        # generate newlines with ; if there is one that immediately follows it
-        html_lyrics = html_lyrics.gsub(/;[\w]*\n/, "<br/>")
+        # generate newlines with ; if there is a newline that immediately follows it
+        #! still need to figure out what to do with semi-columns, maybe run a script that replaces all with linebreaks \n
+        #html_lyrics = html_lyrics.gsub(/;[\w]*\n/, "<br/>")
+        # replace ; with new line
+        html_lyrics = html_lyrics.gsub(/;/, "<br/>")
         # ... or if it ends the lyrics (especially important in order to remove the ; as it's not meant to be printed)
         html_lyrics = html_lyrics.gsub(/;\z/, "<br/>")
         # replace new lines by HTML line breaks
         html_lyrics = html_lyrics.gsub "\n","<br/>"
+        html_lyrics = html_lyrics.gsub "<br/><br/>", "<br/>"
 
         html_lyrics.html_safe
     end
