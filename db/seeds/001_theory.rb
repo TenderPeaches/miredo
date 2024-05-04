@@ -354,6 +354,12 @@ ChordComponent.create(chord: chord__seventh_suspended_fourth, interval: interval
 ChordComponent.create(chord: chord__seventh_suspended_fourth, interval: interval__fifth, interval_quality: interval_quality__perfect) # P5 => 7 => G
 ChordComponent.create(chord: chord__seventh_suspended_fourth, interval: interval__seventh, interval_quality: interval_quality__major) # M7 => 11 => B
 
+chord__seventh_suspended_second = Chord.create(name: "Seventh Suspended Second", notation: "7sus2")
+ChordComponent.create(chord: chord__seventh_suspended_second, interval: interval__unison, interval_quality: interval_quality__perfect) # P1 => 0 => C
+ChordComponent.create(chord: chord__seventh_suspended_second, interval: interval__second, interval_quality: interval_quality__major) # M2 => 2 => D
+ChordComponent.create(chord: chord__seventh_suspended_second, interval: interval__fifth, interval_quality: interval_quality__perfect) # P5 => 7 => G
+ChordComponent.create(chord: chord__seventh_suspended_second, interval: interval__seventh, interval_quality: interval_quality__minor) # m7 => 11 => Bb
+
 # time signatures
 TimeSignature.create(label: "4/4")
 TimeSignature.create(label: "3/4")

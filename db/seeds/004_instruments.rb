@@ -4,3 +4,7 @@ tuning__half_step_down = Tuning.create(strings: [TuningPitch.create(pitch: Pitch
 
 Instrument.create(name: 'Guitar')
 Instrument.create(name: 'Piano')
+Instrument.create(name: 'Bass Guitar')
+Instrument.create(name: 'Mandolin')
+Instrument.create(name: 'Banjo')
+Instrument.create(name: 'Ukulele')

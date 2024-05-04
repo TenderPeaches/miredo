@@ -24,9 +24,8 @@ x Add Sequence back to Progressions
     * Instruments shown
         * Other stringed than guitar: bass, banjo, etc.
     * Color scheme
-    * Copy song progression
 * Aid hints
-* Flash alerts
+* Flash alerts/feedback
 
 Then down the line
 * List to a select -> show dynamic UI, for progressions, songs, etc.

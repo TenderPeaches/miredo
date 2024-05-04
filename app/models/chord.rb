@@ -14,7 +14,8 @@ class Chord < ApplicationRecord
     def self.regex_selector
         selector = ""
 
-        Chord.all.each do |chord|
+        # notation descending because we want to test for longer (more specific) notations first. For instance, 7sus2 must be checked before 7, otherwise only the 7 would be matched
+        Chord.order(notation: :desc).each do |chord|
             unless chord.notation.empty?
                 unless selector.empty?
                     selector << "|"

@@ -37,6 +37,9 @@ en:
     progression_template_form: ""
   references: 
     page_name: "References"
+  settings:
+    page_name: "Settings"
+    user_instruments: "Set Instruments"
   models:
     song:
       model_name: "Song"

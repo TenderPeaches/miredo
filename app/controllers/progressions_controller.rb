@@ -16,7 +16,7 @@ class ProgressionsController < ApplicationController
         else
             set_song
             set_progression_template
-            @progression = Progressions::Creator.new(@song, current_user).build(@progression_template).progression
+            @progression = Progressions::Creator.new(@song, current_user).build(Progression.new(progression_template: @progression_template)).progression
         end
     end
 
