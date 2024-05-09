@@ -19,7 +19,7 @@ class ProgressionTemplatesController < ApplicationController
 
             # duplicate the original progression's chords
             original.progression_chords.each do |progression_chord|
-                @progression_template.progression_chords = progression_chord.dup
+                @progression_template.progression_chords << progression_chord.dup
             end
             @song = @progression_template.song
         # otherwise, create a new progression from scratch

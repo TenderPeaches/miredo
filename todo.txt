@@ -24,6 +24,7 @@ x Add Sequence back to Progressions
     * Instruments shown
         * Other stringed than guitar: bass, banjo, etc.
     * Color scheme
+* Favorites
 * Aid hints
 * Flash alerts/feedback
 
