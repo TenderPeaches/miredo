@@ -1,0 +1,36 @@
+/* a favorite-like star-shaped toggle button/input */
+
+/* hide the actual input (usually a checkbox) */
+.star-toggle input {
+    position: absolute;             /* position the checkbox underneath the star svg */
+    opacity: 0;                     /* make invisible but responsive */
+    cursor: pointer;                /* act as a button/toggle */
+    transform: initial;             /* reset */
+    margin: 0;                      /* reset */
+}
+
+.star-toggle {
+    display: flex;                  /* position the checkbox underneath the svg */
+    flex-direction: column;         /* probably doesn't matter but it works */
+    justify-content: center;        /* ensure the checkbox is under the svg (with position:absolute) */
+    position: relative;             /* needs to anchor the absolutely-positioned invisicheckbox */
+    user-select: none;              /* prevent text-selection of the checkbox */
+}
+
+.star-toggle svg {
+    transition: all var(--quick-duration);
+}
+
+.star-toggle svg,
+.star-toggle input {
+    height: var(--size-xxl);
+    width: var(--size-xxl);
+}
+
+.star-toggle:hover {
+    transform: scale(1.1);
+}
+
+.star-toggle input:checked ~ svg {
+    fill: var(--color-white);
+}

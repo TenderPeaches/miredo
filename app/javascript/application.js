@@ -3,9 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "./core/api.js"
 
-import "@rails/request.js"
-
-
 // Update an input's value
 Turbo.StreamActions.update_input = function() {
     

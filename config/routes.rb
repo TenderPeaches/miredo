@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :songs do
       resources :progression_templates, only: [ :index ]
       resources :progressions, only: [ :index ]
+      resources :user_favorites, only: [ :new ]
     end
 
     resources :progressions do

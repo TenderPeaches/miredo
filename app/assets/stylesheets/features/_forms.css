@@ -1,17 +1,18 @@
-form {
+/* target the .form class, as form elements might be used in situations where these attributes shouldn't apply */
+.form {
     width: min(95vw, 900px);            /* stretch to 900px or most of the screen, whichever is smaller */
     margin: auto;                       /* horizontal center */
     display: flex;                      /* vertical-flex */
     flex-direction: column;             /* vertical-flex */
-    align-items: stretch;                /* center items along y-axis */
+    align-items: stretch;               /* center items along y-axis */
 }
 
-form .actions {
+.form .actions {
     display: flex;
     flex-direction: column;
 }
 
-form .actions * {
+.form .actions * {
     flex: 1;
 }
 

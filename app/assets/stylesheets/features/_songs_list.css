@@ -1,7 +1,11 @@
+.songs-list {
+    font-size: var(--font-size--l);
+}
+
 /* "play song" cell */
-.songs-list__play {
-    display: flex;              /* accomodate two elements placed in a row */ 
-    gap: var(--size-xl);        /* space them apart */
+.songs-list__play div {
+    display: flex;
+    gap: var(--size-m);
 }
 
 /* any link within the title cell */

@@ -45,6 +45,6 @@ module ModelsHelper
 
     def model_form_with(model: nil, scope: nil, url: nil, format: nil, **options, &block)
         options = options.reverse_merge(builder: ModelFormBuilder)
-        form_with(model: model, scope: scope, url: url, format: format, class: "form#{options.has_key? :class ? " #{options[:class]}" : ""}", **options, &block)
+        form_with(model: model, scope: scope, url: url, format: format, class: "form#{options.has_key?(:class) ? " #{options[:class]}" : ""}", **options, &block)
     end
 end
