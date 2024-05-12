@@ -7,10 +7,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #def favorites
-  #  songs
-  #end
-
   def is_admin?
       self.is_admin
   end
