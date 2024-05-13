@@ -7,7 +7,7 @@
         <%= link_to t('cta.define_progression_templates'), song_progression_templates_path(@song), class: "button" %>
     <% end %>
     <h1 class="song-title"><%= @song.name %></h1>
-    <h3 class="song-artist"><%= @song.get_artists %></h3>
+    <h3 class="song-artist"><%= @song.artist %></h3>
     <h5 class="song-capo">Capo <%= @song.capo %></h5>
     <h5 class="song-key">Key <%= @song.key %></h5>
     <h5>Practiced: <%= @song.plays(current_user) %>x</h5>

@@ -1,14 +1,6 @@
-class CapoValidator < ActiveModel::EachValidator
-    def validate_each(record, attribute, value)
-=begin
-        unless value.is_a?(Integer) && (value >= -1 && value <= 10)
-            record.errors.add attribute, (options[:message] || " is not a valid capo position. Valid positions go from -1 to 10")
-        end
-=end
-    end
-end
-
 class Song < ApplicationRecord
+    include Filterable
+
     belongs_to :album, optional: true
     belongs_to :key, optional: true
     belongs_to :scale, optional: true
@@ -19,10 +11,11 @@ class Song < ApplicationRecord
     has_many :progressions, dependent: :destroy
     has_many :progression_templates, dependent: :destroy
     has_many :song_plays, dependent: :destroy
+    has_many :user_favorites
 
     validates :number, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
     validates :duration, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
-    validates :capo, capo: true
+    validates :capo, comparison: { greater_than_or_equal_to: -1, less_than_or_equal_to: 11 }, numericality: { only_integer: true }, allow_nil: true
     validates :bpm, comparison: { greater_than_or_equal_to: 0, less_than_or_equal_to: 360 }, numericality: { only_integer: true }, allow_nil: true
     validates_associated :song_contributions
 
@@ -35,6 +28,12 @@ class Song < ApplicationRecord
 
     before_validation :create_album_from_name, :assert_song_contributions
     after_save :set_song_contributions
+
+    scope :filter_by_name, -> (name) { where("name LIKE ?", "%#{name}%")}
+    scope :filter_by_capo, -> (capo) { where(capo: capo)}
+    scope :filter_by_favorite, -> (user) { joins(:user_favorites).where(user_favorites: { user_id: user.id }) }
+    scope :filter_by_keyscale, -> (key, scale) { where(key_id: key.id, scale_id: scale.id) }
+    scope :filter_by_artist, -> (artist) { joins(:song_contributions).where(song_contributions: { artist_id: artist.id })}
 
     OUTPUT_LINE_TYPE__CHORDS = "chords"
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
@@ -156,7 +155,7 @@ class Song < ApplicationRecord
     end
 
     # get artists label (a string, not a music label), as multiple artists might contribute to one song
-    def get_artists
+    def artist
         output = ""
         artists.each do |artist|
             # add coma if not first artist to be added to the list
@@ -169,8 +168,10 @@ class Song < ApplicationRecord
         return output
     end
 
-    def self.random_id
-        Song.order("RANDOM()").limit(1).first.id
+    # pick a song (id) at random
+    def self.random_id(user_id = 0)
+        # the song must be either public or submitted by the user making the request
+        Song.where(is_public: true).or(Song.where(submitter_id: user_id)).order("RANDOM()").limit(1).first.id
     end
 
     def self.random_id_of_capo(capo)

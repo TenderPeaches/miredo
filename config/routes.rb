@@ -24,6 +24,8 @@ Rails.application.routes.draw do
       resources :user_favorites, only: [ :new ]
     end
 
+    resources :song_filters, only: [ :create ]
+
     resources :progressions do
         resources :sequence_adjustments, only: [ :new ], controller: :progression_sequence_adjustments
     end

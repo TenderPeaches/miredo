@@ -1,0 +1,25 @@
+<%= tag.details do %>
+    <%= tag.summary "Filters" %>
+    <%= form_with url: song_filters_path, method: :get do |form| %>
+        <%= tag.div class: "filter-field" do %>
+            <%= tag.label "Keyscale" %>
+            <%= tag.div do %>
+                <%= form.collection_select :key, Key.all, :id, :shorthand %>
+                <%= form.collection_select :scale, Scale.all, :id, :name %>
+            <% end %>
+        <% end %>
+        <%= tag.div class: "filter-field" do %>
+            <%= tag.label "Capo" %>
+            <%= form.number_field :capo, min: -1, max: 11, step: 1 %>
+        <% end %>
+        <%= tag.div class: "filter-field" do %>
+            <%= tag.label "Artist" %>
+            <%= form.text_field :artist %>
+        <% end %>
+        <%= tag.div class: "filter-field" do %>
+            <%= tag.label "Favorites" %>
+            <%= form.check_box :favorites %>
+        <% end %>
+        <%= form.submit "Filter" %>
+    <% end %>
+<% end %>

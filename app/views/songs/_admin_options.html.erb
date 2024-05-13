@@ -1,7 +1,0 @@
-<% if user_signed_in? %>
-    <%= tag.fieldset do %>
-        <%= tag.legend "Admin" %>
-        <%= link_to 'New Song', new_song_path %>
-        <%= link_to "My Songs", songs_path(user_id: current_user) %>
-    <% end %>
-<% end %>

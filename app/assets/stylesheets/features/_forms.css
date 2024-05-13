@@ -17,14 +17,14 @@
 }
 
 /* all form fields */
-.field, .checkbox-field {
+.field, .checkbox-field, .filter-field {
     display: flex;
     align-items: center;
     margin: var(--size-m);
 }
 
 /* default form fields */
-.field {
+.field, .filter-field {
     justify-content: space-between;
     border-bottom: 1px solid var(--color-primary-lightest);
 }

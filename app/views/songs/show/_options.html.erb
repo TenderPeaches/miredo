@@ -2,7 +2,7 @@
 <%= form_tag song_path(song.id), class: "song-options", method: :get do %>
     <%# song title %>
     <%= tag.div class: "title" do %>
-        <%= tag.h1 "#{song.id}) #{song.get_artists} - #{song.name}" %>
+        <%= tag.h1 "#{song.id}) #{song.artist} - #{song.name}" %>
     <% end %>
     <%# helpful song info %>
     <%= tag.div class: "song-info" do %>

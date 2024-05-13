@@ -1,0 +1,7 @@
+<%= tag.details do %>
+    <%= tag.summary "Sort by" %>
+    <%= link_button_to 'Reset', '/' %>
+    <%= link_button_to 'Capo', songs_path(sort: :capo) %>
+    <%= link_button_to 'Most Played', songs_path(sort: :plays) %>
+    <%= link_button_to 'Last Played', songs_path(sort: :last_played) %>
+<% end %>
