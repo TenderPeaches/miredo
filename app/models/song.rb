@@ -29,11 +29,28 @@ class Song < ApplicationRecord
     before_validation :create_album_from_name, :assert_song_contributions
     after_save :set_song_contributions
 
+    # filter by song name
     scope :filter_by_name, -> (name) { where("name LIKE ?", "%#{name}%")}
+
+    # filter by suggested capo
     scope :filter_by_capo, -> (capo) { where(capo: capo)}
-    scope :filter_by_favorite, -> (user) { joins(:user_favorites).where(user_favorites: { user_id: user.id }) }
-    scope :filter_by_keyscale, -> (key, scale) { where(key_id: key.id, scale_id: scale.id) }
-    scope :filter_by_artist, -> (artist) { joins(:song_contributions).where(song_contributions: { artist_id: artist.id })}
+
+    # filter by whether the user has the song as a favorite
+    scope :filter_by_favorite, -> (user_id) { joins(:user_favorites).where(user_favorites: { user_id: user_id }) }
+
+    # filter by the song's suggested key and scale
+    scope :filter_by_keyscale, -> (key_id, scale_id) { where(key_id: key_id, scale_id: scale_id) }
+
+    # filter by artists who contributed to writing the song
+    scope :filter_by_artist, -> (artist_id) { joins(:song_contributions).where(song_contributions: { artist_id: artist_id })}
+
+    # filter by user who submitted the song to Miredo
+    scope :filter_by_submitter, -> (user_id) { where(submitter_id: user_id) }
+
+    # filter by visibility to a given user
+    scope :filter_by_visibility, -> (user_id) { where(submitter_id: user_id).or(Song.where(is_public: true)) }
+
+    scope :only_public, -> { where(is_public: true) }
 
     OUTPUT_LINE_TYPE__CHORDS = "chords"
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"

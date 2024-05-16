@@ -1,7 +1,7 @@
 <!-- to be used with songs whose structure is dictated by Progression entities, rather than plaintext -->
 <%= tag.section class: "actions" do %>
  <%# options_panel %>
-    <%= render "songs/show/nav_links", song: @song %>
+    <%= render "songs/show/nav", song: @song %>
     <%= render "songs/show/admin_actions", song: @song %>
     <%= render "songs/show/options", song: @song %>
     <%= turbo_link_button "Play", song_plays_path(song_id: @song.id), :post %>  

@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
     <%= link_button_to "New Song", new_song_path %>
-    <%= link_button_to "My Songs", songs_path(user_id: current_user) %>
+    <%= link_button_to "My Songs", songs_path(filter_options: { submitter_id: current_user.id }) %>
 <% end %>
 
 <%= link_button_to "Random Song!", song_path(Song.random_id(current_user&.id)) %>

@@ -4,6 +4,13 @@
 }
 
 .progression-template-picker select,
-.field.progression select {
-    max-width: 80%;
+.song-progression-form .field select {
+    max-width: 80vw;
+}
+
+
+@media screen and (min-width: 720px) {
+    .progression-template-picker select, .song-progression-form .field select {
+        max-width: 50vw;
+    }
 }

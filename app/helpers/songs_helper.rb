@@ -28,13 +28,13 @@ module SongsHelper
         if last_play&.by_heart
             "song-row--by-heart"
         elsif last_play&.played_at
-            if last_play.played_at > Time.now - 4.days
+            if last_play.played_at > Time.now - 7.days
                 "song-row--green"
-            elsif last_play.played_at > Time.now - 9.days
+            elsif last_play.played_at > Time.now - 14.days
                 "song-row--yellow"
-            elsif last_play.played_at > Time.now - 20.days
+            elsif last_play.played_at > Time.now - 21.days
                 "song-row--orange"
-            elsif last_play.played_at > Time.now - 32.days
+            elsif last_play.played_at > Time.now - 30.days
                 "song-row--red"
             end
         end

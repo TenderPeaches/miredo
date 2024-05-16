@@ -1,17 +1,18 @@
 class SongsController < ApplicationController
     before_action :set_song, only: %i[ play ]
-    # GET /
+    # GET /songs => Any list of songs, params might include filter/sort/search options
     def index
-        if user_signed_in?
-            @songs = Song.includes(:artists).where(is_public: true).or(Song.where(submitter_id: current_user.id))
-        else
-            @songs = Song.includes(:artists).where(is_public: true)
-        end
 
-        # if request specified a user ID
-        if params[:user_id]
-            # only show songs submitted by the given user
-            @songs = @songs.where(submitter_id: params[:user_id])
+        filter_options = params[:filter_options] || {}
+
+        # if user is logged in
+        if user_signed_in?
+            # ensure that only songs visible to the user are shown by setting the visibility filter
+            @songs = Song.filter(filter_options.merge({visibility: current_user.id}))
+        # otherwise, user is logged out
+        else
+            # apply filters and ensure that out of the results, only the public songs are shown
+            @songs = Song.filter(filter_options).only_public
         end
 
         # sort the list
