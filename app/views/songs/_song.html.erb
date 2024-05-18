@@ -1,0 +1,26 @@
+<%= tag.tr class: song_row_color(song) do %>
+    <% if user_signed_in? %>
+        <%= tag.td class: "songs-list__favorite" do %>
+            <%= star_toggle(current_user.favorites.include?(song), new_song_user_favorite_path(song_id: song.id)) %>
+        <% end %>
+    <% end %>
+    <%= tag.td class: "songs-list__title" do %>
+        <%= link_to "#{song.id}) #{song.name}#{song.upgraded? ? "" : " (*)"}", song_path(song.id) %>
+    <% end %>
+    <%= tag.td class: "songs-list__artist" do %>
+        <%= song.artist %>
+    <% end %>
+    <%= tag.td class: "songs-list__capo" do %>
+        <%= song.capo %>
+    <% end %>
+    <%= tag.td class: "songs-list__plays" do %>
+        <%= song.plays current_user %>
+    <% end %>
+    <%= tag.td class: "songs-list__last-played" do %>
+        <%= "#{song.last_played(current_user)&.strftime("%Y-%m-%d")}" %>
+    <% end %>
+    <%= tag.td class: "songs-list__play" do %>
+        <%= link_to "Play", song_plays_path(song_id: song.id), data: { turbo_stream: true, turbo_method: :post } %>
+        <%= link_to "Play+", song_plays_path(song_id: song.id, by_heart: true), data: { turbo_stream: true, turbo_method: :post } %>
+    <% end %>
+<% end %>

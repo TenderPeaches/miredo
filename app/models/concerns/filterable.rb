@@ -2,9 +2,13 @@ module Filterable
     extend ActiveSupport::Concern
 
     module ClassMethods
-        def filter(filter_params = {})
-            # start by fetching all the rows
-            results = self.where(nil)
+        # filters this model according to a set of params
+        # filter_params => hash with each key matching a model filter (ie if model has filter_by_user defined, filter_params may include :user => 1, filtering for all models with an attribute of user_id == 1)
+        # collection => optional collection of [self] to filter, rather than start from all instances of the model, must be an ActiveRecord::Relation otherwise Model.all is used
+        def filter(filter_params = {}, collection = nil)
+
+            # use the collection param as a base sample if collection is an ActiveRecord::Relation, otherwise, use all of the model's instances as a base sample
+            results = collection.is_a?(ActiveRecord::Relation) ? collection : self.where(nil)
 
             if filter_params.present?
                 # for each filter

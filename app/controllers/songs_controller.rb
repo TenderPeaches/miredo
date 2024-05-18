@@ -8,20 +8,22 @@ class SongsController < ApplicationController
         # if user is logged in
         if user_signed_in?
             # ensure that only songs visible to the user are shown by setting the visibility filter
-            @songs = Song.filter(filter_options.merge({visibility: current_user.id}))
+            @songs = Song.filter(filter_options.merge({visibility: current_user.id}), Song.all)
         # otherwise, user is logged out
         else
             # apply filters and ensure that out of the results, only the public songs are shown
             @songs = Song.filter(filter_options).only_public
         end
 
-        # sort the list
-        if (params[:sort] == 'capo')
-            @songs = @songs.order(capo: :asc)
-        elsif params[:sort] == 'plays'
-            @songs = @songs.left_joins(:song_plays).where('song_plays.user_id = ?', User.first.id).group(:song_id).order('COUNT(song_plays.id) DESC')
-        elsif params[:sort] == 'last_played'
-            @songs = @songs.left_joins(:song_plays).select('songs.id', 'songs.name', 'songs.capo', 'MAX(song_plays.played_at) AS "last_played_date"').where('song_plays.user_id = ?', User.first.id).group(:song_id).order(:last_played_date => :desc)
+        # sort the songs according to user specifications, if any
+        if (params[:sort_options].present?)
+            @songs = Song.sort(params[:sort_options], @songs)
+
+            # keep track of the sort being applied, as the turbo response will modify the corresponding controls (to swap the :ascending/:descending order or reset the sort)
+            #! only the first sort option is applied, everything else is ignored, as sorts are applied by the click of a button. Complex sorts are TBI.
+            # convert to kebabcase because the sort controls should have an ID that matches their corresponding sort_option, prefixed with "sort-by-"
+            @sort_control_id = "sort-by-#{params[:sort_options].keys.first.kebabcase}"
+            @sort_control_order = params[:sort_options][params[:sort_options].keys.first].to_sym
         end
     end
 

@@ -4,8 +4,8 @@
     <%= render "songs/show/nav", song: @song %>
     <%= render "songs/show/admin_actions", song: @song %>
     <%= render "songs/show/options", song: @song %>
-    <%= turbo_link_button "Play", song_plays_path(song_id: @song.id), :post %>  
-    <%= turbo_link_button "Play+", song_plays_path(song_id: @song.id, by_heart: true), :post %>  
+    <%= turbo_link_button "Play", song_plays_path(song_id: @song.id), method: :post %>  
+    <%= turbo_link_button "Play+", song_plays_path(song_id: @song.id, by_heart: true), method: :post %>  
 <% end %>
 <%= tag.section class: "helpers" do %>
     <%= tag.div class: "song-top-panel" do %>

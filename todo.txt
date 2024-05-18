@@ -24,7 +24,10 @@ x Add Sequence back to Progressions
     * Instruments shown
         * Other stringed than guitar: bass, banjo, etc.
     * Color scheme
-* Favorites
+x Favorites
+x Filtering
+* Sorting
+    * Need a sort-option factory to replace the song_filter options in song_helpers.rb
 * Aid hints
 * Flash alerts/feedback
 

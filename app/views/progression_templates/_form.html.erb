@@ -17,8 +17,6 @@
     <% if defined? progression_template.song %>
         <%= form.hidden_field :song_id, value: progression_template.song.id %>
     <% end %>
-
-    <%# turbo_link_button t('actions.add', thing: t('models.progression_chord.model_name')), new_progression_chord_path(progression_template_id: progression_template.id || 0.to_s, song_id: progression_template.song.id) %>
     
     <% unless progression_template.new_record? %>
         <%= turbo_link_button t('actions.copy', thing: t('models.progression_template.model_name')), new_progression_template_path(progression_template_id: progression_template.id) %>

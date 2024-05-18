@@ -1,0 +1,16 @@
+<%# songs#index turbo_stream requests updates the song list and filter/sorting controls %>
+
+<%# update the song list %>
+<%= turbo_stream.update :songs do %>
+    <% @songs.each do |song| %>
+        <%= render song %>
+    <% end %>
+<% end %>
+
+<%# raise 'hello' %>
+<%# if any sort_option was applied, replace the control to allow for different sorting orders (ascending/descending/none) %>
+<% if @sort_control_id %>
+    <%= turbo_stream.replace @sort_control_id do %>
+        <%= song_filter_from_id @sort_control_id, @sort_control_order %>
+    <% end %>
+<% end %>
