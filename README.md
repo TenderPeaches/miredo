@@ -70,3 +70,5 @@ Once the progression templates have been set up, you are ready to define the Son
     A "reps" value, for how often the template gets repeated. This value is compounded with the template's own "reps" value, meaning a template with a reps of 2 being used by a progression with a reps of 6 will need to be played a total of 12 times during the progression.
     A block of lyrics that are sung over the progression. Place back-vocals in parenthesis. Semi-columns are replaced by new lines.
     A custom key and scale, if the progression uses different values than the song
+
+## ABOUT US

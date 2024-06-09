@@ -9,7 +9,7 @@ module Sortable
 
             if sort_params.present?
                 sort_params.each do |key, value|
-                    debugger
+
                     # only apply the sort if the sort_option value is a valid order_by keyword
                     if [:asc, :desc].include? value.downcase.to_sym
                         # check for sort_by_#{key} method, use that if found

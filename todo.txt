@@ -26,10 +26,10 @@ x Add Sequence back to Progressions
     * Color scheme
 x Favorites
 x Filtering
-* Sorting
-    * Need a sort-option factory to replace the song_filter options in song_helpers.rb
+x Sorting
 * Aid hints
 * Flash alerts/feedback
+* Pagination
 
 Then down the line
 * List to a select -> show dynamic UI, for progressions, songs, etc.
@@ -37,3 +37,4 @@ Then down the line
 * SongComment => song.id, user.id
 * ProgressionComment => progression.id, user.id
 * SPComment => song_progression.id, user.id
+    * Need a sort-option factory to replace the song_filter options in song_helpers.rb
