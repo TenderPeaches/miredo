@@ -1,17 +1,8 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Miredo</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<%= tag.html do %>
+  <%= render :head %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <%= yield :head %>
-  </head>
-
-  <body>
+  <%= tag.body do %>
     <%= render "layouts/header" %>
     <%= tag.main class: "content" do %>
       <%= tag.div class: "flashes" do %>
@@ -20,5 +11,5 @@
       <% end %>
       <%= yield %>
     <% end %>
-  </body>
-</html>
+  <% end %>
+<% end %>

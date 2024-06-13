@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<%= tag.html do %>
+  <%= render "layouts/head" %>
+
+  <%= tag.body class: "publication" do %>
+    <%= tag.main class: "content" do %>
+      <%= yield %>
+    <% end %>
+  <% end %>
+<% end %>

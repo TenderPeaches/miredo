@@ -40,5 +40,7 @@ Rails.application.routes.draw do
     resources :settings, only: [:index]
     resources :user_instruments
 
+    resources :publications, only: [:index]
+
     root "songs#index"
 end

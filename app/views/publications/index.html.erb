@@ -1,0 +1,12 @@
+<%= tag.section class: "publication" do %>
+
+    <% @publication_lines.each do |line| %>
+        <%= tag.div class: "line", id: "publication-line--#{line.id}" do %>
+            <% if line.images.size == 2 %>
+                <%= publication_image line.images.second %>
+            <% end %>
+            <%= tag.p line.text %>
+            <%= publication_image line.images.first if line.images.any? %>
+        <% end %>
+    <% end %>
+<% end %>

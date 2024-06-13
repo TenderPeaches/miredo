@@ -1,0 +1,40 @@
+body.publication .content {
+    padding: var(--size-s) calc(var(--size-xxxl) * 4);
+}
+
+/* "article" */
+.publication {
+    display: flex;                              /* vertical ribbon of publication-lines */
+    flex-direction: column;                     /* vertical flex */
+    gap: var(--size-l);                         /* space out the publications */
+    background: var(--color-accent-black);      /* use different color than default background to offer contrast with the screenshots */
+    padding: var(--size-m);                     /* space out the content */
+}
+
+/* piece of content of a publication */
+.publication .line {
+    display: flex;                          /* horizontal flex */
+    flex-direction: row;                    /* horizontal flex */
+    text-align: left;                       /* default reading alignment */
+    align-items: center;                    /* vertically center the paragraph with the images */
+    margin: var(--size-m) 0;                /* add vertical margins */
+}
+
+/* every 2nd publication-line */
+.publication .line:nth-child(2n) {
+    flex-direction: row-reverse;            /* reverse the flex order, making elements appear in reverse order */
+}
+
+/* text paragraph within a publication */
+.publication p {
+    flex-grow: 2;                           /* can grow to twice the size of an image */
+    margin: var(--size-m);                  /* space out with other content on the line */
+}
+
+/* publication image */
+.publication img {
+    flex-grow: 1;                           /* can grow */
+    margin: var(--size-m);                  /* space out with other content on the line */
+    max-width: 50%;                         /* images never take up more than half the screen */
+    box-shadow: 0 0 var(--size-l) var(--size-m) var(--color-primary-black);     /* the screenshots have a natural background-color border given their nature (screenshots of this site), so apply a blur around the edge to mesh it with the publication background color */
+}
