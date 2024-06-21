@@ -22,7 +22,7 @@ class SongsController < ApplicationController
             # keep track of the sort being applied, as the turbo response will modify the corresponding controls (to swap the :ascending/:descending order or reset the sort)
             #! only the first sort option is applied, everything else is ignored, as sorts are applied by the click of a button. Complex sorts are TBI.
             # convert to kebabcase because the sort controls should have an ID that matches their corresponding sort_option, prefixed with "sort-by-"
-            @sort_control_id = "sort-by-#{params[:sort_options].keys.first.kebabcase}"
+            @sort_control_id = "sort-by-#{params[:sort_options].keys.first.match(/([\w_]+)(\(([^)]+)\))?/)[1].kebabcase}"
             @sort_control_order = params[:sort_options][params[:sort_options].keys.first].to_sym
         end
     end

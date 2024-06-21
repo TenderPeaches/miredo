@@ -99,6 +99,12 @@ details[open] {
     border-bottom: 1px solid var(--color-primary-lightest);
 }
 
+/* horizontal dividers */
+hr {
+    width: 80%;
+    color: var(--color-primary-darker);
+}
+
 /* screen-size dependent considerations */
 /* for large screens */
 @media screen and (min-width: 1080px) {

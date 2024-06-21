@@ -41,14 +41,14 @@ module SongsHelper
     end
 
     # returns the correct filter from a given song_filter_id (HTML id)
-    def song_filter_from_id(song_filter_id, previous_sort = :none)
+    def song_filter_from_id(song_filter_id, previous_sort = :none, user_id: nil)
         case song_filter_id
         when :sort_by_capo.to_s.kebabcase
             song_filter_capo(previous_sort)
         when :sort_by_most_played_by_user.to_s.kebabcase
-            song_filter_most_played_by_user(previous_sort)
+            song_filter_most_played_by_user(user_id, previous_sort)
         when :sort_by_last_played.to_s.kebabcase
-            song_filter_last_played(previous_sort)
+            song_filter_last_played(user_id, previous_sort)
         end
     end
 
@@ -57,13 +57,14 @@ module SongsHelper
         turbo_link_button "Capo#{sort_order_label(sort_order)}", songs_path(sort_options: { capo: sort_order }), id: "sort-by-capo"
     end
 
-    def song_filter_last_played(previous_sort = :none)
+    def song_filter_last_played(user_id, previous_sort = :none)
+        debugger
         sort_order = rotate_filter_order(true, previous_sort)
-        turbo_link_button "Last Played#{sort_order_label(sort_order)}", songs_path(sort_options: { last_played: sort_order }), id: "sort-by-last-played"
+        turbo_link_button "Last Played#{sort_order_label(sort_order)}", songs_path(sort_options: { "last_played(#{user_id})" => sort_order }), id: "sort-by-last-played"
     end
 
-    def song_filter_most_played_by_user(previous_sort = :none)
+    def song_filter_most_played_by_user(user_id, previous_sort = :none)
         sort_order = rotate_filter_order(true, previous_sort)
-        turbo_link_button "Most Played#{sort_order_label(sort_order)}", songs_path(sort_options: { most_played_by_user: sort_order }), id: "sort-by-most-played-by-user"
+        turbo_link_button "Most Played#{sort_order_label(sort_order)}", songs_path(sort_options: { "most_played_by_user(#{user_id})" => sort_order }), id: "sort-by-most-played-by-user"
     end
 end

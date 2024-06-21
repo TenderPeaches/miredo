@@ -7,10 +7,9 @@
     <% end %>
 <% end %>
 
-<%# raise 'hello' %>
 <%# if any sort_option was applied, replace the control to allow for different sorting orders (ascending/descending/none) %>
 <% if @sort_control_id %>
     <%= turbo_stream.replace @sort_control_id do %>
-        <%= song_filter_from_id @sort_control_id, @sort_control_order %>
+        <%= song_filter_from_id @sort_control_id, @sort_control_order, user_id: current_user.id %>
     <% end %>
 <% end %>

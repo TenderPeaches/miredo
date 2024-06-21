@@ -9,12 +9,22 @@ module Sortable
 
             if sort_params.present?
                 sort_params.each do |key, value|
+                    # match key for some pattern like last_played_by_user(1), grouping together the function handle away from any parameters appended to it
+                    match = key.match(/([\w_]+)(\(([^)]+)\))?/)
 
-                    # only apply the sort if the sort_option value is a valid order_by keyword
-                    if [:asc, :desc].include? value.downcase.to_sym
+                    # only apply the sort if the sort_option value is a valid order_by keyword and validate sort pattern
+                    if [:asc, :desc].include?(value.downcase.to_sym) && match.present?
+
                         # check for sort_by_#{key} method, use that if found
-                          if self.respond_to? "sort_by_#{key}"
-                            results = results.public_send("sort_by_#{key}", value)
+                        #! use only the some_sort_option part of the sort key, as they constitute the function signature that respond_to? checks for
+                        if self.respond_to? "sort_by_#{match[1]}"
+                            # check for method parameters embedded in the sort option
+                            if match[3]
+                                #! for now, only single parameter method needed for sort
+                                results = results.public_send("sort_by_#{match[1]}", match[3], value)
+                            else
+                                results = results.public_send("sort_by_#{match[1]}", value)
+                            end
                         # if method not found, try and sort by column; column_names returns an array of string so make sure that key is a string too
                         elsif self.column_names.include? key.to_s
                             results = results.order(key => value)

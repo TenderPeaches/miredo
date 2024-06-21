@@ -2,6 +2,10 @@ body.publication .content {
     padding: var(--size-s) calc(var(--size-xxxl) * 4);
 }
 
+body.publication hr {
+    color: var(--color-accent-darker);
+}
+
 /* "article" */
 .publication {
     display: flex;                              /* vertical ribbon of publication-lines */
