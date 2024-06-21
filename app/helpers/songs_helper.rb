@@ -58,7 +58,6 @@ module SongsHelper
     end
 
     def song_filter_last_played(user_id, previous_sort = :none)
-        debugger
         sort_order = rotate_filter_order(true, previous_sort)
         turbo_link_button "Last Played#{sort_order_label(sort_order)}", songs_path(sort_options: { "last_played(#{user_id})" => sort_order }), id: "sort-by-last-played"
     end
