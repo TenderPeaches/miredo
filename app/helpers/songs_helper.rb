@@ -28,13 +28,13 @@ module SongsHelper
         if last_play&.by_heart
             "song-row--by-heart"
         elsif last_play&.played_at
-            if last_play.played_at > Time.now - 7.days
+            if last_play.played_at > Time.now - 10.days
                 "song-row--green"
-            elsif last_play.played_at > Time.now - 14.days
+            elsif last_play.played_at > Time.now - 20.days
                 "song-row--yellow"
-            elsif last_play.played_at > Time.now - 21.days
-                "song-row--orange"
             elsif last_play.played_at > Time.now - 30.days
+                "song-row--orange"
+            elsif last_play.played_at > Time.now - 50.days
                 "song-row--red"
             end
         end
@@ -59,11 +59,11 @@ module SongsHelper
 
     def song_filter_last_played(user_id, previous_sort = :none)
         sort_order = rotate_filter_order(true, previous_sort)
-        turbo_link_button "Last Played#{sort_order_label(sort_order)}", songs_path(sort_options: { "last_played(#{user_id})" => sort_order }), id: "sort-by-last-played"
+        turbo_link_button "Last Played#{sort_order_label(previous_sort)}", songs_path(sort_options: { "last_played(#{user_id})" => sort_order }), id: "sort-by-last-played"
     end
 
     def song_filter_most_played_by_user(user_id, previous_sort = :none)
         sort_order = rotate_filter_order(true, previous_sort)
-        turbo_link_button "Most Played#{sort_order_label(sort_order)}", songs_path(sort_options: { "most_played_by_user(#{user_id})" => sort_order }), id: "sort-by-most-played-by-user"
+        turbo_link_button "Most Played#{sort_order_label(previous_sort)}", songs_path(sort_options: { "most_played_by_user(#{user_id})" => sort_order }), id: "sort-by-most-played-by-user"
     end
 end

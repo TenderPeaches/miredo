@@ -85,6 +85,10 @@ class Song < ApplicationRecord
         end
     end
 
+    def has_unsequenced_progressions?
+        self.progressions.where(sequence: nil).any?
+    end
+
     def create_album_from_name
         # only if song is not on any album
         if album_id.nil?

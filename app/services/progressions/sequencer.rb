@@ -3,12 +3,12 @@ module Progressions
     class Sequencer
         def initialize(song)
             @song = song
+            @next = @song.progressions.maximum(:sequence) || 1
         end
-
         # sets a sequence number for a single progression
         def set(progression)
             # map the song's progressions' sequences
-            current_sequences = @song.progressions.map {|song_progression| song_progression.sequence}
+            current_sequences = progression.song.progressions.map {|song_progression| song_progression.sequence}
 
             errors = []
             adjusted_progressions = []
@@ -17,8 +17,9 @@ module Progressions
 
             # if progression hasn't been explicitly assigned a sequence number
             if progression.sequence.nil?
+
                 # set it as highest sequence number + 1
-                progression.update(sequence: (current_sequences.compact.max || 0) + 1)
+                progression.update(sequence: next_sequence)
 
                 errors = progression.errors
             # otherwise, the user attempts to explicitly set the sequence number so it is assumed to be correct
@@ -118,6 +119,14 @@ module Progressions
         # options can be :all (any value) to shift all the way to first/last position in a song
         # if progression original sequence is nil, it will always be shifted to last position
         def shift(progression, direction, options = {})
+
+            # before any shift is performed, check if any progressions don't have a sequence assigned - resolve this first, then see if the shift is still relevant (it might not, if say none of the progressions had a sequence)
+            if progression.song.has_unsequenced_progressions?
+                progression.song.progressions.where(sequence: nil).each do |unsequenced_progression|
+                    set(unsequenced_progression)
+                end
+            end
+
             # downshift -> higher sequence or sequence is originally nil
             if direction == :down || progression.sequence.nil?
                 # shift all the way or sequence is originally nil
@@ -137,6 +146,13 @@ module Progressions
         end
 
         private
+
+        ##
+        # get the next sequence number
+        def next_sequence
+            (@song.progressions.maximum(:sequence) || 0) + 1
+        end
+
         ##
         # shift a progression a flat number of times
         def shift_flat(progression, shift_size = 1)
@@ -179,8 +195,12 @@ module Progressions
         ##
         # shift the progression to the last sequence of the song
         def shift_to_last(progression)
-            # shift progression down by however many numbers are between it and the last one
-            shift_flat(progression, @song.progressions.order(:sequence).last.sequence - progression.sequence)
+            if progression.sequence.nil?
+                set(progression)
+            else
+                # shift progression down by however many numbers are between it and the last one
+                shift_flat(progression, @song.progressions.order(:sequence).last.sequence - progression.sequence)
+            end
         end
 
         ##
