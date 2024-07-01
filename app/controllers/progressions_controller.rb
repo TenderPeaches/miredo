@@ -72,7 +72,7 @@ class ProgressionsController < ApplicationController
     end
 
     def alert_errors
-        flash.now[:alert] = t('errors.invalid.form', model: t('models.progression.model_name'), errors: @progression.errors.full_messages)
+        flash.now[:alert] = t('errors.invalid.form', model: t('activerecord.models.progression'), errors: @progression.errors.full_messages)
     end
 
     def progression_params

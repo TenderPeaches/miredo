@@ -13,14 +13,14 @@
     <%= form.hidden_field :song_id, value: song.id %>
 
     <% unless progression.new_record? %>
-        <%= turbo_link_button t('actions.copy', thing: t('models.progression.model_name')), new_progression_path(progression_id: progression.id) %>
-        <%= link_to t('actions.delete', thing: t('models.progression.model_name')), progression_path(progression.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: t('models.progression.model_name')) } %>
+        <%= turbo_link_button t('actions.copy', thing: t('activerecord.models.progression')), new_progression_path(progression_id: progression.id) %>
+        <%= link_to t('actions.delete', thing: t('activerecord.models.progression')), progression_path(progression.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: t('activerecord.models.progression')) } %>
     <% end %>
 
     <% if progression.id == nil %>
-        <%= form.submit t('actions.create', thing: t('models.progression.model_name')) %>
+        <%= form.submit t('actions.create', thing: t('activerecord.models.progression')) %>
         <%= form.submit t('actions.create', thing: t('keywords.another')), name: :create_another %>
     <% else %>
-        <%= form.submit t('actions.update', thing: t('models.progression.model_name')) %>
+        <%= form.submit t('actions.update', thing: t('activerecord.models.progression')) %>
     <% end %>
 <% end %>

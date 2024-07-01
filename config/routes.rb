@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
     resources :users do
         resources :songs, only: [ :index ], controller: :user_songs
+        resources :settings, only: [ :index ]
     end
 
     resources :song_plays, only: [ :new, :create ]
@@ -37,7 +38,6 @@ Rails.application.routes.draw do
         resources :chords, only: [:index]
     end
 
-    resources :settings, only: [:index]
     resources :user_instruments
 
     resources :publications, only: [:index]

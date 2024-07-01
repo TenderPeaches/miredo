@@ -40,17 +40,40 @@ en:
   settings:
     page_name: "Settings"
     user_instruments: "Set Instruments"
-  models:
-    song:
-      model_name: "Song"
-      name: "Name"
-      practiced: "Practiced %{times} times"
-    progression_template:
-      model_name: "Progression Template"
-      tag: "Tag"
-      reps: "Reps"
-    progression_chord:
-      model_name: "Progression chord"
-    progression: 
-      model_name: "Song Progression"
-
+  activerecord:
+    models:
+      admin: "Admin"
+      album_contribution: "Album contribution"
+      album: "Album"
+      artist: "Artist"
+      chord_component: "Chord component"
+      chord: "Chord"
+      instrument: "Instrument"
+      interval_quality: "Interval quality"
+      interval: "Interval"
+      key: "Key"
+      pitch_class: "Pitch class"
+      pitch_standard: "Pitch standard"
+      pitch: "Pitch"
+      progression_chord: "Progression chord"
+      progression_template: "Progression template"
+      progression: "Progression"
+      scale_interval: "Scale interval"
+      scale: "Scale"
+      song_contribution: "Artist contribution"
+      song_play: "Repetition"
+      song: "Song"
+      time_signature: "Time signature"
+      tuning_pitch: "Tuning pitch"
+      tuning: "Tuning"
+      user_favorite: "Favorite"
+      user_intrument: "Instrument"
+      user_setting: "Setting"
+      user: "User"
+    attributes:
+      song:
+        name: "Name"
+        practiced: "Practiced %{times} times" 
+      progression_template:
+        tag: "Tag"
+        reps: "Reps"
