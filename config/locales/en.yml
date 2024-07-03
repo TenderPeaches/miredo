@@ -5,6 +5,7 @@ en:
     save: "Save"
     delete: "Delete"
     another: "Another"
+    apply: "Apply"
   actions:
     new: "New %{thing}"
     add: "Add %{thing}"
@@ -39,6 +40,7 @@ en:
     page_name: "References"
   settings:
     page_name: "Settings"
+    default_instrument: "Default instrument"
     user_instruments: "Set Instruments"
   activerecord:
     models:

@@ -8,7 +8,9 @@
         <%# use regular links, not turbo, as the header cannot guarantee what the content of the body is so it cannot confirm whether or not the turbo anchors are there %>
         <%= link_to t('hints.page_name'), hints_path %>
         <%= link_to t('references.page_name'), references_path %>
-        <%= link_to t('settings.page_name'), user_settings_path %>
+        <% if user_signed_in? %>
+            <%= link_to t('settings.page_name'), user_settings_path %>
+        <% end %>
         <%# user auth %>
         <% if user_signed_in? %>
             <%= link_to t('cta.log_out'), destroy_user_session_path, data: { turbo_method: :delete } %>

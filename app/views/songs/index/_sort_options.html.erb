@@ -1,6 +1,8 @@
 <%= tag.details do %>
     <%= tag.summary "Sort by" %>
     <%= song_filter_capo %>
-    <%= song_filter_most_played_by_user current_user.id %>
-    <%= song_filter_last_played current_user.id %>
+    <% if current_user %>
+        <%= song_filter_most_played_by_user current_user.id %>
+        <%= song_filter_last_played current_user.id %>
+    <% end %>
 <% end %>

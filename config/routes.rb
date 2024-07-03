@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
     resources :users do
         resources :songs, only: [ :index ], controller: :user_songs
-        resources :settings, only: [ :index ]
+    end
+
+    namespace :user do
+        resources :settings, only: [:index, :update]
     end
 
     resources :song_plays, only: [ :new, :create ]
