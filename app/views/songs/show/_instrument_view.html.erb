@@ -1,0 +1,12 @@
+<%= tag.div id: "instruments", class: "instruments" do %>
+    <%= form_tag instrument_views_path do %>
+        <%= select_tag :instrument, options_from_collection_for_select(Instrument.all, :id, :name) %>
+        <%= hidden_field_tag :tuning, instrument_view.tuning.id.to_s %>
+        <%= hidden_field_tag :fret_count, instrument_view.fret_count %>
+        <%= hidden_field_tag :pitch_ids, instrument_view.pitch_ids.to_s %>
+        <%= submit_tag t('keywords.apply') %>
+    <% end %>
+    <%= tag.div id: "instrument-view" do %>
+        <%= instrument_print(instrument_view) %>
+    <% end %>
+<% end %>

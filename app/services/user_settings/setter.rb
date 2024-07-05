@@ -6,7 +6,7 @@ module UserSettings
         end
 
         # set user settings
-        def set(user_setting_params)
+        def set(user_setting_params = {})
             # if user already has settings assigned to it
             if (user_setting = UserSetting.where(user: @user)).any?
                 # update those settings

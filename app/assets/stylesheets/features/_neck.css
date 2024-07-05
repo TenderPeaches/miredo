@@ -1,4 +1,4 @@
-.guitar {
+.fretted-instrument {
     text-align: center;                                     /*~ center the fretboard */
     padding: var(--size-l);                                 /* acts as margin, spacing */ 
 }
@@ -9,6 +9,7 @@
     flex-direction: column;                                 /* vertical list the strings */    
 }
 
+.fretboard .fretboard-header,
 .fretboard .string {
     display: flex;
 }

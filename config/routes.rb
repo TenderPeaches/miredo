@@ -41,6 +41,8 @@ Rails.application.routes.draw do
         resources :chords, only: [:index]
     end
 
+    resources :instrument_views, only: [:create]
+
     resources :user_instruments
 
     resources :publications, only: [:index]

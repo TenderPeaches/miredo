@@ -34,23 +34,28 @@ class SongsController < ApplicationController
             if @song.key.nil?
                 render :edit
             else
-
+                # user might specify to shift the song to a different key
                 @key_shift = params[:key_shift]
                 # capo can be provided as query string argument, if absent then use the song's suggested capo
                 @capo = (params.has_key? :capo) ? params[:capo].to_i : (@song.capo || 0)
-                # same for the key, either the user specifies a shift from the original key or the original is used
+                # same for the key, either the user specifies a shift from the original key or the original song key is used
                 @key = @key_shift ? @song.key.shift(@key_shift.to_i) : @song.key
-
+                # the scale should always be the song's scale
                 @scale = @song.scale
 
-                # the key when adjusting with the capo
                 @key_with_capo = @key.shift(@capo * -1)
 
-                @tuning = Tuning.first
-                @frets = 12
+                # instrument to be shown as a helper
+                @instrument = if current_user then Instrument.find_by_id(current_user.user_settings.default_instrument) else Instrument.default end
 
-                @key_pitch_ids = @scale.chords_from_key(@key).map {|p| p[:pitch_class_id]}
-                @capo_pitch_ids = @scale.chords_from_key(@key_with_capo).map {|p| p[:pitch_class_id]}
+                # instrument helper to make all the necessary data accessible to the view
+                @instrument_view = Instruments::Viewer.new(@instrument).view({
+                    tuning_id: @instrument.default_tuning, #! could be made a user setting or be defined in the song
+                    frets: 12, # default to 12 to see full scale
+                    capo: @capo,
+                    scale: @scale,
+                    key: @key
+                })
 
                 render :show_new
             end

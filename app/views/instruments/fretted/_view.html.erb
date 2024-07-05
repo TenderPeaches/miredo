@@ -1,0 +1,7 @@
+<%# @capo: int => capo position %>
+<%# @frets: int => how many frets to display %>
+<%# @tuning: Tuning => tuning used in the view %>
+<%# @accepted_pitch_ids: [Pitch_fk (int)] => Pitches that should be highlighted in some way %>
+<%= tag.div class: "fretted-instrument" do %>
+    <%= render "instruments/fretted/fretboard", capo: capo, tuning: tuning, frets: frets, accepted_pitch_ids: accepted_pitch_ids %>
+<% end %>

@@ -2,13 +2,18 @@
 class User::SettingsController < ApplicationController
     # when user requests a list of settings that they can see/change
     def index
-        # need to display instrument choices as setting
-        @instruments = Instrument.all
+        if user_signed_in?
+            # need to display instrument choices as setting
+            @instruments = Instrument.all
 
-        # assume current user wishes to change own settings
-        @user = current_user
-        @user_settings = @user.user_settings
-        render "user/settings/index"
+            # assume current user wishes to change own settings
+            @user = current_user
+            # include failsafe for if user has no user_setting entry for some reason, then one will be created here
+            @user_settings = @user.user_settings || UserSettings::Setter.new(@user).set_default
+            render "user/settings/index"
+        else
+            redirect_to new_user_session_path
+        end
     end
 
     # update user settings; create not necessary because settings are created alongside the user and should never be deleted, only updated

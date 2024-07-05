@@ -10,10 +10,7 @@
 <%= tag.section class: "helpers" do %>
     <%= tag.div class: "song-top-panel" do %>
         <%= render "scales/print", scale: @song.scale, key: @key %> 
-        <%= tag.div id: "instruments", class: "instruments" do %>
-            <%= render "instruments/piano/keys", song: @song, scale_pitch_ids: @key_pitch_ids %>
-            <%= render "instruments/guitar/fretboard", key: @key, scale: @scale, tuning: @tuning, frets: @frets, capo: @capo, accepted_pitch_ids: @key_pitch_ids %>
-        <% end %>
+        <%= render "songs/show/instrument_view", instrument_view: @instrument_view %>
     <% end %>
 <% end %>
 <%= tag.section class: "show-song", data: { controller: "show-song" } do %> 

@@ -1,0 +1,10 @@
+<%= tag.div class: "fretboard" do %>
+    <%# helper fret indicators %>
+    <%= render "instruments/fretted/header", frets: frets, capo: capo %>
+    <%# iterate over each's open string's tuning pitches, from the highest to the lowest %>
+    <% tuning.high_to_low_strings.each do |string| %>
+        <%= render "instruments/fretted/string", open_pitch: string, capo: capo, accepted_pitch_ids: accepted_pitch_ids, frets: frets %>
+    <% end %>
+    <%# helper fret indicators %>
+    <%= render "instruments/guitar/fret_indicators", frets: frets, capo: capo %>
+<% end %>
