@@ -2,7 +2,7 @@
     <%= tag.div class: "fretboard fretboard--guitar" do %>
         <%# helper fret indicators %>
         <%= render "instruments/guitar/fret_indicators", frets: frets, capo: capo %>
-        <% tuning.high_to_low_strings.each do |string| %>
+        <% tuning.right_hand_strings.each do |string| %>
             <%= tag.div class: "string" do %>
                 <%# @frets + 1 => because @frets contain the actual number of frets, adding 1 for the "0th" fret to represent the open string %>
                 <% (frets + 1).times do |fret| %>

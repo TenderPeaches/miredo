@@ -3,7 +3,13 @@ class Tuning < ApplicationRecord
     has_many :pitches, through: :strings
     belongs_to :instrument
 
-    def high_to_low_strings
-        strings.order(pitch_id: :desc)
+    #! always assume strings have their ID in order of lowest (on the shaft) to highest
+    #
+    def right_hand_strings
+        strings.order(id: :desc)
+    end
+
+    def left_hand_strings
+        string.order(id: :asc)
     end
 end
