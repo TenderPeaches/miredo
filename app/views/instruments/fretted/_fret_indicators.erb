@@ -1,5 +1,5 @@
 <%= tag.div class: "string" do %>
-    <% (frets + 1).times do |fret| %>
+    <% (fret_count + 1).times do |fret| %>
         <%= tag.div class: "fret fret--outside" do %>
             <% if fret > 0 %>
                 <%= fret + capo %>

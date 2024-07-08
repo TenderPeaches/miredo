@@ -1,0 +1,12 @@
+<%= instrument_view_tag instrument_view do %>
+    <%= render "instruments/fretted/fretboard", instrument_view: instrument_view do %>
+        <% instrument_view.tuning.right_hand_strings.each_with_index do |string, i| %>
+            <% if i == instrument_view.tuning.right_hand_strings.count - 1 %>
+                <%#! yes, the 1st banjo string starting at the 5th fret is defined here %>
+                <%= render "instruments/fretted/partial_string", open_pitch: string, instrument_view: instrument_view, string_start: 5 %>
+            <% else %>
+                <%= render "instruments/fretted/string", open_pitch: string, instrument_view: instrument_view %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

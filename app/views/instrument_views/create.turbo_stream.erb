@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "instrument-view" do %>
+    <%= instrument_print(@instrument_view) %>
+<% end %>
+
+<%= turbo_stream.update_input "instrument-view-tuning", @instrument_view.tuning %>

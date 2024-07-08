@@ -1,5 +1,11 @@
 module InstrumentViewsHelper
 
+    def instrument_view_tag(instrument_view, &block)
+        tag.div class: "#{instrument_view.instrument.instrument_template.filename.kebabcase}-view" do
+            capture(&block)
+        end
+    end
+
     ## draws a fret (for a single string, not the actual neck-width fret) for a fretted instrument, given:
     # @open_pitch => TuningPitch of the open string under the fret
     # @fret => draw the nth fret
@@ -26,5 +32,10 @@ module InstrumentViewsHelper
         return tag.div class: "fret" + fret_class, "data-pitch-class" => pitch_class, "data-pitch" => Pitch.find_by_id(open_pitch.pitch_id + fret).id do
             pitch_class.letter
         end
+    end
+
+    # for filling in the fretboard where there aren't any actual frets (think 5-string banjo, for the 1st string)
+    def invisible_fret
+        tag.div class: "fret fret--invisible"
     end
 end

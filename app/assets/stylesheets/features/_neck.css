@@ -73,4 +73,7 @@
     background: var(--color-degree-seventh-dark);
 }
 
-
+.fretboard .fret--invisible {
+    border-color: transparent;
+    background: transparent;
+}

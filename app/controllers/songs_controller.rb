@@ -50,8 +50,8 @@ class SongsController < ApplicationController
 
                 # instrument helper to make all the necessary data accessible to the view
                 @instrument_view = Instruments::Viewer.new(@instrument).view({
-                    tuning_id: @instrument.default_tuning, #! could be made a user setting or be defined in the song
-                    frets: 12, # default to 12 to see full scale
+                    tuning_id: @instrument.default_tuning.id, #! could be made a user setting or be defined in the song
+                    fret_count: 12, # default to 12 to see full scale
                     capo: @capo,
                     scale: @scale,
                     key: @key

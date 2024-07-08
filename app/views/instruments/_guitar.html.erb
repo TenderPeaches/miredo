@@ -1,0 +1,7 @@
+<%= instrument_view_tag instrument_view do %>
+    <%= render "instruments/fretted/fretboard", instrument_view: instrument_view do %>
+        <% instrument_view.tuning.right_hand_strings.each do |string| %>
+            <%= render "instruments/fretted/string", open_pitch: string, instrument_view: instrument_view %>
+        <% end %>
+    <% end %>
+<% end %>
