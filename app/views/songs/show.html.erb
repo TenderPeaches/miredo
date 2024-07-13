@@ -1,26 +1,18 @@
-<%= tag.div class: "song-header" do %>
-    <%= tag.div class: "song-actions" do %>
-        <%= link_to "< Back", root_path, class: "button" %>
-        <%= link_to 'Random', song_path(Song.random_id.to_s), class: "button" %>
-        <%= turbo_link_button "Play", song_plays_path(song_id: @song.id), method: :post %>  
-        <%= turbo_link_button "Play+", song_plays_path(song_id: @song.id, by_heart: true), method: :post %>  
-        <%= link_to t('cta.define_progression_templates'), song_progression_templates_path(@song), class: "button" %>
-    <% end %>
-    <h1 class="song-title"><%= @song.name %></h1>
-    <h3 class="song-artist"><%= @song.artist %></h3>
-    <h5 class="song-capo">Capo <%= @song.capo %></h5>
-    <h5 class="song-key">Key <%= @song.key %></h5>
-    <h5>Practiced: <%= @song.plays(current_user) %>x</h5>
-    <%= @song.chords %>
+<!-- to be used with songs whose structure is dictated by Progression entities, rather than plaintext -->
+<%= tag.section class: "actions" do %>
+ <%# options_panel %>
+    <%= render "songs/show/nav", song: @song %>
+    <%= render "songs/show/admin_actions", song: @song %>
+    <%= render "songs/show/options", song: @song %>
+    <%= turbo_link_button "Play", song_plays_path(song_id: @song.id), method: :post %>  
+    <%= turbo_link_button "Play+", song_plays_path(song_id: @song.id, by_heart: true), method: :post %>  
 <% end %>
-<div class="show-song">
-    <% @song.default_output.each do |line| %>
-        <% if line[:type] == Song::OUTPUT_LINE_TYPE__CHORDS %>
-            <div class="song-line song-line--chords"> 
-        <% else %>
-            <div class="song-line song-line--lyrics>">
-        <% end %>
-            <%= line[:content] %>
-        </div>
+<%= tag.section class: "helpers" do %>
+    <%= tag.div class: "song-top-panel" do %>
+        <%= render "scales/print", scale: @song.scale, key: @key %> 
+        <%= render "songs/show/instrument_view", instrument_view: @instrument_view %>
     <% end %>
-</div>
+<% end %>
+<%= tag.section class: "show-song", data: { controller: "show-song" } do %> 
+    <%= Songs::Printer.new(@song, @key_with_capo, @song.scale, @capo).print %>
+<% end %>

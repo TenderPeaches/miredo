@@ -9,8 +9,9 @@ class Progression < ApplicationRecord
 
     attr_accessor :uid
 
-    def effective_key
-        if self.key
+    ## @shift => integer that indicates capo/lower tuning
+    def effective_key(shift = 0)
+        effective_key = if self.key
             self.key
         elsif progression_template.key
             progression_template.key
@@ -19,6 +20,8 @@ class Progression < ApplicationRecord
         else
             Key.default
         end
+
+        effective_key.shift(shift)
     end
 
     def effective_scale

@@ -56,8 +56,6 @@ class SongsController < ApplicationController
                     scale: @scale,
                     key: @key
                 })
-
-                render :show_new
             end
         end
     end

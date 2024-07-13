@@ -1,12 +1,13 @@
 module Songs
     class Printer
 
-        attr_accessor :key, :scale, :song
+        attr_accessor :key, :scale, :song, :capo
 
-        def initialize(song, key, scale)
+        def initialize(song, key, scale, capo)
             @song = song
             @key = key
             @scale = scale
+            @capo = capo
         end
 
         def print
@@ -32,7 +33,7 @@ module Songs
                         tick_counter -= chord_ticks_per_line
                     end
                     # print the colored chord & duration notches
-                    @output << progression_chord.print_with_colors(progression.effective_key, progression.effective_scale)
+                    @output << progression_chord.print_with_colors(progression.effective_key(@capo * -1), progression.effective_scale)
                 end
 
                 # only show reps if there are more than 1
