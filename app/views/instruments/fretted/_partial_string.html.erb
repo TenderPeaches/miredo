@@ -2,8 +2,8 @@
 <%# +1 for the open string, since any n frets will always have an open string which should be treated like a fret as it produces a note %>
     <% (instrument_view.fret_count + 1).times do |fret| %>
         <%# render a fret only for the open string and whenever the partial string starts %>
-        <% if fret >= string_start || fret == 0 %>
-            <%= fretted_instrument_fret open_pitch, fret, instrument_view.capo, instrument_view.pitch_ids %>
+        <% if fret > fret_gap || fret == 0 %>
+            <%= fretted_instrument_fret open_pitch, [0, fret - fret_gap].max , instrument_view.capo, instrument_view.pitch_ids %>
         <% else %>
             <%= invisible_fret %>
         <% end %>

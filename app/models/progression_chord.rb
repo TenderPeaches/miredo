@@ -4,6 +4,26 @@ class ProgressionChord < ApplicationRecord
 
   before_save :assign_sequence_number
 
+  def effective_scale
+    if progression_template.scale
+        self.progression_template.scale
+    elsif self.progression_template.song.scale
+        self.progression_template.song.scale
+    else
+        Scale.default
+    end
+  end
+
+  def effective_key
+    if self.progression_template.key
+        self.progression_template.key
+    elsif self.progression_template.song.key
+        self.progression_template.song.key
+    else
+        Key.default
+    end
+  end
+
   def assign_sequence_number
     if sequence.nil?
       # OR with 0 because if no other progression_chords, then max will be nil
@@ -135,7 +155,7 @@ class ProgressionChord < ApplicationRecord
     printed << " "
   end
 
-  def print_with_colors(key = Key.default, scale = Scale.default)
+  def print_with_colors(key = effective_key, scale = effective_scale)
     "<span class=\"degree-".html_safe + degree.to_s + "\">".html_safe + print(key, scale) + "</span>".html_safe
   end
 end

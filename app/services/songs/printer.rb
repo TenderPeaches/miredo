@@ -32,7 +32,7 @@ module Songs
                         tick_counter -= chord_ticks_per_line
                     end
                     # print the colored chord & duration notches
-                    @output << progression_chord.print_with_colors(@key, @scale)
+                    @output << progression_chord.print_with_colors(progression.effective_key, progression.effective_scale)
                 end
 
                 # only show reps if there are more than 1

@@ -160,17 +160,7 @@ module Progressions
             #shifted_sequence_range = direction == :down ? (progression.sequence + 1).. : ..(progression.sequence - 1)
             return false if shift_size == 0
 
-            # if shifting progression 1, 2, 3 positions down (higher sequence, so positive shift)
-            if shift_size.positive?
-                # we will pick {shift_size} progressions that follow the shifted progression in order of sequence;
-                # say progressions with sequences [1,2,3,4,5] and we want to shift progression with sequence 1 to the end, shifted_sequence_range must equal 2..5 => the sequence numbers of all the progressions that must be shifted back to accomodate the shift forward of the first progression
-                shifted_sequence_range = (progression.sequence + 1)..(progression.sequence + shift_size)
-            # opposite for negative shifts
-            else
-                # shift_size is negative!
-                shifted_sequence_range = (progression.sequence + shift_size)..(progression.sequence - 1)
-            end
-            shifted_progressions = Progression.where(song: @song, sequence: shifted_sequence_range)
+            shifted_progressions = Progression.where(song: @song, sequence: shift_size.positive? ? progression.sequence.. : ..progression.sequence).where.not(id: progression.id).order(sequence: shift_size.positive? ? :asc : :desc).first(shift_size.abs)
 
             # cannot shift by more positions than there are progressions
             possible_shift_size = shifted_progressions.size

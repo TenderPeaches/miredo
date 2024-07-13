@@ -9,6 +9,30 @@ class Progression < ApplicationRecord
 
     attr_accessor :uid
 
+    def effective_key
+        if self.key
+            self.key
+        elsif progression_template.key
+            progression_template.key
+        elsif song.key
+            song.key
+        else
+            Key.default
+        end
+    end
+
+    def effective_scale
+        if self.scale
+            self.scale
+        elsif progression_template.scale
+            progression_template.scale
+        elsif song.scale
+            song.scale
+        else
+            Scale.default
+        end
+    end
+
     def html_lyrics
         html_lyrics = lyrics
         # generate newlines with ; if there is a newline that immediately follows it

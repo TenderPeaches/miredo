@@ -19,7 +19,7 @@ module Progressions
             end
 
             progression.progression_template = progression_base&.progression_template
-            progression.tag = progression_base&.tag
+            progression.tag = progression_base&.tag || progression.progression_template&.tag
 
             Result.new(progression)
         end

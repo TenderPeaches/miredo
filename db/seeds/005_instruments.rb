@@ -10,10 +10,60 @@ instrment__banjo = Instrument.create(name: '5-string Banjo', instrument_template
 instrment__ukulele = Instrument.create(name: 'Ukulele', instrument_template: instrument_template__guitar)
 
 # 6-string Guitar tuning
-tuning__6_string_guitar__standard = Tuning.create(instrument: instrument__guitar, strings: [TuningPitch.create(pitch: Pitch.find_by_midi(40)), TuningPitch.create(pitch: Pitch.find_by_midi(45)), TuningPitch.create(pitch: Pitch.find_by_midi(50)), TuningPitch.create(pitch: Pitch.find_by_midi(55)), TuningPitch.create(pitch: Pitch.find_by_midi(59)), TuningPitch.create(pitch: Pitch.find_by_midi(64))])
-tuning__6_string_guitar__drop_d = Tuning.create(instrument: instrument__guitar, strings: [TuningPitch.create(pitch: Pitch.find_by_midi(38)), TuningPitch.create(pitch: Pitch.find_by_midi(45)), TuningPitch.create(pitch: Pitch.find_by_midi(50)), TuningPitch.create(pitch: Pitch.find_by_midi(55)), TuningPitch.create(pitch: Pitch.find_by_midi(59)), TuningPitch.create(pitch: Pitch.find_by_midi(64))])
-tuning__6_string_guitar__half_step_down = Tuning.create(instrument: instrument__guitar, strings: [TuningPitch.create(pitch: Pitch.find_by_midi(39)), TuningPitch.create(pitch: Pitch.find_by_midi(44)), TuningPitch.create(pitch: Pitch.find_by_midi(49)), TuningPitch.create(pitch: Pitch.find_by_midi(54)), TuningPitch.create(pitch: Pitch.find_by_midi(58)), TuningPitch.create(pitch: Pitch.find_by_midi(63))])
+tuning__6_string_guitar__standard = Tuning.create(instrument: instrument__guitar, label: "Standard", strings: [
+    TuningPitch.create(pitch: Pitch.find_by_midi(40)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(45)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(50)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(55)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(59)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(64))])
 
-tuning__4_string_bass_guitar__standard = Tuning.create(instrument: instrument__bass, strings: [TuningPitch.create(pitch: Pitch.find_by_midi(40)), TuningPitch.create(pitch: Pitch.find_by_midi(45)), TuningPitch.create(pitch: Pitch.find_by_midi(50)), TuningPitch.create(pitch: Pitch.find_by_midi(55))])
+tuning__6_string_guitar__drop_d = Tuning.create(instrument: instrument__guitar, label: "Drop D", strings: [
+    TuningPitch.create(pitch: Pitch.find_by_midi(38)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(45)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(50)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(55)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(59)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(64))])
 
-tuning__5_string_banjo__standard = Tuning.create(instrument: instrument__banjo, strings: [TuningPitch.create(pitch: Pitch.find_by_midi(55)), TuningPitch.create(pitch: Pitch.find_by_midi(38)), TuningPitch.create(pitch: Pitch.find_by_midi(43)), TuningPitch.create(pitch: Pitch.find_by_midi(47)), TuningPitch.create(pitch: Pitch.find_by_midi(50))])
+tuning__6_string_guitar__half_step_down = Tuning.create(instrument: instrument__guitar, label: "1/2 Step Down", strings: [
+    TuningPitch.create(pitch: Pitch.find_by_midi(39)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(44)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(49)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(54)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(58)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(63))])
+
+
+# bass guitar tunings
+tuning__4_string_bass_guitar__standard = Tuning.create(instrument: instrument__bass, label: "Standard", strings: [
+    TuningPitch.create(pitch: Pitch.find_by_midi(40)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(45)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(50)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(55))])
+
+
+# banjo tunings
+tuning__5_string_banjo__standard = Tuning.create(instrument: instrument__banjo, label: "Standard", strings: [
+    TuningPitch.create(pitch: Pitch.find_by_midi(55)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(38)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(43)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(47)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(50))])
+
+
+# ukulele tunings
+tuning__ukulele__standard = Tuning.create(instrument: instrument__ukulele, label: "Standard", strings: [
+    TuningPitch.create(pitch: Pitch.find_by_midi(67)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(60)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(64)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(69)),
+])
+
+# mandolin tunings
+tuning__mandolin__standard = Tuning.create(instrument: instrument__mandolin, label: "Standard", strings: [
+    TuningPitch.create(pitch: Pitch.find_by_midi(55)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(62)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(69)),
+    TuningPitch.create(pitch: Pitch.find_by_midi(76)),
+])
