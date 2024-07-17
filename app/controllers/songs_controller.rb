@@ -30,39 +30,40 @@ class SongsController < ApplicationController
     # GET /[id]/
     def show
         set_song
-        if @song.upgraded?
-            if @song.key.nil?
-                render :edit
-            else
-                # user might specify to shift the song to a different key
-                @key_shift = params[:key_shift]
-                # capo can be provided as query string argument, if absent then use the song's suggested capo
-                @capo = (params.has_key? :capo) ? params[:capo].to_i : (@song.capo || 0)
-                # same for the key, either the user specifies a shift from the original key or the original song key is used
-                @key = @key_shift ? @song.key.shift(@key_shift.to_i) : @song.key
-                # the scale should always be the song's scale
-                @scale = @song.scale
+        if @song.key.nil?
+            render :edit
+        else
+            # user might specify to shift the song to a different key
+            @key_shift = params[:key_shift]
+            # capo can be provided as query string argument, if absent then use the song's suggested capo
+            @capo = (params.has_key? :capo) ? params[:capo].to_i : (@song.capo || 0)
+            # same for the key, either the user specifies a shift from the original key or the original song key is used
+            @key = @key_shift ? @song.key.shift(@key_shift.to_i) : @song.key
 
-                @key_with_capo = @key.shift(@capo * -1)
+            # the scale should always be the song's scale
+            @scale = @song.scale
 
-                # instrument to be shown as a helper
-                @instrument = if current_user then Instrument.find_by_id(current_user.user_settings.default_instrument) else Instrument.default end
+            @key_with_capo = @key.shift(@capo * -1)
 
-                # instrument helper to make all the necessary data accessible to the view
-                @instrument_view = Instruments::Viewer.new(@instrument).view({
-                    tuning_id: @instrument.default_tuning.id, #! could be made a user setting or be defined in the song
-                    fret_count: 12, # default to 12 to see full scale
-                    capo: @capo,
-                    scale: @scale,
-                    key: @key
-                })
-            end
+            # instrument to be shown as a helper
+            @instrument = if current_user then Instrument.find_by_id(current_user.user_settings.default_instrument) else Instrument.default end
+
+            # instrument helper to make all the necessary data accessible to the view
+            @instrument_view = Instruments::Viewer.new(@instrument).view({
+                tuning_id: @instrument.default_tuning.id, #! could be made a user setting or be defined in the song
+                fret_count: 12, # default to 12 to see full scale
+                capo: @capo,
+                scale: @scale,
+                key: @key
+            })
+
+            @chords = @song.distinct_chords
         end
     end
 
     # POST /songs
     def create
-        @song = Song.new(song_params)
+        @song = Song.new(song_params.merge({submitter_id: current_user&.id }))
 
         if @song.save
             if params[:progression_templates]
@@ -77,7 +78,7 @@ class SongsController < ApplicationController
 
     def update
         set_song
-        if @song.update(song_params)
+        if @song.update(song_params.merge({submitter_id: current_user&.id}))
             if params[:progression_templates]
                 redirect_to song_progression_templates_path @song
             else

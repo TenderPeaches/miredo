@@ -13,7 +13,7 @@ module InstrumentViewsHelper
     # @accepted_pitch_ids => Pitch IDs that should be highlighted somehow
     def fretted_instrument_fret(open_pitch, fret, capo, accepted_pitch_ids)
         # set the fret's data: pitch_class dependent on string tuning + capo + fret
-        pitch_class = open_pitch.pitch.pitch_class.get_offset(fret + capo)
+        pitch_class = open_pitch.pitch.pitch_class.offset(fret + capo)
 
         # whether the fret is included in the scale or whatever needs to be highlighted
         fret_included = accepted_pitch_ids.include? pitch_class.id

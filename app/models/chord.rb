@@ -26,4 +26,16 @@ class Chord < ApplicationRecord
 
         selector
     end
+
+    # gets an array of all the pitch classes that comprise this chord for a given tonic
+    # @tonic => PitchClass
+    def notes(tonic)
+        notes = []
+
+        self.chord_components.each do |factor|
+            notes << tonic.offset(factor.semitones)
+        end
+
+        notes
+    end
 end

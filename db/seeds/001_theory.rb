@@ -165,6 +165,9 @@ interval__fifth = Interval.create(name: "Fifth", shorthand: "5", semitones: 7)
 interval__sixth = Interval.create(name: "Sixth", shorthand: "6", semitones: 9)
 interval__seventh = Interval.create(name: "Seventh", shorthand: "7", semitones: 11)
 interval__octave = Interval.create(name: "Octave", shorthand: "8", semitones: 12)
+interval__ninth = Interval.create(name: "Ninth", shorthand: "9", semitones: 14)
+interval__tenth = Interval.create(name: "Tenth", shorthand: "10", semitones: 16)
+interval__eleventh = Interval.create(name: "Eleventh", shorthand: "11", semitones: 17)
 
 # scale intervals
 
@@ -286,6 +289,13 @@ ChordComponent.create(chord: chord__major_seventh, interval: interval__third, in
 ChordComponent.create(chord: chord__major_seventh, interval: interval__fifth, interval_quality: interval_quality__perfect)            # P5 => 7 => G
 ChordComponent.create(chord: chord__major_seventh, interval: interval__seventh, interval_quality: interval_quality__major)            # M7 => 11 => B
 
+chord__major_ninth = Chord.create(name: "Major Ninth", notation: "maj9")
+ChordComponent.create(chord: chord__major_ninth, interval: interval__unison, interval_quality: interval_quality__perfect)           # P1 => 0 => C
+ChordComponent.create(chord: chord__major_ninth, interval: interval__third, interval_quality: interval_quality__major)              # M3 => 4 => E
+ChordComponent.create(chord: chord__major_ninth, interval: interval__fifth, interval_quality: interval_quality__perfect)            # P5 => 7 => G
+ChordComponent.create(chord: chord__major_ninth, interval: interval__seventh, interval_quality: interval_quality__major) # M7 => 11 => B
+ChordComponent.create(chord: chord__major_ninth, interval: interval__ninth, interval_quality: interval_quality__perfect) # M9 => 11 => B
+
 chord__augmented_triad = Chord.create(name: "Augmented Triad", notation: "+")
 ChordComponent.create(chord: chord__augmented_triad, interval: interval__unison, interval_quality: interval_quality__perfect)         # P1 => 0 => C
 ChordComponent.create(chord: chord__augmented_triad, interval: interval__third, interval_quality: interval_quality__major)            # M3 => 4 => E
@@ -359,6 +369,18 @@ ChordComponent.create(chord: chord__seventh_suspended_second, interval: interval
 ChordComponent.create(chord: chord__seventh_suspended_second, interval: interval__second, interval_quality: interval_quality__major) # M2 => 2 => D
 ChordComponent.create(chord: chord__seventh_suspended_second, interval: interval__fifth, interval_quality: interval_quality__perfect) # P5 => 7 => G
 ChordComponent.create(chord: chord__seventh_suspended_second, interval: interval__seventh, interval_quality: interval_quality__minor) # m7 => 11 => Bb
+
+chord__added_fourth = Chord.create(name: "Added Fourth", notation: "add4")
+ChordComponent.create(chord: chord__added_fourth, interval: interval__unison, interval_quality: interval_quality__perfect)   # p1 => 0 => C
+ChordComponent.create(chord: chord__added_fourth, interval: interval__third, interval_quality: interval_quality__major)  # M3 => 4 => E
+ChordComponent.create(chord: chord__added_fourth, interval: interval__fourth, interval_quality: interval_quality__perfect) # P4 => 5 => F
+ChordComponent.create(chord: chord__added_fourth, interval: interval__fifth, interval_quality: interval_quality__perfect) # P5 => 7 => G
+
+chord__added_ninth = Chord.create(name: "Added Ninth", notation: "add9")
+ChordComponent.create(chord: chord__added_ninth, interval: interval__unison, interval_quality: interval_quality__perfect)   # p1 => 0 => C
+ChordComponent.create(chord: chord__added_ninth, interval: interval__third, interval_quality: interval_quality__major)  # M3 => 4 => E
+ChordComponent.create(chord: chord__added_ninth, interval: interval__fifth, interval_quality: interval_quality__perfect) # P5 => 7 => G
+ChordComponent.create(chord: chord__added_ninth, interval: interval__ninth, interval_quality: interval_quality__perfect) # P9 => 14 => D
 
 # time signatures
 TimeSignature.create(label: "4/4")

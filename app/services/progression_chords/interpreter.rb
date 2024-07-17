@@ -50,7 +50,7 @@ module ProgressionChords
         end
 
         # interpret a progression chord to create a cypher
-        def to_cypher(progression_chord)
+        def to_cypher(progression_chord, print_duration: true)
 
             # main chord & sharp/flat symbol
             cypher = progression_chord.print_chord(@key, @scale)
@@ -67,21 +67,23 @@ module ProgressionChords
                 cypher << "/" << PitchClass.find_by_position(bass_pitch_class_position).print
             end
 
-            # print the duration
-            progression_chord.duration.times do |i|
-                # separate beats by groups of 4 by prepending a space on the 5th, 9th, 13th, etc. beats
-                #todo could be set according to the song's time signature, for 3/4, etc.
-                if i > 1 && i % 4 == 0
-                  cypher << ":"
-                end
+            if print_duration
+                # print the duration
+                progression_chord.duration.times do |i|
+                    # separate beats by groups of 4 by prepending a space on the 5th, 9th, 13th, etc. beats
+                    #todo could be set according to the song's time signature, for 3/4, etc.
+                    if i > 1 && i % 4 == 0
+                    cypher << ":"
+                    end
 
-                beat_marker = "–"
-                if progression_chord.staccato
-                  beat_marker = "."
-                elsif progression_chord.muted
-                  beat_marker = "x"
+                    beat_marker = "–"
+                    if progression_chord.staccato
+                    beat_marker = "."
+                    elsif progression_chord.muted
+                    beat_marker = "x"
+                    end
+                    cypher << beat_marker
                 end
-                cypher << beat_marker
             end
 
             # spacing at the end

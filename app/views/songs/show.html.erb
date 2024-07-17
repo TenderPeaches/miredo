@@ -10,6 +10,7 @@
 <%= tag.section class: "helpers" do %>
     <%= tag.div class: "song-top-panel" do %>
         <%= render "scales/print", scale: @song.scale, key: @key %> 
+        <%= render "songs/show/chords", chords: @chords %>
         <%= render "songs/show/instrument_view", instrument_view: @instrument_view %>
     <% end %>
 <% end %>

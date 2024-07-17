@@ -52,8 +52,7 @@ class Scale < ApplicationRecord
     end
 
     # modifier> number of semitones to add to each note
-    def get_degree_chords(key, modifier = 0)
-
+    def get_degree_chords(key = Key.default, modifier = 0)
         # establish the root position, adjusted with the modifier
         root_position = key.pitch_class.position + modifier
         # make sure the root position within positions [1..12]

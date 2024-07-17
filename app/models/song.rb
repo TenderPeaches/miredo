@@ -207,6 +207,31 @@ class Song < ApplicationRecord
         Song.where(capo: capo).order("RANDOM()").limit(1).first.id
     end
 
+    def ordered_progressions
+        self.progressions.order(sequence: :asc)
+    end
+    # List of all the distinct chords that are included in this song's progressions
+    def distinct_chords
+
+        chords = []
+        #% need a list of each chord, including those that might be of progressions with a different key than the key's default song
+        self.ordered_progressions.each do |progression|
+            #% check all of the progression's template's chords
+            progression.progression_template.ordered_chords.each do |progression_chord|
+                cypher = ProgressionChords::Interpreter.new(progression.effective_key, progression.effective_scale).to_cypher(progression_chord, print_duration: false).cypher
+                #% see if the chord, paired with the given key (either from progression, progression_template or song), already exists in the list
+                unless chords.any? { |chord| chord[:cypher] == cypher }
+                    chords << {
+                        cypher: cypher,
+                        notes: progression_chord.chord.notes(progression_chord.root_note_in_progression(progression))
+                    }
+                end
+            end
+        end
+
+        chords
+    end
+
     # if true => the song's chords structure and lyrics are obtained through Song_Progression entries
     # if false => the song's chord structure and lyrics are obtained through parsing the lib.txt file
     def upgraded?

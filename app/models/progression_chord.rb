@@ -14,7 +14,7 @@ class ProgressionChord < ApplicationRecord
     end
   end
 
-  def effective_key
+  def effective_key(assigned_song_key = nil)
     if self.progression_template.key
         self.progression_template.key
     elsif self.progression_template.song.key
@@ -108,17 +108,24 @@ class ProgressionChord < ApplicationRecord
     end
   end
 
+  def root_note_in_progression(progression)
+    root_note_by_keyscale(progression.effective_key, progression.effective_scale)
+  end
+
+  def root_note_by_keyscale(key = Key.default, scale = Scale.default)
+      # pitch_class associated with this chord given a key and scale, only 12 options
+      pitch_class__position = (key.pitch_class.position + scale.get_degrees_interval(degree) + modifier) % 12
+      # position == 0 doesn't exist, multiples of 12 should have their position set to 12
+      if pitch_class__position == 0
+        pitch_class__position = 12
+      end
+      #todo option to use solfège aswell
+      PitchClass.find_by(position: pitch_class__position)
+  end
+
   # prints only the chord "C#"
   def print_chord(key = Key.default, scale = Scale.default)
-
-    # pitch_class associated with this chord given a key and scale, only 12 options
-    pitch_class__position = (key.pitch_class.position + scale.get_degrees_interval(degree) + modifier) % 12
-    # position == 0 doesn't exist, multiples of 12 should have their position set to 12
-    if pitch_class__position == 0
-      pitch_class__position = 12
-    end
-    #todo option to use solfège aswell
-    PitchClass.find_by(position: pitch_class__position).print + (chord&.notation || "")
+      root_note_by_keyscale(key, scale).print + (chord&.notation || "")
   end
 
   # prints the chord + duration markers

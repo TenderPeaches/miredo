@@ -16,4 +16,15 @@ module ChordsHelper
 
         "#{chord_intervals_notation} (#{chord_semitones_notation})"
     end
+
+    # accepts an array of PitchScales, print as notes
+    def print_chord_notes(notes)
+        output = ""
+
+        notes.each do |note|
+            output << "#{note.letter} "
+        end
+
+        output
+    end
 end

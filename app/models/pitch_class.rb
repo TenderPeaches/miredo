@@ -8,14 +8,14 @@ class PitchClass < ApplicationRecord
     end
 
     def next
-        get_offset(1)
+        offset(1)
     end
 
     def previous
-        get_offset(-1)
+        offset(-1)
     end
 
-    def get_offset(offset = 0)
+    def offset(offset = 0)
         # find the remainder of this pitch class + offset / 12
         pitch_class_id = (id + offset) % PitchClass.count
         # ID 0 == PitchClass with ID of 12
@@ -57,16 +57,15 @@ class PitchClass < ApplicationRecord
         /[A-Z]/.match(letter)[0]
     end
 
-    # get offset pitch class, meaning a pitch class @offset positions away
-    def offset(offset)
-        # if position + offset > 12, drop down one octave to get the same pitch within the 12 semitones range
-        if position + offset > 12
-            position + offset - 12
-        # same if position < 1, bump it up to within the [1..12] range
-        elsif position + offset < 1
-            position + offset + 12
-        else
-            position + offset
+    def self.from_progression_chord(progression_chord, progression, key_shift = 0)
+        if progression_chord && progression
+            degree = progression_chord.degree
+            modifier = progression_chord.modifier
+            bass_degree = progression_chord.bass_degree
+            bass_modifier = progression_chord.bass_modifier
+            key = progresison.effective_key(key_shift)
+
+
         end
     end
 

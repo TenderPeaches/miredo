@@ -1,0 +1,12 @@
+<%= tag.div class: "chords" do %>
+    <% chords.each do |chord| %>
+        <%= tag.div class: "chord" do %>
+            <%= tag.span class: "cypher" do %>
+                <%= chord[:cypher] %>:
+            <% end %>
+            <%= tag.span class: "notes" do %>
+                <%= print_chord_notes(chord[:notes]) %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
