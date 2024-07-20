@@ -41,29 +41,28 @@ module SongsHelper
     end
 
     # returns the correct filter from a given song_filter_id (HTML id)
-    def song_filter_from_id(song_filter_id, previous_sort = :none, user_id: nil)
+    def song_filter_from_id(song_filter_id, current_sort = :none, user_id: nil)
         case song_filter_id
         when :sort_by_capo.to_s.kebabcase
-            song_filter_capo(previous_sort)
+            song_filter_capo(current_sort)
         when :sort_by_most_played_by_user.to_s.kebabcase
-            song_filter_most_played_by_user(user_id, previous_sort)
+            song_filter_most_played_by_user(user_id, current_sort)
         when :sort_by_last_played.to_s.kebabcase
-            song_filter_last_played(user_id, previous_sort)
+            song_filter_last_played(user_id, current_sort)
         end
     end
 
-    def song_filter_capo(previous_sort = :none)
-        sort_order = rotate_filter_order(false, previous_sort)
-        turbo_link_button "Capo#{sort_order_label(sort_order)}", songs_path(sort_options: { capo: sort_order }), id: "sort-by-capo"
+    # a button that lets user filter songs by their suggested ca
+    # @current_sort decides how the button looks, to indicate the user the current sort, default to :desc so that it initializes with no sort, as :desc sort leads to no sort (see rotate_filter_options)
+    def song_filter_capo(current_sort = :none)
+        filter_button "Capo", songs_path(sort_options: { capo: nil }), "sort-by-capo", current_sort
     end
 
-    def song_filter_last_played(user_id, previous_sort = :none)
-        sort_order = rotate_filter_order(true, previous_sort)
-        turbo_link_button "Last Played#{sort_order_label(previous_sort)}", songs_path(sort_options: { "last_played(#{user_id})" => sort_order }), id: "sort-by-last-played"
+    def song_filter_last_played(user_id, current_sort = :none)
+        filter_button "Last Played", songs_path(sort_options: { "last_played(#{user_id})" => nil }), "sort-by-last-played", current_sort, inverted_sort: true
     end
 
-    def song_filter_most_played_by_user(user_id, previous_sort = :none)
-        sort_order = rotate_filter_order(true, previous_sort)
-        turbo_link_button "Most Played#{sort_order_label(previous_sort)}", songs_path(sort_options: { "most_played_by_user(#{user_id})" => sort_order }), id: "sort-by-most-played-by-user"
+    def song_filter_most_played_by_user(user_id, current_sort = :none)
+        filter_button "Play Count", songs_path(sort_options: { "most_played_by_user(#{user_id})" => current_sort }), "sort-by-most-played-by-user", current_sort, inverted_sort: true
     end
 end

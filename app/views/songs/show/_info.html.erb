@@ -1,0 +1,15 @@
+<%# helpful song info %>
+<%= tag.div class: "song-info" do %>
+    <%# original song key & scale %>
+    <%= tag.div "Originally in #{song.keyscale}" %>
+    <%# suggested capo %>
+    <%= tag.div "Suggested capo: #{song.capo}" %>
+    <%# number of times practiced %>
+    <%= tag.div "Practiced #{SongPlay.where(song: song, user: current_user).count} times"%>
+    <%# user who submitted the song tab %>
+    <%= tag.div "Submitted by #{song.submitter&.username || "Anon"}" %>
+    <%# last played info %>
+    <% if song.last_play current_user %>
+        <%= song_last_played_label song %>
+    <% end %>
+<% end %>

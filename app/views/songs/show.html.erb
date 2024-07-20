@@ -8,6 +8,7 @@
     <%= turbo_link_button "Play+", song_plays_path(song_id: @song.id, by_heart: true), method: :post %>  
 <% end %>
 <%= tag.section class: "helpers" do %>
+    <%= render "songs/show/info", song: @song %>
     <%= tag.div class: "song-top-panel" do %>
         <%= render "scales/print", scale: @song.scale, key: @key %> 
         <%= render "songs/show/chords", chords: @chords %>
