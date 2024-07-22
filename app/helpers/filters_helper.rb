@@ -1,17 +1,83 @@
 module FiltersHelper
-    def rotate_filter_order(descending_first = false, previous_order = :none)
-        case previous_order
-        when :none
-            descending_first ? :desc : :asc
-        when :asc
-            descending_first ? :none : :desc
-        when :desc
-            descending_first ? :asc : :none
+    # collection_options:
+    # name => name of the input field
+    # items => collection of items that can be filtered for
+    # key => unique key used to select the item
+    # label => label shown to the user
+    def filter_option type, form, label = nil, id = nil, collection_options = {}
+        case type
+        when :keyscale then
+            keyscale_filter_field form, label, id
+        when :capo then
+            capo_filter_field form, label, id
+        when :collection then
+            collection_filter_field form, label, id, collection_options
+        when :boolean then
+            boolean_filter_field form, label, id
         end
     end
 
-    def filter_button(label, link, id, current_sort = :none, inverted_sort: false)
-        sort_order = rotate_filter_order(inverted_sort, current_sort)
-        turbo_link_button "#{label}#{sort_order_label(current_sort)}", "#{link}#{sort_order.to_s}", id: id
+    private
+    # field that contains a toggle-able filter option
+    def filter_field form, label, id, &block
+        safe_join [
+            tag.div(class: "filter-field", id: "#{id.kebabcase}-filter", data: { controller: "filter-toggle", "filter-toggle-target" => "filter" }) do
+                if block_given?
+                    safe_join [
+                        filter_label(label),
+                        block.call
+                    ]
+                else
+                    filter_label(label)
+                end
+            end,
+            filter_hidden_input(form, id)
+        ]
+    end
+
+    def filter_hidden_input form, id, value = false
+        form.hidden_field id, value: value, id: "#{id}-filter-active", data: { "filter-toggle-target" =>  "flag" }
+    end
+
+    # filters use toggle-labels - press on the label to activate/deactivate the filter, effectively turning the label into a checkbox of sorts
+    def filter_label label
+        # check_box_tag
+        tag.label label, class: "filter-toggle", data: { "filter-toggle-target" =>  "toggle" }
+    end
+
+    def keyscale_filter_field form, label, id
+        double_collection_filter_field form, label || "Key & Scale", id || "key", { name: :key, items: Key.for_select, key: :id, label: :shorthand }, { name: :scale, items: Scale.for_select, key: :id, label: :name }
+    end
+
+    def capo_filter_field form, label, id, instrument = Instrument.default
+        filter_field form, label || "Suggested Capo", id || "capo" do
+            select_tag :capo, options_for_select(instrument.capo_range)
+        end
+    end
+
+    def collection_filter_field form, label, id, collection_options = {}
+        filter_field form, label, id do
+            select_tag collection_options[:name], options_from_collection_for_select(collection_options[:items], collection_options[:key], collection_options[:label])
+        end
+    end
+
+    def boolean_filter_field form, label, id
+        filter_field form, label, id
+    end
+
+    # each collection options may contain:
+    # name => name of the input field
+    # items => collection of items that can be filtered for
+    # key => unique key used to select the item
+    # label => label shown to the user
+    def double_collection_filter_field form, label, id, first_collection_options = {}, second_collection_options = {}
+        filter_field form, label, id do
+            tag.div do
+                safe_join [
+                    select_tag(first_collection_options[:name], options_from_collection_for_select(first_collection_options[:items], first_collection_options[:key], first_collection_options[:label])),
+                    select_tag(second_collection_options[:second], options_from_collection_for_select(second_collection_options[:items], second_collection_options[:key], second_collection_options[:label]))
+                ]
+            end
+        end
     end
 end

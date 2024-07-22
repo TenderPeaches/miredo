@@ -1,5 +1,5 @@
-<%= tag.details do %>
-    <%= tag.summary "Sort by" %>
+<%= tag.div class: "sort-options" do %>
+    <%= tag.label "#{t('keywords.sort_by')}:" %>
     <%= song_filter_capo %>
     <% if current_user %>
         <%= song_filter_most_played_by_user current_user.id %>

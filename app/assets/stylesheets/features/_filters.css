@@ -1,0 +1,13 @@
+
+
+.filter-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 3em;                /* standardize height regardless of filter content */ 
+}
+
+.filter-field.active .filter-toggle { 
+    color: var(--color-primary-lightest);
+}

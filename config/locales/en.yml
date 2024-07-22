@@ -6,6 +6,9 @@ en:
     delete: "Delete"
     another: "Another"
     apply: "Apply"
+    sort_by: "Sort by"
+    favorites: "Favorites"
+    filter: "Filter"
   actions:
     new: "New %{thing}"
     add: "Add %{thing}"
