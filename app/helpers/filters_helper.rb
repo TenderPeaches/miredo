@@ -25,8 +25,9 @@ module FiltersHelper
                 if block_given?
                     safe_join [
                         filter_label(label),
-                        block.call,
-                        filter_hidden_input(form, id)
+                        tag.div(class: "filter-controls hidden", data: { "filter-toggle-target" => "controls" }) do
+                            block.call
+                        end
                     ]
                 else
                     safe_join [
@@ -38,6 +39,7 @@ module FiltersHelper
         ]
     end
 
+    # hidden input is used for boolean-like filters which don't have any selection controls, as they themselves act as a checkbox; thus, use a hidden input field to pass the filter value along to the filter form
     def filter_hidden_input form, id, value = false
         form.hidden_field id, value: value, id: "#{id}-filter-active", data: { "filter-toggle-target" =>  "flag" }
     end
@@ -48,19 +50,22 @@ module FiltersHelper
         tag.label label, class: "filter-label"
     end
 
+    ## all filter controls are disabled by default at start, because filters are never assumed to be active when any page is first loaded
+    # filters should be activated through proper stimulus controls whenever the user explicitly requests them
+
     def keyscale_filter_field form, label, id
         double_collection_filter_field form, label || "Key & Scale", id || "key", { name: :key, items: Key.for_select, key: :id, label: :shorthand }, { name: :scale, items: Scale.for_select, key: :id, label: :name }
     end
 
     def capo_filter_field form, label, id, instrument = Instrument.default
         filter_field form, label || "Suggested Capo", id || "capo" do
-            select_tag :capo, options_for_select(instrument.capo_range)
+            select_tag :capo, options_for_select(instrument.capo_range), disabled: true
         end
     end
 
     def collection_filter_field form, label, id, collection_options = {}
         filter_field form, label, id do
-            select_tag collection_options[:name], options_from_collection_for_select(collection_options[:items], collection_options[:key], collection_options[:label])
+            select_tag collection_options[:name], options_from_collection_for_select(collection_options[:items], collection_options[:key], collection_options[:label]), disabled: true
         end
     end
 
@@ -75,12 +80,10 @@ module FiltersHelper
     # label => label shown to the user
     def double_collection_filter_field form, label, id, first_collection_options = {}, second_collection_options = {}
         filter_field form, label, id do
-            tag.div do
-                safe_join [
-                    select_tag(first_collection_options[:name], options_from_collection_for_select(first_collection_options[:items], first_collection_options[:key], first_collection_options[:label])),
-                    select_tag(second_collection_options[:second], options_from_collection_for_select(second_collection_options[:items], second_collection_options[:key], second_collection_options[:label]))
-                ]
-            end
+            safe_join [
+                select_tag(first_collection_options[:name], options_from_collection_for_select(first_collection_options[:items], first_collection_options[:key], first_collection_options[:label]), disabled: true),
+                select_tag(second_collection_options[:name], options_from_collection_for_select(second_collection_options[:items], second_collection_options[:key], second_collection_options[:label]), disabled: true )
+            ]
         end
     end
 end

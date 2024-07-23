@@ -63,12 +63,37 @@ class Song < ApplicationRecord
     OUTPUT_LINE_TYPE__CHORDS = "chords"
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
 
+    VALID_FILTERS = [:key, :capo, :artist, :favorite]
+
+
     def plays(user)
         if user
             song_plays.where(user: user).size
         else
             0
         end
+    end
+
+    # @params => params of a typical song_filter form (that would be submitted to a SongFiltersController)
+    def self.filter(params, collection = Song.none)
+        VALID_FILTERS.each do |filter|
+            if params[filter]
+                case filter
+                when :key then
+                    collection = collection.filter_by_keyscale(params[:key], params[:scale])
+                when :capo then
+                    collection = collection.filter_by_capo(params[:capo])
+                when :artist then
+                    collection = collection.filter_by_artist(params[:artist])
+                when :favorite then
+                    # only filter for favorites, otherwise do nothing to keep including both favorites and non-favorites, rather than just non-favorites
+                    if params[:favorite] == "true" || params[:user_id]
+                        collection = collection.filter_by_favorite(params[:user_id])
+                    end
+                end
+            end
+        end
+        collection
     end
 
     def last_play(user)

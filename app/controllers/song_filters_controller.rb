@@ -1,5 +1,15 @@
 class SongFiltersController < ApplicationController
     def create
-        # Started GET "/song_filters?key=1&key=false&capo=-1&capo=false&artist=2&artist=false&favorite=false&commit=Apply" for 127.0.0.1 at 2024-07-23 14:04:15 -0400
+
+        @songs = if user_signed_in? then
+            Song.filter(song_filter_params, Song.filter_by_visibility(current_user.id))
+        else
+            Song.filter(song_filter_params, Song.only_public)
+        end
+    end
+
+    private
+    def song_filter_params
+        params.merge({user_id: current_user&.id })
     end
 end
