@@ -1,6 +1,6 @@
-<%= tag.div class: "filters" do %>
-    <%= tag.label t('keywords.filter') %>
-    <%= form_with url: song_filters_path, method: :get do |form| %>
+<%= tag.details class: "filters" do %>
+    <%= tag.summary t('keywords.filter').pluralize %>
+    <%= form_with url: song_filters_path do |form| %>
         <%= filter_option :keyscale, form %>
         <%= filter_option :capo, form %>
         <%= filter_option :collection, form, Artist.model_name.human, "artist", { name: :artist, items: Artist.for_select, key: :id, label: :name } %>   

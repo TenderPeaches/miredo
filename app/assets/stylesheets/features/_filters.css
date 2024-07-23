@@ -5,9 +5,22 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    padding: var(--size-xxs);
     height: 3em;                /* standardize height regardless of filter content */ 
+    cursor: pointer;
+    border: rgba(0, 0, 0, 0) 1px solid;
+}
+.filter-field:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: var(--color-primary-dark);
 }
 
-.filter-field.active .filter-toggle { 
-    color: var(--color-primary-lightest);
+.filter-field.active {
+    border-color: var(--color-accent-lightest);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.filter-field.active .filter-label { 
+    color: var(--color-accent-lightest);
 }

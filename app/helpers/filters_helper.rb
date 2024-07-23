@@ -25,13 +25,16 @@ module FiltersHelper
                 if block_given?
                     safe_join [
                         filter_label(label),
-                        block.call
+                        block.call,
+                        filter_hidden_input(form, id)
                     ]
                 else
-                    filter_label(label)
+                    safe_join [
+                        filter_label(label),
+                        filter_hidden_input(form, id)
+                    ]
                 end
             end,
-            filter_hidden_input(form, id)
         ]
     end
 
@@ -42,7 +45,7 @@ module FiltersHelper
     # filters use toggle-labels - press on the label to activate/deactivate the filter, effectively turning the label into a checkbox of sorts
     def filter_label label
         # check_box_tag
-        tag.label label, class: "filter-toggle", data: { "filter-toggle-target" =>  "toggle" }
+        tag.label label, class: "filter-label"
     end
 
     def keyscale_filter_field form, label, id
