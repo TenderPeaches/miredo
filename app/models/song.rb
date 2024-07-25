@@ -74,7 +74,8 @@ class Song < ApplicationRecord
         end
     end
 
-    # @params => params of a typical song_filter form (that would be submitted to a SongFiltersController)
+    # filters a collection of songs, against a set of params
+    # @params => params of a typical song_filter form (that would be submitted to a SongFiltersControllert), see VALID_FILTERS for valid filter keys; can also contain a :user_id value for some filters that need the current_user.id
     def self.filter(params, collection = Song.none)
         VALID_FILTERS.each do |filter|
             if params[filter]
@@ -87,7 +88,7 @@ class Song < ApplicationRecord
                     collection = collection.filter_by_artist(params[:artist])
                 when :favorite then
                     # only filter for favorites, otherwise do nothing to keep including both favorites and non-favorites, rather than just non-favorites
-                    if params[:favorite] == "true" || params[:user_id]
+                    if params[:favorite] == "true" && params[:user_id]
                         collection = collection.filter_by_favorite(params[:user_id])
                     end
                 end

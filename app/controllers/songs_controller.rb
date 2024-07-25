@@ -63,9 +63,9 @@ class SongsController < ApplicationController
 
     # POST /songs
     def create
-        @song = Song.new(song_params.merge({submitter_id: current_user&.id }))
+        @song = Songs::Creator.new(current_user&.id).create(song_params).song
 
-        if @song.save
+        if @song.valid?
             if params[:progression_templates]
                 redirect_to progression_templates_path(@song), notice: "Song was successfully created."
             else
