@@ -1,25 +1,12 @@
 <%= render "songs/index/nav" %>
 
-<%= tag.div class: "form-options" do %>
+<%= tag.section class: "form-options" do %>
     <%= render "songs/index/sort_options" %>
     <%= render "songs/index/filters" %>
 <% end %>
-<%= tag.table class: "songs-list" do %>
-    <%= tag.thead do %>
-        <%= tag.tr do %>
-            <%= tag.th do %><% end %>
-            <%= tag.th do %>Song<% end %>
-            <%= tag.th do %>Artists<% end %>
-            <%= tag.th do %>Capo<% end %>
-            <%= tag.th do %>Plays<% end %>
-            <%= tag.th do %>Last Played<% end %>
-            <%= tag.th do %>...<% end %>
-        <% end %>
-    <% end %>
-    <%= tag.tbody id: "songs" do %>
-        <% @songs.each do |song| %>
-            <%= render song %>
-        <% end %>
+<%= tag.section class: "songs-list", id: "songs" do %>
+    <% @songs.each do |song| %>
+        <%= render song %>
     <% end %>
 <% end %>
 

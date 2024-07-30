@@ -1,11 +1,44 @@
 .songs-list {
-    font-size: var(--font-size--l);
+    display: grid;                      /* lots of data, so align the columns to make it easier for the user to make sense of it all */         
+    grid-template-columns: [start] 1fr 3fr 2fr 2fr [end];
+    font-size: var(--font-size-l);
+}
+
+.song {
+    display: grid;
+    grid-column-start: start;
+    grid-column-end: span end;
+    grid-template-columns: subgrid;
+    grid-template-rows: 1fr 1fr;
+    column-gap: var(--size-s);
+    row-gap: var(--size-xs);
+    justify-items: left;
+    align-items: center;
+    padding: var(--size-s);
+}
+
+.song:hover {
+    background: var(--color-primary-darkest);
+}
+
+.song, 
+.song:hover {
+    transition-duration: var(--quick-duration);
 }
 
 /* "play song" cell */
 .songs-list__play div {
     display: flex;
     gap: var(--size-m);
+}
+
+.songs-list__title {
+    text-align: center;
+}
+
+.songs-list__capo,
+.songs-list__plays {
+    text-align: right;
 }
 
 /* any link within the title cell */
@@ -31,4 +64,15 @@
 
 .song-row--red {
     background-color: var(--color-practice--red);
+}
+
+@media screen and (min-width: 720px) {
+    .songs-list {
+        grid-template-columns: [start] 1fr [song] 6fr [artist] 4fr [capo] 1fr [play-count] 1fr [last-play] 2fr [play-actions] 2fr [end];    /* songs are displayed as: "[FavoriteBtn] Song Title by Some Artist [Capo] [PlayCount] [LastPlayed] [Play] [Play+] */
+    }
+
+    .songs-list__title {
+        text-align: left;
+    }
+
 }
