@@ -26,7 +26,7 @@
 
 <%= form.fields_for :song_contributions do |song_contributions_form| %>
     <%= song_contributions_form.label :artist, "Artist" %>
-    <%= song_contributions_form.collection_select :artist_id, Artist.all, :id, :name, :prompt => "" %>
+    <%= song_contributions_form.collection_select :artist_id, Artist.for_select, :id, :name, :prompt => "" %>
     
     <% if song_contributions_form.object && song_contributions_form.object.persisted? %>
         <div>

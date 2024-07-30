@@ -47,5 +47,5 @@ Rails.application.routes.draw do
 
     resources :publications, only: [:index]
 
-    root "songs#index"
+    root "application#index"
 end

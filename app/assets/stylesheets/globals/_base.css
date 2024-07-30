@@ -105,19 +105,37 @@ hr {
     color: var(--color-primary-darker);
 }
 
+/* header for mobile */
+header {
+    position: relative;                 /* make it stick to the top of the page so it doesn't always occupy space, and also because I'm not in love with the burger-expanding-menu paradigm so KISS for now */ 
+    display: flex;                      /* vertical flex */
+    flex-direction: column;             /* vertical flex */
+    align-items: center;                /* center items along the Y-axis */
+    background: var(--color-black);     /* different background from page content */
+    border-bottom: 1px ridge var(--color-primary-dark); /* add an edge to the bottom */
+}
+
+/* nav menu within header for mobile */
+header nav {
+    display: flex;                      /* vertical flex */
+    flex-direction: column;             /* vertical flex */
+    gap: var(--size-m);                 /* space elemenets away from each other to prevent fat-fingering */ 
+    align-items: center;                /* center items along the y-axis */
+    padding: var(--size-xxs) var(--size-s) var(--size-l);   /* add padding to the bottom and a little bit towards the edges */
+}
+
 /* screen-size dependent considerations */
 /* for large screens */
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 720px) {
 
     /* header nav bar */
     header {
         position: fixed;
+        flex-direction: row;
         display: flex;                                      /* horizontal flex */
         width: 100vw;
         justify-content: space-between;                     /* title to the left, nav to the right */
         padding: var(--size-xxs) var(--size-l);             /* header internal padding */
-        border-bottom: 1px ridge var(--color-primary-dark); /* bottom edge */
-        background: var(--color-black);                     /* differentiate from page content */
         align-items: center;
         font-size: var(--font-size-xxl);              /* everything on header is important */
         z-index: 10;                    /* prevent clipping */
@@ -132,6 +150,7 @@ hr {
     header nav {
         display: flex;
         gap: var(--size-xxxl);                              /* space out links */
+        flex-direction: row;
     }
 
     /* header links */

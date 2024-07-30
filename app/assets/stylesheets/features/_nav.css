@@ -1,0 +1,6 @@
+.content nav {
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-m);
+    justify-content: center;
+}
