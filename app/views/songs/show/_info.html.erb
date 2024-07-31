@@ -1,13 +1,19 @@
 <%# helpful song info %>
 <%= tag.div class: "song-info" do %>
     <%# original song key & scale %>
-    <%= tag.div "Originally in #{song.keyscale}" %>
+    <%= tag.div t('song_data.key', key: song.keyscale) %>
     <%# suggested capo %>
-    <%= tag.div "Suggested capo: #{song.capo}" %>
+    <% capo_label = if song.capo.nil? || song.capo == 0 then 
+            t('song_data.no_capo') 
+        elsif song.capo < 0 then
+            t('song_data.negative_capo', capo: (song.capo * -1).to_s)
+        else
+            t('song_data.capo', capo: song.capo) %>
+    <%= tag.div capo_label %>
     <%# number of times practiced %>
-    <%= tag.div "Practiced #{SongPlay.where(song: song, user: current_user).count} times"%>
+    <%= tag.div t('song_data.nb_practice_user', times: SongPlay.where(song: song, user: current_user).count) %>
     <%# user who submitted the song tab %>
-    <%= tag.div "Submitted by #{song.submitter&.username || "Anon"}" %>
+    <%= tag.div t('song_data.submitter', user: song.submitter&.username || "Anon") %>
     <%# last played info %>
     <% if song.last_play current_user %>
         <%= song_last_played_label song %>

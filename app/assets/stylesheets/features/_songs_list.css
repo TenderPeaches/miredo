@@ -77,4 +77,8 @@
         text-align: left;           /* align the title with the left-most edge for cleaner look */
     }
 
+    .song {
+        grid-template-rows: initial;    /* reset */
+    }
+
 }

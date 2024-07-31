@@ -1,11 +1,15 @@
 <!-- to be used with songs whose structure is dictated by Progression entities, rather than plaintext -->
 <%= tag.section class: "actions" do %>
  <%# options_panel %>
+    <%# song title %>
+    <%= tag.div class: "title" do %>
+        <%= tag.h1 "#{@song.id}) #{@song.artist} - #{@song.name}" %>
+    <% end %>
     <%= render "songs/show/nav", song: @song %>
     <%= render "songs/show/admin_actions", song: @song %>
     <%= render "songs/show/options", song: @song %>
-    <%= turbo_link_button "Play", song_plays_path(song_id: @song.id), method: :post %>  
-    <%= turbo_link_button "Play+", song_plays_path(song_id: @song.id, by_heart: true), method: :post %>  
+    <%= turbo_link_button t('controls.play'), song_plays_path(song_id: @song.id), method: :post, class: "button--square" %>  
+    <%= turbo_link_button t('controls.play_by_heart'), song_plays_path(song_id: @song.id, by_heart: true), method: :post, class: "button--square" %>  
 <% end %>
 <%= tag.section class: "helpers" do %>
     <%= render "songs/show/info", song: @song %>

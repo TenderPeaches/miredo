@@ -53,6 +53,21 @@ en:
     page_name: "Settings"
     default_instrument: "Default instrument"
     user_instruments: "Set Instruments"
+  controls:
+    next: "Next"
+    previous: "Previous"
+    random: "Random"
+    play: "✓"
+    play_by_heart: "♥︎"
+  song_data:
+    key: "Originally in %{key}"
+    capo: "Suggested capo: %{capo}th fret"
+    no_capo: "No capo"
+    negative_capo: "Tune down %{capo} half-steps"
+    nb_practice_user: "You practiced this %{times} times"
+    nb_practice_all: "This song has been practiced %{times} times"
+    submitter: "The tablature was submitted by %{user}"
+    last_played: "Last played %{time} %{unit} ago"
   activerecord:
     models:
       admin: "Admin"

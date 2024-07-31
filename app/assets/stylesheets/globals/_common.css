@@ -2,7 +2,7 @@
 
 /* main application content viewport, occupies most of the screen */
 .content {
-    padding: var(--size-xxl) calc(2 * var(--size-xxxl));    /* large padding for large screens */
+    padding: var(--size-m) var(--size-s);   /* maximize content with a small buffer zone for mobile */
     text-align: center;
 }
 
@@ -46,13 +46,15 @@ input[type="submit"] {
     color: var(--color-primary-white);
 }
 
+/* square buttons, usually used with icons or single characters */
 .button--square {
-    display: inline-block;                                  /* force inline-block display, otherwise flex will change the dimensions */
+    display: inline-flex;                                  /* force inline display, otherwise flex will change the dimensions */
     padding: 0;                                             /* set dimensions manually, remove padding for easier calculations */
-    width: var(--size-xl);                                  /* ensure same size as height */
-    height: var(--size-xl);                                 /* ensure same size as width */
+    width: var(--size-xxxl);                                  /* ensure same size as height */
+    height: var(--size-xxxl);                                 /* ensure same size as width */
     flex-direction: column;                                 /* center vertically */
     justify-content: center;                                /* center vertically */
+    font-size: var(--font-size-xxxl);                       /* big character, since there's just one */ 
 }
 
 /* generic clickable element */ 

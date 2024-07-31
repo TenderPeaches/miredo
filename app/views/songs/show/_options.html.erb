@@ -1,9 +1,5 @@
 <%# song options form %>
 <%= form_tag song_path(song.id), class: "song-options", method: :get do %>
-    <%# song title %>
-    <%= tag.div class: "title" do %>
-        <%= tag.h1 "#{song.id}) #{song.artist} - #{song.name}" %>
-    <% end %>
     <%# capo selection %>
     <%= tag.div class: "field" do %>
         <%= label_tag :capo, "Capo:" %>
