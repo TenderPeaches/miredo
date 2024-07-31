@@ -1,44 +1,44 @@
 .songs-list {
     display: grid;                      /* lots of data, so align the columns to make it easier for the user to make sense of it all */         
-    grid-template-columns: [start] 1fr 3fr 2fr 2fr [end];
-    font-size: var(--font-size-l);
+    grid-template-columns: [start] 1fr 3fr 2fr 2fr [end];   /* on mobile, use a 2-row layout for each song */
+    font-size: var(--font-size-l);      /* important page with only short bits of text (song name & artist name), make it legible */
+    row-gap: var(--size-s);             /* small gap between songs, enough to make each one stand out */
 }
 
 .song {
-    display: grid;
-    grid-column-start: start;
-    grid-column-end: span end;
-    grid-template-columns: subgrid;
-    grid-template-rows: 1fr 1fr;
-    column-gap: var(--size-s);
-    row-gap: var(--size-xs);
-    justify-items: left;
-    align-items: center;
-    padding: var(--size-s);
+    display: grid;                      /* the songs themselves are displayed as a subgrid */
+    grid-column-start: start;           /* it spans from the start (before 1st column) ... */grid-column-end: span end;          /* ... to the end (after last column */
+    grid-template-columns: subgrid;     /* it uses the same column templates as its parent grid */
+    grid-template-rows: 1fr 1fr;        /* use a 2-row layout for mobile */
+    column-gap: var(--size-s);          /* small gap between each piece of data */
+    row-gap: var(--size-xs);            /* small gap between the rows */
+    justify-items: left;                /* align items with the edge */
+    align-items: center;                /* vertically center items within their tracks */
+    padding: var(--size-s);             /* extra padding for the background color */
 }
 
 .song:hover {
-    background: var(--color-primary-darkest);
+    background: var(--color-primary-darkest);       /* imply a button, without implying clickable */
 }
 
 .song, 
 .song:hover {
-    transition-duration: var(--quick-duration);
+    transition-duration: var(--quick-duration);     /* standard */
 }
 
 /* "play song" cell */
 .songs-list__play div {
-    display: flex;
-    gap: var(--size-m);
+    display: flex;              /* display both "play" and "play+" actions as a flex */
+    gap: var(--size-m);         /* add spacing between both actions */
 }
 
 .songs-list__title {
-    text-align: center;
+    text-align: center;         /* center the song title */
 }
 
 .songs-list__capo,
 .songs-list__plays {
-    text-align: right;
+    text-align: right;          /* align the data with the rightmost edge for consistency */
 }
 
 /* any link within the title cell */
@@ -46,8 +46,9 @@
     text-decoration: none;      /* remove underline */
 }
 
+/* color classes */
 .song-row--by-heart {
-    background-color: var(--color-practice--by-heart);
+    background-color: var(--color-practice--by-heart); 
 }
 
 .song-row--green {
@@ -69,10 +70,11 @@
 @media screen and (min-width: 720px) {
     .songs-list {
         grid-template-columns: [start] 1fr [song] 6fr [artist] 4fr [capo] 1fr [play-count] 1fr [last-play] 2fr [play-actions] 2fr [end];    /* songs are displayed as: "[FavoriteBtn] Song Title by Some Artist [Capo] [PlayCount] [LastPlayed] [Play] [Play+] */
+        row-gap: var(--size-xxxs);  /* smaller gap on PC as each individual item is easier to make out */
     }
 
     .songs-list__title {
-        text-align: left;
+        text-align: left;           /* align the title with the left-most edge for cleaner look */
     }
 
 }
