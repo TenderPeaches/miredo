@@ -147,6 +147,9 @@ input[type="submit"]:active {
     align-items: center;
 }
 
+.table-title h4{
+    color: var(--primary-color-white);      /* secondary table titles use a different color for contrast */
+}
 
 /* screen-size dependent considerations */
 /* for large screens */

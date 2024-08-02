@@ -13,35 +13,48 @@
    color: var(--color-secondary-lightest);   /* use a contrast color, this is the _title_! */
 }
 
+.song-info {
+   margin: var(--size-m);           /* loose text, add external buffer */ 
+}
+
 /* top side info panel */
-.song-top-panel {
-   display: flex; 
-   flex-direction: row;
-   justify-content: space-around;
+.helpers {
+   display: flex;                   /* vertical flex, ideally should be some sort of tabbed pane */
+   flex-direction: column;          /* vertical flex */
+   justify-content: space-between;  /* space elements out, minimize buffer to the outside */
+   align-items: stretch;            /* required for grid child elements to strech across */
+   gap: var(--size-l);              /* each sub-element is its own self-contained feature, so add a sizable gap */
 }
 
-/*! song-line is deprecated, but still used */
-/* lyrics line */
-.song-line,
-.song-progression__lyrics {
-   margin-top: var(--size-xxs);            /* just a bit of breathing room */
-   margin-bottom: var(--size-xxs);         /* just a bit of breathing room */
-   font-size: var(--font-size-lyrics);     /* big enough to read easily */
+.helpers .chords {   
+   display: grid;                   /* might have lots of chords, display as a grid to maximize data density */
+   grid-template-columns: repeat(3, 1fr); /* split in 3 columns for smaller devices */
+   text-align: left;                /* align the start of each line */ 
+   border-width: var(--thick-border-width);     /* thick helper border */ 
+   border-style: var(--default-border-style);   /* default */
+   border-color: var(--color-primary);          /* helpers have colored borders */
 }
 
-.song-progression__lyrics {
-font-size: 0.95rem;
+.helpers .chords .chord {
+   display: flex;                   /* display in a line */
+   justify-content: space-between;  /* tuck the cypher to the left, notes to the right */
+   align-items: center;             /* vertically center along the row */
+   padding: var(--size-s);          /* buffer between each chord */
+   border-width: var(--thin-border-width);   /* default */
+   border-color: var(--color-primary);       /* helper color */
+   border-style: solid;                      /* default */
+   margin-left: -1px;               /* collapse borders */
+   margin-bottom: -1px;             /* collapse borders */
 }
 
-/*! song-line--chord is deprecated, but still used */
-/* chords line */
-.song-line--chords,
-.song-progression__chords {
-   margin-top: 0.5em;                      /* breathing room */
-   margin-bottom: 0.5em;                   /* breathing room */
+.helpers .chords .chord .cypher {
+   font-size: var(--font-size-l);
+   font-weight: bold;
+   color: var(--color-secondary-lightest);
+}
 
-   color: var(--color-white);    /* clash with background/lyrics */
-   font-size: var(--font-size-lyrics);     /* big enough to read easily */
+.helpers .chords .chord .cypher::after {
+   content: "→"
 }
 
 /* degree/chords coloring */
@@ -90,30 +103,56 @@ color: var(--color-degree-seventh-light);
    padding: var(--size-m);       /* internal buffer with the border */
 }
 
- .admin-actions *, .nav-links * {
-  margin: 0;                     /* remove extraneous margins */
- }
+.admin-actions *, .nav-links * {
+   margin: 0;                    /* remove extraneous margins */
+}
 
- .scale-chords {
-  width: 4rem;
- }
+.scale-chords td {
+   text-align: center;
+}
 
- .scale-chords td {
-  text-align: center;
- }
+.instruments {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
 
- .actions form {
-   
- }
+.instrument-view {
+   transform: scale(75%);     /* scale down for mobile, check if new features are added */ /*! this will break as soon as # of frets is a setting */
+}
 
- .instruments {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- }
+.play-actions {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
 
 @media screen and (min-width: 720px) {
    .show-song {
       columns: 2;             /* on pc, screen is large enough to accomodate content in two columns */ /*? should this be the case? with a scrolling feature, the lyrics will need to be in a single column */
+   }
+
+   .song-info {
+      margin: var(--size-xl);          /* more external buffer on large screens */
+   }
+
+   .helpers .chords {
+      grid-template-columns: repeat(5, 1fr);
+   }
+
+   .instrument-view {
+      transform: initial;
+   }
+}
+
+@media screen and (min-width: 1400px) {
+   .helpers .chords {
+      grid-template-columns: repeat(8, 1fr);
+   }
+
+   .instrument-view {
+      transform: scale(125%);
+      margin: var(--size-xl);
    }
 }

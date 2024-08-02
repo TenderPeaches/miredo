@@ -7,7 +7,7 @@
         <%= hidden_field_tag :capo, instrument_view.capo, id: "instrument-view-capo" %>
         <%= submit_tag t('keywords.apply') %>
     <% end %>
-    <%= tag.div id: "instrument-view" do %>
+    <%= tag.div id: "instrument-view", class: "instrument-view" do %>
         <%= instrument_print(instrument_view) %>
     <% end %>
 <% end %>

@@ -1,13 +1,25 @@
+<%#! ensure modifier has been initialized, should be removed (and a modifier of 0 be passed by default whenever this partial is called upon %>
 <% modifier ||= 0 %>
+<% if local_assigns[:no_title].nil? %>
+    <%= tag.div class: "table-title" do %>
+        <%= tag.h3 t('song_data.scale_degrees') %>
+        <%= tag.h4 "#{key.shorthand} #{scale.name}" %>
+    <% end %>
+<% end %>
+<%# table for a simple grid layout %>
 <%= tag.table class: "scale-chords" do %>
-    <% scale.get_degree_chords(key, modifier).each_with_index do |chord, i| %>
-        <%= tag.tr do %>
-            <%= tag.th do %>
-                <%= chord[:degree] %>
-            <% end %>
-            <%= tag.td class: "degree-#{i + 1}" do %>
-                <%= chord[:print] %>
-            <% end %>
+    <%# use a horizontal table to minimize vertical space taken, so iterate within the row %>
+    <%= tag.tr do %>
+        <%# iterate on the chords associated with each degree on this scale, given the semitones shift indicated by `modifier` %>
+        <% scale.get_degree_chords(key, modifier).each_with_index do |chord, i| %>
+            <%# print the degrees in the first/header row%>
+            <%= tag.th chord[:degree], class: "degree-#{i + 1}" %>
+        <% end %>
+    <% end %>
+    <%# repeat the process for the second row, with the chords%>
+    <%= tag.tr do %>
+        <% scale.get_degree_chords(key, modifier).each_with_index do |chord, i| %>
+            <%= tag.td chord[:print], class: "degree-#{i + 1}" %>
         <% end %>
     <% end %>
 <% end %>

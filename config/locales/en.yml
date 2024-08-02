@@ -68,6 +68,8 @@ en:
     nb_practice_all: "This song has been practiced %{times} times"
     submitter: "The tablature was submitted by %{user}"
     last_played: "Last played %{time} %{unit} ago"
+    scale_degrees: "Scale degrees"
+    chords: "Chords used"
   activerecord:
     models:
       admin: "Admin"

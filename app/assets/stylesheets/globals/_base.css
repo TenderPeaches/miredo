@@ -61,6 +61,12 @@ table {
     width: 100%;
  }
 
+/* header defaults */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-secondary-lightest);     /* all headers are implicitly of importance, thus use a contrasting color */
+    margin: 0;          /* if headers need margin, add it, don't default to it */   
+}
+
 /* helps with complex forms, used for submodels */
 fieldset {
     padding: var(--size-m);                                 /* internal spacing */
@@ -122,6 +128,17 @@ header nav {
     gap: var(--size-m);                 /* space elemenets away from each other to prevent fat-fingering */ 
     align-items: center;                /* center items along the y-axis */
     padding: var(--size-xxs) var(--size-s) var(--size-l);   /* add padding to the bottom and a little bit towards the edges */
+}
+
+/* header title */
+header h1, header h2 {
+    color: var(--color-primary-lightest);   /* use default color for header title */
+    margin: var(--size-s) 0 var(--size-l)   /* little padding up top, a lot below, none on the sides */
+}
+
+/* direct header links get no underline (so far only title link is not in nav child) */
+header > a {
+    text-decoration: none;
 }
 
 /* screen-size dependent considerations */

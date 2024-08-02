@@ -1,5 +1,5 @@
 <%# helpful song info %>
-<%= tag.div class: "song-info" do %>
+<%= tag.section class: "song-info" do %>
     <%# original song key & scale %>
     <%= tag.div t('song_data.key', key: song.keyscale) %>
     <%# suggested capo %>
@@ -8,7 +8,8 @@
         elsif song.capo < 0 then
             t('song_data.negative_capo', capo: (song.capo * -1).to_s)
         else
-            t('song_data.capo', capo: song.capo) %>
+            t('song_data.capo', capo: song.capo)
+        end %>
     <%= tag.div capo_label %>
     <%# number of times practiced %>
     <%= tag.div t('song_data.nb_practice_user', times: SongPlay.where(song: song, user: current_user).count) %>
