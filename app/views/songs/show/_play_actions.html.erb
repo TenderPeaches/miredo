@@ -1,4 +1,10 @@
 <%= tag.section class: "play-actions" do %>
-    <%= turbo_link_button t('controls.play'), song_plays_path(song_id: song.id), method: :post, class: "button--square" %>  
-    <%= turbo_link_button t('controls.play_by_heart'), song_plays_path(song_id: song.id, by_heart: true), method: :post, class: "button--square" %> 
+    <%= tag.span do %>
+        <%= tag.span "I have played this song: " %>
+        <%= turbo_link_button t('controls.play'), song_plays_path(song_id: song.id), method: :post, class: "button--square" %>  
+    <% end %>
+    <%= tag.span do %>
+        <%= tag.span "I have played this song by heart!: " %>
+        <%= turbo_link_button t('controls.play_by_heart'), song_plays_path(song_id: song.id, by_heart: true), method: :post, class: "button--square" %> 
+    <% end %>
 <% end %>

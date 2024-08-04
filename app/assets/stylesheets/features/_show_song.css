@@ -11,6 +11,7 @@
    flex-direction: row;             /* horizontal flex */
    justify-content: center;         /* center in the page */
    color: var(--color-secondary-lightest);   /* use a contrast color, this is the _title_! */
+   margin: var(--size-m) 0 var(--size-xxl);
 }
 
 .song-info {
@@ -101,6 +102,7 @@ color: var(--color-degree-seventh-light);
    border-style: var(--default-border-style);   /* default */
    border-color: var(--color-primary-white);    /* default */
    padding: var(--size-m);       /* internal buffer with the border */
+   margin-bottom: calc(var(--thin-border-width) * -1);
 }
 
 .admin-actions *, .nav-links * {

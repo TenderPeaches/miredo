@@ -17,8 +17,8 @@
 <%# helper %>
 <%= tag.section class: "helpers" do %>
     <%= render "scales/print", scale: @song.scale, key: @key %> 
-    <%= render "songs/show/chords", chords: @chords %>
     <%= render "songs/show/instrument_view", instrument_view: @instrument_view %>
+    <%= render "songs/show/chords", chords: @chords %>
 <% end %>
 <%# print the song lyrics & chords %>
 <%= tag.section class: "show-song", data: { controller: "show-song" } do %> 

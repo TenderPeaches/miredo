@@ -3,6 +3,7 @@
     grid-template-columns: [start] 1fr 3fr 2fr 2fr [end];   /* on mobile, use a 2-row layout for each song */
     font-size: var(--font-size-l);      /* important page with only short bits of text (song name & artist name), make it legible */
     row-gap: var(--size-s);             /* small gap between songs, enough to make each one stand out */
+    margin: var(--size-m) 0;            /* external vertical buffer */
 }
 
 .song {
