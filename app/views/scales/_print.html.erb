@@ -2,7 +2,7 @@
 <% modifier ||= 0 %>
 <% if local_assigns[:no_title].nil? %>
     <%= tag.div class: "table-title" do %>
-        <%= tag.h3 t('song_data.scale_degrees') %>
+        <%= tag.h3 t('content.songs.scale_degrees') %>
         <%= tag.h4 "#{key.shorthand} #{scale.name}" %>
     <% end %>
 <% end %>
