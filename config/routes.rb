@@ -47,5 +47,7 @@ Rails.application.routes.draw do
 
     resources :publications, only: [:index]
 
+    resources :inquiries, only: [:index]
+
     root "application#index"
 end

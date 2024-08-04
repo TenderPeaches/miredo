@@ -1,0 +1,9 @@
+<%= tag.section class: "notice" do %>
+    <%= tag.h2 t('notices.early_access.title') %>
+    <%= tag.p t('notices.early_access.blurb_warning') %>
+    <%= tag.p do %>
+        <%= link_to t('notices.early_access.blurb_reach_out_prompt'), inquiries_path %> 
+        <%= tag.span " #{t('notices.early_access.blurb_reach_out_text')}" %>
+    <% end %>
+    <%= tag.p t('notices.early_access.blurb_suggestions') %>
+<% end %>

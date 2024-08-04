@@ -8,12 +8,22 @@
     border-style: var(--default-border-style);  /* defualt */
     border-width: var(--thin-border-width);     /* default */
     padding: var(--size-m);                     /* internal buffer between content and border */
+    margin: var(--size-m);                      /* external padding away from the border */
+    line-height: 1.5lh;                         /* let the text breathe by spacing lines away from each other */
 }
 
-.notice .title {
+/* any notice heading */
+.notice h1, .notice h2, .notice h3, .notice h4 {
     color: var(--color-secondary-white);        /* contrast the title */
 }
 
 .notice p {
     text-align: justify;                        /* notices might contain enough content that the text would need to be justifited */
+}
+
+@media screen and (min-width: 720px) {
+    .notice {
+        padding: var(--size-l) var(--size-xl);
+        margin: var(--size-xl);
+    }
 }

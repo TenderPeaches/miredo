@@ -49,18 +49,18 @@ en:
     random: "Random"
     play: "✓"
     play_by_heart: "♥︎"
+  notices:
+    early_access:
+      title: "Early access"
+      blurb_warning: "Miredo is an individual-scale project which only launched recently. As such, many features might behave unexpectedly or outright not work under certain circumstances."
+      blurb_reach_out_prompt: "Please reach out"
+      blurb_reach_out_text: "to describe any issues and I'll do my best to fix them in a hopefully somewhat timely fashion."
+      blurb_suggestions: "Likewise, suggestions for new features are welcome but the current priority is to fine-tune the existing ones."
+    funding: 
+      title: "Help Miredo stay afloat!"
+      blurb: "As of now Miredo has no ads or premium features so it is solely funded through investments from its developers and voluntary donations from its users. Please give according to your usage and means. If you're a professional, check if your donation can be tax-deductible in your jurisdiction, as this could be used for musical or educational purposes."
   content:
     landing:
-    notices:
-      early_access:
-        title: "Early access"
-        blurb_warning: "Miredo is an individual-scale project which only launched recently. As such, many features might behave unexpectedly or outright not work under certain circumstances."
-        blurb_reach_out_prompt: "Please reach out"
-        blurb_reach_out_text: "to describe any issues and I'll do my best to fix them in a timely fashion."
-        blurb_suggestions: "Likewise, suggestions for new features are welcome but the current priority is to fine-tune the existing ones."
-      funding: 
-        title: "Help Miredo stay afloat!"
-        blurb: "There are no ads and no premium features, so Miredo is solely funded through investments from its developers and voluntary donations from its users. Please give according to your usage and means. If you're a professional, check if your donation can be tax-deductible in your jurisdiction."
     help: 
       page_title: "Help"
     references:

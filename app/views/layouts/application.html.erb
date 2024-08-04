@@ -5,10 +5,6 @@
   <%= tag.body do %>
     <%= render "layouts/header" %>
     <%= tag.main class: "content" do %>
-      <%= tag.div class: "flashes" do %>
-        <%= tag.div class: "notice" do %><%= notice %><% end %>
-        <%= tag.div class: "alert" do %><%= alert %><% end %>
-      <% end %>
       <%= yield %>
     <% end %>
   <% end %>
