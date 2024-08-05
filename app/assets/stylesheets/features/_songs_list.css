@@ -36,14 +36,14 @@
     transition-duration: var(--quick-duration);     /* standard */
 }
 
-/* "play song" cell */
-.songs-list__play div {
-    display: flex;              /* display both "play" and "play+" actions as a flex */
-    gap: var(--size-m);         /* add spacing between both actions */
-}
-
 .songs-list__title {
     text-align: center;         /* center the song title */
+}
+
+/* cell that contains the `play`, `play by heart` options */
+.songs-list__play {
+    display: flex;              /* horizontal flex */
+    gap: var(--size-m);         /* medium gap between square buttons */
 }
 
 .songs-list__capo,

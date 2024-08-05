@@ -8,7 +8,7 @@
         elsif song.capo < 0 then
             t('content.songs.negative_capo', capo: (song.capo * -1).to_s)
         else
-            t('content.songs.capo', capo: song.capo)
+            t('content.songs.suggested_capo', capo: song.capo)
         end %>
     <%= tag.div capo_label %>
     <%# number of times practiced %>
