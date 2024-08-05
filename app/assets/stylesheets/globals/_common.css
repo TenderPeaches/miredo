@@ -26,7 +26,7 @@ input[type="submit"] {
     display: inline-block;                                  /* occupy a block */
     cursor: pointer;                                        /* standard */
     padding: var(--size-s);                                 /* inner spacing */
-    margin: var(--size-m);                                  /* outer spacing */
+    margin: var(--size-xxxs);                               /* as small a margin as possible, since flex/grid layouts use the gap attribute to space out elements */
     border-width: var(--thick-border-width);                /* let the border pop */
     border-style: var(--button-border-style);               /* standard */
     transition-duration: var(--quick-duration);             /* standard */
@@ -81,6 +81,18 @@ input[type="submit"] {
 .clickable:active,
 .button:active {
     background: var(--color-primary-darkest);
+}
+
+.button--secondary {
+    background-color: var(--color-secondary-darkest);
+    border-color: var(---color-secondary-white);              /* highlight against dark background */
+    color: var(--color-secondary-white);
+}
+
+.button--accent {
+    background-color: var(--color-accent-darkest);
+    border-color: var(---color-accent-white);              /* highlight against dark background */
+    color: var(--color-accent-white);
 }
 
 .button--alert {

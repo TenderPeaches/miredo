@@ -43,6 +43,9 @@ en:
     log_in: "Already a member?"
     play_song: "I practiced this song"
     play_song_by_heart: "I practiced this song by heart"
+    user_song_plays: "How many times you played this song"
+    user_last_practice: "Last time you practiced this song"
+    song_is_public: "Anyone can see public songs, whereas private songs can only be viewed by whomever is responsible for them"
   settings:
     page_name: "Settings"
   controls:
@@ -51,6 +54,7 @@ en:
     random: "Random"
     play: "✓"
     play_by_heart: "♥︎"
+    edit: "✎"
   notices:
     early_access:
       title: "Early access"
@@ -64,6 +68,9 @@ en:
   instructions:
     song_play: "Press the Play (✓) button after having practiced a song with the help of a tablature or any sort of aid that wouldn't be available during a live performance"
     song_play_by_heart: "Press the Play by Heart (♥︎) button after having practiced a song by heart, without going to a tablature for the chords, lyrics or other helpers at any given time"
+    edit_song: "Change a song's meta-attributes, like its title, default key, suggested capo, etc."
+    define_progressions: "Define the building blocks for the song, known as \"Progression Templates\""
+    edit_song_structure: "Assemble the song by piecing together the progression templates and assigning lyrics to them"
   content:
     landing:
     help: 
@@ -128,7 +135,7 @@ en:
         duration: "Duration (s or m:s)"
         capo: "Suggested capo"
         last_practiced: "Your last practice"
-        nb_practices: "Practiced %{times} times" 
+        nb_practices: "Your practice count" 
         bpm: "Beats per minute (bpm)"
         is_public: "Make public?"
         time_signature: "Time signature"
@@ -136,6 +143,7 @@ en:
         scale: "Scale"
         album: "Initial release Album"
         submitter: "Submitting user"
+        artist: "Artist whose rendition of the song the tab was based on"
       progression_template:
         tag: "Tag"
         reps: "Reps"

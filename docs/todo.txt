@@ -1,5 +1,4 @@
 * Hints:
-    * edit song
     * progression
     * song structure
     * song view

@@ -37,6 +37,6 @@
 
 <%# whether the song can be viewed by anyone %>
 <%= tag.div class: "checkbox-field" do %>
-    <%= form.label :is_public %>
+    <%= form.label :is_public, title: t('hints.song_is_public') %>
     <%= form.check_box :is_public %>
 <% end %>

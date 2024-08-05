@@ -3,4 +3,14 @@
     flex-direction: row;
     gap: var(--size-m);
     justify-content: center;
+    padding: var(--size-m);
+}
+
+@media screen and (min-width: 720px) {
+    .content nav {
+        gap: var(--size-xxxl);
+        padding: var(--size-xl);
+    }
+
+    
 }

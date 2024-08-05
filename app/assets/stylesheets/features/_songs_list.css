@@ -51,11 +51,6 @@
     text-align: right;          /* align the data with the rightmost edge for consistency */
 }
 
-/* any link within the title cell */
-.songs-list__title a {
-    text-decoration: none;      /* remove underline */
-}
-
 /* color classes */
 .song-row--by-heart {
     background-color: var(--color-practice--by-heart); 

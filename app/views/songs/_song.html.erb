@@ -22,5 +22,8 @@
     <%= tag.span class: "songs-list__play" do %>
         <%= song_play_button(song.id) %>
         <%= song_play_by_heart_button(song.id) %>
+        <% if %>
+            <%= song_edit_button(song.id) %>
+        <% end %>
     <% end %>
 <% end %>

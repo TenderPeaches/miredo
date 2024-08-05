@@ -72,11 +72,11 @@ module SongsHelper
             safe_join [
                 tag.span(t('content.songs.favorite'), class: "songs-list__favorite"),
                 tag.span(Song.model_name.human, class: "songs-list__title"),
-                tag.span(Artist.model_name.human, class: "songs-list__artist"),
-                tag.span(t('contents.songs.capo'), class: "songs-list__capo"),
-                tag.span("Your play count", class: "songs-list__plays"),
-                tag.span("Last played", class: "songs-list__last-played"),
-                tag.span("Practice trackers", class: "songs-list__play"),
+                tag.span(Artist.model_name.human, class: "songs-list__artist", title: Song.human_attribute_name(:artist)),
+                tag.span(t('content.songs.capo'), class: "songs-list__capo", title: Song.human_attribute_name(:capo)),
+                tag.span(Song.human_attribute_name(:nb_practices), class: "songs-list__plays", title: t('hints.user_song_plays')),
+                tag.span(Song.human_attribute_name(:last_practice), class: "songs-list__last-played", title: t('hints.user_last_practice')),
+                tag.span(nil, class: "songs-list__play")
             ]
         end
     end
@@ -97,5 +97,17 @@ module SongsHelper
 
     def song_play_by_heart_button(song_id)
         turbo_link_button t('controls.play_by_heart'), song_plays_path(song_id: song_id, by_heart: true), method: :post, class: "button--square", title: t('instructions.song_play_by_heart')
+    end
+
+    def song_edit_button(song_id)
+        link_button_to t('controls.edit'), edit_song_path(song_id), class: "button--square button--secondary", title: t('instructions.edit_song')
+    end
+
+    def song_edit_progression_templates_link(song_id)
+        link_to t('cta.define_progression_templates'), song_progression_templates_path(song_id), title: t('instructions.define_progressions')
+    end
+
+    def song_edit_progressions_link(song_id)
+        link_to t('cta.define_progressions'), song_progressions_path(song_id), title: t('instructions.edit_song_structure')
     end
 end
