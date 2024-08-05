@@ -9,6 +9,11 @@ en:
     sort_by: "Sort by"
     favorites: "Favorites"
     filter: "Filter"
+    new: "New"
+    create: "Create"
+    edit: "Edit"
+    update: "Update"
+    copy: "Copy"
   actions:
     new: "New %{thing}"
     add: "Add %{thing}"

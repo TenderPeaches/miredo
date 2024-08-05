@@ -1,5 +1,2 @@
-<%= tag.h1 "New Song" %>
-
-<%= link_to "< Back", "/", class: "button" %>
-
+<%= tag.h1 t('actions.new', thing: Song.model_name.human) %>
 <%= render "form", song: @song %>

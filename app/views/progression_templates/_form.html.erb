@@ -19,14 +19,14 @@
     <% end %>
     
     <% unless progression_template.new_record? %>
-        <%= turbo_link_button t('actions.copy', thing: t('activerecord.models.progression_template')), new_progression_template_path(progression_template_id: progression_template.id) %>
-        <%= link_to t('actions.delete', thing: t('activerecord.models.progression_template')), progression_template_path(progression_template.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: t('activerecord.models.progression_template')) } %>
+        <%= turbo_link_button t('keywords.copy'), new_progression_template_path(progression_template_id: progression_template.id) %>
+        <%= link_to t('keywords.delete'), progression_template_path(progression_template.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: t('activerecord.models.progression_template')) } %>
     <% end %>
 
     <% if progression_template.id == nil %>
-        <%= form.submit t('actions.create', thing: t('activerecord.models.progression_template')) %>
+        <%= form.submit t('keywords.create') %>
         <%= form.submit t('actions.create', thing: t('keywords.another')), name: :create_another %>
     <% else %>
-        <%= form.submit t('actions.update', thing: t('activerecord.models.progression_template')) %>
+        <%= form.submit t('keywords.update') %>
     <% end %>
 <% end %>

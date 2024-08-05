@@ -1,7 +1,3 @@
-<%= tag.nav do %>
-    <%= song_edit_progression_templates_link(song.id) %>
-    <%= song_edit_progressions_link(song.id) %>
-<% end %>
 <%= model_form_with model: song do |form| %>
     <%= render "songs/errors", song: song %>
 

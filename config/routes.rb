@@ -14,8 +14,6 @@ Rails.application.routes.draw do
 
     resources :progression_templates, except: [ :show, :index ]
 
-    resources :progression_chords, except: [ :index, :show ]
-
     resources :progressions, except: [ :show, :index ]
 
     resources :scales, only: [ :index ]

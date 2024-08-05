@@ -104,10 +104,10 @@ module SongsHelper
     end
 
     def song_edit_progression_templates_link(song_id)
-        link_to t('cta.define_progression_templates'), song_progression_templates_path(song_id), title: t('instructions.define_progressions')
+        link_to t('cta.define_progression_templates'), song_progression_templates_path(song_id: song_id), title: t('instructions.define_progressions')
     end
 
     def song_edit_progressions_link(song_id)
-        link_to t('cta.define_progressions'), song_progressions_path(song_id), title: t('instructions.edit_song_structure')
+        link_to t('cta.define_progressions'), song_progressions_path(song_id: song_id), title: t('instructions.edit_song_structure')
     end
 end

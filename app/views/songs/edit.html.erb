@@ -1,2 +1,6 @@
 <%= tag.h1 "Edit song" %>
+<%= tag.nav do %>
+    <%= song_edit_progression_templates_link(song.id) %>
+    <%= song_edit_progressions_link(song.id) %>
+<% end %>
 <%= render "songs/form", song: @song %>

@@ -223,6 +223,10 @@ class Song < ApplicationRecord
         return output
     end
 
+    def label_with_artist
+        "#{self.name} - #{self.artist}"
+    end
+
     # pick a song (id) at random
     def self.random_id(user_id = 0)
         # the song must be either public or submitted by the user making the request

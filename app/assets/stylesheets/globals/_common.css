@@ -125,11 +125,6 @@ input[type="submit"]:hover {
 input[type="submit"]:active {
     background: var(--color-accent-darker);
 }
-  
-.card {
-    margin: var(--size-m);
-    padding: var(--size-m);
-}
 
 .text-secondary {
     color: var(--color-secondary-lightest);

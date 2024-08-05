@@ -1,16 +1,8 @@
-.current-progression-templates, .new-progression-templates {
-    text-align: left;    
-}
-
-.progression-chord-form {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: var(--size-m);
-}
-
-.progression-chord-form input[type="checkbox"] {
-    margin: 0;
+.progression-template-form {
+    display: flex;                  /* vertical flex */
+    flex-direction: column;         /* vertical flex */
+    align-items: stretch;           /* fill up the space */
+    gap: var(--size-s);             /* buffer between each input field */
 }
 
 .progression-chord-print,
@@ -21,8 +13,5 @@
 .progression-template-print {
     font-size: 1.5rem;
     color: var(--color-accent-lightest);
-}
-
-.field--progression-cypher {
-    width: min(75%, 50vw);          /* smallest between 75% of the content row or half of the screen for mobile */
+    text-align: center;
 }
