@@ -1,11 +1,19 @@
 /* target the .form class, as form elements might be used in situations where these attributes shouldn't apply */
 .form {
-    width: min(95vw, 900px);            /* stretch to 900px or most of the screen, whichever is smaller */
+    width: min(95vw, 900px);            /* stretch to 900px or most of the screen, whichever is smaller, as forms that are too wide will put too much space between the input and the label that identifies it */
     margin: auto;                       /* horizontal center */
     display: flex;                      /* vertical-flex */
     flex-direction: column;             /* vertical-flex */
     align-items: stretch;               /* center items along y-axis */
 }
+
+/* fields used within a typical form */
+.form-fields {
+    display: flex;              /* vertical flex */
+    flex-direction: column;     /* vertical flex */     
+    row-gap: var(--size-m);     /* additional spacing between each field */
+    align-items: stretch;       /* uniformize the width of all the inputs to take up the width of the form */
+  }
 
 .form .actions {
     display: flex;
@@ -16,31 +24,38 @@
     flex: 1;
 }
 
-/* all form fields */
-.field, .checkbox-field {
-    display: flex;
-    align-items: center;
-    margin: var(--size-m);
+.form select {
+    text-align: center;
 }
 
-/* default form fields */
-.field
- {
-    justify-content: space-between;
-    border-bottom: 1px solid var(--color-primary-lightest);
+/* all form fields */
+.field {
+    display: flex;                      /* vertical flex for the label & input to be displayed on top of each other */
+    flex-direction: column;             /* vertical flex */
+    justify-content: space-between;     /* maximize the space, align */
+    gap: var(--size-xs);                /* just enough to cleanly separate the label from its input */
+}
+
+.checkbox-field {
+    display: flex;                      /* checkbox fields have a smaller input, so horizontal flex */
+    flex-direction: row;                /* horizontal flex */
+    justify-content: space-between;     /* tuck label and input into their respective corners */
 }
 
 /* checkbox form fields */
 .checkbox-field {
-    justify-content: center;        /* the contents of checkbox fields are smushed down the middle */
+    justify-content: space-between;        /* the contents of checkbox fields are smushed down the middle */
 }
 
 /* default form field labels */
-.field label {
-    display: inline-block;
-    width: min(40vw, calc(var(--size-xxxl) * 6));   /* set fixed width so the flex displays in grid-like manner */ 
-    text-align: left;               /*? could do right */
-    margin-right: var(--size-xxl);  /* space away from the input */
+.field label, .checkbox-field label {
+    text-align: center; 
+    color: var(--color-secondary-white);
+    font-weight: bold;
+}
+
+.field input {
+    text-align: center;
 }
 
 /* for labels that follow the input */
@@ -56,6 +71,27 @@
 @media screen and (min-width: 720px) {
     form .actions {
         flex-direction: row;
+    }
 
+    .form-fields {
+        display: grid;                                          /* to allow for a uniform display between each field, regardless of input type */
+        margin: var(--size-l);                                  /* spacing around */
+        padding: var(--size-l);                                 /* spacing within */
+        grid-template-columns: 1fr 3fr;                         /* 1 frame for the label, 3 frames for the field itself */
+        align-items: center;                                    /* vertically align each grid item */
+    }
+
+    .field, .checkbox-field {
+        display: flex;
+        align-items: stretch;
+        margin: var(--size-m);
+        border-bottom: 1px solid var(--color-primary-lightest);
+    }
+
+    .field label {
+        display: inline-block;
+        width: min(40vw, calc(var(--size-xxxl) * 6));   /* set fixed width so the flex displays in grid-like manner */ 
+        text-align: left;               /*? could do right */
+        margin-right: var(--size-xxl);  /* space away from the input */
     }
 }

@@ -1,5 +1,6 @@
 <%= tag.details class: "filters" do %>
     <%= tag.summary t('keywords.filter').pluralize %>
+    <%= tag.p t('content.songs.filters'), class: "instruction" %>
     <%= form_with url: song_filters_path do |form| %>
         <%= filter_option :keyscale, form %>
         <%= filter_option :capo, form %>

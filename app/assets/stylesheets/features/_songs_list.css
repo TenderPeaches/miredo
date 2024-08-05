@@ -6,7 +6,7 @@
     margin: var(--size-m) 0;            /* external vertical buffer */
 }
 
-.song {
+.song, .song-list-header {
     display: grid;                      /* the songs themselves are displayed as a subgrid */
     grid-column-start: start;           /* it spans from the start (before 1st column) ... */grid-column-end: span end;          /* ... to the end (after last column */
     grid-template-columns: subgrid;     /* it uses the same column templates as its parent grid */
@@ -16,6 +16,15 @@
     justify-items: left;                /* align items with the edge */
     align-items: center;                /* vertically center items within their tracks */
     padding: var(--size-s);             /* extra padding for the background color */
+}
+
+.song-list-header {
+    justify-items: center;              /* center the content of each header cell */
+}
+
+/* sub-items of the song list header row */ 
+.song-list-header > * {
+    padding: var(--size-s);             /* buffer between each header cell */
 }
 
 .song:hover {
@@ -78,8 +87,12 @@
         text-align: left;           /* align the title with the left-most edge for cleaner look */
     }
 
-    .song {
+    .song, .song-list-header {
         grid-template-rows: initial;    /* reset */
+    }
+
+    .song-list-header > * {
+        padding: var(--size-s) var(--size-m);
     }
 
 }

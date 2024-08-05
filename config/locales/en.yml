@@ -72,8 +72,9 @@ en:
     songs:
       no_progression_template: "No progression templates have been defined for this song"
       no_progression: "No song progressions have been defined for this song"
+      filters: "Click on a filter to toggle it"
       key: "Originally in %{key}"
-      capo: "Suggested capo: %{capo}th fret"
+      suggested_capo: "Suggested capo: %{capo}th fret"
       no_capo: "No capo"
       negative_capo: "Tune down %{capo} half-steps"
       nb_practice_user: "You practiced this %{times} times"
@@ -82,6 +83,9 @@ en:
       last_played: "Last played %{time} %{unit} ago"
       scale_degrees: "Scale degrees"
       chords: "Chords used"
+      favorite: "Favorite?"
+      capo: "Capo"
+      new_artist: "If artist is not in the list, enter their name here"
   activerecord:
     models:
       admin: "Admin"
@@ -114,8 +118,19 @@ en:
       user: "User"
     attributes:
       song:
-        name: "Name"
-        practiced: "Practiced %{times} times" 
+        name: "Song name"
+        number: "#"
+        duration: "Duration (s or m:s)"
+        capo: "Suggested capo"
+        last_practiced: "Your last practice"
+        nb_practices: "Practiced %{times} times" 
+        bpm: "Beats per minute (bpm)"
+        is_public: "Make public?"
+        time_signature: "Time signature"
+        key: "Default key"
+        scale: "Scale"
+        album: "Initial release Album"
+        submitter: "Submitting user"
       progression_template:
         tag: "Tag"
         reps: "Reps"

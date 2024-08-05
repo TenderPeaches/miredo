@@ -1,0 +1,5 @@
+/* instructions are content that would not be necessary if the user were to magically know how everything works; they tend to be more high level, "how to use this page/feature" explanations than hints, which are basically just definitions */ 
+.instruction {
+    color: var(--color-accent-white);         /* contrast with the page's actual content */
+    font-style: italic;                         /* "pssst by the way" vibe */
+}

@@ -1,9 +1,13 @@
 /* _common.css => for common classes that aren't tied to one specific page or feature */
 
 /* main application content viewport, occupies most of the screen */
-.content {
+.content {  
+    display: flex;                          /* by default, display content in a vertical flex */
+    flex-direction: column;                 /* verticality of the flex */
     padding: var(--size-m) var(--size-s);   /* maximize content with a small buffer zone for mobile */
-    text-align: center;
+    align-items: center;                    /* horizontally align the items along the center axis */
+
+    /** we could've used just text-align: center but that trickles down to every sub-element, which isn't the desired behavior, so instead we're using a vertical flex */
 }
 
 /* class added to elements that need to be hidden from the layout */
@@ -15,15 +19,6 @@
 .contrast-text {
     color: var(--color-accent-light);                       /* clash with text (by not using secondary color) and background (by not using primary) */
 }
-
-/* fields used within a typical form */
-.form-fields {
-    display: grid;                                          /* to allow for a uniform display between each field */
-    margin: var(--size-l);                                  /* spacing around */
-    padding: var(--size-l);                                 /* spacing within */
-    grid-template-columns: 1fr 3fr;                         /* 1 frame for the label, 3 frames for the field itself */
-    row-gap: var(--size-s);                                 /* additional spacing between each field */
-  }
 
 /* generic button */
 .button,

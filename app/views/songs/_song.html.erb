@@ -1,6 +1,6 @@
 <%= tag.div class: "song #{song_row_color(song)}" do %>
-    <% if user_signed_in? %>
-        <%= tag.span class: "songs-list__favorite" do %>
+    <%= tag.span class: "songs-list__favorite" do %>
+        <% if user_signed_in? %>
             <%= star_toggle(current_user.favorites.include?(song), new_song_user_favorite_path(song_id: song.id)) %>
         <% end %>
     <% end %>

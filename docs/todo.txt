@@ -1,4 +1,11 @@
-* Hints
+* Hints:
+    * edit song
+    * progression
+    * song structure
+    * song view
+    * settings 
+    * references 
+* inquiries page
 * Action feedback
 * Migrate all minor scales to major
 * Show progression names (+ design)

@@ -1,13 +1,10 @@
 <%= model_form_with model: song do |form| %>
     <%= render "songs/errors", song: song %>
 
-    <%= song.chords %>
-
     <%= tag.div class: "form-fields" do %>
         <%= render "songs/fields", form: form %>
         <%= tag.div class: "actions" do %>
             <%= form.submit "#{song.new_record? ? "Create" : "Update"} song" %>
-            <%= form.submit "Set progessions", name: 'progression_templates' %>
         <% end %>        
     <% end %>
 <% end %>

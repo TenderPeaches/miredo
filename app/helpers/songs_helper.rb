@@ -65,4 +65,29 @@ module SongsHelper
     def song_filter_most_played_by_user(user_id, current_sort = :none)
         sort_button "Play Count", songs_path(sort_options: { "most_played_by_user(#{user_id})" => current_sort }), "sort-by-most-played-by-user", current_sort, inverted_sort: true
     end
+
+    # the header row of a default song list
+    def songs_list_header
+        tag.div class: "song-list-header" do
+            safe_join [
+                tag.span(t('content.songs.favorite'), class: "songs-list__favorite"),
+                tag.span(Song.model_name.human, class: "songs-list__title"),
+                tag.span(Artist.model_name.human, class: "songs-list__artist"),
+                tag.span(t('contents.songs.capo'), class: "songs-list__capo"),
+                tag.span("Your play count", class: "songs-list__plays"),
+                tag.span("Last played", class: "songs-list__last-played"),
+                tag.span("Practice trackers", class: "songs-list__play"),
+            ]
+        end
+    end
+
+    # song capo selector
+    def song_capo_tag(selected = 0, label = nil)
+        # assume capo goes up to 10
+        select_tag(label || :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: selected))
+    end
+
+    def song_capo_input(form, selected = 0, label = nil)
+        form.select(label || :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: selected))
+    end
 end

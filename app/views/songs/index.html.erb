@@ -5,6 +5,7 @@
     <%= render "songs/index/filters" %>
 <% end %>
 <%= tag.section class: "songs-list", id: "songs" do %>
+    <%= songs_list_header %>
     <% @songs.each do |song| %>
         <%= render song %>
     <% end %>
