@@ -48,7 +48,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
     def string_input(attribute, options = {})
         field_block(attribute, options) do
             safe_join [
-                (field_label(attribute, options[:label]) unless options[:label] == false),
+                (field_label(attribute, options) unless options[:label] == false),
                 string_field(attribute, merge_input_options({class: "#{"is-invalid" if has_error?(attribute)}"}, options[:input_html])),
             ]
         end
@@ -57,7 +57,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
     def text_input(attribute, options = {})
         field_block(attribute, options) do
             safe_join [
-            (field_label(attribute, options[:label]) unless options[:label] == false),
+            (field_label(attribute, options) unless options[:label] == false),
             text_area(attribute, merge_input_options({class: "#{"is-invalid" if has_error?(attribute)}"}, options[:input_html])),
             ]
         end
@@ -77,7 +77,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
     def collection_input(attribute, options, &block)
         field_block(attribute, options) do
             safe_join [
-                label(attribute, options[:label]),
+                label(attribute, options),
                 block.call,
             ]
         end
@@ -107,7 +107,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
     def file_input(attribute, options = {})
         field_block(attribute, options) do
             safe_join [
-                (field_label(attribute, options[:label]) unless options[:label] == false),
+                (field_label(attribute, options) unless options[:label] == false),
                 custom_file_field(attribute, options),
             ]
         end
@@ -122,7 +122,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
 
         field_block(attribute, options) do
             safe_join [
-                field_label(attribute, options[:label]),
+                field_label(attribute, options),
                 tag.div(class: "#{custom_class}-list") {
                     (send(form_builder_method, attribute, options[:collection], options[:value_method], options[:text_method]) do |b|
                         tag.div(class: "#{custom_class}") {
@@ -176,7 +176,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
     end
 
     def field_label(attribute, options = {})
-        label(attribute, options)
+        label(attribute, options[:label], title: options[:instructions])
     end
 
     def hint_text(text)

@@ -1,5 +1,4 @@
 * Hints:
-    * progression
     * song structure
     * song view
     * settings 
@@ -12,6 +11,10 @@
 * X to close "new progression" window
 * Pagination
 * check redirections
+* reference pages:
+    * tag naming conventions
+    * reps
+    * cypher 
 * AutoScroll Feature (at least look into it)
 * Go over all the flows to make sure the process is public ready
 * Create the Prod DB

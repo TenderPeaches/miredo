@@ -15,3 +15,8 @@
     color: var(--color-accent-lightest);
     text-align: center;
 }
+
+/* progression cypher inputs */
+input.field--progression-cypher {
+    text-align: left;               /* because center-aligned just looks weird */ 
+}

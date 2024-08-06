@@ -1,2 +1,2 @@
-<%= form.field :tag %>
-<%= form.field :reps, { min: 0, step: 1 } %>
+<%= form.field :tag, instructions: t('instructions.progression_template_tag') %>
+<%= form.field :reps, { min: 0, step: 1, instructions: t('instructions.progression_template_reps') } %>

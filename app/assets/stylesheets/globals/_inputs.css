@@ -21,9 +21,4 @@ input[type="checkbox"] {
 }
 
 @media screen and (min-width: 720px) {
-    /* number-style inputs */
-    input[type="number"],
-    select[name="capo"] {
-        width: calc(2 * var(--size-xxxl));                                 /* numbers in this website's context are usually limited to 1-2 digits */
-    }
 }

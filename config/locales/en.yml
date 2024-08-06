@@ -34,7 +34,7 @@ en:
     log_out: "Log out"
     sign_up: "Sign up"
     define_progression_templates: "Edit Progression Templates"
-    define_progressions: "Edit Song Structure"
+    edit_song_structure: "Edit Song Structure"
     browse_songs: "Browse songs"
     edit_song: "Edit Song Info"
     view_song: "View Song"
@@ -75,7 +75,10 @@ en:
     song_play_by_heart: "Press the Play by Heart (♥︎) button after having practiced a song by heart, without going to a tablature for the chords, lyrics or other helpers at any given time"
     edit_song: "Change a song's meta-attributes, like its title, default key, suggested capo, etc."
     define_progressions: "Define the building blocks for the song, known as \"Progression Templates\""
-    edit_song_structure: "Assemble the song by piecing together the progression templates and assigning lyrics to them"
+    edit_song_structure: "Once the progression templates have been defined, piece them together and add lyrics in order to produce the tablature"
+    new_progression_template: "Create new progression templates to use as building blocks for songs"
+    progression_template_tag: "Assign a label (tag) to the template. Try to follow the usual naming conventions, with names like Intro, Chorus, Verse, Bridge, etc. Use letters to distinguish between different progressions that occupy the same position, like Verse A and Verse B. Use `pt` to distinguish between parts, like Verse pt1."
+    progression_template_reps: "How many times the chords in this template repeat themselves, by default. Individual implementations of this template can have their own measure of reps, and the total product of these two values indicate the total number of times that the chord pattern must ultimately be repeated for a given sequence."
   content:
     landing:
     help: 
