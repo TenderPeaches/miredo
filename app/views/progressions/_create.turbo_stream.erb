@@ -13,3 +13,12 @@
 
 <%# show the footing progression picker %>
 <%= turbo_stream.show "hidden-progression-picker" %>
+
+<%# show the hidden nav %>
+<%= turbo_stream.show "hidden-nav" %>
+
+<%# show the sequencer %>
+<%= turbo_stream.show "progressions-sequencer" %>
+
+<%# remove the notice that warns that no progressions have been created for this song %>
+<%= turbo_stream.remove "no-song-progressions" %>

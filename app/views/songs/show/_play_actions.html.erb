@@ -1,10 +1,10 @@
 <%= tag.section class: "play-actions" do %>
     <%#todo better way of explaining what these buttons do %>
-    <%= tag.span do %>
+    <%= tag.div do %>
         <%= tag.span t('hints.play_song') %>
         <%= song_play_button(song.id) %>  
     <% end %>
-    <%= tag.span do %>
+    <%= tag.div do %>
         <%= tag.span t('hints.play_song_by_heart') %>
         <%= song_play_by_heart_button(song.id) %>
     <% end %>

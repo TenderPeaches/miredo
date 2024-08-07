@@ -7,4 +7,8 @@ module HintsHelper
             ]
         end
     end
+
+    def hint_label(locale_label)
+        tag.p t("hints.#{locale_label}"), class: "hint"
+    end
 end

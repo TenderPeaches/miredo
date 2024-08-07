@@ -1,4 +1,4 @@
-<%= tag.nav do %>
+<%= tag.nav class: local_assigns[:is_hidden] ? "hidden" : "", id: "hidden-nav" do %>
     <%= link_to t('cta.define_progression_templates'), song_progression_templates_path(song_id: song), title: t('instructions.define_progressions') %>
     <%= link_to t('cta.edit_song'), edit_song_path(song) %>
     <%= link_to t('cta.view_song'), song_path(song) %>

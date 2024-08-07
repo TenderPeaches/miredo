@@ -1,9 +1,9 @@
-* Hints:
-    * song structure
-    * song view
-    * settings 
-    * references 
-* inquiries page
+* Content: 
+    * Inquiries page (contact us)
+    * References: How-Tos:
+        * Find out the key & scale of a song
+        * Create progression templates (tag & reps conventions, key & scale concerns)
+        * Create progressions (tag & reps conventions, key & scale concerns)
 * Action feedback
 * Migrate all minor scales to major
 * Show progression names (+ design)

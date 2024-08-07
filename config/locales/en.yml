@@ -51,6 +51,7 @@ en:
     user_song_plays: "How many times you played this song"
     user_last_practice: "Last time you practiced this song"
     song_is_public: "Anyone can see public songs, whereas private songs can only be viewed by whomever is responsible for them"
+    instrument_view: "Pick your instrument!"
   settings:
     page_name: "Settings"
   controls:

@@ -124,10 +124,29 @@ color: var(--color-degree-seventh-light);
 }
 
 .play-actions {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
+   display: grid;
+   grid-template-columns: [start] 3fr 1fr [end];
    align-items: center;
+   justify-items: center;
+   background: var(--color-black);
+   padding: var(--size-m);
+   border-color: var(--color-primary-light);
+   border-width: var(--thin-border-width);
+   border-style: var(--default-border-style);
+}
+
+.play-actions > * {
+   display: grid;
+   grid-template-columns: subgrid;
+   grid-column-start: start;
+   grid-column-end: end;
+   justify-content: space-between;
+   align-items: center;
+   gap: var(--size-m);
+}
+
+.play-actions > * a {
+   justify-self: flex-end;
 }
 
 @media screen and (min-width: 720px) {

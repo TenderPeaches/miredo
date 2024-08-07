@@ -10,6 +10,11 @@
     color: var(--color-secondary-lightest);     /* differentiate from data */
 }
 
+/* table titles are labels that appear above the table in order to help the user identify its contents */
+.table-title {
+    text-align: center;                         /* default for titles */
+}
+
 .table-header > * {
     padding: var(--size-m);                     /* individual internal buffer space for all sub-elements of the header row */
 }
