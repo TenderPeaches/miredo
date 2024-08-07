@@ -20,3 +20,9 @@
 input.field--progression-cypher {
     text-align: left;               /* because center-aligned just looks weird */ 
 }
+
+.progression-template-picker form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,4 +1,4 @@
-<%= tag.fieldset class: local_assigns[:is_hidden] ? "hidden" : "", id: local_assigns[:is_hidden] ? "hidden-progression-picker" : nil  do %>
+<%= tag.fieldset class: local_assigns[:is_hidden] ? "progression-template-picker hidden" : "progression-template-picker", id: local_assigns[:is_hidden] ? "hidden-progression-picker" : nil  do %>
     <%= tag.legend t('actions.new', thing: t('activerecord.models.progression')) %>
     <%= form_tag new_progression_path, class: "progression-template-picker", method: :get, data: { turbo_stream: true } do %>
         <%= tag.div class: "field" do %>

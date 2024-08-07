@@ -1,0 +1,6 @@
+<%= tag.div class: "sequencer-progression" do %>
+    <%= tag.span progression.tag %>
+    <%= tag.span progression_lyrics_preview(progression) %>
+    <%= tag.span progression.progression_template.tag %>
+    <%= render "progressions/sequencer/controls", progression: %>
+<% end %>

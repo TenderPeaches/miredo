@@ -1,7 +1,7 @@
-<%= tag.div id: "current-song-progressions" do %>
+<%= tag.div id: "current-song-progressions", class: "current-progressions" do %>
     <% if progressions.count > 0 %>
         <% progressions.each_with_index do |progression, i| %>
-            <%= tag.fieldset id: dom_id(progression) do %>
+            <%= tag.fieldset id: dom_id(progression), class: "progression" do %>
                 <%= tag.legend "#{(i + 1).to_s}) #{progression.tag}" %>
                 <%= render "progressions/form", progression: progression, song: song %>    
             <% end %>

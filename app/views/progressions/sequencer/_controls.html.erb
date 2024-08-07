@@ -1,0 +1,7 @@
+<%= tag.span class: "sequencer-buttons" do %>
+    <%# https://www.toptal.com/designers/htmlarrows/arrows/up-paired-arrows/ %>
+    <%= turbo_link_button "⇈", new_progression_sequence_adjustment_path(progression_id: progression.id, direction: :up, all: true) %>
+    <%= turbo_link_button "↑", new_progression_sequence_adjustment_path(progression_id: progression.id, direction: :up) %>
+    <%= turbo_link_button "↓", new_progression_sequence_adjustment_path(progression_id: progression.id, direction: :down) %>
+    <%= turbo_link_button "⇊", new_progression_sequence_adjustment_path(progression_id: progression.id, direction: :down, all: true) %>
+<% end %>

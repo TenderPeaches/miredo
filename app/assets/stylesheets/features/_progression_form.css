@@ -1,16 +1,23 @@
-#current-song-progressions {
+.progressions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.current-progressions {
     display: grid;
     grid-template-columns: 1fr;
-}
+}   
 
-.progression-template-picker select,
-.song-progression-form .field select {
-    max-width: 80vw;
+.progression form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
-
 
 @media screen and (min-width: 720px) {
-    .progression-template-picker select, .song-progression-form .field select {
-        max-width: 50vw;
+    .current-progressions {
+        grid-template-columns: 1fr 1fr;
     }
 }

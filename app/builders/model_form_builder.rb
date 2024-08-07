@@ -58,7 +58,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
         field_block(attribute, options) do
             safe_join [
             (field_label(attribute, options) unless options[:label] == false),
-            text_area(attribute, merge_input_options({class: "#{"is-invalid" if has_error?(attribute)}"}, options[:input_html])),
+            text_area(attribute, merge_input_options({class: "#{"is-invalid" if has_error?(attribute)}"}, options[:input_html].merge)),
             ]
         end
     end

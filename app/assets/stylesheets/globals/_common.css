@@ -6,7 +6,7 @@
     flex-direction: column;                 /* verticality of the flex */
     padding: var(--size-m) var(--size-s);   /* maximize content with a small buffer zone for mobile */
     align-items: center;                    /* horizontally align the items along the center axis */
-
+    
     /** we could've used just text-align: center but that trickles down to every sub-element, which isn't the desired behavior, so instead we're using a vertical flex */
 }
 

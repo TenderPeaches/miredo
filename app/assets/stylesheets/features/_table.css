@@ -1,0 +1,21 @@
+/** tables are elements with display: grid meant to emulate the appearance of the table, without all the accessibility and semantical drawbacks */ 
+
+/* table header row */ 
+.table-header {
+    display: none;                              /* hide on mobile, as mobile tables tend to be displayed more like a list of cards than a table, to better accomodate narrow viewports */
+    justify-items: center;                      /* align */
+    align-items: center;                        /* align */
+    font-size: var(--font-size-l);              /* bigger font so user knows quickly what kind of data any given column contains */
+    font-weight: bold;                          /* bigger font */
+    color: var(--color-secondary-lightest);     /* differentiate from data */
+}
+
+.table-header > * {
+    padding: var(--size-m);                     /* individual internal buffer space for all sub-elements of the header row */
+}
+
+@media screen and (min-width: 720px) {
+    .table-header {
+        display: initial;                       /* show the header row on large screens only */
+    }
+}

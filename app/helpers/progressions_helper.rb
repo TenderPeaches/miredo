@@ -11,4 +11,15 @@ module ProgressionsHelper
             progression.lyrics[..cutoff] << "..." << progression.lyrics[cutoff*-1, cutoff]
         end
     end
+
+    def progressions_sequencer_header
+        tag.div class: "progressions-sequencer-header table-header" do
+            safe_join [
+                tag.span(Progression.human_attribute_name(:tag)),
+                tag.span(Progression.human_attribute_name(:lyrics)),
+                tag.span(Progression.human_attribute_name(:template_tag)),
+                tag.span(t('content.progressions.sequecing')),
+            ]
+        end
+    end
 end

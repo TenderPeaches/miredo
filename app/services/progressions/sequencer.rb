@@ -5,6 +5,7 @@ module Progressions
             @song = song
             @next = @song.progressions.maximum(:sequence) || 1
         end
+
         # sets a sequence number for a single progression
         def set(progression)
             # map the song's progressions' sequences

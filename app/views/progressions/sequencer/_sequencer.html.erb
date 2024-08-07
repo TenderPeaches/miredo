@@ -1,0 +1,6 @@
+<%= tag.section id: "progressions-sequencer", class: "progression-sequencer" do %>
+    <%= progressions_sequencer_header %>
+    <% song.progressions.order(:sequence, :id).each do |progression| %>
+        <%= render "progressions/sequencer/progression", progression: %>
+    <% end %>
+<% end %>
