@@ -112,23 +112,38 @@ hr {
 }
 
 /* header for mobile */
-header {
+/* apply same style to footer for consistency */ 
+header, footer {
     position: relative;                 /* make it stick to the top of the page so it doesn't always occupy space, and also because I'm not in love with the burger-expanding-menu paradigm so KISS for now */ 
     display: flex;                      /* vertical flex */
     flex-direction: column;             /* vertical flex */
     align-items: center;                /* center items along the Y-axis */
     background: var(--color-black);     /* different background from page content */
+}
+
+header {
     border-bottom: 1px ridge var(--color-primary-dark); /* add an edge to the bottom */
 }
 
+footer {
+    border-top: var(--thin-border-width) ridge var(--color-primary-dark);
+    padding: var(--size-xs);
+}
+
 /* nav menu within header for mobile */
-header nav {
+header nav, footer nav {
     display: flex;                      /* vertical flex */
     flex-direction: column;             /* vertical flex */
     gap: var(--size-m);                 /* space elemenets away from each other to prevent fat-fingering */ 
     align-items: center;                /* center items along the y-axis */
+
+}
+
+header nav {
     padding: var(--size-xxs) var(--size-s) var(--size-l);   /* add padding to the bottom and a little bit towards the edges */
 }
+
+
 
 /* header title */
 header h1, header h2 {
@@ -137,7 +152,7 @@ header h1, header h2 {
 }
 
 /* direct header links get no underline (so far only title link is not in nav child) */
-header > a {
+header > a, footer > a {
     text-decoration: none;
 }
 
@@ -146,7 +161,7 @@ header > a {
 @media screen and (min-width: 720px) {
 
     /* header nav bar */
-    header {
+    header, footer {
         position: fixed;
         flex-direction: row;
         display: flex;                                      /* horizontal flex */
@@ -158,20 +173,26 @@ header > a {
         z-index: 10;                    /* prevent clipping */
     }
 
+    footer {
+        bottom: 0;
+        padding: var(--size-l);
+        justify-content: center;
+    }
+
     /* header bat title */
     header h2 {
         padding-left: var(--size-xxxl);
     }
 
     /* header bar navigational links */
-    header nav {
+    header nav, footer nav {
         display: flex;
         gap: var(--size-xxxl);                              /* space out links */
         flex-direction: row;
     }
 
     /* header links */
-    header a {
+    header a, footer a {
         text-decoration: none;                  /* remove underline */ 
     }
  }

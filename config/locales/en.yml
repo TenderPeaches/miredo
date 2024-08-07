@@ -14,6 +14,7 @@ en:
     edit: "Edit"
     update: "Update"
     copy: "Copy"
+    send: "Send"
   actions:
     new: "New %{thing}"
     add: "Add %{thing}"
@@ -33,6 +34,7 @@ en:
     log_in: "Log in"
     log_out: "Log out"
     sign_up: "Sign up"
+    contact_us: "Contact us"
     define_progression_templates: "Edit Progression Templates"
     edit_song_structure: "Edit Song Structure"
     browse_songs: "Browse songs"
@@ -98,6 +100,10 @@ en:
       page_title: "Settings"
       default_instrument: "Default instrument"
       user_instruments: "Set Instruments"
+    inquiries:
+      return_address: "Your email address"
+      subject: "Subject"
+      body: "Content"
     songs:
       no_progression_template: "No progression templates have been defined for this song"
       no_progression: "No song progressions have been defined for this song"

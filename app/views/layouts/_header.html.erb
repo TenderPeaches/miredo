@@ -7,7 +7,6 @@
         <%= yield :header %>
         <%# use regular links, not turbo, as the header cannot guarantee what the content of the body is so it cannot confirm whether or not the turbo anchors are there %>
         <%= link_to t('cta.browse_songs'), songs_path %>
-        <%= link_to t('content.help.page_title'), hints_path %>
         <%= link_to t('content.references.page_title'), references_path %>
         <% if user_signed_in? %>
             <%= link_to t('content.settings.page_title'), user_settings_path %>

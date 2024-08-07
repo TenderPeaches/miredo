@@ -2,7 +2,7 @@
     <%= render "progressions/song_shifter", song: @song %>
     <%= render "progressions/index/nav_links", song: @song %>
     <%= render "progressions/progression_template_picker", progression_templates: @song.progression_templates.distinct, song: @song %>
-    <%= render "progressions/sequencer/sequencer", song: @song if @song.progressions.any?. is_hidden: @song.progressions.empty? %>
+    <%= render "progressions/sequencer/sequencer", song: (@song if @song.progressions.any?), is_hidden: @song.progressions.empty? %>
     <%= render "progressions/current_progressions", progressions: @song.progressions.order(:sequence), song: @song %>
     <%= render "progressions/new_progressions", progressions: [], song: @song %>
     <%# if there is any progression already, add another picker at the bottom so that there's one at the top and bottom %>
