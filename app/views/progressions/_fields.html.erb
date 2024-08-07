@@ -1,7 +1,7 @@
 <%= form.field :progression_template_id, collection: form.object.song.progression_templates, text_method: :print_for_select, value_method: :id %>
 
-<%= form.field :tag %>
-<%= form.field :lyrics, as: :text, input_html: { rows: 4 } %>
-<%= form.field :reps, input_html: { min: 0, step: 1 } %>
-<%= form.field :key_id, collection: Key.for_select, text_method: :shorthand, select_options: { include_blank: true } %>
-<%= form.field :scale_id, collection: Scale.for_select, select_options: { include_blank: true } %>
+<%= form.field :tag, instructions: t('instructions.progression_tag') %>
+<%= form.field :lyrics, as: :text, input_html: { rows: 4 }, instructions: t('instructions.progression_lyrics') %>
+<%= form.field :reps, input_html: { min: 0, step: 1 }, instructions: t('instructions.progression_reps') %>
+<%= form.field :key_id, collection: Key.for_select, text_method: :shorthand, select_options: { include_blank: true }, instructions: t('instructions.progression_key') %>
+<%= form.field :scale_id, collection: Scale.for_select, select_options: { include_blank: true }, instructions: t('instructions.progression_scale') %>

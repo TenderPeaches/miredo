@@ -16,6 +16,12 @@
     align-items: stretch;
 }
 
+.progression-template-picker form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media screen and (min-width: 720px) {
     .current-progressions {
         grid-template-columns: 1fr 1fr;

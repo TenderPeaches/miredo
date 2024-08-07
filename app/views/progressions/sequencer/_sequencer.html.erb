@@ -1,6 +1,12 @@
-<%= tag.section id: "progressions-sequencer", class: "progression-sequencer" do %>
-    <%= progressions_sequencer_header %>
-    <% song.progressions.order(:sequence, :id).each do |progression| %>
-        <%= render "progressions/sequencer/progression", progression: %>
+<%= tag.section id: "progressions-sequencer" do %>
+    <%# only show sequencer if there are any progressions to move around %>
+    <% if song.progressions.any? %>
+        <%= instruction_label :sequencer %>
+        <%= tag.div class: "progressions-sequencer" do %>
+            <%= progressions_sequencer_header %>
+            <% song.progressions.order(:sequence, :id).each do |progression| %>
+                <%= render "progressions/sequencer/progression", progression: %>
+            <% end %>
+        <% end %>
     <% end %>
 <% end %>

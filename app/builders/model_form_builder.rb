@@ -77,7 +77,7 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
     def collection_input(attribute, options, &block)
         field_block(attribute, options) do
             safe_join [
-                label(attribute, options),
+                field_label(attribute, options),
                 block.call,
             ]
         end

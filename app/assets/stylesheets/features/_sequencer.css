@@ -1,4 +1,4 @@
-.progression-sequencer {
+.progressions-sequencer {
     display: grid;
     grid-template-columns: [start] 1fr 1fr [end];
 }
@@ -30,7 +30,7 @@
 }
 
 @media screen and (min-width: 720px) {
-    .progression-sequencer {
+    .progressions-sequencer {
         grid-template-columns: [start] 1fr 3fr 1fr 2fr [end];     /* progression tag, lyrics stub, template tag, sequencer actions */ 
     }
 }

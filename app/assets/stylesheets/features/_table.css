@@ -16,6 +16,6 @@
 
 @media screen and (min-width: 720px) {
     .table-header {
-        display: initial;                       /* show the header row on large screens only */
+        display: grid;                          /* show the header row on large screens only */
     }
 }

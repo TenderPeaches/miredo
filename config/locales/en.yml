@@ -79,6 +79,14 @@ en:
     new_progression_template: "Create new progression templates to use as building blocks for songs"
     progression_template_tag: "Assign a label (tag) to the template. Try to follow the usual naming conventions, with names like Intro, Chorus, Verse, Bridge, etc. Use letters to distinguish between different progressions that occupy the same position, like Verse A and Verse B. Use `pt` to distinguish between parts, like Verse pt1."
     progression_template_reps: "How many times the chords in this template repeat themselves, by default. Individual implementations of this template can have their own measure of reps, and the total product of these two values indicate the total number of times that the chord pattern must ultimately be repeated for a given sequence."
+    sequencer: "Change the order of the progressions by moving each progression individually through the arrow buttons. The double arrows move a progression to the first or the last sequence of the song, respectively."
+    progression_tag: "This is the final label associated with this progression, meaning the one that will appear in the songbook. Try using the same vocabulary as for progression templates, but favor using numbers to identify each sequence. For instance, verses would be tagged \"Verse 1\", \"Verse 2\", etc. Use the same tags for multiple consecutive progressions that thematically belong to the same part of the song."
+    progression_lyrics: "Enter the lyrics for the given progression. Use semi-columns or line breaks (return key) to define each line."
+    progression_reps: "How many times the template is repeated throughout this sequence. For instance, if the progression template has a reps value of 2, and a progression that uses that template has a reps value of 3, the template must be repeated 6 times overall before the next progression is to be played."
+    progression_key: "If the progression key differs from the general key of the song (or of the progression template being implemented), specify it here."
+    progression_scale: "If the progression scale differs from the general scale of the song (or of the progression template being implemented), specify it here."
+    copy_progression: "Create a new progression identical to this one."
+    modify_progression: "Make sure you confirm your changes by clicking \"Update Progression\""
   content:
     landing:
     help: 
