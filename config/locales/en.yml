@@ -94,6 +94,10 @@ en:
     progression_scale: "If the progression scale differs from the general scale of the song (or of the progression template being implemented), specify it here."
     copy_progression: "Create a new progression identical to this one."
     modify_progression: "Make sure you confirm your changes by clicking \"Update Progression\""
+  music_theory:
+    semitone: "Semitone"
+    semitones_from_root: "Semitones from the root"
+    tone: "Tone"
   content:
     landing:
     help: 
@@ -116,8 +120,11 @@ en:
       intervals: "There are different kinds of chords, depending on the intervals between each of the notes that compose it. To better understand chords, you should understand these intervals first. You can learn by playing different intervals on your instrument to hear them out and/or reading about them: "
       notation: "In tablatures, chords will be identified by their root note (A-G) followed by the chord notation. If you see only the root note, you're looking at a major chord (or major triad)."
       intervals_table: "This table shows how each chord is built. The intervals are displayed alongside the number of semitones from the root for each interval that makes up each chord."
-      semitone: "Semitone"
     key_scale:
+      key_definition: "A key sets the starting point for a scale, thus defining the notes that make it up"
+      scale_definition: "A sequence of notes defined by the intervals between each one"
+      key_scale_relationship: "Usually, when talking about a \"scale\" or a \"key\", we're actually referring to both of them at once. The key establishes the root note for the scale and the other notes can be inferred by the intervals that define the scales themselves. For instance, when a song is in \"C major\", it means the song notes follow the major scale in the key of C."
+      finding_out_key: 
     progression_templates:
     progressions: 
     settings:

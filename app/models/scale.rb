@@ -1,6 +1,8 @@
 class Scale < ApplicationRecord
     has_many :scale_intervals
 
+    scope :for_references, -> {  }
+
     def self.default
         Scale.find_by_name('Major')
     end

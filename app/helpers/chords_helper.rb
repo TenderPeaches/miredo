@@ -30,12 +30,12 @@ module ChordsHelper
 
     # header row for the chords reference table
     def chords_reference_header
-        tag.div class: "chords-reference-header table-header" do
+        tag.div class: "table-header chords-reference-header" do
             safe_join [
                 tag.span(Chord.human_attribute_name(:name)),
                 tag.span(Chord.human_attribute_name(:notation)),
                 tag.span(Interval.model_name.human.pluralize),
-                tag.span(t('content.chord_composition.semitone').pluralize),
+                tag.span(t('music_theory.semitone').pluralize),
             ]
         end
     end
