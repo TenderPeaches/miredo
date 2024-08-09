@@ -45,4 +45,14 @@ module ApplicationHelper
             ""
         end
     end
+
+    # definition element
+    def definition(defined_term, definition)
+        tag.div class: "definition" do
+            safe_join [
+                tag.dfn(defined_term),
+                tag.span(definition)
+            ]
+        end
+    end
 end

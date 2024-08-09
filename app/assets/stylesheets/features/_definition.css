@@ -1,0 +1,26 @@
+/* element that contains a list of definitions */
+.definitions {
+    align-items: flex-start;            /* align all the definitions along a single axis */
+    gap: var(--size-xs);
+}
+
+/* a definition elements contains a term that is defined (in a <dfn> tag) and the definition */
+.definition {
+    display: flex;                      /* horizontal flex */
+    flex-direction: row;                /* horizontal flex */
+    align-items: center;                /* vertically center items */
+    justify-items: justify;             /* justify in case of long definitions */
+    gap: var(--size-m);                 /* buffer between the term and its definition */
+}
+
+/* definition tag */
+dfn {
+    font-size: var(--font-size-l);      /* make it pop */
+    color: var(--color-secondary-white);/* make it pop */
+}
+
+/* after the definition tag */
+dfn::after {
+    content: "→";                       /* add a character to lead the user to the definition */
+    padding-left: var(--size-m);        /* buffer between the character and the definition */
+}

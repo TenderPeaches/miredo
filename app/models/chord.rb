@@ -38,4 +38,26 @@ class Chord < ApplicationRecord
 
         notes
     end
+
+    # return a string containing the list of intervals that make up this chord, like `P1 M3 M5`
+    def intervals_label
+        intervals = []
+
+        self.chord_components.each do |component|
+            intervals << component.interval_quality.shorthand + component.interval.shorthand
+        end
+
+        intervals.join " "
+    end
+
+    # return a string containing the sequence of semitones-from-the-root for each interval that makes up this chord
+    def semitones_label
+        semitones = []
+
+        self.chord_components.each do |component|
+            semitones << component.interval.semitones + component.interval_quality.modifier
+        end
+
+        semitones.join "-"
+    end
 end

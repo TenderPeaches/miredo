@@ -1,24 +1,5 @@
 .progressions-sequencer {
-    display: grid;
-    grid-template-columns: [start] 1fr 1fr [end];
-}
-
-.progressions-sequencer-header,
-.sequencer-progression {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column-start: start;
-    grid-column-end: end;
-}
-
-.sequencer-progression {
-    justify-items: center;
-    align-items: center;
-    padding: var(--size-xxs);
-}
-
-.sequencer-progression:nth-child(2n) {
-    background: var(--color-primary-darkest);
+    grid-template-columns: [start] 1fr 1fr [end];       /* mobile has two equal-sized columns */
 }
 
 .sequencer-buttons {

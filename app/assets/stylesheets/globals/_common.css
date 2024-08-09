@@ -142,11 +142,19 @@ input[type="submit"]:active {
     background: var(--color-accent-darkest);
 }
 
-/* x-axis centered flex */
-.flex-x {
+/* typical horizontal flex element */
+.row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* typical vertical flex element */
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
 }
 
 .table-title h4{

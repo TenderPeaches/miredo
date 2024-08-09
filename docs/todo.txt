@@ -1,6 +1,6 @@
 * Content: 
-    * Inquiries page (contact us)
     * References: How-Tos:
+        * Chord composition
         * Find out the key & scale of a song
         * Create progression templates (tag & reps conventions, key & scale concerns)
         * Create progressions (tag & reps conventions, key & scale concerns)

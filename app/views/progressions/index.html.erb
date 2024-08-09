@@ -1,4 +1,4 @@
-<%= tag.div id: "song-progressions", class: "progressions" do %>
+<%= tag.div id: "song-progressions", class: "column progressions" do %>
     <%= render "progressions/song_shifter", song: @song %>
     <%= render "progressions/index/nav_links", song: @song %>
     <%= render "progressions/progression_template_picker", progression_templates: @song.progression_templates.distinct, song: @song %>

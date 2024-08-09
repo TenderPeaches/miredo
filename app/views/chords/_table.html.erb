@@ -1,0 +1,6 @@
+<%= tag.div class: "chords-table table" do %>
+    <%= chords_reference_header %>
+    <% chords.each do |chord| %>
+        <%= render chord %>
+    <% end %>
+<% end %>

@@ -3,6 +3,7 @@
     display: flex;                  /* vertical flex */
     flex-direction: column;         /* vertical flex */ 
     gap: var(--size-m);             /* space the links out for added visibility */
+    margin: var(--size-l);          /* .ctas is basically a large menu so it makes sense to put a large buffer between it and the rest of the content */
 }
 
 .cta {

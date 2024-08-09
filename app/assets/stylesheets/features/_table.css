@@ -1,6 +1,13 @@
 /** tables are elements with display: grid meant to emulate the appearance of the table, without all the accessibility and semantical drawbacks */ 
 
-/* table header row */ 
+/* main table container element - everything within is assumed to be displayed as grid rows */
+.table {
+    display: grid;              /* https://css-tricks.com/snippets/css/complete-guide-grid/ */
+
+    /** the grid-template is to be defined by each individual implementation of .table through a context-specific CSS class; the template must include the column identifiers `start` and `end`, like: grid-template-columns: [start] 1fr 1fr [end]; */ 
+}
+
+/* special table row that doesn't contain data, only labels that help identify the data contained by the regular rows */ 
 .table-header {
     display: none;                              /* hide on mobile, as mobile tables tend to be displayed more like a list of cards than a table, to better accomodate narrow viewports */
     justify-items: center;                      /* align */
@@ -8,6 +15,47 @@
     font-size: var(--font-size-l);              /* bigger font so user knows quickly what kind of data any given column contains */
     font-weight: bold;                          /* bigger font */
     color: var(--color-secondary-lightest);     /* differentiate from data */
+}
+
+/* any type of table row */
+.table .table-row, .table .table-header {
+    display: grid;                              /* to create a table, the rows must also be on a grid so each element is aligned to one another */ 
+    grid-template-columns: subgrid;             /* the magic instruction that makes table-row elements use the same grid as its parent (presumably a .table class element with another .class that defines a grid-template-columns property) */
+    grid-column-start: start;                   /* stretch the row from the beginning of the grid... (hence why the .table columns template must contain [start] and [end] tags */
+    grid-column-end: end;                       /* ... to the (horizontal) end of the grid */
+    align-items: center;                        /* vertically center each cell's content, relative to itself */
+    padding: var(--size-xxs);                   /* small padding to let things breathe */
+}
+
+/* table data rows */
+.table .table-row {
+    justify-items: center;                      /* default to center (overruled for first/last rows by default) */
+}
+
+/* first column cells */
+.table .table-row > *:first-child {
+    justify-self: left;                         /* tuck to the left */
+}
+
+/* last column cells */
+.table .table-row > *:last-child {
+    justify-self: right;                        /* tuck to the right */
+}
+
+/* table header rows */
+.table .table-header {
+    justify-items: center;                      /* header labels should be centered above the column, aesthetics are terrible otherwise */
+}
+
+/* any direct child of .table-row elements, so basically cells */
+.table .table-row > * {
+    padding: var(--size-xxs);                   /* internal buffer space, just small enough to make each cell stand out from one another */
+    margin: var(--size-xxs) var(--size-m);      /* external buffer space, put more on the sides so columns don't get too crowded */
+}
+
+/* every other row */
+.table-row:nth-child(2n) {
+    background: var(--color-primary-darkest);   /* add contrast with background color to help user identify rows at a glance */
 }
 
 /* table titles are labels that appear above the table in order to help the user identify its contents */

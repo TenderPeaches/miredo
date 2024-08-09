@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     resources :hints, only: [:index]
 
     resources :references, only: [:index]
-    resource :references, only: [:index] do
+    resource :references, only: [:index, :show] do
         resources :chords, only: [:index]
     end
 

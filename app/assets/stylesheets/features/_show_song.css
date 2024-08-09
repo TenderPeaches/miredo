@@ -1,5 +1,6 @@
 /* content that displays a song's lyrics, chords, etc. */ 
 .show-song {
+      display: initial;             /* reset */ 
     padding: var(--size-m);         /* maximize content space, just enough padding */
     text-align: left;               /* maximize readability */
     margin-top: var(--size-l);      /* space away from the helpers or whatever is above */

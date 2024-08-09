@@ -1,0 +1,8 @@
+<%= tag.div class: "notice" do %>
+    <%= tag.h3 Interval.model_name.human.pluralize %>
+    <%= tag.p do %>
+        <%= "#{t('content.chord_composition.intervals')}: " %>
+        <%= link_to "[1]", "https://www.musictheory.net/lessons/30" %>
+        <%= link_to "[2]", "https://www.musictheory.net/lessons/31" %>
+    <% end %>
+<% end %>

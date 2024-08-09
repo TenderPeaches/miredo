@@ -1,4 +1,4 @@
-<%= tag.section class: "ctas" do %>
+<%= tag.section class: "ctas hinted-list" do %>
     <%= cta_with_description t('cta.browse_songs'), songs_path, t('hints.browse_songs') %>
     <% if user_signed_in? %>
         <%= cta_with_description t('cta.new_song'), new_song_path, t('hints.new_song') %>

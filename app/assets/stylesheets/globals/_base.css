@@ -63,8 +63,11 @@ table {
 
 /* header defaults */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--color-secondary-lightest);     /* all headers are implicitly of importance, thus use a contrasting color */
-    margin: 0;          /* if headers need margin, add it, don't default to it */   
+    color: var(--color-secondary-lightest);     /* all headers are implicitly of importance, thus use a contrasting color */ 
+}
+
+h2, h3, h4, h5, h6 {
+    margin: 0;          /* if non-page headers need margin, specify it explicitly rather than default to it */  
 }
 
 /* helps with complex forms, used for submodels */
@@ -154,6 +157,14 @@ header h1, header h2 {
 /* direct header links get no underline (so far only title link is not in nav child) */
 header > a, footer > a {
     text-decoration: none;
+}
+
+/* standalone parts of the content */
+section { 
+    display: flex;              /* default to a vertical flex */
+    flex-direction: column;     /* vertical flex */
+    justify-content: center;    /* default to center */
+    align-items: center;        /* default to center */
 }
 
 /* screen-size dependent considerations */

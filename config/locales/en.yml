@@ -54,6 +54,10 @@ en:
     user_last_practice: "Last time you practiced this song"
     song_is_public: "Anyone can see public songs, whereas private songs can only be viewed by whomever is responsible for them"
     instrument_view: "Pick your instrument!"
+    chord_composition: "See which notes make up each type of chord"
+    key_scale: "Find out how to tell a song's key and scale"
+    progression_templates: "Conventions and tips for creating song progression templates"
+    progressions: "Conventions and tips for implementing the progression templates into a proper song"
   settings:
     page_name: "Settings"
   controls:
@@ -96,6 +100,26 @@ en:
       page_title: "Help"
     references:
       page_title: "References"
+      chord_composition: "Chord composition"
+      key_scale: "Keys & Scales"
+      progression_templates: "Progression templates"
+      progressions: "Song progressions"
+      internal: "Internal references"
+      external: "External links"
+      website_music_theory: "Simple, clean website to learn Music Theory from scratch"
+    chord_composition:
+      chord_definition: "Combination of two or more notes played simultaneously"
+      root: "Root"
+      root_definition: "Single note from which a chord is built"
+      triad: "Triad"
+      triad_definition: "A chord consisting of three notes played simultaneously"
+      intervals: "There are different kinds of chords, depending on the intervals between each of the notes that compose it. To better understand chords, you should understand these intervals first. You can learn by playing different intervals on your instrument to hear them out and/or reading about them: "
+      notation: "In tablatures, chords will be identified by their root note (A-G) followed by the chord notation. If you see only the root note, you're looking at a major chord (or major triad)."
+      intervals_table: "This table shows how each chord is built. The intervals are displayed alongside the number of semitones from the root for each interval that makes up each chord."
+      semitone: "Semitone"
+    key_scale:
+    progression_templates:
+    progressions: 
     settings:
       page_title: "Settings"
       default_instrument: "Default instrument"
@@ -154,6 +178,9 @@ en:
       user_setting: "Setting"
       user: "User"
     attributes:
+      chords: 
+        name: "Chord Type"
+        notation: "Notation"
       song:
         name: "Song name"
         number: "#"

@@ -1,4 +1,11 @@
-<%= tag.span do %>
-    <%= link_to "Chord Types", references_chords_path %>
-    <%= tag.span " - Shows how to build the various chords used in Western music theory" %>
+<%= tag.h1 t('content.references.page_title') %>
+<%= tag.section class: "ctas" do %>
+    <%= tag.h2 t('content.references.internal') %>
+    <%= cta_with_description t('content.references.chord_composition'), references_chords_path, t('hints.chord_composition') %>
+    <%= cta_with_description t('content.references.key_scale'), references_chords_path, t('hints.key_scale') %>
+    <%= cta_with_description t('content.references.progression_templates'), references_chords_path, t('hints.progression_templates') %>
+    <%= cta_with_description t('content.references.progressions'), references_chords_path, t('hints.progressions') %>
+    
+    <%= tag.h2 t('content.references.external') %>
+    <%= cta_with_description "musictheory.net", "https://www.musictheory.net", t('content.references.website_music_theory') %>
 <% end %>
