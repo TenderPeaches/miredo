@@ -1,8 +1,8 @@
 * Content: 
     * References: How-Tos:
-        * Chord composition
-        * Find out the key & scale of a song
-        * Create progression templates (tag & reps conventions, key & scale concerns)
+        x Chord composition
+        x Find out the key & scale of a song
+        x Create progression templates (tag & reps conventions, key & scale concerns)
         * Create progressions (tag & reps conventions, key & scale concerns)
 * Action feedback
 * Migrate all minor scales to major
@@ -11,10 +11,7 @@
 * X to close "new progression" window
 * Pagination
 * check redirections
-* reference pages:
-    * tag naming conventions
-    * reps
-    * cypher 
+* fix that bug when you change the song's scale and it fucks everything up
 * AutoScroll Feature (at least look into it)
 * Go over all the flows to make sure the process is public ready
 * Create the Prod DB

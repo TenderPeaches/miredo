@@ -15,5 +15,5 @@
 <% end %>
 <%= notice do %>
     <%= tag.h2 t('content.progression_templates.cypher') %>
-    <%= tag.p t('content.progression_templates.cypher_hint') %>
+    <%= tag.p raw t('content.progression_templates.cypher_hint', chords_reference: link_to(t('content.chord_composition.reference').downcase, references_chords_path)) %>
 <% end %>

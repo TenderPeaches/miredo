@@ -1,0 +1,23 @@
+<%= tag.h1 Progression.model_name.human.pluralize %>
+<%= tag.p t('content.progressions.introduction') %>
+<%= notice do %>
+    <%= tag.h2 Progression.human_attribute_name(:tag).pluralize %>
+    <%= tag.p t('content.progressions.tag_hint') %>
+    <%= tag.p t('content.progressions.tag_continuity') %>
+<% end %>
+<%= notice do %>
+    <%= tag.h2 Progression.human_attribute_name(:lyrics) %>
+    <%= tag.p t('content.progressions.lyrics_hint') %>
+<% end %>
+<%= notice do %>
+    <%= tag.h2 Progression.human_attribute_name(:reps) %>
+    <%= tag.p t('content.progressions.reps_hint') %>
+<% end %>
+<%= notice do %>
+    <%= tag.h2 t('content.references.key_scale') %>
+    <%= tag.p t('content.progressions.keyscale') %>
+<% end %>
+<%= tag.p t('content.progressions.sequencer') %>
+<%= warning_notice do %>
+    <%= tag.p t('content.progressions.modifications') %>
+<% end %>

@@ -18,7 +18,7 @@ module ProgressionsHelper
                 tag.span(Progression.human_attribute_name(:tag)),
                 tag.span(Progression.human_attribute_name(:lyrics)),
                 tag.span(Progression.human_attribute_name(:template_tag)),
-                tag.span(t('content.progressions.sequecing')),
+                tag.span(t('content.progressions.sequencing')),
             ]
         end
     end

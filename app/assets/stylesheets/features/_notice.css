@@ -12,6 +12,27 @@
     line-height: 1.5lh;                         /* let the text breathe by spacing lines away from each other */
 }
 
+/* warning notices, when nothing has gone wrong yet but we wish to warn the user of something */
+.notice.warning {
+    border-color: var(--color-warning);
+}
+
+/* add a little ! before the content of the warning notice */ 
+.notice.warning > p:first-child::before {
+    content: "!";                               /* the ! */
+    margin-right: var(--size-m);                /* buffer content to the right */
+    margin-bottom: var(--size-m);               /* and bottom */
+    font-size: var(--font-size-xxxl);           /* big ! */
+    background-color: var(--color-warning);     /* flashy warning */    
+    color: var(--color-primary-black);          /* dark ! against a bright warning backdrop */
+    border-radius: 100% 0 0 100%;               /* some shape or whatever, could be a triangle but low importance */
+}
+
+/* notice that something went wrong */
+.notice-error {
+    border-color: var(--color-error);
+}
+
 /* any notice heading */
 .notice h1, .notice h2, .notice h3, .notice h4 {
     color: var(--color-secondary-white);        /* contrast the title */

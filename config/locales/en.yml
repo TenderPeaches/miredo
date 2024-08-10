@@ -131,11 +131,12 @@ en:
       chord_composition: "Chord composition"
       key_scale: "Keys & Scales"
       progression_templates: "Progression templates"
-      progressions: "Song progressions"
+      progressions: "Song structure"
       internal: "Internal references"
       external: "External links"
       website_music_theory: "Simple, clean website to learn Music Theory from scratch"
     chord_composition:
+      reference: "Chord reference"
       chord_definition: "Combination of two or more notes played simultaneously"
       root: "Root"
       root_definition: "Single note from which a chord is built"
@@ -167,6 +168,15 @@ en:
       cypher_hint: "In order to recognize the chords you are assigning to the template, Miredo must receive them in a very specific format that is fortunately kept as simple as possible - a cypher. Simply write down each chord with the standard english notation (C, D, E, etc.) immediately followed by the chord's notation, as listed in the %{chords_reference}. A chord being written down is equivalent to the chord being played for 1 beat. Add one dash for each additional beat. It doesn't need to be an exact match, as long as anyone can easily figure out the relative duration of each chord to one another."
       cypher: "Cypher"
     progressions: 
+      introduction: "The final step is to put it all together by creating progressions out of templates, sprinkling in the lyrics and adjusting each progression as necessary. Make sure you click the button to create each progression, as they are not saved until then."
+      tag_hint: "Unlike template tags, the purpose of progression tags is to identify the actual part of the song being defined. Thus, for progression tags, you should generally follow the same convention as for template tags regarding the use of generic song structure names like \"Verse\" and \"Chorus\", except here you will be using numbers to identify each part, whenever there is more than one. For instance, \"Verse 1\" if there are multiple verses and \"Bridge\" if there is only one bridge."
+      tag_continuity: "Progression tags don't need to be unique within a song. Instead, if multiple progressions in a row have the same tag, Miredo will effectively consider them as part of the same song structure. For instance, 3 progressions in a row with the tag \"Chorus 1\" will be considered a single part of the song: the first chorus."
+      lyrics_hint: "Use semi-columns or new lines for line breaks. Try to use around 10-12 words per line, as shorter lines result in less efficient use of space. If there are back vocals, surround them with parentheses (like so). If a line repeats itself multiple times, you can write it once and follow it with a multiplication indicator surrounded by parentheses, like so: (x3)."
+      reps_hint: "Progressions have their own multiplier, which is applied to the template's multiplier. For instance, a template with 2 reps being implemented with its own 2 reps means the chord progression is ultimately to be played 4 times."
+      keyscale: "The ultimate decider of a progression's key is the progression's own key value. If left empty, the progression will take the template's key and if that one's empty too, it will take the song's key. Most songs remain in the same key throughout, so it's normal to ignore the key and scale fields most of the time."
+      sequencer: "Once the progressions have been created, they appear in the sequencer which lets you move them around. Use the double arrows to move a progression to the start/end of the list and the single arrows to move them once over. It's not great but it works for now!"
+      modifications: "When you modify a progression, make sure to confirm your changes otherwise they will not be saved. "
+      sequencing: "Sequencing"
     settings:
       page_title: "Settings"
       default_instrument: "Default instrument"
@@ -192,8 +202,6 @@ en:
       favorite: "Favorite?"
       capo: "Capo"
       new_artist: "If artist is not in the list, enter their name here"
-    progressions: 
-      sequecing: "Sequencing"
   activerecord:
     models:
       admin: "Admin"
@@ -244,10 +252,10 @@ en:
         submitter: "Submitting user"
         artist: "Artist whose rendition of the song the tab was based on"
       progression_template:
-        tag: "Tag"
-        reps: "Reps"
+        tag: "Template tag"
+        reps: "Template reps"
       progression:
-        tag: "Tag"
+        tag: "Progression tag"
         lyrics: "Lyrics"
-        reps: "Reps"
+        reps: "Progression reps"
         template_tag: "Template tag"
