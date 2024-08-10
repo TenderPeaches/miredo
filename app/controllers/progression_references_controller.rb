@@ -1,0 +1,2 @@
+class ProgressionReferencesController < ApplicationController
+end

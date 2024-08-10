@@ -1,0 +1,19 @@
+<%= tag.h1 ProgressionTemplate.model_name.human.pluralize %>
+<%= render "progression_template_references/definitions" %>
+<%= notice do %>
+    <%= tag.p t('content.progression_templates.template_hint') %>
+<% end %>
+<%= render "progression_template_references/naming_conventions", song_structure_parts: @song_structure_parts %>
+<%= notice do %>
+    <%= tag.h2 ProgressionTemplate.human_attribute_name(:reps) %>
+    <%= tag.p t('content.progression_templates.rep_hint') %>
+    <%= tag.p t('content.progression_templates.rep_example') %>
+<% end %>
+<%= notice do %>
+    <%= tag.h2 "#{Key.model_name.human} & #{Scale.model_name.human}" %>
+    <%= tag.p t('content.progression_templates.keyscale_hint') %>
+<% end %>
+<%= notice do %>
+    <%= tag.h2 t('content.progression_templates.cypher') %>
+    <%= tag.p t('content.progression_templates.cypher_hint') %>
+<% end %>

@@ -8,8 +8,7 @@
 .definition {
     display: flex;                      /* horizontal flex */
     flex-direction: row;                /* horizontal flex */
-    align-items: center;                /* vertically center items */
-    justify-items: justify;             /* justify in case of long definitions */
+    align-items: baseline;              /* align with first text line */
     gap: var(--size-m);                 /* buffer between the term and its definition */
 }
 

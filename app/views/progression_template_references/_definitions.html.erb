@@ -1,0 +1,6 @@
+<%= tag.section class: "definitions" do %>
+    <%= definition ProgressionTemplate.model_name.human, t('content.progression_templates.template_definition') %>
+    <%= definition Progression.model_name.human, t('content.progression_templates.progression_definition') %>
+    <%= definition ProgressionTemplate.human_attribute_name(:tag), t('content.progression_templates.tag_definition') %>
+    <%= definition ProgressionTemplate.human_attribute_name(:reps), t('content.progression_templates.rep_definition') %>
+<% end %>

@@ -39,6 +39,8 @@ Rails.application.routes.draw do
         resources :chords, only: [:index]
     end
     resources :key_references, only: [:index]
+    resources :progression_template_references, only: [:index]
+    resources :progression_references, only: [:index]
 
     resources :instrument_views, only: [:create]
 

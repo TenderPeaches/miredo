@@ -1,0 +1,19 @@
+<%= tag.section class: "progression-templates-naming-conventions" do %>
+    <%= tag.p t('content.progression_templates.tag_conventions')%>
+    <%= tag.ol do %>
+        <%= tag.li do %>
+            <%= tag.p t('content.progression_templates.tag_conventions_structure') %>
+            <%= tag.div class: "definitions" do %>
+                <% song_structure_parts.each do |part| %>
+                    <%= definition t("song_structure.#{part}"), t("song_structure.#{part}_definition") %>
+                <% end %>
+            <% end %>
+        <% end %>
+        <%= tag.li do %>
+            <%= tag.p t('content.progression_templates.tag_conventions_variance') %>
+        <% end %>
+        <%= tag.li do %>
+            <%= tag.p t('content.progression_templates.tag_conventions_continuity') %>
+        <% end %>
+    <% end %>
+<% end %>
