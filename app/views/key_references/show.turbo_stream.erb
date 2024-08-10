@@ -1,0 +1,6 @@
+<%= turbo_stream.update "scales" do %>
+    <%= scales_table_header %>
+    <%= @scales.each do |scale| %>
+        <%= render "key_references/scale", scale: scale, root: @root %>
+    <% end %>
+<% end %>

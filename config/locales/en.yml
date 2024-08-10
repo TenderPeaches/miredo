@@ -15,6 +15,7 @@ en:
     update: "Update"
     copy: "Copy"
     send: "Send"
+    example: "Example"
   actions:
     new: "New %{thing}"
     add: "Add %{thing}"
@@ -124,7 +125,9 @@ en:
       key_definition: "A key sets the starting point for a scale, thus defining the notes that make it up"
       scale_definition: "A sequence of notes defined by the intervals between each one"
       key_scale_relationship: "Usually, when talking about a \"scale\" or a \"key\", we're actually referring to both of them at once. The key establishes the root note for the scale and the other notes can be inferred by the intervals that define the scales themselves. For instance, when a song is in \"C major\", it means the song notes follow the major scale in the key of C."
-      finding_out_key: 
+      scale_example: "The C Major scale is the most popular starting point for scales as it is the only major scale without any sharp or flat notes. Using the intervals chart, start with C and climb however many semitones is indicated on the chart. On a piano, you will end up playing only the white keys. Remember that not all notes have 2 semitones between them: C + 2 => D, + 2 => E, + 1 => F, + 2 => G, + 2 => A, + 2 => B, + 1 => C"
+      finding_out_key_heading: "How to find a song's key and scale?"
+      finding_out_key: "Songs typically end on their key, so the last chord of a song is usually a good hint as to what the key of the song is. Songs that don't end on their key tend to feel unresolved. You can also infer the key from the song's chords. At first, break down all the chords into their individual notes and try to find which combination of key and scale include all the notes you found. Watch out for dissonant notes, which land outside of a song's scale and will sound a bit quirky as a result."
     progression_templates:
     progressions: 
     settings:

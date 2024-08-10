@@ -55,4 +55,11 @@ module ApplicationHelper
             ]
         end
     end
+
+    # notice element
+    def notice(&block)
+        tag.div class: "notice" do
+            yield block
+        end
+    end
 end

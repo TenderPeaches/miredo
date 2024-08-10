@@ -1,3 +1,11 @@
 <%= tag.h1 "#{Key.model_name.human.pluralize} & #{Scale.model_name.human.pluralize}" %>
 <%= render "key_references/definitions" %>
 <%= render "key_references/scales", scales: @scales %>
+<%= notice do %>
+    <%= tag.h2 "#{t('keywords.example')}: #{Key.first.shorthand} #{Scale.find_by_name('Major').name}" %>
+    <%= tag.p t('content.key_scale.scale_example') %>
+<% end %>
+<%= notice do %>
+    <%= tag.h2 t('content.key_scale.finding_out_key_heading') %>
+    <%= tag.p t('content.key_scale.finding_out_key') %>
+<% end %>

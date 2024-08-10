@@ -1,5 +1,5 @@
 <%= tag.section class: "scales" do %>
-    <%= tag.div class: "table scales-table" do %>    
+    <%= tag.div id: "scales", class: "table scales-table" do %>    
         <%= scales_table_header %>
         <% scales.each do |scale| %>
             <%= render "key_references/scale", scale: scale %>
