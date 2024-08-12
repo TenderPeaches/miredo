@@ -1,11 +1,6 @@
-* Content: 
-    * References: How-Tos:
-        x Chord composition
-        x Find out the key & scale of a song
-        x Create progression templates (tag & reps conventions, key & scale concerns)
-        * Create progressions (tag & reps conventions, key & scale concerns)
-* Action feedback
-* Migrate all minor scales to major
+* Action feedback:
+    * Write flashes
+    * Make them disappearable (on a timeout or on click/btn click)
 * Show progression names (+ design)
 * Extra settings:
 * X to close "new progression" window

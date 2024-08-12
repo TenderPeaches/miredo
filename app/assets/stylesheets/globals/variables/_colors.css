@@ -41,7 +41,7 @@
    --color-success: hsl(130, 100%, 35%);
    --color-warning: hsl(60, 100%, 50%);
    --color-error: hsl(0, 100%, 35%);
-   --color-error-light: hsl(0, 20%, 66%);
+   --color-error-light: hsl(0, 100%, 70%);
    --color-black: hsl(0, 0%, 0%);
    --color-white: hsl(0, 0%, 100%);
    --color-disabled :hsl(0, 0%, 60%);

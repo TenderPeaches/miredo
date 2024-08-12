@@ -31,6 +31,12 @@ en:
     delete: "Are you sure you wish to delete %{model}?"
   alerts:
     invalid_form: "Error: invalid %{model} form. Please check the following: %{errors}"
+  flashes:
+    song_played: "You just practiced playing \"%{song}\" for the %{play_count} time!"
+    song_played_by_heart: "You just practiced playing \"%{song}\" by heart, for the %{play_count} time!"
+    song_added: "\"%{song}\" has been created and added to the database."
+    song_added_thanks: "Thank you for contributing to Miredo's public songbook!"
+    song_added_privacy: "Flag the song as public if you want everyone to be able to play along."
   cta:
     log_in: "Log in"
     log_out: "Log out"

@@ -1,10 +1,12 @@
 <%= tag.section id: "progressions-sequencer", class: "#{local_assigns[:is_hidden] ? " hidden" : ""}" do %>
     <%# only show sequencer if there are any progressions to move around %>
     <%= instruction_label :sequencer %>
-    <%= tag.div class: "table progressions-sequencer" do %>
+    <%= tag.div id: "sequencer-progressions", class: "table progressions-sequencer" do %>
         <%= progressions_sequencer_header %>
-        <% song.progressions.order(:sequence, :id).each do |progression| %>
-            <%= render "progressions/sequencer/progression", progression: %>
+        <% if song.progressions.any? %>
+            <% song.progressions.order(:sequence, :id).each do |progression| %>
+                <%= render "progressions/sequencer/progression", progression: %>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>

@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
-    def index
+    private
+    def set_current_user
+        @user = current_user
     end
 end

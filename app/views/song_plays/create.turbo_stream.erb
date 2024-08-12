@@ -1,0 +1,14 @@
+<%# if the song_plays#create request was sent from a song list %>
+<%= turbo_stream.replace @song do %>
+    <%# replace the song row with the updated one %>
+    <%= render "songs/song", song: @song %>
+<% end %>
+
+<%# if the song_plays#create request was sent from a song player %>
+<%# only update the necessary data fields %>
+<%= turbo_stream.update "user-play-count", t('content.songs.nb_practice_user', times: @song.plays(@user)) %>
+<%= turbo_stream.update "last-played", song_last_played_label(@song) %>
+
+<%= turbo_stream.update :flashes do %>
+    <%= render "layouts/flashes", flash: flash %>
+<% end %>

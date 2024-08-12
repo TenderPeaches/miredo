@@ -1,0 +1,32 @@
+/** flashes are temporary messages displayed to users as a response to their actions */ 
+/* the container for the flashes, as multiple flashes could be sent to the user in one go; as it is meant to be a section element, see _base.css for its flex attributes */
+.flashes {
+}
+
+.flash {
+    font-size: var(--font-size-l);
+    padding: var(--size-s);
+    border-style: var(--alert-border-style);
+    border-width: var(--thick-border-width);
+    border-radius: var(--size-xs);
+}
+
+/* notice flashes are neutral/positive feedback as part of the regular flow of operations */
+.flash--notice {
+    background: var(--color-primary-white);
+    color: var(--color-primary-black);
+    border-color: var(--color-primary);
+}
+
+/* alert flashes are negative feedback, indicating to the user that one of their actions did not proceed as expected */
+.flash--alert {
+    border-color: var(--color-error);
+    background: var(--color-error-light);
+    color: var(--color-error);
+}
+
+@media screen and (min-width: 720px) {
+    .flash {
+        padding: var(--size-l);
+    }
+}

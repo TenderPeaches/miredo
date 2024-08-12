@@ -20,6 +20,9 @@
     <%= render "songs/show/instrument_view", instrument_view: @instrument_view %>
     <%= render "songs/show/chords", chords: @chords %>
 <% end %>
+<%= tag.div do %>
+    <%= tag.p "Capo #{@capo}" %>
+<% end %>
 <%# print the song lyrics & chords %>
 <%= tag.section class: "show-song", data: { controller: "show-song" } do %> 
     <%= Songs::Printer.new(@song, @key_with_capo, @song.scale, @capo).print %>
@@ -28,3 +31,4 @@
 <%= tag.div class: "actions" do %>
     <%= render "songs/show/play_actions", song: @song %>
 <% end %>
+<%= tag.section class: "flashes", id: "flashes" %>

@@ -5,6 +5,9 @@
   <%= tag.body do %>
     <%= render "layouts/header" %>
     <%= tag.main class: "content" do %>
+      <%= tag.section class: "flashes" do %>
+        <%= render "layouts/flashes", flash: flash %>
+      <% end %>      
       <%= yield %>
     <% end %>
     <%= render "layouts/footer" %>

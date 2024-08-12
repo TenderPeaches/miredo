@@ -67,7 +67,7 @@ class SongsController < ApplicationController
 
         if @song.valid?
             if params[:progression_templates]
-                redirect_to progression_templates_path(@song), notice: "Song was successfully created."
+                redirect_to progression_templates_path(@song), notice: t('')
             else
                 redirect_to song_url(@song), notice: "Song was successfully created."
             end

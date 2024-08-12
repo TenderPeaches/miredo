@@ -81,6 +81,16 @@ module SongsHelper
         end
     end
 
+    def song_capo_label(song)
+        if song.capo.nil? || song.capo == 0 then
+            t('content.songs.no_capo')
+        elsif song.capo < 0 then
+            t('content.songs.negative_capo', capo: (song.capo * -1).to_s)
+        else
+            t('content.songs.suggested_capo', capo: song.capo)
+        end
+    end
+
     # song capo selector
     def song_capo_tag(selected = 0, label = nil)
         # assume capo goes up to 10

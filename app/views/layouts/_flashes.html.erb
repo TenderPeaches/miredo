@@ -1,4 +1,6 @@
-<%= tag.div class: "flashes" do %>
-    <%= tag.div class: "notice" do %><%= notice %><% end %>
-    <%= tag.div class: "alert" do %><%= alert %><% end %>
+<% flash.each do |type, message| %>
+    <%# see _flashes.css for class names %>
+    <%= tag.div class: "flash flash--#{type}" do %>
+        <%= message %>
+    <% end %>
 <% end %>
