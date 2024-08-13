@@ -1,5 +1,7 @@
-* Show progression names (+ design)
 * Extra settings:
+    * Hot settings
+    * Old heart settings
+    * Default instrument
 * for_select => to default_scope
 * X to close "new progression" window
 * Pagination

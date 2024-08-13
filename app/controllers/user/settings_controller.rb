@@ -20,11 +20,13 @@ class User::SettingsController < ApplicationController
     def update
         unless params[:cancel] || current_user.nil?
             UserSettings::Setter.new(current_user).set(user_setting_params)
+
+            flash.now.notice = t('content.settings.update_notice')
         end
     end
 
     private
     def user_setting_params
-        params.require(:user_setting).permit(:instrument_id)
+        params.require(:user_setting).permit(:instrument_id, :hot_plays_threshold, :hot_timelapse, :old_heart_threshold)
     end
 end

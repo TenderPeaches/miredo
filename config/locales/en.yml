@@ -65,8 +65,6 @@ en:
     key_scale: "Find out how to tell a song's key and scale"
     progression_templates: "Conventions and tips for creating song progression templates"
     progressions: "Conventions and tips for implementing the progression templates into a proper song"
-  settings:
-    page_name: "Settings"
   controls:
     next: "Next"
     previous: "Previous"
@@ -187,6 +185,11 @@ en:
       page_title: "Settings"
       default_instrument: "Default instrument"
       user_instruments: "Set Instruments"
+      hot: "🔥"
+      hot_plays_threshold: "For a song to be flagged 🔥, you must have practiced it %{threshold} times over the last %{timelapse} days"
+      old_heart: "Old ♥︎s"
+      old_heart_threshold: "If your last practice of a song was done by heart over %{threshold} days ago, it will be flagged as an Old ♥︎"
+      update_notice: "Settings successfully updated"
     inquiries:
       return_address: "Your email address"
       subject: "Subject"

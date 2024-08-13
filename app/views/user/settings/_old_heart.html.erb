@@ -1,0 +1,6 @@
+<%= tag.fieldset class: "setting" do %>
+    <%= tag.legend t('content.settings.old_heart') %>
+    <%= tag.p do %>
+        <%= raw t('content.settings.old_heart_threshold', threshold: form.number_field(:old_heart_threshold)) %>
+    <% end %>
+<% end %>

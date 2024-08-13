@@ -1,0 +1,6 @@
+<%= tag.fieldset class: "setting" do %>
+    <%= tag.legend t('content.settings.hot') %>
+    <%= tag.p do %>
+        <%= raw t('content.settings.hot_plays_threshold', threshold: form.number_field(:hot_plays_threshold), timelapse: form.number_field(:hot_timelapse)) %>
+    <% end %>
+<% end %>
