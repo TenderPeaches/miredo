@@ -4,12 +4,14 @@
     <%= render "songs/index/sort_options" %>
     <%= render "songs/index/filters" %>
 <% end %>
+<%= paginator @page_count, @expected_page, @songs %>
 <%= tag.section class: "songs-list", id: "songs" do %>
     <%= songs_list_header %>
     <% @songs.each do |song| %>
         <%= render song %>
     <% end %>
 <% end %>
+<%= paginator @page_count, @expected_page, @songs %>
 
 <%= tag.nav do %>
     <%= render "songs/index/nav" %>

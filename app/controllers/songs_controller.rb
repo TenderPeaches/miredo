@@ -5,6 +5,13 @@ class SongsController < ApplicationController
 
         filter_options = params[:filter_options] || {}
 
+        # use params(:page) to apply a limit(Song.page_size) to the query
+        limit = Song.page_size
+        # expected page, 1-indexed
+        @expected_page = params[:page].to_i || 1
+        # with offset = (params(:page)-1) * Song.page_size (since offset signals the start of the batch, 1st page has a start of 0, not 20 or whatever)
+        offset = (@expected_page.to_i - 1) * limit
+
         # if user is logged in
         if user_signed_in?
             # ensure that only songs visible to the user are shown by setting the visibility filter
@@ -14,6 +21,11 @@ class SongsController < ApplicationController
             # apply filters and ensure that out of the results, only the public songs are shown
             @songs = Song.filter(filter_options).only_public.includes(:song_plays, :song_contributions, :artists)
         end
+
+        # page count is collection count / how many items per page, rounded up
+        @page_count = (@songs.size.to_f / limit.to_f).ceil
+
+        @songs = @songs.limit(limit).offset(offset)
 
         # sort the songs according to user specifications, if any
         if (params[:sort_options].present?)

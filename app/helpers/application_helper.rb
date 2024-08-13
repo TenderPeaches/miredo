@@ -55,4 +55,100 @@ module ApplicationHelper
             ]
         end
     end
+
+    # paginator
+    def paginator(page_count, current_page = 1, collection = [], options = {})
+
+        tag.nav class: "paginator#{options[:class] ? (' ' + options[:class]) : ''}", id: "#{options[:id] ? options[:id] : 'paginator'}" do
+            case page_count
+            # for no/1 page's worth of content
+            when 0..1
+                # just display a "1", no link
+                tag.span "1"
+            # for a few pages, not enough to bother with ellipses
+            when 2..5
+                print_pages(page_count, current_page, songs_path)
+            # for 6+ pages
+            else
+                # going to depend on the currently displayed page
+                # straight up programming_horror, but it'll work for a bit until I make something less ridiculous lol
+                case current_page
+                when 1
+                    safe_join [
+                        tag.span("1"),
+                        link_to("2", songs_path(page: 2)),
+                        link_to("3", songs_path(page: 3)),
+                        tag.span("..."),
+                        link_to(page_count, songs_path(page: page_count)),
+                    ]
+                when 2
+                    safe_join [
+                        link_to("1", songs_path(page: 1)),
+                        tag.span("2"),
+                        link_to("3", songs_path(page: 3)),
+                        tag.span("..."),
+                        link_to(page_count, songs_path(page: page_count)),
+                    ]
+                when 3
+                    safe_join [
+                        link_to("1", songs_path(page: 1)),
+                        link_to("2", songs_path(page: 2)),
+                        tag.span("3"),
+                        link_to("4", songs_path(page: 4)),
+                        tag.span("..."),
+                        link_to(page_count, songs_path(page: page_count))
+                    ]
+                when 4
+                    safe_join [
+                        link_to("1", songs_path(page: 1)),
+                        tag.span("..."),
+                        link_to("3", songs_path(page: 3)),
+                        tag.span("4"),
+                        link_to("5", songs_path(page: 5)),
+                        "#{page_count > 6 ? tag.span('...') : ''}",
+                        link_to(page_count, songs_path(page: page_count))
+                    ]
+                when 5
+                    safe_join [
+                        link_to("1", songs_path(page: 1)),
+                        tag.span("..."),
+                        link_to("4", songs_path(page: 4)),
+                        tag.span("5"),
+                        raw("#{if page_count >= 7 then link_to("6", songs_path(page: 6)) end}"),
+                        raw("#{if page_count > 7 then tag.span("...") end}"),
+                        link_to(page_count, songs_path(page: page_count))
+                    ]
+                else
+                    safe_join [
+                        link_to("1", songs_path(page: 1)),
+                        tag.span("..."),
+                        link_to((current_page - 1).to_s, songs_path(page: (current_page - 1))),
+                        tag.span(current_page.to_s),
+                        raw("#{if page_count > current_page + 1 then link_to((current_page + 1).to_s, songs_path(page: current_page + 1)) end}"),
+                        raw("#{if page_count - current_page > 2 then tag.span('...') end}"),
+                        raw("#{if page_count > current_page then link_to(page_count, songs_path(page: page_count)) end}"),
+                    ]
+                end
+            end
+        end
+    end
+
+    private
+    def print_pages(page_count, current_page, path)
+        html_output = []
+        page_count.times do |p|
+            # 1-indexed page
+            the_page = p + 1
+            # current page gets a non-link
+            html_output << if the_page == current_page
+                tag.span the_page.to_s
+            else
+                # every other page gets a link
+                #(!) need to account for cases where path might already have QSA, maybe regex it
+                #(!) this won't apply the filters
+                turbo_link_to the_page.to_s, "#{path}?page=#{the_page}"
+            end
+        end
+        safe_join(html_output)
+    end
 end

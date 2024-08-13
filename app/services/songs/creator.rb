@@ -6,7 +6,8 @@ module Songs
 
         def create(song_params)
             @song = Song.create(song_params.merge({submitter_id: @submitter_id}))
-
+            #! need to create song contribution if artists already exists
+            debugger
             Result.new(@song)
         end
 

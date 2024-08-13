@@ -77,6 +77,9 @@ class Song < ApplicationRecord
     # when adding filters, must add to this list
     VALID_FILTERS = [:key, :capo, :artist, :favorite, :forgotten, :hot, :old_heart]
 
+    def self.page_size
+        20
+    end
 
     def plays(user)
         if user

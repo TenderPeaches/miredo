@@ -1,4 +1,4 @@
-<%= tag.div id: "song-progressions", class: "column progressions" do %>
+<%= tag.section id: "song-progressions", class: "progressions" do %>
     <%= render "progressions/song_shifter", song: @song %>
     <%= render "progressions/index/nav_links", song: @song %>
     <%= render "progressions/progression_template_picker", progression_templates: @song.progression_templates.distinct, song: @song %>
@@ -7,5 +7,5 @@
     <%= render "progressions/new_progressions", progressions: [], song: @song %>
     <%# if there is any progression already, add another picker at the bottom so that there's one at the top and bottom %>
     <%= render "/progressions/progression_template_picker", progression_templates: @song.progression_templates.distinct, song: @song, is_hidden: @song.progressions.empty? %>
-    <%= render "progressions/index/nav_links", song: @song, is_hidden: @song.progressions.empty? %>
+    <%= render "progressions/index/nav_links", song: @song %>
 <% end %>
