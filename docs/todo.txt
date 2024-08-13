@@ -1,5 +1,6 @@
 * Show progression names (+ design)
 * Extra settings:
+* for_select => to default_scope
 * X to close "new progression" window
 * Pagination
 * check redirections
@@ -13,6 +14,9 @@
 * Setup funding process
 * Funding visual thingy
 
+
+
+* Self eval; good or bad performance
 ==== OLD ====
 
 x Export script

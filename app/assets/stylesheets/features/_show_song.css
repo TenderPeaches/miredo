@@ -59,6 +59,12 @@
    content: "→"
 }
 
+.show-song .progression-tag {
+   color: var(--color-secondary-white);
+   margin: var(--size-xxs) var(--size-s);
+   font-style: italic;
+}
+
 /* degree/chords coloring */
 .degree-1 {
 color: var(--color-degree-first-light);
