@@ -6,6 +6,9 @@
         <%= filter_option :capo, form %>
         <%= filter_option :collection, form, Artist.model_name.human, "artist", { name: :artist, items: Artist.for_select, key: :id, label: :name } %>   
         <%= filter_option :boolean, form, t('keywords.favorites'), "favorite" %>
+        <%= filter_option :boolean, form, t('content.songs.forgotten'), "forgotten" %>
+        <%= filter_option :boolean, form, t('content.songs.hot'), "hot" %>
+        <%= filter_option :boolean, form, t('content.songs.old_heart'), "old_heart" %>
         <%= form.submit t('keywords.apply') %>
     <% end %>
 <% end %>

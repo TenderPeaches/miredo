@@ -1,6 +1,3 @@
-* Action feedback:
-    * Write flashes
-    * Make them disappearable (on a timeout or on click/btn click)
 * Show progression names (+ design)
 * Extra settings:
 * X to close "new progression" window

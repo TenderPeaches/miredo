@@ -208,6 +208,9 @@ en:
       favorite: "Favorite?"
       capo: "Capo"
       new_artist: "If artist is not in the list, enter their name here"
+      forgotten: "Forgotten"
+      hot: "Hot"
+      old_heart: "Test of time"
   activerecord:
     models:
       admin: "Admin"

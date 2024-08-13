@@ -51,6 +51,17 @@ class Song < ApplicationRecord
     # filter by visibility to a given user
     scope :filter_by_visibility, -> (user_id) { where(submitter_id: user_id).or(Song.where(is_public: true)) }
 
+    scope :filter_by_user_played, -> (user_id) { joins(:song_plays).where(song_plays: { user_id: user_id }).group(:song_id) }
+
+    scope :filter_by_user_played_by_heart, -> (user_id) { joins(:song_plays).where(song_plays: { user_id: user_id, by_heart: true }).group(:song_id) }
+
+    # filter by whether the user ever played a song by heart, then played it with a reference, implying that they used to know it by heart but forgot
+    scope :filter_by_forgotten, -> (user) { select {|s| s.forgotten? (user) } }
+
+    scope :filter_by_hot, -> (user) { select {|s| s.hot? (user) } }
+
+    scope :filter_by_old_heart, -> user { select {|s| s.old_heart? (user) } }
+
     # sort by most played for a given user
     scope :sort_by_most_played_by_user, -> (user_id, order = :desc) { joins(:song_plays).where(song_plays: { user_id: user_id }).group(:song_id).order("COUNT(song_plays.id) #{order.to_s.upcase}")}
 
@@ -63,7 +74,8 @@ class Song < ApplicationRecord
     OUTPUT_LINE_TYPE__CHORDS = "chords"
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
 
-    VALID_FILTERS = [:key, :capo, :artist, :favorite]
+    # when adding filters, must add to this list
+    VALID_FILTERS = [:key, :capo, :artist, :favorite, :forgotten, :hot, :old_heart]
 
 
     def plays(user)
@@ -74,9 +86,74 @@ class Song < ApplicationRecord
         end
     end
 
+    # get last performance of a given user
+    def last_user_play(user)
+        song_plays.where(user: user).order(played_at: :desc).first
+    end
+
+    # get last aided performance of a given user
+    def last_user_aided_play(user)
+        song_plays.where(user: user, by_heart: false).order(played_at: :desc).first
+    end
+
+    # get last by heart performance of a given user
+    def last_user_play_by_heart(user)
+        song_plays.where(user: user, by_heart: true).order(played_at: :desc).first
+    end
+
+    def self.forgotten?(user)
+    end
+
+    # if user has forgotten a song -> used to know it by heart, but then didn't
+    def forgotten?(user)
+        user = get_user_if_id(user)
+
+        # compare last performances, with vs without aid
+        last_with_help = last_user_aided_play(user)
+        last_without_help = last_user_play_by_heart(user)
+
+        # need to check in case either is nil
+        if last_with_help&.played_at && last_without_help&.played_at
+
+            # if the last aided performance is more recent than the last performance by heart
+            if last_with_help.played_at > last_without_help.played_at
+                # consider the song "forgotten"
+                return true
+            end
+        end
+
+        # in any other case, if the song was last played by heart or if it was never known by heart in the first place, it is not considered forgotten
+        return false
+    end
+
+    # songs that user has played a lot recently
+    def hot?(user)
+        user = get_user_if_id(user)
+        # "a lot" is 3+ times in the past week
+        #todo make this a setting
+        song_plays.where(user: user, played_at: 1.week.ago..Time.now).count >= 3
+    end
+
+    # songs that the user last played by heart, but hasn't played in a while
+    def old_heart?(user)
+        user = get_user_if_id(user)
+        #todo make this a setting
+        # wrap in if in case never played, then would be nil
+        if last_play = last_user_play(user)
+            # if last play was by heart and over a month ago
+            if last_play.by_heart && last_play.played_at < 1.month.ago
+                # consider it in need of practice
+                return true
+            end
+        end
+        # any other case - last play was not by heart or was less than a month ago, it's not old
+        false
+    end
+
     # filters a collection of songs, against a set of params
     # @params => params of a typical song_filter form (that would be submitted to a SongFiltersControllert), see VALID_FILTERS for valid filter keys; can also contain a :user_id value for some filters that need the current_user.id
     def self.filter(params, collection = Song.none)
+        params_user = User.find_by_id(params[:user_id])
         VALID_FILTERS.each do |filter|
             if params[filter]
                 case filter
@@ -91,7 +168,14 @@ class Song < ApplicationRecord
                     if params[:favorite] == "true" && params[:user_id]
                         collection = collection.filter_by_favorite(params[:user_id])
                     end
+                when :forgotten then
+                    collection = collection.filter_by_forgotten(params_user) unless params[filter] == "false"
+                when :hot then
+                    collection = collection.filter_by_hot(params_user) unless params[filter] == "false"
+                when :old_heart then
+                    collection = collection.filter_by_old_heart(params_user) unless params[filter] == "false"
                 end
+
             end
         end
         collection
@@ -262,16 +346,12 @@ class Song < ApplicationRecord
         chords
     end
 
-    # if true => the song's chords structure and lyrics are obtained through Song_Progression entries
-    # if false => the song's chord structure and lyrics are obtained through parsing the lib.txt file
-    def upgraded?
-        #! If song progressions are added, they will be assumed to be valid and the song will be considered upgraded so make sure each song's progressions are valid, if they exist, before committing them
-        return progressions.any?
-    end
-
-    def progressions_attributes=(progressions_attributes)
-        progressions_attributes.each do |spa|
-
+    private
+    def get_user_if_id(user)
+        if user.is_a? Integer
+            User.find(user)
+        elsif user.is_a? User
+            user
         end
     end
 end

@@ -32,3 +32,5 @@
     <%= render "songs/show/play_actions", song: @song %>
 <% end %>
 <%= tag.section class: "flashes", id: "flashes" %>
+<%# navigation options: next/previous/random songs, back to songs %>
+<%= render "songs/show/nav", song: @song %>

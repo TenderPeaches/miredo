@@ -15,7 +15,7 @@ class SongPlaysController < ApplicationController
                 t('flashes.song_played_by_heart', song: @song.name, play_count: SongPlay.where(user: @user, song: @song, by_heart: true).count.ordinalize)
             else
                 # count all practices if the last practice wasn't by heart
-                t('flashes.song_played', song: @song.name, play_count: @song_plays.count.ordinalize)
+                t('flashes.song_played', song: @song.name, play_count: SongPlay.where(user: @user, song: @song).count.ordinalize)
             end
     end
 

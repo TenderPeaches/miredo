@@ -8,11 +8,11 @@ class SongsController < ApplicationController
         # if user is logged in
         if user_signed_in?
             # ensure that only songs visible to the user are shown by setting the visibility filter
-            @songs = Song.filter(filter_options.merge({visibility: current_user.id}), Song.all)
+            @songs = Song.filter(filter_options.merge({visibility: current_user.id}), Song.includes(:song_plays, :song_contributions, :artists))
         # otherwise, user is logged out
         else
             # apply filters and ensure that out of the results, only the public songs are shown
-            @songs = Song.filter(filter_options).only_public
+            @songs = Song.filter(filter_options).only_public.includes(:song_plays, :song_contributions, :artists)
         end
 
         # sort the songs according to user specifications, if any
