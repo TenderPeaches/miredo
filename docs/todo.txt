@@ -1,12 +1,10 @@
-* Pagination
-* Create song doesn't get artist select 
-* fix that bug when you change the song's scale and it fucks everything up
 * AutoScroll Feature (at least look into it)
 * Redesign home page
 * Design new/created progressions/templates in a more distinct way
 * Standardize chord duration
 * Optimize queries
-* Go over all the flows to make sure the process is public ready
+* Go over all the flows to make sure the process is public ready:
+    * Error handling :/S:SS::S
 * Create the Prod DB
 * Find a hosting solution
 * Acquire domain

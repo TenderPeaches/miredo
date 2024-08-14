@@ -2,5 +2,6 @@
 <%= tag.nav do %>
     <%= song_edit_progression_templates_link(@song.id) %>
     <%= song_edit_progressions_link(@song.id) %>
+    <%= link_to t('cta.view_song'), song_path(@song) %>
 <% end %>
 <%= render "songs/form", song: @song %>

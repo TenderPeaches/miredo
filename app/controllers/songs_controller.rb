@@ -7,8 +7,8 @@ class SongsController < ApplicationController
 
         # use params(:page) to apply a limit(Song.page_size) to the query
         limit = Song.page_size
-        # expected page, 1-indexed
-        @expected_page = params[:page].to_i || 1
+        # expected page, default to 1
+        @expected_page = [params[:page].to_i, 1].max
         # with offset = (params(:page)-1) * Song.page_size (since offset signals the start of the batch, 1st page has a start of 0, not 20 or whatever)
         offset = (@expected_page.to_i - 1) * limit
 
@@ -90,15 +90,18 @@ class SongsController < ApplicationController
 
     def update
         set_song
-        if @song.update(song_params.merge({submitter_id: current_user&.id}))
+
+        Songs::Updater.new(@song).update(song_params, current_user)
+
+        if @song.errors.any?
+            flash.alert = @song.errors.full_messages
+            render :edit, status: :unprocessable_entity
+        else
             if params[:progression_templates]
                 redirect_to song_progression_templates_path @song
             else
                 redirect_to song_path @song
             end
-        else
-            flash.alert = @song.errors.full_messages
-            render :new, status: :unprocessable_entity
         end
     end
 

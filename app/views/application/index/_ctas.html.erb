@@ -2,7 +2,7 @@
     <%= cta_with_description t('cta.browse_songs'), songs_path, t('hints.browse_songs') %>
     <% if user_signed_in? %>
         <%= cta_with_description t('cta.new_song'), new_song_path, t('hints.new_song') %>
-        <%= cta_with_description t('cta.practice_random'), new_song_path, t('hints.practice_random') %>
+        <%= cta_with_description t('cta.practice_random'), song_path(Song.random_id), t('hints.practice_random') %>
     <% else %>
         <%= cta_with_description t('cta.sign_up'), new_user_registration_path, t('hints.sign_up') %>
         <%= login_cta %>

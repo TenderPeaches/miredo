@@ -105,7 +105,7 @@ module ApplicationHelper
                         link_to("3", songs_path(page: 3)),
                         tag.span("4"),
                         link_to("5", songs_path(page: 5)),
-                        "#{page_count > 6 ? tag.span('...') : ''}",
+                        raw("#{page_count > 6 ? tag.span('...') : ''}"),
                         link_to(page_count, songs_path(page: page_count))
                     ]
                 when 5
