@@ -1,3 +1,4 @@
+# help page on building progression templates
 class ProgressionTemplateReferencesController < ApplicationController
     def index
         # see the locale file for all the song structure definitions, whichever entries are listed here will be displayed in the reference page

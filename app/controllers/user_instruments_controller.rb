@@ -1,3 +1,4 @@
+# user can set their preferred instrument
 class UserInstrumentsController < ApplicationController
     def index
         set_user

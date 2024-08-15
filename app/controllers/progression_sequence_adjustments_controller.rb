@@ -1,3 +1,4 @@
+# actions to adjust the sequence of a progression in a song
 class ProgressionSequenceAdjustmentsController < ApplicationController
     def new
         set_progression
@@ -9,6 +10,6 @@ class ProgressionSequenceAdjustmentsController < ApplicationController
 
     private
     def set_progression
-        @progression = Progression.find(params[:progression_id])
+        @progression = Progression.includes(:song).find(params[:progression_id])
     end
 end

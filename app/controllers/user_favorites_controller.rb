@@ -1,3 +1,4 @@
+# users can flag songs as "favorites"
 class UserFavoritesController < ApplicationController
     def new
         # need song_id param

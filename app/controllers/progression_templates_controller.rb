@@ -1,7 +1,8 @@
+# model controller for progression templates
 class ProgressionTemplatesController < ApplicationController
 
     def index
-        @song = Song.find_by_id(params[:song_id])
+        @song = Song.includes(:key, :scale, :progression_templates).find_by_id(params[:song_id])
 
         # if the song's key and scale aren't both defined, redirect to the edit song view to let the user define them
         if @song.key.nil? || @song.scale.nil?

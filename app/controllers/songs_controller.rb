@@ -1,3 +1,4 @@
+# songs model controller
 class SongsController < ApplicationController
     before_action :set_song, only: %i[ play ]
     # GET /songs => Any list of songs, params might include filter/sort/search options
@@ -117,7 +118,7 @@ class SongsController < ApplicationController
 
     private
     def set_song
-        @song = Song.find_by_id(params[:id])
+        @song = Song.includes(:song_contributions, :artists, :song_plays).find_by_id(params[:id])
     end
 
     def song_params

@@ -1,3 +1,4 @@
+# key reference page
 class KeyReferencesController < ApplicationController
     def index
         @scales = Scale.for_references

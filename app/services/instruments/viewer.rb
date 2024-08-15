@@ -14,7 +14,7 @@ module Instruments
         # @scale => Scale_FK, scale used for the display
         # @key => Key_FK, key used for the display
         def view(instrument_view_params = {})
-            params_tuning = Tuning.find_by_id(instrument_view_params[:tuning_id])
+            params_tuning = Tuning.includes(:instrument).find_by_id(instrument_view_params[:tuning_id])
             @tuning = if params_tuning.nil? || params_tuning.instrument != @instrument then @instrument.default_tuning else params_tuning end
             @fret_count = instrument_view_params[:fret_count]
             @capo = instrument_view_params[:capo]

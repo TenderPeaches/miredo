@@ -1,7 +1,8 @@
+# progressions model controller
 class ProgressionsController < ApplicationController
 
     def index
-        @song = Song.find_by_id(params[:song_id])
+        @song = Song.includes(:progressions, :progression_templates).find_by_id(params[:song_id])
     end
 
     def new
@@ -64,7 +65,7 @@ class ProgressionsController < ApplicationController
     end
 
     def set_song
-        @song = Song.find_by_id(params[:song_id])
+        @song = Song.includes(:progression).find_by_id(params[:song_id])
     end
 
     def set_progression_template

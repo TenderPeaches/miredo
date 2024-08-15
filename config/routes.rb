@@ -18,8 +18,6 @@ Rails.application.routes.draw do
 
     resources :scales, only: [ :index ]
 
-    resources :progression_chord_shifts, only: [:new]
-
     resources :songs do
       resources :progression_templates, only: [ :index ]
       resources :progressions, only: [ :index ]

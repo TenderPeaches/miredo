@@ -1,3 +1,4 @@
+# help pages menu
 class ReferencesController < ApplicationController
     def index
 
