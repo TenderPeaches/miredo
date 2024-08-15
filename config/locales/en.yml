@@ -43,6 +43,7 @@ en:
     log_in: "Log in"
     log_out: "Log out"
     sign_up: "Sign up"
+    my_account: "My account"
     contact_us: "Contact us"
     define_progression_templates: "Edit Progression Templates"
     edit_song_structure: "Edit Song Structure"

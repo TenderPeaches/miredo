@@ -13,7 +13,8 @@
     <% end %>
 
     <%= tag.div class: "field" do %>
-        <%= f.label :password %><%= tag.i "(#{t("auth.registration.leave_blank")})" %>
+        <%= f.label :password %>
+        <%= tag.i "#{t("auth.registration.leave_blank")}" %>
         <%= f.password_field :password, autocomplete: "new-password" %>
         <% if @minimum_password_length %>
             <%= tag.div do %>
@@ -28,16 +29,13 @@
     <% end %>
 
     <%= tag.div class: "field" do %>
-        <%= f.label :current_password %> <%= tag.i "(#{t("auth.registration.need_password")})" %>
+        <%= f.label :current_password %> 
+        <%= tag.i "#{t("auth.registration.need_password")}" %>
         <%= f.password_field :current_password, autocomplete: "current-password" %>
     <% end %>
 
     <%= tag.div class: "actions" do %>
         <%= f.submit t("keywords.update") %>
+        <%= link_button_to t("auth.cancel.title"), registration_path(resource_name), data: { confirm: t("keywords.confirm"), turbo_confirm: t("keywords.confirm") }, method: :delete, class: "button--alert" %>
     <% end %>
-<% end %>
-
-<%= tag.h2 t("auth.cancel.title") %>
-<%= tag.div do %>
-    <%= button_to t("auth.cancel.title"), registration_path(resource_name), data: { confirm: t("keywords.confirm"), turbo_confirm: t("keywords.confirm") }, method: :delete %>
 <% end %>

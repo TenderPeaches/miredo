@@ -1,9 +1,8 @@
 * Go over all the flows to make sure the process is public ready:
-    * Auth flow
-    * Song create flow + nav
     * Error handling :/S:SS::S
 * Edit User
 * Search field
+* Song create flow + nav
 * Create the Prod DB
 * Find a hosting solution
 * Acquire domain
@@ -16,6 +15,7 @@
 * Standardize chord duration
 * AutoScroll Feature (at least look into it)
 * Self eval; good or bad performance
+* Private song list/table (filter?)
 ==== OLD ====
 
 x Export script
