@@ -78,7 +78,7 @@ class Song < ApplicationRecord
     VALID_FILTERS = [:key, :capo, :artist, :favorite, :forgotten, :hot, :old_heart]
 
     def self.page_size
-        20
+        100
     end
 
     def plays(user)

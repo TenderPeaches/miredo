@@ -14,7 +14,7 @@
 
     <% unless progression.new_record? %>
         <%= turbo_link_button t('actions.copy', thing: t('activerecord.models.progression')), new_progression_path(progression_id: progression.id) %>
-        <%= link_to t('actions.delete', thing: t('activerecord.models.progression')), progression_path(progression.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: t('activerecord.models.progression')) } %>
+        <%= link_to t('actions.delete', thing: t('activerecord.models.progression')), progression_path(progression.id), class: "button button--alert", data: { turbo_method: :delete, turbo_confirm: t('confirm.delete', model: progression.tag) } %>
     <% end %>
 
     <% if progression.id == nil %>

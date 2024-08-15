@@ -5,7 +5,7 @@
 
 <%# append the song progression to the list of (created) song progressions %>
 <%= turbo_stream.append "current-song-progressions" do %>
-    <%= tag.fieldset id: dom_id(progression) do %>
+    <%= tag.fieldset id: dom_id(progression), class: "progression" do %>
         <%= tag.legend "#{progression_index.to_s}) #{progression.tag}" %>
         <%= render "progressions/form", progression: progression, song: @song %>    
     <% end %>   
@@ -17,8 +17,13 @@
 <%# show the hidden nav %>
 <%= turbo_stream.show "hidden-nav" %>
 
-<%# show the sequencer %>
+<%# show the sequencer in case it wasn't by virtue of there being no progressions %>
 <%= turbo_stream.show "progressions-sequencer" %>
 
 <%# remove the notice that warns that no progressions have been created for this song %>
 <%= turbo_stream.remove "no-song-progressions" %>
+
+<%# add the progression row to the sequencer %>
+<%= turbo_stream.append "sequencer-progressions" do %>
+    <%= render "progressions/sequencer/progression", progression: @progression %>
+<% end %>
