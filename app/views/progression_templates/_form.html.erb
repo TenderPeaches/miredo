@@ -1,11 +1,10 @@
 <%= model_form_with model: progression_template, class: "progression-template-form", id: progression_templates_form_id(progression_template), local: false do |form| %>
     <%= render "progression_templates/errors", progression_template: progression_template %>
     <%= render "progression_templates/fields", form: form %>
-    <%= tag.div class: "progression-template-print" do %>
-        <%= tag.h2 progression_template.print, class: "progression-template-print" %>
+    <%= tag.div class: "template-cypher-print" do %>
+        <%= tag.h2 progression_template.print, class: "template-cypher-print" %>
     <% end %>
     
-    <%# render "progression_templates/chords", form: form, progression_template: progression_template %>
     <%= form.field :cypher, input_html: { class: "field--progression-cypher", value: ProgressionTemplates::Interpreter.new(progression_template.active_key, progression_template.active_scale).to_cypher(progression_template.progression_chords).cypher } %>
     
     <%# if uid local variable assigned, create a hidden field so that the controller can target this form in its response %>

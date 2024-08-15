@@ -5,24 +5,25 @@
     gap: var(--size-s);             /* buffer between each input field */
 }
 
-.progression-chord-print,
-.progression-template-print {
-    align-self: center;
+.template-cypher-print {
+    align-self: center;                     /* center the cypher, doesn't need to fill */
+    font-size: var(--font-size-xxl);        /* cypher is what most people will use to identify the progression, so it needs to pop */
+    color: var(--color-secondary-lightest); /* pop */
+    letter-spacing: var(--size-xxxs);       /* to make timing characters and quick chord sequences more easily distinguishable */
 }
 
-.progression-template-print {
-    font-size: 1.5rem;
-    color: var(--color-accent-lightest);
-    text-align: center;
+/* current progressions are instanciated, they should by default stand out from any new progressions or dirty/unsaved progressions */
+.current-progression-templates .progression-template {
+    border: var(--thicker-border-width) var(--color-primary-light) var(--clean-border-style);  /* use a border that stands out, primary color happens to be green which correlates with the progressions being valid/confirmed/matching the DB */
+    background: radial-gradient(var(--sheen-dark), transparent);  /* depth effect shrug */
+}
+
+.new-progression-templates .progression-template {
+    background: var(--sheen-light);    /* lighter sheen, more ephemeral */
+    border: var(--thick-border-width) var(--color-secondary-white) var(--dirty-border-style);   /* appropriately contrasting border, hinting that there are unsaveged changes with the dirty border style */
 }
 
 /* progression cypher inputs */
 input.field--progression-cypher {
     text-align: left;               /* because center-aligned just looks weird */ 
-}
-
-.progression-template-picker form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }

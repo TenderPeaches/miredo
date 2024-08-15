@@ -3,7 +3,7 @@
 
 <%# append the progression_template to the list of current progression_templates %>
 <%= turbo_stream.append "current-progression-templates" do %>
-    <%= tag.fieldset id: dom_id(@progression_template) do %>
+    <%= tag.fieldset id: dom_id(@progression_template), class: "progression-template" do %>
         <%= tag.legend "#{@progression_template_index.to_s}) #{@progression_template.tag}" %>
         <%= render "progression_templates/form", progression_template: @progression_template %>    
     <% end %>   

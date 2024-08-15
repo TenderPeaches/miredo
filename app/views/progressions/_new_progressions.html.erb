@@ -1,4 +1,4 @@
-<%= tag.div id: "new-song-progressions", class: "song-progressions--new" do %>
+<%= tag.div id: "new-song-progressions", class: "new-progressions" do %>
     <% progressions.each do |progression| %>
         <%= render "progressions/form", progression: progression, song: song %>
     <% end %>

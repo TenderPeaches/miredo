@@ -1,7 +1,7 @@
 <%= turbo_stream.append "new-progression-templates" do %>
     <%# use random unique identifier to easily pluck this element without needing to rely on the progression's DB ID, which is not assigned yet (as a new but unsaved progression) %>
     <% uid = Time.now.to_i %>
-    <%= tag.fieldset id: "new-progression-template_#{uid}" do %>
+    <%= tag.fieldset id: "new-progression-template_#{uid}", class: "progression-template" do %>
         <%= tag.legend t('actions.new', thing: t('activerecord.models.progression_template')) %>
         <%= render "progression_templates/form", progression_template: @progression_template, uid: uid, song: @song %>
     <% end %>

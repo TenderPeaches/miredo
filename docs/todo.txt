@@ -1,4 +1,3 @@
-* Design new/created progressions/templates in a more distinct way
 * Standardize chord duration
 * Optimize queries
 * Go over all the flows to make sure the process is public ready:

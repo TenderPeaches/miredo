@@ -4,6 +4,17 @@
     justify-items: center;
 }   
 
+/* current progression items */
+.current-progressions .progression {
+    border: var(--thicker-border-width) var(--color-primary-light) var(--clean-border-style);  /* use a border that stands out, primary color happens to be green which correlates with the progressions being valid/confirmed/matching the DB */
+    background: radial-gradient(var(--sheen-dark), transparent);  /* depth effect shrug */
+}
+
+.new-progressions .progression {
+    background: var(--sheen-light);    /* lighter sheen, more ephemeral */
+    border: var(--thick-border-width) var(--color-secondary-white) var(--dirty-border-style);   /* appropriately contrasting border, hinting that there are unsaveged changes with the dirty border style */
+}
+
 .progression form {
     display: flex;
     flex-direction: column;

@@ -46,6 +46,10 @@
    --color-white: hsl(0, 0%, 100%);
    --color-disabled :hsl(0, 0%, 60%);
    --color-disabled-dark :hsl(0, 0%, 40%);
+   
+   /* sheen are transluscent layers */
+   --sheen-dark: rgba(0, 0, 0, 60%);
+   --sheen-light: rgba(100, 100, 100, 15%);
 
    /* application-specific utility colors */
    /** degree-associated colors */

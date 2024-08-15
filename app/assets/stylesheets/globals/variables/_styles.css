@@ -3,7 +3,10 @@
     --default-border-style: solid;          /* standard */
     --button-border-style: outset;          /* standard */
     --pressed-border-style: inset;          /* standard */
-    --alert-border-style: double;   
+    --alert-border-style: double;           /* for alerts, messages that need to pop */
+    --clean-border-style: double;           /* to differentiate from regular borders */
+    --dirty-border-style: dashed;           /* with pending changes */
     --thin-border-width: 1px;               /* don't link with var(--size-..) stuff because single pixels make a huge difference with border-width properties */
     --thick-border-width: 2px;              /* don't link with var(--size-..) stuff because single pixels make a huge difference with border-width properties */
+    --thicker-border-width: 4px;               
 }
