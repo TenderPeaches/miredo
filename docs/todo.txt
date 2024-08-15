@@ -1,9 +1,10 @@
-* Redesign home page
 * Sort bug
 * Design new/created progressions/templates in a more distinct way
 * Standardize chord duration
 * Optimize queries
 * Go over all the flows to make sure the process is public ready:
+    * Auth flow
+    * Song create flow + nav
     * Error handling :/S:SS::S
 * Search field
 * Create the Prod DB

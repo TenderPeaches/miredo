@@ -1,0 +1,14 @@
+<%= tag.section class: "showcase" do %>
+    <% songs.showcases.each do |showcase| %>
+        <% if showcase.songs.any? %>
+            <%= tag.fieldset do %>
+                <%= tag.legend showcase.title %>
+                <%= tag.div class: "songs-list" do %>
+                    <% showcase.songs.each do |song| %>
+                        <%= render song %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
