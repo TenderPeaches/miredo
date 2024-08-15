@@ -1,0 +1,5 @@
+<%= tag.p t("auth.confirmation.welcome") %>
+<%= tag.p t("auth.confirmation.link_invite") %>
+<%= tag.p do %>
+    <%= link_to t("auth.confirmation.link"), confirmation_url(@resource, confirmation_token: @token) %>
+<% end %>

@@ -1,0 +1,43 @@
+<%= tag.h1 t("actions.edit", thing: resource_name.to_s.humanize) %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form" }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <%= tag.div class: "field" do %>
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: User.human_attribute_name(:email) %>
+    <% end %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <%= tag.div t("auth.registration.awaiting_confirmation", for: @resource.unconfirmed_email) %>
+    <% end %>
+
+    <%= tag.div class: "field" do %>
+        <%= f.label :password %><%= tag.i "(#{t("auth.registration.leave_blank")})" %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+            <%= tag.div do %>
+                <%= tag.em "(#{t("auth.minimum_password_characters", minimum: @minimum_password_length)})" %>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <%= tag.div class: "field" do %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <% end %>
+
+    <%= tag.div class: "field" do %>
+        <%= f.label :current_password %> <%= tag.i "(#{t("auth.registration.need_password")})" %>
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <% end %>
+
+    <%= tag.div class: "actions" do %>
+        <%= f.submit t("keywords.update") %>
+    <% end %>
+<% end %>
+
+<%= tag.h2 t("auth.cancel.title") %>
+<%= tag.div do %>
+    <%= button_to t("auth.cancel.title"), registration_path(resource_name), data: { confirm: t("keywords.confirm"), turbo_confirm: t("keywords.confirm") }, method: :delete %>
+<% end %>

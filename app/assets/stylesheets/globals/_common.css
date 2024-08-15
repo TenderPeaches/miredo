@@ -10,6 +10,14 @@
     /** we could've used just text-align: center but that trickles down to every sub-element, which isn't the desired behavior, so instead we're using a vertical flex */
 }
 
+.content > h1 {
+    margin: var(--size-l);
+}
+
+.content > h2 {
+    margin: var(--size-m);
+}
+
 /* class added to elements that need to be hidden from the layout */
 .hidden {
     display: none !important;   /*! maybe only acceptable use of !important, but should still look to see if really necessary */

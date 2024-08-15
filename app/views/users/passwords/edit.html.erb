@@ -1,0 +1,25 @@
+<%= tag.h1 t("auth.password_change.title") %>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "form" }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <%= tag.div class: "field" do %>
+        <%= f.label :password, t("auth.password_change.new") %>
+        <% if @minimum_password_length %>
+            <%= tag.em t("auth.minimum_password_characters", minimum: @minimum_password_length) %>
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: t("auth.password_change.title") %>
+    <% end %>
+
+    <%= tag.div class: "field" do %>
+        <%= f.label :password_confirmation, t("auth.password_change.confirm_new") %>
+        <%= f.password_field :password_confirmation, autocomplete: t("auth.password_change.title") %>
+    <% end %>
+
+    <%= tag.div class: "actions" do %>
+        <%= f.submit t("auth.password_change.link") %>
+    <% end %>
+<% end %>
+
+<%= render "users/shared/links" %>

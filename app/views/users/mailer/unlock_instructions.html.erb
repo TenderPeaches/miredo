@@ -1,0 +1,8 @@
+<%= tag.p t("keywords.hello", user: @resource.username) %>
+
+<%= tag.p t("auth.locked.instructions") %>
+<%= tag.p t("auth.locked.link_invite") %>
+
+<%= tag.p do %>
+    <%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %>
+<% end %>

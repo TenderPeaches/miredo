@@ -1,0 +1,16 @@
+<%= tag.h1 t("auth.confirmation.resend_instructions") %>
+
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "form" }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <%= tag.div class: "field" %>
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: User.human_attribute_name(:email), value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    <% end %>
+
+    <%= tag.div class: "actions" do %>
+    <%= f.submit t("auth.confirmation.resend_instructions") %>
+    <% end %>
+<% end %>
+
+<%= render "users/shared/links" %>

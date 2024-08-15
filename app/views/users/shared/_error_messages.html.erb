@@ -1,0 +1,15 @@
+<% if resource.errors.any? %>
+    <%= tag.div id: "error_explanation", data: { "turbo-cache" =>  "false" } do %>
+        <%= tag.h1 do %>
+            <%= t("errors.messages.not_saved",
+                 count: resource.errors.count,
+                 resource: resource.class.model_name.human.downcase)
+            %>
+        <% end %>
+        <%= tag.ul do %>
+            <% resource.errors.full_messages.each do |message| %>
+                <%= tag.li message %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

@@ -1,6 +1,6 @@
-<%= tag.h2 t('cta.log_in') %>
+<%= tag.h1 t('cta.log_in') %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |form| %>
 
     <%# user email %>
     <%= tag.div class: "field" do %>
@@ -22,12 +22,9 @@
         <% end %>
     <% end %>
 
-    <%= tag.div class: "actions" do %>
+    <%= tag.section class: "actions" do %>
         <%= form.submit t('cta.log_in') %>
         <%= link_to t('cta.sign_up'), new_registration_path(resource_name), class: "button" %>
-    <% end %>
-
-    <%= tag.div class: "actions" do %>
         <%= link_to t('cta.forgot_password'), new_password_path(resource_name), class: "button" %>
         <% if devise_mapping.confirmable? %>
             <%= link_to t('cta.resend_confirmation'), new_confirmation_path(resource_name), class: "button" %>

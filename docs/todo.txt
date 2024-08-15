@@ -2,6 +2,7 @@
     * Auth flow
     * Song create flow + nav
     * Error handling :/S:SS::S
+* Edit User
 * Search field
 * Create the Prod DB
 * Find a hosting solution
@@ -11,7 +12,7 @@
 * Funding visual thingy
 
 
-
+* Fragmentise locale file
 * Standardize chord duration
 * AutoScroll Feature (at least look into it)
 * Self eval; good or bad performance

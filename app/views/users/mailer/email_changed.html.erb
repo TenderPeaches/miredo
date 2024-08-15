@@ -1,0 +1,7 @@
+<%= tag.p t("keywords.hello", user: @resource.username) %>
+
+<% if @resource.try(:unconfirmed_email?) %>
+    <%= tag.p t("auth.email_change.occuring") %>
+<% else %>
+    <%= tag.p t("auth.email_change.occured") %>
+<% end %>
