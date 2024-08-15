@@ -63,10 +63,10 @@ class Song < ApplicationRecord
     scope :filter_by_old_heart, -> user { select {|s| s.old_heart? (user) } }
 
     # sort by most played for a given user
-    scope :sort_by_most_played_by_user, -> (user_id, order = :desc) { joins(:song_plays).where(song_plays: { user_id: user_id }).group(:song_id).order("COUNT(song_plays.id) #{order.to_s.upcase}")}
+    scope :sort_by_most_played_by_user, -> (user_id, order = :desc) { joins(:song_plays).where(song_plays: { user_id: user_id }).group("song_plays.song_id").order("COUNT(song_plays.id) #{order.to_s.upcase}")}
 
     # sort by last played for a given user
-    scope :sort_by_last_played, -> (user_id, order = :desc) { joins(:song_plays).select('songs.id', 'songs.name', 'songs.capo', 'MAX(song_plays.played_at) AS "last_played_date"').where(song_plays: { user_id: user_id}).group(:song_id).order(last_played_date: order) }
+    scope :sort_by_last_played, -> (user_id, order = :desc) { joins(:song_plays).select('songs.id', 'songs.name', 'songs.capo', 'MAX(song_plays.played_at) AS "last_played_date"').where(song_plays: { user_id: user_id}).group("song_plays.song_id").order(last_played_date: order) }
 
     # return only public songs
     scope :only_public, -> { where(is_public: true) }

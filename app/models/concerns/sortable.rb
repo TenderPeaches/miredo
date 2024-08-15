@@ -21,7 +21,7 @@ module Sortable
                             # check for method parameters embedded in the sort option
                             if match[3]
                                 #! for now, only single parameter method needed for sort
-                                results = results.public_send("sort_by_#{match[1]}", match[3], value)
+                                results = self.public_send("sort_by_#{match[1]}", match[3], value)
                             else
                                 results = results.public_send("sort_by_#{match[1]}", value)
                             end

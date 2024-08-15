@@ -63,7 +63,7 @@ module SongsHelper
     end
 
     def song_filter_most_played_by_user(user_id, current_sort = :none)
-        sort_button "Play Count", songs_path(sort_options: { "most_played_by_user(#{user_id})" => current_sort }), "sort-by-most-played-by-user", current_sort, inverted_sort: true
+        sort_button "Play Count", songs_path(sort_options: { "most_played_by_user(#{user_id})" => nil }), "sort-by-most-played-by-user", current_sort, inverted_sort: true
     end
 
     # the header row of a default song list
