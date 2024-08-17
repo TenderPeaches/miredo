@@ -1,0 +1,6 @@
+<%= tag.div class: "search" do %>
+    <%= form_tag url: song_searches_path, html: { class: "form" } do %>
+        <%= text_field_tag :search %>
+        <%= tag.submit "🔍" %>
+    <% end %>
+<% end %>

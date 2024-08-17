@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     end
 
     resources :song_filters, only: [ :create ]
+    resources :song_searches, only: [ :create ]
 
     resources :progressions do
         resources :sequence_adjustments, only: [ :new ], controller: :progression_sequence_adjustments

@@ -45,13 +45,18 @@ class ProgressionTemplate < ApplicationRecord
         end
     end
 
-    # display in a given key for a select box
-    def print(key = active_key, scale = active_scale)
+    # print the cypher
+    def print_cypher(key = active_key, scale = active_scale)
         ProgressionTemplates::Interpreter.new(key,scale).to_cypher(self.progression_chords).cypher
     end
 
+    def print(key = active_key, scale = active_scale)
+        "#{tag} (#{print_cypher(active_key, active_scale)} x#{reps.to_s})"
+    end
+
+    # print for use in select inputs, which need to be width-controlled
     def print_for_select
-        "#{tag} (#{print(active_key, active_scale)} x#{reps.to_s})"
+        self.print.truncate_with_ellipsis
     end
 
     def print_bars(key, scale)

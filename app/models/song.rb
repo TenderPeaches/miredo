@@ -62,6 +62,12 @@ class Song < ApplicationRecord
 
     scope :filter_by_old_heart, -> user { select {|s| s.old_heart? (user) } }
 
+    scope :search_by_song_name, -> query { where("name like ?", "%#{query}%") }
+
+    scope :search_by_artist_name, -> query { where("artists.name like ?", "%#{query}%") }
+
+    scope :search_by_lyrics, -> query { select {|s| s.full_lyrics.include? lyrics }}
+
     # sort by most played for a given user
     scope :sort_by_most_played_by_user, -> (user_id, order = :desc) { joins(:song_plays).where(song_plays: { user_id: user_id }).group("song_plays.song_id").order("COUNT(song_plays.id) #{order.to_s.upcase}")}
 
@@ -350,6 +356,16 @@ class Song < ApplicationRecord
         end
 
         chords
+    end
+
+    def full_lyrics
+        lyrics = ""
+
+        progressions.each do |progression|
+            lyrics << progression.lyrics << " "
+        end
+
+        lyrics
     end
 
     private
