@@ -17,8 +17,9 @@ module ProgressionChords
         def from_cypher(cypher)
             progression_chord = ProgressionChord.new
 
+            # if there's a nil, raise an error
             if cypher.nil? || cypher[0].nil?
-                debugger
+                raise "Trying to decypher nil"
             end
 
             # extract the pitch class and assess where it fits within the scale, given the key
@@ -40,6 +41,8 @@ module ProgressionChords
             end
 
             progression_chord.duration = extract_duration(cypher[0])
+            progression_chord.staccato = extract_staccato(cypher[0])
+            progression_chord.muted = extract_muted(cypher[0])
 
             # need to regex capture this as a group to make it easier
             progression_chord.chord = Chord.find_by_notation(cypher[1] || "")
@@ -76,12 +79,14 @@ module ProgressionChords
                     cypher << " "
                     end
 
-                    beat_marker = "–"
-                    if progression_chord.staccato
-                    beat_marker = "."
+                    beat_marker = if progression_chord.staccato
+                        beat_marker = "."
                     elsif progression_chord.muted
-                    beat_marker = "x"
+                        beat_marker = "x"
+                    else
+                        beat_marker = "–"
                     end
+
                     cypher << beat_marker
                 end
             end
@@ -115,9 +120,6 @@ module ProgressionChords
         end
 
         def extract_pitch_class_from_cypher(cypher)
-            if cypher.nil?
-                debugger
-            end
             # assess degree by assessing interval between cypher pitch class & key tonic
             cypher_pitch_class_match = cypher.match(/([ABCDEFG])([#b]?)/)
 
@@ -142,15 +144,26 @@ module ProgressionChords
             end
         end
 
+        #! the chord itself is a duration marker
         def extract_duration(cypher)
             duration_marks = cypher.gsub(/\s+/, "").match(/[-–.x]+/)
 
             if duration_marks
-                # count the marks, with each = 1 duration
-                duration_marks.match(0).size
+                # count the marks, with each = 1 duration, + 1 for the chord
+                duration_marks.match(0).size + 1
             else
-                0
+                # 1 for the chord
+                1
             end
+        end
+
+        def extract_staccato(cypher)
+            cypher.match(/[.]+/).present?
+        end
+
+        #! repetition markers aren't a thing yet, but if they ever are this might conflict
+        def extract_muted(cypher)
+            cypher.match(/[x]+/).present?
         end
     end
 end

@@ -1,8 +1,6 @@
 * Go over all the flows to make sure the process is public ready:
     * Error handling :/S:SS::S
-* staccato/muted
-* max width prog/template forms
-* Search field
+* Search field (see how the list can display them, through #index probably)
 * Song create flow + nav
 * Create the Prod DB
 * Find a hosting solution

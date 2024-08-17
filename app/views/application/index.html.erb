@@ -2,3 +2,6 @@
 <%= render "application/index/ctas" %>
 <%= render "application/index/showcase", songs: @songs_showcase %>
 <%= render "notices/funding" %>
+
+<% i = ProgressionChords::Interpreter.new(Key.default, Scale.default) %>
+<% pc = i.from_cypher("A...") %>
