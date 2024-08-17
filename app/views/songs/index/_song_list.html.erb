@@ -1,0 +1,15 @@
+<% page_count = local_assigns[:page_count] ? page_count : 1 %>
+<% expected_page = local_assigns[:expected_page] ? expected_page : 1 %>
+<%= tag.section id: local_assigns[:id] ? id : nil do %>
+    <% if local_assigns[:title] %>
+        <%= tag.h2 title %>
+    <% end %>
+    <%= paginator songs, page_count, expected_page %>
+    <%= tag.div class: "list songs-list", id: "#{(local_assigns[:id] ? id : "songs")}-list" do %>
+        <%= songs_list_header %>
+        <% songs.each do |song| %>
+            <%= render song %>
+        <% end %>
+    <% end %>
+    <%= paginator songs, page_count, expected_page %>
+<% end %>

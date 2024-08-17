@@ -1,7 +1,7 @@
 <%# songs#index turbo_stream requests updates the song list and filter/sorting controls %>
 
 <%# update the song list %>
-<%= turbo_stream.update :songs do %>
+<%= turbo_stream.update "songs-list" do %>
     <% @songs.each do |song| %>
         <%= render song %>
     <% end %>

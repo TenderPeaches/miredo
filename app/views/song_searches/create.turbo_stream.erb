@@ -1,0 +1,15 @@
+<%= turbo_stream.update :songs do %>
+    <% if @results.any? %>
+        <% if @results.by_name.any? %>
+            <%= render "songs/index/song_list", songs: @results.by_name, id: "songs-by-name", title: t("content.songs.search_result_by_name", search: @query) %>
+        <% end %>
+        <% if @results.by_artist.any? %>
+            <%= render "songs/index/song_list", songs: @results.by_artist, id: "songs-by-artist", title: t("content.songs.search_result_by_artist", search: @query) %>
+        <% end %>
+        <% if @results.by_lyrics.any? %>
+            <%= render "songs/index/song_list", songs: @results.by_lyrics, id: "songs-by-lyrics", title: t("content.songs.search_result_by_lyrics", search: @query) %>
+        <% end %>
+    <% else %>
+        <% t("content.songs.search_not_found", search: @query) %>
+    <% end %>
+<% end %>

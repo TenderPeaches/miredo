@@ -13,16 +13,16 @@ module Songs
         end
 
         private
-        def Result
-            attr_reader :results_by_name, :results_by_artist, :results_by_lyrics
-            def initialize(results_by_name = [], results_by_artist = [], results_by_lyrics = [])
-                @results_by_name = results_by_name
-                @results_by_artist = results_by_artist
-                @results_by_lyrics = results_by_lyrics
+        class Result
+            attr_reader :by_name, :by_artist, :by_lyrics
+            def initialize(by_name = [], by_artist = [], by_lyrics = [])
+                @by_name = by_name
+                @by_artist = by_artist
+                @by_lyrics = by_lyrics
             end
 
             def any?
-                @results_by_name.any? || @results_by_artist.any? || @results_by_lyrics.any?
+                @by_name.any? || @by_artist.any? || @by_lyrics.any?
             end
         end
     end

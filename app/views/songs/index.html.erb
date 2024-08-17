@@ -3,15 +3,12 @@
 <%= tag.section class: "form-options" do %>
     <%= render "songs/index/sort_options" %>
     <%= render "songs/index/filters" %>
+    <%= render "songs/index/search" %>
 <% end %>
-<%= paginator @page_count, @expected_page, @songs %>
-<%= tag.section class: "songs-list", id: "songs" do %>
-    <%= songs_list_header %>
-    <% @songs.each do |song| %>
-        <%= render song %>
-    <% end %>
+
+<%= tag.section id: "songs" do %>
+    <%= render "songs/index/song_list", songs: @songs, page_count: @page_count, expected_page: @expected_page %>
 <% end %>
-<%= paginator @page_count, @expected_page, @songs %>
 
 <%= tag.nav do %>
     <%= render "songs/index/nav" %>

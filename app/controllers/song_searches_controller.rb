@@ -1,7 +1,7 @@
 # search for a song through the catalog
 class SongSearchesController < ApplicationController
     def create
-        @search = params[:search]
-        @results = Somgs::Searcher.search @search
+        @query = params[:search]
+        @results = Songs::Searcher.new(current_user).search @query
     end
 end
