@@ -1,4 +1,4 @@
-<%= tag.section id: "progressions-sequencer", class: "#{local_assigns[:is_hidden] ? " hidden" : ""}" do %>
+<%= tag.section id: "progressions-sequencer", class: local_assigns[:is_hidden] ? "hidden" : nil do %>
     <%# only show sequencer if there are any progressions to move around %>
     <%= instruction_label :sequencer %>
     <%= tag.div id: "sequencer-progressions", class: "table progressions-sequencer" do %>

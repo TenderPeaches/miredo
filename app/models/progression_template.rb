@@ -53,12 +53,12 @@ class ProgressionTemplate < ApplicationRecord
     end
 
     def print(key = active_key, scale = active_scale)
-        "#{tag} (#{print_cypher(active_key, active_scale)} x#{reps.to_s})"
+        "#{print_cypher(active_key, active_scale)} x#{reps.to_s}"
     end
 
     # print for use in select inputs, which need to be width-controlled
     def print_for_select
-        self.print.truncate_with_ellipsis
+        "#{tag}: #{self.print}".truncate_with_ellipsis
     end
 
     def print_bars(key, scale)

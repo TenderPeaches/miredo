@@ -15,9 +15,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
+  def edit
+      @minimum_password_length = 8
   #   super
-  # end
+  end
 
   # PUT /resource
   # def update
