@@ -1,3 +1,6 @@
-<%= turbo_stream.replace "#{dom_id(@progression_template)}__form" do %>
-    <%= render "progression_templates/form", progression_template: @progression_template %>
-<% end %>
+<% if @progression_template.valid? %>
+    <%= turbo_stream.replace "#{dom_id(@progression_template)}__form" do %>
+        <%= render "progression_templates/form", progression_template: @progression_template %>
+    <% end %>
+<% else %>
+    <%= flash_model_errors @progression_template %>

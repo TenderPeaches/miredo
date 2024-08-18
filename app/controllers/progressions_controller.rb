@@ -33,11 +33,6 @@ class ProgressionsController < ApplicationController
         # unique ID to list the progression until it has a proper tag
         @progression_index = @song.progressions.count
 
-        # alert errors if any
-        if @progression.errors.any?
-            alert_errors
-        end
-
         if params[:create_another]
             @new_progression = progression_creator.build(@progression).progression
             render :create_another
@@ -49,9 +44,7 @@ class ProgressionsController < ApplicationController
     def update
         set_progression
 
-        unless @progression.update(progression_params)
-            alert_errors
-        end
+        @progression.update(progression_params)
     end
 
     def destroy
@@ -73,7 +66,7 @@ class ProgressionsController < ApplicationController
     end
 
     def alert_errors
-        flash.now[:alert] = t('errors.invalid.form', model: t('activerecord.models.progression'), errors: @progression.errors.full_messages)
+        flash.now[:alert] = t('alerts.invalid_form', model: t('activerecord.models.progression'), errors: @progression.errors.full_messages)
     end
 
     def progression_params

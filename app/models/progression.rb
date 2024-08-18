@@ -4,8 +4,9 @@ class Progression < ApplicationRecord
     belongs_to :key, optional: true
     belongs_to :scale, optional: true
 
-    #before_save :assign_sequence_number
-    #after_save :adjust_other_sequence_numbers, if: :saved_change_to_sequence?
+    validates :tag, length: { in: 1..32 }   # arbitrary
+    validates :reps, numericality: { greater_than_or_equal_to: 0 }
+    validates :sequence, numericality: { in: 0.. }
 
     attr_accessor :uid
 

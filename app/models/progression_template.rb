@@ -8,6 +8,8 @@ class ProgressionTemplate < ApplicationRecord
 
     accepts_nested_attributes_for :progression_chords, allow_destroy: true
 
+    validates :tag, length: { in: 1..32 }
+
     attr_accessor :uid, :cypher
 
     public

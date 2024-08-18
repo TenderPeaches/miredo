@@ -1,0 +1,10 @@
+ <%= turbo_stream.update :flashes do %>
+    <%= tag.div class: "flash flash--alert" do %>
+        <%= tag.p t("alerts.invalid_form", model: model.class.model_name.human.downcase) %>
+        <%= tag.ol do %>
+            <% model.errors.each do |error| %>
+                <%= tag.li "#{model.class.model_name.human} #{error.attribute} #{error.message}" %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

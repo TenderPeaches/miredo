@@ -32,7 +32,7 @@ en:
   confirm: 
     delete: "Are you sure you wish to delete %{model}?"
   alerts:
-    invalid_form: "Error: invalid %{model} form. Please check the following: %{errors}"
+    invalid_form: "Error creating or updating %{model}. Please check the following:"
   flashes:
     song_played: "You just practiced playing \"%{song}\" for the %{play_count} time!"
     song_played_by_heart: "You just practiced playing \"%{song}\" by heart, for the %{play_count} time!"

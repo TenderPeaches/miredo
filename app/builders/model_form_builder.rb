@@ -187,7 +187,12 @@ class ModelFormBuilder < ActionView::Helpers::FormBuilder
 
     def error_text(attribute)
         if has_error? attribute
-            tag.div @object.errors[method].join("<br />").html_safe, class: "form-errors"
+            errors = []
+            @object.errors.full_messages.each do |error_message|
+                errors << (tag.div error_message, class: "error")
+            end
+
+            safe_join errors
         end
     end
 

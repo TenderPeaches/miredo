@@ -16,5 +16,7 @@
     <%# show new progression_template forms %>
     <%= render "progression_templates/new_progression_templates", progression_templates: [], song: @song, scale: @song.scale, key: @song.key %>
 
+    <%= tag.section class: "flashes", id: "flashes" %>
+
     <%= render "progression_templates/nav", song: @song %>
 <% end %>

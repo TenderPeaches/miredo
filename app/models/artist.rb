@@ -4,6 +4,8 @@ class Artist < ApplicationRecord
     has_many :album_contributions
     has_many :albums, through: :album_contributions
 
+    validates :name, presence: true
+
     def self.for_select
         Artist.order(name: :asc)
     end

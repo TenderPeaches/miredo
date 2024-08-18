@@ -1,6 +1,7 @@
 * Go over all the flows to make sure the process is public ready:
     * Error handling :/S:SS::S
 * Song create flow + nav
+    * => harmonize width/UI
 * Create the Prod DB
 * Find a hosting solution
 * Acquire domain
@@ -8,7 +9,7 @@
 * Setup funding process
 * Funding visual thingy
 
-
+* Errors in progression forms should appear at eye-level, not bottom of the list
 * Fragmentise locale file
 * Standardize chord duration
 * AutoScroll Feature (at least look into it)

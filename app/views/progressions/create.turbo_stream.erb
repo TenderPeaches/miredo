@@ -1,1 +1,7 @@
-<%= render "progressions/create", progression: @progression, progression_index: @progression_index %>
+<% if @progression.valid? %>
+    <%= render "progressions/create", progression: @progression, progression_index: @progression_index %>
+<%# progression was not created because it contains errors %>
+<% else %>
+    <%# feedback to the user %>
+    <%= flash_model_errors @progression %>
+<% end %>

@@ -1,1 +1,5 @@
-<%= render "progression_templates/create", progression_template: @progression_template, progression_template_index: @progression_template_index %>
+<% if @progression_template.valid? %>
+    <%= render "progression_templates/create", progression_template: @progression_template, progression_template_index: @progression_template_index %>
+<% else %>
+    <%= flash_model_errors @progression_template %>
+<% end %>
