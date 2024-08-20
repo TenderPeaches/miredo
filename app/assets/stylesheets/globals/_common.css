@@ -169,6 +169,19 @@ input[type="submit"]:active {
     color: var(--primary-color-white);      /* secondary table titles use a different color for contrast */
 }
 
+/* logo styling */
+.app-title > span:nth-child(1) {
+    color: var(--color-secondary-light);
+}
+
+.app-title > span:nth-child(2) {
+    color: var(--color-accent-light);
+}
+
+.app-title > span:nth-child(3) {
+    color: var(--color-primary-light);
+}
+
 /* screen-size dependent considerations */
 /* for large screens */
 @media screen and (min-width: 1080px) {

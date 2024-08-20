@@ -4,6 +4,16 @@ module ApplicationHelper
         "Miredo"
     end
 
+    def app_logo
+        tag.h1 class: "app-title" do
+            safe_join [
+                tag.span(app_title[0..1]),
+                tag.span(app_title[2..3]),
+                tag.span(app_title[4..5]),
+            ]
+        end
+    end
+
     def turbo_link_button(text, target, options = {})
         link_to text, target, class: "button" + (options[:class] ? " #{options[:class]}" : ""), data: { turbo_stream: true, turbo_method: options[:method] || :get }, id: options[:id], title: options[:title]
     end
