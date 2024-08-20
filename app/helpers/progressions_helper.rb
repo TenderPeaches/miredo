@@ -1,5 +1,6 @@
 module ProgressionsHelper
     def progression_lyrics_preview(progression)
+        progression.lyrics.truncate_with_ellipsis
         cutoff = 25
         if progression.lyrics.nil?
             ""

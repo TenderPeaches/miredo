@@ -1,7 +1,7 @@
-* Create the Prod DB
-* Find a hosting solution
-* Acquire domain
-* Host the damn thing
+* Find hosting > Heroku
+    x Create account
+    x Find plan
+    * https://devcenter.heroku.com/articles/getting-started-with-rails7#local-setup
 * Setup funding process
 * Funding visual thingy
 
