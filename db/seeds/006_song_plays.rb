@@ -1,4 +1,4 @@
-begin
+=begin
     Songs::Player.new(User.first).play({played_at: "2024-01-26 17:49:04 UTC", song_id: 1}, 23);
     Songs::Player.new(User.first).play({played_at: "2020-07-31 00:00:00 UTC", song_id: 2}, 3);
     Songs::Player.new(User.first).play({played_at: "2020-07-31 00:00:00 UTC", song_id: 3}, 3);
@@ -172,4 +172,4 @@ begin
     Songs::Player.new(User.first).play({played_at: "2024-01-27 15:56:19 UTC", song_id: 171}, 6);
     Songs::Player.new(User.first).play({played_at: "2024-02-28 00:13:03 UTC", song_id: 172}, 3);
     Songs::Player.new(User.first).play({played_at: "2024-01-30 23:35:31 UTC", song_id: 173}, 1);
-end
+=end

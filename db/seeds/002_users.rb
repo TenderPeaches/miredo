@@ -1,1 +1,1 @@
-User.create(username: "Peaches", email: "some@gmail.com", password: "1234")
+#User.create(username: "Peaches", email: "some@gmail.com", password: "1234")
