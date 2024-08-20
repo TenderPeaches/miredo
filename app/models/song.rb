@@ -1,5 +1,4 @@
 class Song < ApplicationRecord
-    include Filterable
     include Sortable
 
     belongs_to :album, optional: true
@@ -165,29 +164,31 @@ class Song < ApplicationRecord
     # filters a collection of songs, against a set of params
     # @params => params of a typical song_filter form (that would be submitted to a SongFiltersControllert), see VALID_FILTERS for valid filter keys; can also contain a :user_id value for some filters that need the current_user.id
     def self.filter(params, collection = Song.none)
-        params_user = User.find_by_id(params[:user_id])
-        VALID_FILTERS.each do |filter|
-            if params[filter]
-                case filter
-                when :key then
-                    collection = collection.filter_by_keyscale(params[:key], params[:scale])
-                when :capo then
-                    collection = collection.filter_by_capo(params[:capo])
-                when :artist then
-                    collection = collection.filter_by_artist(params[:artist])
-                when :favorite then
-                    # only filter for favorites, otherwise do nothing to keep including both favorites and non-favorites, rather than just non-favorites
-                    if params[:favorite] == "true" && params[:user_id]
-                        collection = collection.filter_by_favorite(params[:user_id])
+        if params.present?
+            params_user = User.find_by_id(params[:user_id])
+            VALID_FILTERS.each do |filter|
+                if params[filter]
+                    case filter
+                    when :key then
+                        collection = collection.filter_by_keyscale(params[:key], params[:scale])
+                    when :capo then
+                        collection = collection.filter_by_capo(params[:capo])
+                    when :artist then
+                        collection = collection.filter_by_artist(params[:artist])
+                    when :favorite then
+                        # only filter for favorites, otherwise do nothing to keep including both favorites and non-favorites, rather than just non-favorites
+                        if params[:favorite] == "true" && params[:user_id]
+                            collection = collection.filter_by_favorite(params[:user_id])
+                        end
+                    when :forgotten then
+                        collection = collection.filter_by_forgotten(params_user) unless params[filter] == "false"
+                    when :hot then
+                        collection = collection.filter_by_hot(params_user) unless params[filter] == "false"
+                    when :old_heart then
+                        collection = collection.filter_by_old_heart(params_user) unless params[filter] == "false"
                     end
-                when :forgotten then
-                    collection = collection.filter_by_forgotten(params_user) unless params[filter] == "false"
-                when :hot then
-                    collection = collection.filter_by_hot(params_user) unless params[filter] == "false"
-                when :old_heart then
-                    collection = collection.filter_by_old_heart(params_user) unless params[filter] == "false"
-                end
 
+                end
             end
         end
         collection

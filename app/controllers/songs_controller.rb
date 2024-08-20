@@ -20,7 +20,7 @@ class SongsController < ApplicationController
         # otherwise, user is logged out
         else
             # apply filters and ensure that out of the results, only the public songs are shown
-            @songs = Song.filter(filter_options).only_public.includes(:song_plays, :song_contributions, :artists)
+            @songs = Song.filter(filter_options, Song.only_public.includes(:song_plays, :song_contributions, :artists))
         end
 
         # page count is collection count / how many items per page, rounded up
@@ -44,7 +44,7 @@ class SongsController < ApplicationController
     def show
         set_song
         if @song.key.nil?
-            render :edit
+            @song.update(key: Key.default)
         else
             # user might specify to shift the song to a different key
             @key_shift = params[:key_shift]
