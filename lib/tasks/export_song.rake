@@ -18,11 +18,11 @@ namespace :song do
         end
     end
 
-    task :export_plays => [:environment] do |task|
-        File.open("db/exports/song_plays.rb", "w") do |file|
-            plays = {}
-            Song.all.each do |song|
-                plays[song.id] = { nb_practices: song.nb_practices, last_practiced: song.last_practiced }
+    task :export_plays, [:user_id] => [:environment] do |task, args|
+        File.open("db/exports/song_plays_for_user_#{args[:user_id]}.rb", "w") do |file|
+
+            SongPlay.where(user_id: args[:user_id]).each do |song_play|
+                file.puts "SongPlay.create(song_id: #{song_play.song_id}, user_id: #{args[:user_id]}, played_at: #{song_play.played_at ? "'#{song_play.played_at.strftime("%D %T %Z")}'" : 'nil'}, by_heart: #{song_play.by_heart ? 'true' : 'false'})"
             end
         end
     end
