@@ -78,13 +78,14 @@ en:
   notices:
     early_access:
       title: "Early access"
-      blurb_warning: "Miredo is an individual-scale project which only launched recently. As such, many features might behave unexpectedly or outright not work under certain circumstances."
+      blurb_warning: "Miredo is my first large Rails website and is a 1-person operation. As such, many features might behave unexpectedly or outright not work under certain circumstances."
       blurb_reach_out_prompt: "Please reach out"
-      blurb_reach_out_text: "to describe any issues and I'll do my best to fix them in a hopefully somewhat timely fashion."
-      blurb_suggestions: "Likewise, suggestions for new features are welcome but the current priority is to fine-tune the existing ones."
+      blurb_reach_out_text: "to describe any issues and hopefully I will be able to fix them in somewhat timely fashion."
+      blurb_suggestions: "Suggestions for new features are welcome but the current priority is to fine-tune the existing ones."
     funding: 
       title: "Help Miredo stay afloat!"
-      blurb: "As of now Miredo has no ads or premium features so it is solely funded through investments from its developers and voluntary donations from its users. Please give according to your usage and means. If you're a professional, check if your donation can be tax-deductible in your jurisdiction, as this could be used for musical or educational purposes."
+      blurb: "Support me on Patreon so that I can work on projects like this full-time instead of finding part-time gigs. There is one premium feature - submitting your own songs. This restriction will be lifted in time but as the website runs on a low-budget server, I would rather put the song creation process behind a paywall as it is relatively more resource-intensive than everything else. Until then, you can send me your suggestions and I'll consider adding them myself."
+      blurb_alt: "As of now Miredo has no ads or premium features so it is solely funded through investments from its developers and voluntary donations from its users. Please give according to your usage and means. If you're a professional, check if your donation can be tax-deductible in your jurisdiction, as this could be used for musical or educational purposes."
   instructions:
     song_play: "Press the Play (✓) button after having practiced a song with the help of a tablature or any sort of aid that wouldn't be available during a live performance"
     song_play_by_heart: "Press the Play by Heart (♥︎) button after having practiced a song by heart, without going to a tablature for the chords, lyrics or other helpers at any given time"
