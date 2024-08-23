@@ -20,5 +20,10 @@ module Miredo
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.autoload_paths += %W(#{config.root}/lib)
+
+    # set a lone admin email for now
+    config.admin_email = "pxs@miredo.ca"
+
+    config.inquiries_email = "inquiries@miredo.ca"
   end
 end

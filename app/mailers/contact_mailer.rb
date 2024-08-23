@@ -1,11 +1,11 @@
 class ContactMailer < ApplicationMailer
-    default from: "contact@miredo.ca"
+    default from: Rails.config.inquiries
 
     def inquiry(params)
         @return_address = params[:return_address]
         @subject = params[:subject]
         @body = params[:body]
 
-        mail(to: "admin@miredo.ca", subject: @subject)
+        mail(to: Rails.config.admin_email, subject: @subject)
     end
 end
