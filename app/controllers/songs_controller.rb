@@ -59,7 +59,7 @@ class SongsController < ApplicationController
             @key_with_capo = @key.shift(@capo * -1)
 
             # instrument to be shown as a helper
-            @instrument = if current_user then Instrument.find_by_id(current_user.user_settings.default_instrument) else Instrument.default end
+            @instrument = if current_user then current_user.default_instrument else Instrument.default end
 
             # instrument helper to make all the necessary data accessible to the view
             @instrument_view = Instruments::Viewer.new(@instrument).view({
