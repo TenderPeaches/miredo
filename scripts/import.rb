@@ -57,13 +57,13 @@ def seed_artists(artists, songs)
 
     seeds_file.puts "# artists\n"
     artists.each do |artist|
-        artist_seed = 'Artist.create_or_find_by(name: "%{artist}")' % {artist: artist}
+        artist_seed = 'Artist.find_or_create_by(name: "%{artist}")' % {artist: artist}
         seeds_file.puts artist_seed << "\n"
     end
 
     seeds_file.puts "\n# song contributions"
     songs.each do |song|
-        song_contribution_seed = 'SongContribution.create_or_find_by(song: Song.find_by(name: "%{song}"), artist: Artist.find_by(name: "%{artist}"))' % {song: song['song'], artist: song['artist']}
+        song_contribution_seed = 'SongContribution.find_or_create_by(song: Song.find_by(name: "%{song}"), artist: Artist.find_by(name: "%{artist}"))' % {song: song['song'], artist: song['artist']}
         seeds_file.puts song_contribution_seed << "\n"
     end
 end
@@ -89,7 +89,7 @@ def songs_hash_to_seeds(songs, seeds_file)
         song_lyrics = song_hash['lyrics']
         song_lyrics.gsub(/"/, '\"')
 
-        song_seed = 'Song.create_or_find_by(name: "%{name}", album: Album.find_or_create_by(name: "%{album}"), number: "%{number}", duration: "%{duration}", nb_practices: "%{nb_practices}",  capo: "%{capo}", chords: "%{chords}", lyrics: "%{lyrics}")' % {name: song_hash['song'], album: song_hash['album'], number: song_hash['songnumber'], duration: song_hash['duration'], nb_practices: song_hash['nbpractice'], last_practice: song_hash['lastpractice'], capo: song_hash['capo'], chords: song_hash['chords'], lyrics: song_lyrics}
+        song_seed = 'Song.find_or_create_by(name: "%{name}", album: Album.find_or_create_by(name: "%{album}"), number: "%{number}", duration: "%{duration}", nb_practices: "%{nb_practices}",  capo: "%{capo}", chords: "%{chords}", lyrics: "%{lyrics}")' % {name: song_hash['song'], album: song_hash['album'], number: song_hash['songnumber'], duration: song_hash['duration'], nb_practices: song_hash['nbpractice'], last_practice: song_hash['lastpractice'], capo: song_hash['capo'], chords: song_hash['chords'], lyrics: song_lyrics}
         seeds_file.puts song_seed << "\n"  # disable when done so as to not overwrite
     end
 
