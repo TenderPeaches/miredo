@@ -3614,3 +3614,2085 @@ I'd say all the words that I know
 Just to see if it would show
 That I'm trying to let you know
 That I'm better off on my own",tag: "Chorus 2",song: song, progression_template: progression_template_2)
+
+song = Song.find_by_id(174)
+unless song
+  song = Song.create(name: "Stand by Me",number: nil, duration: nil, capo: 2, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 3, scale_id: 2, album_id: 1, submitter_id: nil, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 174, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 174, sequence: 2, reps: 2, key_id: nil, scale_id: nil, lyrics: "When the night has come
+And the land is dark
+And the moon is the only light we'll see
+No, I won't be afraid
+Oh, I won't be afraid
+Just as long as you stand, stand by me",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 174, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "So darlin', darlin', stand by me
+Oh, stand by me
+Oh, stand
+Stand by me, stand by me",tag: "Chorus 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 174, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Post-Chorus 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 174, sequence: 5, reps: 2, key_id: nil, scale_id: nil, lyrics: "If the sky that we look upon
+Should tumble and fall
+Or the mountains should crumble to the sea
+I won't cry, I won't cry
+No, I won't shed a tear
+Just as long as you stand, stand by me",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 174, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "And darlin', darlin', stand by me
+Oh, stand by me
+Woah, stand now
+Stand by me, stand by me",tag: "Chorus 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 174, sequence: 7, reps: 2, key_id: nil, scale_id: nil, lyrics: "",tag: "Post-Chorus 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 174, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Darlin', darlin', stand by me
+Oh, stand by me
+Oh, stand now
+Stand by me, stand by me",tag: "Chorus 3",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 174, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "Whenever you're in trouble, won't you stand by me?
+Oh, stand by me
+Woah, just stand now
+Oh, stand, stand by me",tag: "Chorus 4",song: song, progression_template: progression_template_1)
+Songs::Player.new(User.first).play({played_at: "", song_id: 174}, )
+
+song = Song.find_by_id(175)
+unless song
+  song = Song.create(name: "Welcome to my Life",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 13, scale_id: 2, album_id: 1, submitter_id: nil, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 175, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "Do you ever feel like breaking down?
+Do you ever feel out of place
+Like somehow you just don't belong
+And no one understands you?
+Do you ever wanna run away?
+Do you lock yourself in your room
+With the radio on turned up so loud
+That no one hears you're screaming?",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 175, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Do you wanna be somebody else?
+Are you sick of feeling so left out?
+Are you desperate to find something more
+Before your life is over?
+Are you stuck inside a world you hate?
+Are you sick of everyone around?
+With their big fake smiles and stupid lies
+While deep inside you're bleeding",tag: "Verse 2",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Pre-Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 175, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "No, you don't know what it's like
+When nothing feels alright
+You don't know what it's like
+To be like me",tag: "Pre-Chorus 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 175, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "No, you don't know what it's like
+When nothing feels alright
+You don't know what it's like
+To be like me",tag: "Pre-Chorus 2",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Chorus pt1",reps: 3, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 175, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "To be hurt, to feel lost
+To be left out in the dark
+To be kicked when you're down
+To feel like you've been pushed around
+To be on the edge of breaking down
+And no one's there to save you",tag: "Chorus 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 175, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "To be hurt, to feel lost
+To be left out in the dark
+To be kicked when you're down
+To feel like you've been pushed around
+To be on the edge of breaking down
+And no one's there to save you",tag: "Chorus 2",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 175, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "To be hurt, to feel lost
+To be left out in the dark
+To be kicked when you're down
+To feel like you've been pushed around
+To be on the edge of breaking down
+And no one's there to save you",tag: "Chorus 3",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 175, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "To be hurt, to feel lost
+To be left out in the dark
+To be kicked when you're down
+To feel like you've been pushed around
+To be on the edge of breaking down
+And no one's there to save you",tag: "Chorus 4",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Chorus pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 175, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "No, you don't know what it's like
+Welcome to my life",tag: "Chorus 1",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 175, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "No, you don't know what it's like
+Welcome to my life",tag: "Chorus 1",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 175, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "No, you don't know what it's like
+Welcome to my life",tag: "Chorus 2",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 175, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "No, you don't know what it's like (What it's like)",tag: "Chorus 3",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 175, sequence: 14, reps: 1, key_id: nil, scale_id: nil, lyrics: "No, you don't know what it's like
+Welcome to my life",tag: "Chorus 4",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Bridge",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 175, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "No one ever lied straight to your face
+And no one ever stabbed you in the back
+You might think I'm happy, but I'm not gonna be okay
+Everybody always gave you what you wanted
+You never had to work, it was always there
+You don't know what it's like, what it's like",tag: "Bridge",song: song, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Ending",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
+Progression.create(song_id: 175, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "Welcome to my life
+Welcome to my life",tag: "Chorus 4",song: song, progression_template: progression_template_6)
+Songs::Player.new(User.first).play({played_at: "", song_id: 175}, )
+
+song = Song.find_by_id(176)
+unless song
+  song = Song.create(name: "Country Roads",number: nil, duration: nil, capo: 2, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 4, scale_id: 2, album_id: 1, submitter_id: nil, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Intro",reps: 4, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: 5, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 176, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 176, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "Almost Heaven, West Virginia
+Blue Ridge Mountains, Shenandoah River
+Life is old there, older than the trees
+Younger than the mountains, growing like a breeze",tag: "Verse 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 176, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "All my memories gather 'round her
+Miner's lady, stranger to blue water
+Dark and dusty, painted on the sky
+Misty taste of moonshine, teardrop in my eye
+",tag: "Verse 2",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 176, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "Country roads, take me home
+To the place I belong
+West Virginia, mountain mama
+Take me home, country roads",tag: "Chorus 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 176, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "Country roads, take me home
+To the place I belong
+West Virginia, mountain mama
+Take me home, country roads",tag: "Chorus 2",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 176, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Country roads, take me home
+To the place I belong
+West Virginia, mountain mama
+Take me home, country roads",tag: "Chorus 3",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 176, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Country roads, take me home
+To the place I belong
+West Virginia, mountain mama
+Take me home, country roads",tag: "Chorus 4",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Bridge",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 176, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "I hear her voice in the morning hour, she calls me
+The radio reminds me of my home far away
+Driving down the road, I get a feeling
+That I should have been home yesterday, yesterday",tag: "Bridge",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Outro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 176, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "Take me home, (down) country roads.
+",tag: "Outro",song: song, progression_template: progression_template_5)
+Songs::Player.new(User.first).play({played_at: "", song_id: 176}, )
+
+song = Song.find_by_id(177)
+unless song
+  song = Song.create(name: "Everytime we Touch",number: nil, duration: nil, capo: 1, chords: "",lyrics: "",bpm: 120, is_public: false, time_signature_id: nil, key_id: 12, scale_id: 2, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 13, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 14, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 177, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "I still hear your voice when you sleep next to me
+I still feel your touch in my dream (In my dream)
+Forgive me my weakness, but I don't know why
+Without you, it's hard to survive",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 177, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Your arms are my castle, your heart is my sky
+They wipe away tears that I cry (That I cry)
+The good and the bad times, we've been through them all
+You make me rise when I fall",tag: "Verse 2",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 14, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 177, sequence: 2, reps: 2, key_id: nil, scale_id: nil, lyrics: "'Cause every time we touch, I get this feeling
+And every time we kiss, I swear I could fly
+Can't you feel my heart beat fast? I want this to last
+Need you by my side
+'Cause every time we touch, I feel the static
+And every time we kiss, I reach for the sky
+Can't you hear my heart beat so? I can't let you go
+Want you in my life",tag: "Chorus 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 177, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 177, sequence: 5, reps: 2, key_id: nil, scale_id: nil, lyrics: "'Cause every time we touch, I get this feeling
+And every time we kiss, I swear I could fly
+Can't you feel my heart beat fast? I want this to last
+Need you by my side
+'Cause every time we touch, I feel the static
+And every time we kiss, I reach for the sky
+Can't you hear my heart beat so? I can't let you go
+Want you in my life",tag: "Chorus 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 177, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 177, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "'Cause every time we touch, I get this feeling
+And every time we kiss, I swear I could fly
+Can't you feel my heart beat fast? I want this to last
+Need you by my side",tag: "Chorus 3",song: song, progression_template: progression_template_2)
+Songs::Player.new(User.first).play({played_at: "", song_id: 177}, )
+
+song = Song.find_by_id(178)
+unless song
+  song = Song.create(name: "Dust in the Wind",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 1, scale_id: 2, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Intro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 5, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 15, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 14, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 15, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 5, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 13, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 15, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 14, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 14, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 15, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 16, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 178, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 178, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Bridge",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 178, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 9, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 0, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 9, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 13, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 178, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "I close my eyes
+Only for a moment and the moment's gone
+All my dreams
+Pass before my eyes, a curiosity",tag: "Verse 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 178, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Same old song
+Just a drop of water in an endless sea
+All we do
+Crumbles to the ground though we refuse to see",tag: "Verse 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 178, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Now, don't hang on
+Nothing lasts forever but the earth and sky
+It slips away
+And all your money won't another minute buy",tag: "Verse 3",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Chorus",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 178, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "Dust in the wind
+All they are is dust in the wind",tag: "Chorus 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 178, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "Dust in the wind
+All we are is dust in the wind",tag: "Chorus 2",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 178, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Dust in the wind
+All we are is dust in the wind (All we are is dust in the wind)
+Dust in the wind (Everything is dust in the wind)
+Everything is dust in the wind",tag: "Chorus 3",song: song, progression_template: progression_template_3)
+Songs::Player.new(User.first).play({played_at: "", song_id: 178}, )
+
+song = Song.find_by_id(179)
+unless song
+  song = Song.create(name: "Dirty Paws",number: nil, duration: nil, capo: 3, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 11, scale_id: 2, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 5, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 179, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 179, sequence: 2, reps: 2, key_id: nil, scale_id: nil, lyrics: "Jumping up and down the floor,
+My head is an animal.
+And once there was an animal,
+It had a son that mowed the lawn.
+The son was an OK guy,
+They had a pet dragonfly.
+The dragonfly, it ran away,
+But it came back with a story to say.",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 179, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 179, sequence: 4, reps: 2, key_id: nil, scale_id: nil, lyrics: "Her dirty paws and furry coat,
+She ran down the forest slopes.
+The forest of talking trees,
+They used to sing about the birds and the bees.
+The bees had declared a war,
+The sky wasn't big enough for them all.
+The birds, they got help from below,
+From dirty paws and the creatures of snow.",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 179, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Hey! (x2);",tag: "Break 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 179, sequence: 7, reps: 2, key_id: nil, scale_id: nil, lyrics: "So for a while things were cold,
+They were scared down in their holes.
+The forest that once was green
+Was colored black by those killing machines.
+But she and her furry friends
+Took down the queen bee and her men.
+And that's how the story goes,
+The story of the beast with those four dirty paws. ",tag: "Verse 3",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Break",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 5, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 179, sequence: 5, reps: 2, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 179, sequence: 8, reps: 4, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Outro pt1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 5, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 179, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Outro pt2",reps: 3, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 5, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 179, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Outro pt3",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 179, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_5)
+Songs::Player.new(User.first).play({played_at: "", song_id: 179}, )
+
+song = Song.find_by_id(180)
+unless song
+  song = Song.create(name: "King and Lionheart",number: nil, duration: nil, capo: 3, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 11, scale_id: 2, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Intro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 15, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 180, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse pt1",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 180, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "Taking over this town they should worry,
+But these problems aside I think I taught you well.",tag: "Verse 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 180, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "And in the winter night sky ships are sailing,
+Looking down on these bright blue city lights.",tag: "Verse 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 180, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "His crown lit up the way as we moved slowly
+Past the wondering eyes of the ones that were left behind.",tag: "Verse 3",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Verse pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 5, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 180, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "That we won't run, and we won't run, and we won't run.",tag: "Verse 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 180, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "And they won't wait, and they won't wait, and they won't wait.
+We're here to stay, we're here to stay, we're here to stay.",tag: "Verse 2",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 180, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "Though far away, though far away, though far away
+We're still the same, we're still the same, we're still the same.",tag: "Verse 3",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 5, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 5, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 5, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 180, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Howling ghosts they reappear
+In mountains that are stacked with fear
+But you're a king and I'm a lionheart.",tag: "Chorus 1",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 180, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "Howling ghosts they reappear
+In mountains that are stacked with fear
+But you're a king and I'm a lionheart.",tag: "Chorus 2",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 180, sequence: 11, reps: 2, key_id: nil, scale_id: nil, lyrics: "And in the sea that's painted black
+Creatures lurk below the deck
+But you're a king and I'm a lionheart
+And as the world comes to an end
+I'll be here to hold your hand
+'Cause you're my king and I'm your lionheart.",tag: "Bridge",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 180, sequence: 12, reps: 2, key_id: nil, scale_id: nil, lyrics: "A lionheart (x8)",tag: "Bridge",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 180, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "Howling ghosts they reappear
+In mountains that are stacked with fear
+But you're a king and I'm a lionheart.
+And in the sea that's painted black,
+Creatures lurk below the deck
+But you're a king and I'm a lionheart.
+A lionheart. ",tag: "Chorus 3",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 180, sequence: 14, reps: 2, key_id: nil, scale_id: nil, lyrics: "A lionheart (x8)",tag: "Outro",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Chorus End",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 180, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "A lionheart.",tag: "Chorus 1",song: song, progression_template: progression_template_5)
+Songs::Player.new(User.first).play({played_at: "", song_id: 180}, )
+
+song = Song.find_by_id(181)
+unless song
+  song = Song.create(name: "Fake Plastic Trees",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 4, scale_id: 2, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 14, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 21, degree: 4, modifier: 0, bass_degree: 6, bass_modifier: 0, duration: 2, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 3, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 15, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 15, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 181, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "Her green plastic watering can
+For a fake chinese rubber plant
+In a fake plastic earth
+That she bought from a rubber man
+In a town full of rubber plans
+To get rid of itself",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 181, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "She looks like the real thing
+She tastes like the real thing
+My fake plastic love
+But I can't help the feeling
+I could blow through the ceiling
+If I just turn and run",tag: "Verse 3",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Chorus A",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 9, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 181, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "It wears her out (x4)",tag: "Chorus 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 181, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "And it wears him out
+It wears him out
+It wears him out
+It weaaaaaaaars",tag: "Chorus 2",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Chorus B",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 9, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 9, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 14, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Chorus C",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 9, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 9, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 5, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 181, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "And it wears me out
+It wears me out (x3)",tag: "Chorus 3",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Outro",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 9, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 3, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 9, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 3, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 181, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "And if I could be who you wanted
+If I could be who you wanted
+All the time (x2)",tag: "Outro",song: song, progression_template: progression_template_5)
+Songs::Player.new(User.first).play({played_at: "", song_id: 181}, )
+
+song = Song.find_by_id(182)
+unless song
+  song = Song.create(name: "Hotel California",number: nil, duration: nil, capo: 2, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 18, scale_id: 3, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 182, sequence: 1, reps: 2, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 182, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "
+On a dark desert highway, cool wind in my hair
+Warm smell of colitas, rising up through the air
+Up ahead in the distance, I saw a shimmering light
+My head grew heavy and my sight grew dim
+I had to stop for the night",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 182, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "There she stood in the doorway
+I heard the mission bell
+And I was thinking to myself
+\"This could be Heaven or this could be Hell\"
+Then she lit up a candle and she showed me the way
+There were voices down the corridor
+I thought I heard them say",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 182, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "Her mind is Tiffany-twisted, she got the Mercedes bends
+She got a lot of pretty, pretty boys she calls friends
+How they dance in the courtyard, sweet summer sweat
+Some dance to remember, some dance to forget",tag: "Verse 3",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 182, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "So I called up the Captain
+\"Please bring me my wine.\"
+He said, \"We haven't had that spirit here since nineteen sixty nine.\"
+And still those voices are calling from far away
+Wake you up in the middle of the night
+Just to hear them say",tag: "Verse 4",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 182, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Mirrors on the ceiling
+The pink champagne on ice
+And she said \"We are all just prisoners here, of our own device\"
+And in the master's chambers
+They gathered for the feast
+They stab it with their steely knives
+But they just can't kill the beast",tag: "Verse 5",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 182, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "Last thing I remember
+I was running for the door
+I had to find the passage back to the place I was before
+\"Relax,\" said the night man
+\"We are programmed to receive
+You can check-out any time you like
+But you can never leave!\" ",tag: "Verse 6",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 182, sequence: 10, reps: 2, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 182, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Welcome to the Hotel California
+Such a lovely place (Such a lovely place)
+Such a lovely face
+Plenty of room at the Hotel California
+Any time of year (Any time of year)
+You can find it here",tag: "Chorus 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 182, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Welcome to the Hotel California
+Such a lovely place (Such a lovely place)
+Such a lovely face
+They livin' it up at the Hotel California
+What a nice surprise (what a nice surprise)
+Bring your alibis",tag: "Chorus 2",song: song, progression_template: progression_template_2)
+Songs::Player.new(User.first).play({played_at: "", song_id: 182}, )
+
+song = Song.find_by_id(183)
+unless song
+  song = Song.create(name: "Iris",number: nil, duration: nil, capo: 2, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 18, scale_id: 3, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Intro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 15, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 5, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 183, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 183, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 183, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "And I'd give up forever to touch you
+'Cause I know that you feel me somehow
+You're the closest to heaven that I'll ever be
+And I don't wanna go home right now
+",tag: "Verse 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 183, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "And all I can taste is this moment
+And all I can breathe is your life
+When sooner or later it's over
+I just don't wanna miss you tonight
+",tag: "Verse 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 183, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "And you can't fight the tears that ain't coming
+Or the moment of truth in your lies
+When everything feels like the movies
+Yeah, you bleed just to know you're alive
+",tag: "Verse 3",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Chorus",reps: 4, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 183, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "And I don't want the world to see me
+'Cause I don't think that they'd understand
+When everything's made to be broken
+I just want you to know who I am",tag: "Chorus 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 183, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "And I don't want the world to see me
+'Cause I don't think that they'd understand
+When everything's made to be broken
+I just want you to know who I am",tag: "Chorus 2",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 183, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "
+And I don't want the world to see me
+'Cause I don't think that they'd understand
+When everything's made to be broken
+I just want you to know who I am",tag: "Chorus 3",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 183, sequence: 14, reps: 1, key_id: nil, scale_id: nil, lyrics: "And I don't want the world to see me
+'Cause I don't think that they'd understand
+When everything's made to be broken
+I just want you to know who I am",tag: "Chorus 4",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Ending",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 183, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "I just want you to know who I am
+I just want you to know who I am
+I just want you to know who I am ",tag: "Chorus 4",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Outro",reps: 4, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 183, sequence: 16, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Break pt1",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_6)
+Progression.create(song_id: 183, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_6)
+progression_template_7 = ProgressionTemplate.create(tag: "Break pt2.1",reps: 3, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 15, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_7)
+Progression.create(song_id: 183, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_7)
+progression_template_8 = ProgressionTemplate.create(tag: "Break pt2.2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 15, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_8)
+Progression.create(song_id: 183, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_8)
+progression_template_9 = ProgressionTemplate.create(tag: "Break pt3.1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_9)
+Progression.create(song_id: 183, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_9)
+progression_template_10 = ProgressionTemplate.create(tag: "Break pt3.2",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_10)
+Progression.create(song_id: 183, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_10)
+Songs::Player.new(User.first).play({played_at: "", song_id: 183}, )
+
+song = Song.find_by_id(184)
+unless song
+  song = Song.create(name: "Ces Temps-Ci",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 1, scale_id: 2, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Intro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 184, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse A",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "Icitte à soir, y mouille à siot, on a donné un pas pire show
+Le motel est pas vraiment swell, une chance t'es là pis qu'j'te trouve belle... ",tag: "Verse 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "J'te r'garde dormir comme un bébé, C'est platte j'avais envie d'jaser
+C'pas grave chu habitué Chérie, De m'parler tout seul ces temps-ci... ",tag: "Verse 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "Depuis quecqu' s'maines j'dors pu' d'mes nuits, J'ai la tête remplie de bibites
+C'est vrai que j'mène une drôle de vie, Des fois j'me dis qu'c'est d'la bullshit ",tag: "Verse 3",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "J'aimerais ça pouvoir me r'trouver, Parce qu'chu mêlé comme ça s'peut pas
+Le monde entier pourrait crever, Chu juste ben quand t'es dans mes bras... ",tag: "Verse 4",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Même si j't'aimais ben p'tit trésor, Et que mon coeur s'tait accroché
+Quecqu'part sur ta route du nord, Entre Baie-Comeau pis Port-Cartier ",tag: "Verse 6",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "T'es heureuse ici qu'tu m'disais, Loin des gens stressés de Montréal
+Pis y'a ton chum qui est dans l'portrait, C'est moi l'perdant si j'fais l'total ",tag: "Verse 7",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "Mais fais-toi z'en pas trop pour moi, J'en ai vu d'autres, chu'un grand garçon
+C'fait longtemps qu'je me fais pu d'fausses joies, J'sais qu'ça r'vire en vraies déceptions ",tag: "Verse 8",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "Je r'viens pas dans l'boute avant mai, D'ici là donne-moi d'tes nouvelles
+Tu m'appelleras à frais virés, Pour me souhaiter joyeux Noël... ",tag: "Verse 10",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "Sais-tu au moins qu'tu m'as fais croire, Qu'il est encore possible d'être heureux?
+Pis ça c'est c'qu'on appell'd'l'espoir, C'toujours ça d'pris quand t'as pas mieux ",tag: "Verse 11",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 16, reps: 1, key_id: nil, scale_id: nil, lyrics: "T'étais sûrement pas rien qu'un kick, Mais là c'pas mal trop compliqué
+Si dans vie y faut prendre des risques, Faut savoir aussi s'en aller ",tag: "Verse 12",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 184, sequence: 18, reps: 1, key_id: nil, scale_id: nil, lyrics: "Mais tsé tu peux m'rappeler pareil, T'es comme mon p'tit rayon d'soleil
+Dans ce monde complèt'ment fucké, Où j'aurais p't'être eu besoin d'toé ",tag: "Verse 14",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Break",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 184, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 184, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 184, sequence: 14, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 3",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Verse B",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 184, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Je sais qu'y s'passera jamais rien, Qu'entre toi pis moi ç'a pas d'allure
+Quand j'vas r'partir au p'tit matin, On va se dire à la r'voyure... ",tag: "Verse 5",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 184, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "Le soleil vient juste de se l'ver, Dehors on entend les moineaux
+Qui gazouillent comme pour me rappeler, Qu'tantôt je r'pars pour Gatineau ",tag: "Verse 9",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 184, sequence: 17, reps: 1, key_id: nil, scale_id: nil, lyrics: "Ça fait que j'vas m'fermer la gueule, Et continuer mon ch'min tout seul
+Avec mon p'tit coeur dans les shoe-claques, Pis ton sourire dans mon pack-sack ",tag: "Verse 13",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Ending",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 184, sequence: 19, reps: 1, key_id: nil, scale_id: nil, lyrics: "Dans ce monde complèt'ment fucké
+Où j'aurais p't'être eu besoin d'toé",tag: "Verse 14",song: song, progression_template: progression_template_5)
+Songs::Player.new(User.first).play({played_at: "", song_id: 184}, )
+
+song = Song.find_by_id(185)
+unless song
+  song = Song.create(name: "Banlieue",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 9, scale_id: 2, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 4, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 4, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 185, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "Dans mon quartier d´banlieue
+Y´avait d´l´action en torrieu, quand on était morveux
+On jouait à´cachette su´é terrains des voisins
+J´restais caché pas mal longtemps
+Dans haie avec la p´tite Chartrand ",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 185, sequence: 2, reps: 1, key_id: 2, scale_id: nil, lyrics: "Quand y faisait pas beau
+Y´avait l´sous-sol à Guilbeault, on allait jouer au Coleco
+Les p´tits gars on capotait su´é G.I. Joe´s
+Pis sur la sœur à Lavallée, parce qu´elle en avait des gros
+",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 185, sequence: 4, reps: 1, key_id: 2, scale_id: nil, lyrics: "L´quartier s´est dispersé
+On a vieilli on s´est fait des nouveaux amis
+Y´a eu les premières blondes mais c´tait pas trop \"steady\"
+C´est Dédé qui a été l´premier à avoir son permis ",tag: "Verse 3",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 185, sequence: 5, reps: 1, key_id: 4, scale_id: nil, lyrics: "Dans son vieux Datsun
+On écoutait du Led Zeppelin avec toute not´vie en avant
+Mais par un esti d´soir vers la fin du printemps
+Après un party Dédé s´est tué y s´est endormi au volant ",tag: "Verse 4",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 185, sequence: 7, reps: 1, key_id: 4, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 185, sequence: 8, reps: 1, key_id: 6, scale_id: nil, lyrics: "T´es arrivée au bon moment
+T´es sortie d´nowhere
+Un peu comme une fleur qui pousse dans l´ciment
+En d´ssous des spots oranges du parc Champigny
+C´est là que pour la première fois on s´est donné un gros bi ",tag: "Verse 5",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 185, sequence: 10, reps: 1, key_id: 6, scale_id: nil, lyrics: "Y a eu des bons moments
+Mais l´bonheur ça a ben l´air que ça dure rien qu´un temps
+Parce qu´une fois quand j´me suis pointé chez toi
+Chu r´venu comme un boxeur qui v´nait d´manger une volée ",tag: "Verse 6",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 185, sequence: 11, reps: 1, key_id: 8, scale_id: nil, lyrics: "Assis su´a table à pique-nique
+Tu m´as dit qu´t´en avais assez, qu´t´avais même un nouveau kick
+Chu parti en marchant sans me r´tourner
+Dans ton driveway j´me suis r´tenu pour pas partir à brailler ",tag: "Verse 7",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 185, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "Et quand l´soleil sortait d´derrière les nuages
+Ça s´animait partout dans le voisinage
+On entendait les slap-shots su´é portes de garages
+Pis gueuler la mère à Lepage ",tag: "Chorus 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 185, sequence: 6, reps: 1, key_id: 2, scale_id: nil, lyrics: "J´va toujours me rappeler de c´te soirée-là
+Les Canadiens venaient d´gagner la coupe Stanley
+Après sa mort on est tous´tombés ben bas
+J´ai lâché l´Cégep en janvier ",tag: "Chorus 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 185, sequence: 9, reps: 1, key_id: 4, scale_id: nil, lyrics: "J´pense que c´était le plus beau jour de ma vie
+Après ça j´t´ai payé l´lunch au Kentucky
+J´suis allé te r´conduire avec le torse bombé
+Maudit qu´c´soir-là j´ai ben dormi
+",tag: "Chorus 3",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 185, sequence: 13, reps: 1, key_id: 6, scale_id: nil, lyrics: "L´automne est r´venu par la porte d´en arrière
+Dans ma banlieue la nuit est belle pis y´a d´l´espoir
+La pleine lune reflète pareil comme un miroir
+Sur l´eau des piscines hors-terre ",tag: "Chorus 5",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 185, sequence: 14, reps: 2, key_id: 6, scale_id: nil, lyrics: "Lay lay lay lay lay lala la lalalay ...",tag: "Outro",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Bridge",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 185, sequence: 12, reps: 1, key_id: 6, scale_id: nil, lyrics: "C´est comme si t´avais pris une paire de cutters
+Pis qu´t´avais coupé le cordon de mon cœur
+J´me suis dévasté pendant une coupl´ de s´maines
+Faut ben qu´un gars ravale sa peine, hey hey hey",tag: "Chorus 4",song: song, progression_template: progression_template_3)
+Songs::Player.new(User.first).play({played_at: "", song_id: 185}, )
+
+song = Song.find_by_id(186)
+unless song
+  song = Song.create(name: "Les Étoiles Filantes",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 16, scale_id: 3, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Intro",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 186, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 186, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Break",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 186, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 186, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 186, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 186, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 3",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 186, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "Mais au bout du ch'min dis-moi c'qui va rester x2",tag: "Outro",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Verse",reps: 4, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 186, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "Si je m'arrête un instant pour te parler de ma vie
+Juste comme ça tranquillement dans un bar rue St-Denis
+J'te raconterai les souv'nirs bien gravés dans ma mémoire
+De cette époque où vieillir était encore bien illusoire
+Quand j'agaçais des p'tites filles, pas loin des balançoires
+Et que mon sac de billes devenait un vrai trésor
+Ces hivers enneigés à construire des igloos
+Et rentrer les pieds g'lés juste à temps pour Passe-Partout ",tag: "Verse 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 186, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Si je m'arrête un instant pour te parler de la vie
+Je constate que bien souvent on choisit pas mais on subit
+Et que les rêves des ti-culs s'évanouissent ou se refoulent
+Dans cette réalité crue qui nous embarque dans le moule
+La trentaine, la bedaine, les morveux, l'hypothèque
+Les bonheurs et les peines, les bons coups et les échecs
+Travailler, faire d'son mieux, n'arracher, s'en sortir
+Et espérer être heureux un peu avant de mourir ",tag: "Verse 2",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 186, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "Si je m'arrête un instant, pour te parler de la vie
+Juste comme ça, tranquillement, pas loin du Carré Saint Louis
+C'est qu'avec toi je suis bien et qu'j'ai pu l'goût d'm'en faire
+Parce que tsé voir trop loin c'pas mieux qu'd'regarder en arrière
+Malgré les vieilles amertumes et les amours qui passent
+Les chums qu'on perd dans brume et les idéaux qui se cassent
+La vie s'accroche et renaît comme les printemps reviennent
+Dans une bouffée d'air frais qui apaise les coeurs en peine ",tag: "Verse 3",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 186, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "Ça fait que si à soir t'as envie de rester
+Avec moi la nuit est douce on peut marcher
+Et même si on sait ben que tout dure rien qu'un temps
+J'aimerais çà que tu sois pour un moment
+Mon étoile filante ",tag: "Chorus 3",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 186, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Mais au bout du ch'min dis-moi c'qui va rester
+De la p'tit'école et d'la cour de récré ?
+Quand les avions en papier ne partent plus au vent
+On se dit que l'bon temps passe final'ment
+Comme une étoile filante ",tag: "Chorus 1",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 186, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Mais au bout du ch'min dis-moi c'qui va rester
+De not' p'tit passage dans ce monde effréné
+Après avoir existé pour gagner du temps
+On s'dira que l'on était final'ment
+Des étoiles filantes ",tag: "Chorus 2",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Outro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 186, sequence: 14, reps: 1, key_id: nil, scale_id: nil, lyrics: "Que des étoiles filantes",tag: "Outro",song: song, progression_template: progression_template_5)
+Songs::Player.new(User.first).play({played_at: "", song_id: 186}, )
+
+song = Song.find_by_id(187)
+unless song
+  song = Song.create(name: "Belle",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 27, scale_id: 3, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Chorus pt1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Chorus pt2B",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 187, sequence: 11, reps: 1, key_id: 15, scale_id: nil, lyrics: "",tag: "Chorus 3",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 187, sequence: 12, reps: 1, key_id: 15, scale_id: nil, lyrics: "",tag: "Break 3",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 187, sequence: 14, reps: 1, key_id: 15, scale_id: nil, lyrics: "Ô Lucifer !
+Oh ! Laisse-moi rien qu'une fois
+Glisser mes doigts dans les cheveux d'Esmeralda
+Esmeralda",tag: "Chorus 4",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Verse A",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 4, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 4, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 4, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 187, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "Belle
+C'est un mot qu'on dirait inventé pour elle
+Quand elle danse et qu'elle met son corps à jour, tel
+Un oiseau qui étend ses ailes pour s'envoler
+Alors je sens l'enfer s'ouvrir sous mes pieds",tag: "Verse 1",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Pre-Chorus A",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: -1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: -1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 187, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "J'ai posé mes yeux sous sa robe de gitane
+A quoi me sert encore de prier Notre-Dame ?
+Quel
+Est celui qui lui jettera la première pierre ?
+Celui-là ne mérite pas d'être sur Terre",tag: "Verse 1",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 187, sequence: 10, reps: 1, key_id: 15, scale_id: nil, lyrics: "Ma dulcinée laissez-moi vous être infidèle
+Avant de vous avoir mené jusqu'à l'autel
+Quel
+Est l'homme qui détournerait son regard d'elle
+Sous peine d'être changé en statue de sel ?",tag: "Pre-Chorus 3",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 187, sequence: 13, reps: 1, key_id: 15, scale_id: nil, lyrics: "J'ai posé mes yeux sous sa robe de gitane
+À quoi me sert encore de prier Notre-Dame ?
+Quel
+Est celui qui lui jettera la première pierre ?
+Celui-là ne mérite pas d'être sur terre",tag: "Pre-Chorus 4",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Chorus A",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: -1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 187, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "Ô Lucifer !
+Oh ! Laisse-moi rien qu'une fois
+Glisser mes doigts dans les cheveux d'Esmeralda",tag: "Chorus 1",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 187, sequence: 7, reps: 1, key_id: 12, scale_id: nil, lyrics: "Ô Notre-Dame !
+Oh ! Laisse-moi rien qu'une fois
+Pousser la porte du jardin d'Esmeralda
+",tag: "Chorus 2",song: song, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Break 1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: -1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_6)
+Progression.create(song_id: 187, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 187, sequence: 8, reps: 1, key_id: 12, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_6)
+progression_template_7 = ProgressionTemplate.create(tag: "Chorus pt2A",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_7)
+progression_template_8 = ProgressionTemplate.create(tag: "Verse 2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_8)
+Progression.create(song_id: 187, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "Belle
+Est-ce le diable qui s'est incarné en elle
+Pour détourner mes yeux du Dieu éternel ?
+Qui a mis dans mon être ce désir charnel
+Pour m'empêcher de regarder vers le Ciel ?",tag: "Verse 2",song: song, progression_template: progression_template_8)
+progression_template_9 = ProgressionTemplate.create(tag: "Pre-Chorus B",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_9)
+Progression.create(song_id: 187, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Elle porte en elle le péché originel
+La désirer fait-il de moi un criminel ?
+Celle
+Qu'on prenait pour une fille de joie, une fille de rien
+Semble soudain porter la croix du genre humain
+",tag: "Pre-Chorus 2",song: song, progression_template: progression_template_9)
+progression_template_10 = ProgressionTemplate.create(tag: "Verse 3",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_10)
+Progression.create(song_id: 187, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "Belle
+Malgré ses grands yeux noirs qui vous ensorcèlent
+La demoiselle serait-elle encore pucelle ?
+Quand ses mouvements me font voir monts et merveilles
+Sous son jupon aux couleurs de l'arc-en-ciel",tag: "Verse 3",song: song, progression_template: progression_template_10)
+progression_template_11 = ProgressionTemplate.create(tag: "Outro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: -1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_11)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_11)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_11)
+Progression.create(song_id: 187, sequence: 15, reps: 1, key_id: 15, scale_id: nil, lyrics: "Esmeralda...",tag: "Outro",song: song, progression_template: progression_template_11)
+Songs::Player.new(User.first).play({played_at: "", song_id: 187}, )
+
+song = Song.find_by_id(188)
+unless song
+  song = Song.create(name: "The Way",number: nil, duration: nil, capo: 2, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 19, scale_id: 3, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Intro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 188, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse A",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 4, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 188, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "They made up their minds
+And they started packing
+They left before the sun came up that day
+An exit to eternal summer slacking
+But where were they going without ever
+Knowing the way?",tag: "Verse 1",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Verse B",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 4, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 188, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "They drank up the wine
+And they got to talking
+They now had more important things to say
+And when the car broke down they started walking
+Where were they going without ever
+Knowing the way?",tag: "Verse 2",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 188, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "Their children woke up
+And they couldn't find them
+They left before the sun came up that day
+They just drove off and left it all behind 'em
+But where were they going without ever
+Knowing the way? ",tag: "Verse 3",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 7, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 13, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 14, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 15, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 16, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 188, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Anyone can see the road that they walk on
+Is paved in gold
+And it's always summer
+They'll never get cold
+They'll never get hungry
+They'll never get old and grey
+You can see their shadows wandering off somewhere
+They won't make it home
+But they really don't care
+They wanted the highway
+They're happier there today, today ",tag: "Chorus 1",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 188, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Anyone can see the road that they walk on
+Is paved in gold
+And it's always summer
+They'll never get cold
+They'll never get hungry
+They'll never get old and grey
+You can see their shadows wandering off somewhere
+They won't make it home
+But they really don't care
+They wanted the highway
+They're happier there today, today ",tag: "Chorus 2",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 188, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Anyone can see the road that they walk on
+Is paved in gold
+And it's always summer
+They'll never get cold
+They'll never get hungry
+They'll never get old and grey
+You can see their shadows wandering off somewhere
+They won't make it home
+But they really don't care
+They wanted the highway
+They're happier there today, today ",tag: "Chorus 3",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Break 1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 188, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Break 2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
+Progression.create(song_id: 188, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_6)
+Songs::Player.new(User.first).play({played_at: "", song_id: 188}, )
+
+song = Song.find_by_id(189)
+unless song
+  song = Song.create(name: "Wonderwall",number: nil, duration: nil, capo: 2, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 4, scale_id: 2, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse B",reps: 4, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 9, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 14, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 17, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 189, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 189, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Backbeat, the word is on the street
+That the fire in your heart is out
+I'm sure you've heard it all before
+But you never really had a doubt
+I don't believe that anybody feels
+The way I do about you now
+",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 189, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Today was gonna be the day
+But they'll never throw it back to you
+By now you should've somehow
+Realized what you're not to do
+I don't believe that anybody
+Feels the way I do
+About you now",tag: "Verse 2",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse A pt1",reps: 3, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 9, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 14, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 17, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 189, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "Today is gonna be the day
+That they're gonna throw it back to you
+By now you should've somehow
+Realized what you gotta do
+I don't believe that anybody
+Feels the way I do about you now",tag: "Verse 1",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Verse A pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 19, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 14, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 17, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 189, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Verse 1",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Bridge pt1",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 7, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 189, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "And all the roads we have to walk are winding
+And all the lights that lead us there are blinding",tag: "Pre-Chorus 1",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 189, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "And all the roads that lead you there were winding
+And all the lights that light the way are blinding",tag: "Pre-Chorus 2",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Bridge pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 9, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 17, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 189, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "There are many things that I would
+Like to say to you
+But I don't know how",tag: "Pre-Chorus 1",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 189, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "There are many things that I would like to say to you
+But I don't know how",tag: "Pre-Chorus 2",song: song, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Chorus",reps: 4, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 19, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 9, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 9, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
+Progression.create(song_id: 189, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Because maybe
+You're gonna be the one that saves me
+And after all
+You're my wonderwall",tag: "Chorus 1",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 189, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "I said maybe
+You're gonna be the one that saves me
+And after all
+You're my wonderwall",tag: "Chorus 2",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 189, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "I said maybe
+You're gonna be the one that saves me
+And after all
+You're my wonderwall",tag: "Chorus 3",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 189, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_6)
+Songs::Player.new(User.first).play({played_at: "", song_id: 189}, )
+
+song = Song.find_by_id(190)
+unless song
+  song = Song.create(name: "Mala Fortuna",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 16, scale_id: 3, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Intro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 190, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 190, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "Con mis bolsillos vacíos voy errando mi camino
+Con mi futuro perdido esta noche no hay abrigo",tag: "Verse 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 190, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Con mis tobillos torcidos, voy errando mi camino
+Con mis colmillos sin filo, desgarrando por instinto",tag: "Verse 2",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Chorus",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 190, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "Sigo sin comprender anhelos del ayer, sigo sin comprender
+Mala fortuna es el miedo de perder, mala fortuna es",tag: "Chorus 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 190, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "Instinto animal que me obliga a luchar y no me deja caer
+Qué triste debe ser vivir para cumplir, vivir para obedecer",tag: "Chorus 2",song: song, progression_template: progression_template_3)
+Songs::Player.new(User.first).play({played_at: "", song_id: 190}, )
+
+song = Song.find_by_id(191)
+unless song
+  song = Song.create(name: "Avispa/Oso",number: nil, duration: nil, capo: 3, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 26, scale_id: 3, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 191, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "No te extraño, no te debo extrañar,
+Tal vez desaparezcas para tal vez regresar",tag: "Chorus 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 191, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 191, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 3",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 191, sequence: 16, reps: 1, key_id: nil, scale_id: nil, lyrics: "No me extrañes, no me debes extrañar
+Tal vez desaparezca para tal vez regresar",tag: "Chorus 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 191, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1.5",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 191, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "Si las bestias como yo no vemos tu naturaleza,
+Tan salvaje por dentro y tan tranquila por fuera,",tag: "Verse 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 191, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Eres efímera, casi viajas con el viento
+El silencio es tu testigo, eres por dentro un infierno",tag: "Verse 2",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Post-Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 191, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Almas libres y sencillas que sueñan con viajar,
+Sigue volando sin rumbo fijo¿por qué no ir juntos a ningún lugar?",tag: "Verse 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 191, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Dame un beso de tinta, que me perfore la piel
+",tag: "Edge 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 191, sequence: 8, reps: 2, key_id: nil, scale_id: nil, lyrics: "Y de noche las avispas en mi vientre dormirán,
+Paso tras paso, ruta tras ruta, se hace más fácil andar y andar.",tag: "Verse 2",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 191, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "Dame un beso de tinta, que me perfore la piel",tag: "Edge 2",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Break",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 191, sequence: 11, reps: 4, key_id: nil, scale_id: nil, lyrics: "",tag: "Breakdown",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Bridge",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 191, sequence: 12, reps: 2, key_id: nil, scale_id: nil, lyrics: "",tag: "Breakdown",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 191, sequence: 13, reps: 2, key_id: nil, scale_id: nil, lyrics: "A veces sólo vas perdido,
+A veces solo y perdido te hayas a ti mismo
+No te alejes, ven conmigo,
+Me es más fácil hacer este viaje contigo.
+",tag: "Bridge",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 191, sequence: 14, reps: 1, key_id: nil, scale_id: nil, lyrics: "A veces sólo vas perdida,
+A veces sola y perdida te hayas a ti misma
+No te alejes, ven conmigo,
+Me es más fácil hacer este viaje contigo.
+",tag: "Bridge",song: song, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Bridge Ending",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_6)
+Progression.create(song_id: 191, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "Me es más fácil hacer este viaje contigo
+Me es más fácil viajar",tag: "Bridge",song: song, progression_template: progression_template_6)
+Songs::Player.new(User.first).play({played_at: "", song_id: 191}, )
+
+song = Song.find_by_id(192)
+unless song
+  song = Song.create(name: "I Will Survive",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 16, scale_id: 2, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: -1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 4, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "At first I was afraid, I was petrified.
+I kept thinking I could never live without you by my side.
+But then I spent so many nights just thinking how you'd done me wrong.
+I grew strong, I learned how to get along",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "And so you're back from outer space
+I just walked in to find you here without that look upon your face
+I should have changed my fucking lock, I would have made you leave your key
+If I'd have known for just one second you'd be back to bother me",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Oh now go, walk out the door
+Just turn around now, you're not welcome anymore.
+Weren't you the one who tried to break me with desire?
+Did you think I'd crumble? Did you think I'd lay down and die?
+Oh not I. ",tag: "Pre-Chorus 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "I will survive
+As long as I know how to love I know I'll be alive
+I've got all my life to live
+I've got all my love to give
+I will survive, I will survive",tag: "Chorus 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 6, reps: 2, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "It took all the strength I had just not to fall apart
+I'm trying hard to mend the pieces of my broken heart
+And I spent oh so many nights just feeling sorry for myself
+I used to cry, but now I hold my head up high",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "And you'll see me with somebody new,
+I'm not that stupid little person still in love with you
+And so you thought you'd just drop by and you expect me to be free
+But now I'm saving all my lovin' for someone who's lovin' me",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "Oh now go, walk out the door
+Just turn around now, you're not welcome anymore.
+Weren't you the one who tried to break me with desire?
+Did you think I'd crumble? Did you think I'd lay down and die?
+Oh not I. ",tag: "Pre-Chorus 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "I will survive
+As long as I know how to love I know I'll be alive
+I've got all my life to live
+I've got all my love to give
+I will survive, I will survive",tag: "Chorus 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 192, sequence: 11, reps: 3, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Finale",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 192, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_2)
+Songs::Player.new(User.first).play({played_at: "", song_id: 192}, )
+
+song = Song.find_by_id(193)
+unless song
+  song = Song.create(name: "Total Eclipse of the Heart",number: nil, duration: nil, capo: 1, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 23, scale_id: 3, album_id: 1, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse A pt1",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 193, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "(Turn around)
+Every now and then I get a little bit lonely
+And you're never coming 'round
+(Turn around)
+Every now and then I get a little bit tired
+Of listening to the sound of my tears",tag: "Verse 1",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse A pt2",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 193, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "(Turn around)
+Every now and then I get a little bit nervous
+That the best of all the years have gone by
+
+(Turn around)
+Every now and then I get a little bit terrified
+And then I see the look in your eyes",tag: "Verse 1",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Verse A pt3",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: -1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: -1, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 193, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "(Turn around, bright eyes)
+Every now and then I fall apart
+(Turn around, bright eyes)
+Every now and then
+I fall apart",tag: "Verse 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 193, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "(Turn around, bright eyes)
+Every now and then I fall apart
+Turn around, bright eyes
+Every now and then I fall apart",tag: "Verse 2",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Chorus pt1",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 193, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "And I need you now tonight
+And I need you more than ever
+And if you only hold me tight
+We'll be holding on forever",tag: "Chorus 1",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 193, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "And I need you now tonight
+And I need you more than ever
+And if you only hold me tight
+We'll be holding on forever",tag: "Chorus 2",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Chorus pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 193, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "And we'll only be making it right
+'Cause we'll never be wrong
+Together we can take it to the end of the line
+Your love is like a shadow on me all of the time (all of the time)
+",tag: "Chorus 1",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 193, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "And we'll only be making it right
+'Cause we'll never be wrong
+Together we can take it to the end of the line
+Your love is like a shadow on me all of the time (all of the time)
+",tag: "Chorus 2",song: song, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Chorus pt3",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: 6, bass_modifier: 1, duration: 0, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_6)
+Progression.create(song_id: 193, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "I don't know what to do and I'm always in the dark
+We're living in a powder keg and giving off sparks
+I really need you tonight
+Forever's gonna start tonight
+(Forever's gonna start tonight)",tag: "Chorus 1",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 193, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "I don't know what to do and I'm always in the dark
+We're living in a powder keg and giving off sparks
+I really need you tonight
+Forever's gonna start tonight
+(Forever's gonna start tonight)",tag: "Chorus 2",song: song, progression_template: progression_template_6)
+progression_template_7 = ProgressionTemplate.create(tag: "Chorus pt4",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 4, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: 4, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_7)
+Progression.create(song_id: 193, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Once upon a time I was falling in love
+But now I'm only falling apart
+There's nothing I can do
+A total eclipse of the heart",tag: "Chorus 1",song: song, progression_template: progression_template_7)
+Progression.create(song_id: 193, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Once upon a time there was light in my life
+But now there's only love in the dark
+Nothing I can say
+A total eclipse of the heart",tag: "Chorus 1",song: song, progression_template: progression_template_7)
+progression_template_8 = ProgressionTemplate.create(tag: "Break",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_8)
+Progression.create(song_id: 193, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break",song: song, progression_template: progression_template_8)
+progression_template_9 = ProgressionTemplate.create(tag: "Outro pt1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 4, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: 4, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_9)
+Progression.create(song_id: 193, sequence: 14, reps: 1, key_id: nil, scale_id: nil, lyrics: "Once upon a time I was falling in love
+But now I'm only falling apart
+There's nothing I can do
+A total eclipse of the heart",tag: "Chorus 2",song: song, progression_template: progression_template_9)
+progression_template_10 = ProgressionTemplate.create(tag: "Outro pt2",reps: 3, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_10)
+Progression.create(song_id: 193, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "A total eclipse of the heart
+A total eclipse of the heart
+",tag: "Chorus 2",song: song, progression_template: progression_template_10)
+Songs::Player.new(User.first).play({played_at: "", song_id: 193}, )
+
+song = Song.find_by_id(194)
+unless song
+  song = Song.create(name: "Creep",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 2, scale_id: 2, album_id: 2, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 194, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 194, sequence: 2, reps: 2, key_id: nil, scale_id: nil, lyrics: "When you were here before
+Couldn't look you in the eye
+You're just like an angel
+Your skin makes me cry
+You float like a feather
+In a beautiful world
+I wish I was special
+You're so fucking special",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 194, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "But I'm a creep
+I'm a weirdo
+What the hell am I doing here?
+I don't belong here",tag: "Chorus 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 194, sequence: 4, reps: 2, key_id: nil, scale_id: nil, lyrics: "I don't care if it hurts
+I want to have control
+I want a perfect body
+I want a perfect soul
+I want you to notice
+When I'm not around
+You're so fucking special
+I wish I was special",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 194, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "But I'm a creep
+I'm a weirdo
+What the hell am I doing here?
+I don't belong here",tag: "Chorus 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 194, sequence: 6, reps: 2, key_id: nil, scale_id: nil, lyrics: "Oh, oh
+She's running out again
+She's running out
+She run, run, run, run
+Run",tag: "Bridge",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 194, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Whatever makes you happy
+Whatever you want
+You're so fucking special
+I wish I was special",tag: "Verse 3",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 194, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "But I'm a creep
+I'm a weirdo
+What the hell am I doing here?
+I don't belong here",tag: "Chorus 3",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Finale",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 194, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Chorus 3",song: song, progression_template: progression_template_2)
+Songs::Player.new(User.first).play({played_at: "", song_id: 194}, )
+
+song = Song.find_by_id(195)
+unless song
+  song = Song.create(name: "Don't Speak",number: nil, duration: nil, capo: 1, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 11, scale_id: 2, album_id: 3, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Intro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Verse A pt1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 195, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "You and me, we used to be together
+Every day together, always",tag: "Verse",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 195, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Our memories, they can be inviting
+But some are altogether mighty frightening
+",tag: "Verse 2",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Verse A pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 195, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "I really feel that I'm losing my best friend
+I can't believe this could be the end",tag: "Verse",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Verse A pt3",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 195, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "It looks as though you're letting go
+And if it's real, well, I don't want to know",tag: "Verse",song: song, progression_template: progression_template_4)
+Progression.create(song_id: 195, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "As we die, both you and I
+With my head in my hands, I sit and cry
+",tag: "Verse 2",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Chorus pt1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Don't speak, I know just what you're saying
+So please stop explaining
+Don't tell me 'cause it hurts",tag: "Chorus 1",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Don't speak, I know what you're thinkin'
+I don't need your reasons
+Don't tell me 'cause it hurts",tag: "Chorus 1",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "Don't speak, I know just what you're saying
+So please stop explaining
+Don't tell me 'cause it hurts, no, no, no",tag: "Chorus 2",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "Don't speak
+I know what you're thinkin'
+And I don't need your reasons
+Don't tell me 'cause it hurts",tag: "Chorus 2",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 19, reps: 1, key_id: nil, scale_id: nil, lyrics: "Don't speak, I know just what you're saying
+So please stop explaining
+Don't tell me 'cause it hurts",tag: "Chorus 3",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 21, reps: 1, key_id: nil, scale_id: nil, lyrics: "No, no, don't speak
+I know what you're thinkin'
+And I don't need your reasons
+Don't tell me 'cause it hurts",tag: "Chorus 3",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 23, reps: 1, key_id: nil, scale_id: nil, lyrics: "I know what you're saying
+So please stop explaining
+Don't speak, don't speak
+Don't speak, no",tag: "Chorus 4",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 25, reps: 1, key_id: nil, scale_id: nil, lyrics: "I know what you're thinkin'
+And I don't need your reasons
+I know you're good
+I know you're good
+I know you're ",tag: "Chorus 4",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 27, reps: 1, key_id: nil, scale_id: nil, lyrics: "La-la-la-la-la
+La-la-la-la-la
+Don't, don't, ooh, ooh",tag: "Outro",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 29, reps: 1, key_id: nil, scale_id: nil, lyrics: "Hush, hush, darlin'
+Hush, hush, darlin'
+Hush, hush, don't tell me 'cause it hurts",tag: "Outro",song: song, progression_template: progression_template_5)
+Progression.create(song_id: 195, sequence: 31, reps: 1, key_id: nil, scale_id: nil, lyrics: "Hush, hush, darlin'
+Hush, hush, darlin'
+Hush, hush, don't tell me 'cause it hurts",tag: "Outro",song: song, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Chorus pt2A",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+Progression.create(song_id: 195, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Chorus 1",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 195, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Chorus 2",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 195, sequence: 20, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Chorus 3",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 195, sequence: 24, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Chorus 4",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 195, sequence: 26, reps: 1, key_id: nil, scale_id: nil, lyrics: "real good, oh",tag: "Chorus 4",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 195, sequence: 28, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_6)
+Progression.create(song_id: 195, sequence: 30, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_6)
+progression_template_7 = ProgressionTemplate.create(tag: "Chorus pt2B",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_7)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_7)
+Progression.create(song_id: 195, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Chorus 1",song: song, progression_template: progression_template_7)
+progression_template_8 = ProgressionTemplate.create(tag: "Chorus pt2C",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_8)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_8)
+Progression.create(song_id: 195, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Chorus 2",song: song, progression_template: progression_template_8)
+progression_template_9 = ProgressionTemplate.create(tag: "Bridge pt1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: 6, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_9)
+ProgressionChord.create(chord_id: 1, degree: 2, modifier: 1, bass_degree: 5, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_9)
+Progression.create(song_id: 195, sequence: 14, reps: 1, key_id: nil, scale_id: nil, lyrics: "It's all ending
+I gotta stop pretending
+Who we are
+",tag: "Bridge",song: song, progression_template: progression_template_9)
+progression_template_10 = ProgressionTemplate.create(tag: "Bridge pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_10)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_10)
+Progression.create(song_id: 195, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Bridge",song: song, progression_template: progression_template_10)
+progression_template_11 = ProgressionTemplate.create(tag: "Solo pt1",reps: 3, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_11)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_11)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_11)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_11)
+Progression.create(song_id: 195, sequence: 16, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Bridge",song: song, progression_template: progression_template_11)
+progression_template_12 = ProgressionTemplate.create(tag: "Solo pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_12)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_12)
+ProgressionChord.create(chord_id: 1, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_12)
+Progression.create(song_id: 195, sequence: 17, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Bridge",song: song, progression_template: progression_template_12)
+progression_template_13 = ProgressionTemplate.create(tag: "Pre-Chorus",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_13)
+ProgressionChord.create(chord_id: 2, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_13)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_13)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_13)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_13)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_13)
+Progression.create(song_id: 195, sequence: 18, reps: 1, key_id: nil, scale_id: nil, lyrics: "You and me, I can see us dying
+Are we?",tag: "Bridge",song: song, progression_template: progression_template_13)
+progression_template_14 = ProgressionTemplate.create(tag: "Chorus pt2D",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_14)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_14)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_14)
+Progression.create(song_id: 195, sequence: 22, reps: 1, key_id: nil, scale_id: nil, lyrics: " Don't tell me 'cause it hurts",tag: "Chorus 3",song: song, progression_template: progression_template_14)
+Songs::Player.new(User.first).play({played_at: "", song_id: 195}, )
+
+song = Song.find_by_id(196)
+unless song
+  song = Song.create(name: "Au Pays des Sapins Géants",number: nil, duration: nil, capo: 2, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 3, scale_id: 2, album_id: 4, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 196, sequence: 1, reps: 3, key_id: nil, scale_id: nil, lyrics: "T'étais toujours tout seul, mais t'étais ben entouré
+Tu disais qu'le bois y'avait rien de mieux pour s'retrouver
+Tu quittais pendant des mois, sans jamais nous rassurer
+Tu r'venais prendre le pouls tu r'partais sans t'retourner
+On aurait ben aimé que tu sois là plus souvent
+Prendre un café, jaser ou juste jouer avec les enfants ",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 196, sequence: 4, reps: 3, key_id: nil, scale_id: nil, lyrics: "On faisait de notre mieux pour oublier tes absences
+Essayer d'être heureux ignorer les évidences
+Tes visites s'espaçaient tes mots aussi disparaissaient
+Tu disais qu't\"allais bien pis que tu connaissais ton chemin
+Y'ont r'trouvé ton pick-up tout seul dans le Grand Nord
+Couvert de neige pis vide pas loin du Labrador ",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 196, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "J'espère au moins le frère que t'es heureux là-bas
+Dans la beauté boréale du Nord québécois ",tag: "Verse 3",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Chorus pt1",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 196, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "Tu disais que c'tait pas pour toé la ville rendait le monde méchant",tag: "Chorus 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 196, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "À errer tranquillement en faisant c'que t'aimais tant",tag: "Chorus 2",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Chorus pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 196, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "T'aimais mieux ton exil au pays des sapins géants ",tag: "Chorus 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 196, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "Flâner avec le vent au pays des sapins géants",tag: "Chorus 2",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Verse B",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 196, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "On a eu beau hurler mobiliser le monde entier
+On savait que cette fois-là tu r'viendrais pas ",tag: "Verse 2",song: song, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Bridge pt1",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+Progression.create(song_id: 196, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Tu r'viendrais pas, pour prendre une dernière fois une bière avec les gars
+Tu r'viendrais pas, juste pour nous dire de pas s'en faire avec tout ça",tag: "Bridge",song: song, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Bridge pt2",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
+Progression.create(song_id: 196, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Tu r'viendrais pas, attiré pour de bon par le fin fond du bois",tag: "Bridge",song: song, progression_template: progression_template_6)
+progression_template_7 = ProgressionTemplate.create(tag: "Finale",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_7)
+Songs::Player.new(User.first).play({played_at: "", song_id: 196}, )
+
+song = Song.find_by_id(197)
+unless song
+  song = Song.create(name: "When It's Gone",number: nil, duration: nil, capo: 3, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 10, scale_id: 2, album_id: 5, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 2, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 197, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 197, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "What can we say, this day and age
+It all just blends into a blur and subtle haze
+'Cause every day is weed and booze and cigarettes
+While we're listening to tunes on old cassettes
+And as the days turn into years you realize
+That the best days of your life are before your eyes
+'Cause every day is speed and blow and cigarettes
+It's safe to say I love you so with no regrets",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 197, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "And as we wander down the street drunk as fuck
+Break a couple lousy laws for a couple bucks
+Runaway from the police and reconvene
+Underneath the Stewart bridge to be unseen
+Make a stop at Innersleeve to visit Mike
+Buy some records that you love and some you like
+Take 'em home and put them on to listen to
+And erase away the stress that is holding you
+",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 197, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 197, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "Take a trip down to The Stank to see a show
+With all the local bands that you love and know
+And others that have traveled far and few between
+Just to watch them play a set that you've never seen
+And after that it's to the bar to get fucked up
+Golden delicious PBR will fill our cups
+Falling from our seats we'll laugh and cause a scene
+While the bitter sober prudes call us obscene",tag: "Verse 3",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 197, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 197, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "What can we say, this day and age
+It all just blends into a blur and subtle haze
+'Cause every day is weed and booze and cigarettes
+While we're listening to tunes on old cassettes
+And as the days turn into years you realize
+That the best days of your life are before your eyes
+'Cause every day is speed and blow and cigarettes
+It's safe to say I love you so with no regrets",tag: "Verse 4",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Chorus",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 197, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "And in spite of all its flaws
+This town is burning down
+And we'll dance on its ashes when it's gone
+And in spite of all its flaws
+This town is burning down
+And we'll dance on its ashes when it's gone",tag: "Chorus 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 197, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "And in spite of all its flaws
+This town is burning down
+And we'll dance on its ashes when it's gone
+And in spite of all its flaws
+This town is burning down
+And we'll dance on its ashes when it's gone",tag: "Chorus 2",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Finale",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 197, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "No regrets at all",tag: "Verse 4",song: song, progression_template: progression_template_3)
+Songs::Player.new(User.first).play({played_at: "", song_id: 197}, )
+
+song = Song.find_by_id(198)
+unless song
+  song = Song.create(name: "Que Ardan",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: true, time_signature_id: nil, key_id: 16, scale_id: 3, album_id: 6, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 198, sequence: 1, reps: 3, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 198, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 198, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "Que ardan los engranajes que aprietan sin pena a la humanidad,
+Junto al maquinista que controla el nuevo orden mundial...",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 198, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "¡Qué ardan ya!",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 198, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 198, sequence: 8, reps: 1, key_id: nil, scale_id: nil, lyrics: "Que ardan los artefactos que están en defensa de la autoridad,
+Junto a esos macabros intentos de mancillar la libertad...",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 198, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "¡La libertad!",tag: "Verse 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 198, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 198, sequence: 14, reps: 2, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 3",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Hang",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 198, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Intro",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 198, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 198, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_2)
+Progression.create(song_id: 198, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 3",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Chorus",reps: 4, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 198, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "Y en la oscuridad una chispa inició
+La llamarada que al mundo quemó.
+Sobre la cenizas de esta humanidad,
+Nació una bella, una bella flor.",tag: "Bridge",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Break",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+Progression.create(song_id: 198, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 3",song: song, progression_template: progression_template_4)
+Songs::Player.new(User.first).play({played_at: "", song_id: 198}, )
+
+song = Song.find_by_id(199)
+unless song
+  song = Song.create(name: "Here's to the Mayans",number: nil, duration: nil, capo: 0, chords: "",lyrics: "",bpm: 120, is_public: false, time_signature_id: nil, key_id: 6, scale_id: 2, album_id: 7, submitter_id: 1, )
+end
+progression_template_1 = ProgressionTemplate.create(tag: "Verse",reps: 2, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_1)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_1)
+Progression.create(song_id: 199, sequence: 1, reps: 1, key_id: nil, scale_id: nil, lyrics: "Pack your bags, pack your photographs
+and take one last look cuz were never coming back
+I believe were calling it quits
+Lets take our chances while they're still on the table, and still in tact
+My heart is pounding in my chest and I'm losing my breath
+All the things that I once knew are never coming back
+I believe were throwing in the towel
+Starting our lives on the back burner",tag: "Verse 1",song: song, progression_template: progression_template_1)
+Progression.create(song_id: 199, sequence: 2, reps: 1, key_id: nil, scale_id: nil, lyrics: "So heres to life, heres to death
+Heres to the mayans and whats left
+Heres to the rubble and the trouble
+Murders and the thefts
+Im so fucking glad it's over
+No more pain to be in debt",tag: "Chorus 1",song: song, progression_template: progression_template_1)
+progression_template_2 = ProgressionTemplate.create(tag: "Chorus End",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_2)
+Progression.create(song_id: 199, sequence: 3, reps: 1, key_id: nil, scale_id: nil, lyrics: "No more pain to be in debt",tag: "Chorus 1",song: song, progression_template: progression_template_2)
+progression_template_3 = ProgressionTemplate.create(tag: "Break",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 4, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 13, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 14, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 15, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 16, staccato: nil, muted: nil, progression_template: progression_template_3)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 17, staccato: nil, muted: nil, progression_template: progression_template_3)
+Progression.create(song_id: 199, sequence: 4, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 1",song: song, progression_template: progression_template_3)
+Progression.create(song_id: 199, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "Don't hold your breath cuz were all going down tonight
+Like a sinking ship were jumping off for life
+With no buoy and no life vest to stay a float
+We might as well make the best of a bad joke
+Tell me everything will be alright
+Theres no apocalypse, no virus, and no war to fight
+It's all a hoax or at least I hope
+But hopes and dreams never seem to unfold",tag: "Verse 2",song: song, progression_template: progression_template_3)
+progression_template_4 = ProgressionTemplate.create(tag: "Ending",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_4)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_4)
+progression_template_5 = ProgressionTemplate.create(tag: "Outro",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 1, degree: 3, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_5)
+ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_5)
+progression_template_6 = ProgressionTemplate.create(tag: "Bridge",reps: 1, key_id: nil, scale_id: nil, song: song)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 6, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 7, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 8, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 9, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 10, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 11, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 7, sequence: 13, staccato: nil, muted: nil, progression_template: progression_template_6)
+ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 7, sequence: 14, staccato: nil, muted: nil, progression_template: progression_template_6)
+Songs::Player.new(User.first).play({played_at: "", song_id: 199}, )
