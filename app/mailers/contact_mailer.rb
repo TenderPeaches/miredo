@@ -1,5 +1,5 @@
 class ContactMailer < ApplicationMailer
-    default from: Rails.configuration.inquiries
+    default from: Rails.configuration.inquiries_email
 
     def inquiry(params)
         @return_address = params[:return_address]
