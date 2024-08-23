@@ -3655,7 +3655,6 @@ Stand by me, stand by me",tag: "Chorus 3",song: song, progression_template: prog
 Oh, stand by me
 Woah, just stand now
 Oh, stand, stand by me",tag: "Chorus 4",song: song, progression_template: progression_template_1)
-Songs::Player.new(User.first).play({played_at: "", song_id: 174}, )
 end
 
 song = Song.find_by_id(175)
@@ -3760,7 +3759,6 @@ You don't know what it's like, what it's like",tag: "Bridge",song: song, progres
   ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 4, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
   Progression.create(song_id: 175, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "Welcome to my life
 Welcome to my life",tag: "Chorus 4",song: song, progression_template: progression_template_6)
-Songs::Player.new(User.first).play({played_at: "", song_id: 175}, )
 end
 
 song = Song.find_by_id(176)
@@ -3834,7 +3832,6 @@ That I should have been home yesterday, yesterday",tag: "Bridge",song: song, pro
   ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
   Progression.create(song_id: 176, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "Take me home, (down) country roads.
 ",tag: "Outro",song: song, progression_template: progression_template_5)
-Songs::Player.new(User.first).play({played_at: "", song_id: 176}, )
 end
 
 song = Song.find_by_id(177)
@@ -3898,7 +3895,6 @@ Want you in my life",tag: "Chorus 2",song: song, progression_template: progressi
 And every time we kiss, I swear I could fly
 Can't you feel my heart beat fast? I want this to last
 Need you by my side",tag: "Chorus 3",song: song, progression_template: progression_template_2)
-Songs::Player.new(User.first).play({played_at: "", song_id: 177}, )
 end
 
 song = Song.find_by_id(178)
@@ -3962,7 +3958,6 @@ All we are is dust in the wind",tag: "Chorus 2",song: song, progression_template
 All we are is dust in the wind (All we are is dust in the wind)
 Dust in the wind (Everything is dust in the wind)
 Everything is dust in the wind",tag: "Chorus 3",song: song, progression_template: progression_template_3)
-Songs::Player.new(User.first).play({played_at: "", song_id: 178}, )
 end
 
 song = Song.find_by_id(179)
@@ -4028,7 +4023,6 @@ The story of the beast with those four dirty paws. ",tag: "Verse 3",song: song, 
   ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: 7, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_5)
   ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_5)
   Progression.create(song_id: 179, sequence: 11, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_5)
-Songs::Player.new(User.first).play({played_at: "", song_id: 179}, )
 end
 
 song = Song.find_by_id(180)
@@ -4091,7 +4085,6 @@ A lionheart. ",tag: "Chorus 3",song: song, progression_template: progression_tem
   progression_template_5 = ProgressionTemplate.create(tag: "Chorus End",reps: 1, key_id: nil, scale_id: nil, song: song)
   ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
   Progression.create(song_id: 180, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "A lionheart.",tag: "Chorus 1",song: song, progression_template: progression_template_5)
-Songs::Player.new(User.first).play({played_at: "", song_id: 180}, )
 end
 
 song = Song.find_by_id(181)
@@ -4149,7 +4142,6 @@ It wears me out (x3)",tag: "Chorus 3",song: song, progression_template: progress
   Progression.create(song_id: 181, sequence: 6, reps: 1, key_id: nil, scale_id: nil, lyrics: "And if I could be who you wanted
 If I could be who you wanted
 All the time (x2)",tag: "Outro",song: song, progression_template: progression_template_5)
-Songs::Player.new(User.first).play({played_at: "", song_id: 181}, )
 end
 
 song = Song.find_by_id(182)
@@ -4224,7 +4216,6 @@ Such a lovely face
 They livin' it up at the Hotel California
 What a nice surprise (what a nice surprise)
 Bring your alibis",tag: "Chorus 2",song: song, progression_template: progression_template_2)
-Songs::Player.new(User.first).play({played_at: "", song_id: 182}, )
 end
 
 song = Song.find_by_id(183)
@@ -4327,7 +4318,6 @@ I just want you to know who I am ",tag: "Chorus 4",song: song, progression_templ
   ProgressionChord.create(chord_id: 2, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_10)
   ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_10)
   Progression.create(song_id: 183, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_10)
-Songs::Player.new(User.first).play({played_at: "", song_id: 183}, )
 end
 
 song = Song.find_by_id(184)
@@ -4403,7 +4393,6 @@ Avec mon p'tit coeur dans les shoe-claques, Pis ton sourire dans mon pack-sack "
   ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_5)
   Progression.create(song_id: 184, sequence: 19, reps: 1, key_id: nil, scale_id: nil, lyrics: "Dans ce monde complèt'ment fucké
 Où j'aurais p't'être eu besoin d'toé",tag: "Verse 14",song: song, progression_template: progression_template_5)
-Songs::Player.new(User.first).play({played_at: "", song_id: 184}, )
 end
 
 song = Song.find_by_id(185)
@@ -4493,7 +4482,6 @@ Sur l´eau des piscines hors-terre ",tag: "Chorus 5",song: song, progression_tem
 Pis qu´t´avais coupé le cordon de mon cœur
 J´me suis dévasté pendant une coupl´ de s´maines
 Faut ben qu´un gars ravale sa peine, hey hey hey",tag: "Chorus 4",song: song, progression_template: progression_template_3)
-Songs::Player.new(User.first).play({played_at: "", song_id: 185}, )
 end
 
 song = Song.find_by_id(186)
@@ -4571,7 +4559,6 @@ Des étoiles filantes ",tag: "Chorus 2",song: song, progression_template: progre
   progression_template_5 = ProgressionTemplate.create(tag: "Outro",reps: 1, key_id: nil, scale_id: nil, song: song)
   ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_5)
   Progression.create(song_id: 186, sequence: 14, reps: 1, key_id: nil, scale_id: nil, lyrics: "Que des étoiles filantes",tag: "Outro",song: song, progression_template: progression_template_5)
-Songs::Player.new(User.first).play({played_at: "", song_id: 186}, )
 end
 
 song = Song.find_by_id(187)
@@ -4718,7 +4705,6 @@ Sous son jupon aux couleurs de l'arc-en-ciel",tag: "Verse 3",song: song, progres
   ProgressionChord.create(chord_id: 1, degree: 1, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_11)
   ProgressionChord.create(chord_id: 2, degree: 4, modifier: 1, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_11)
   Progression.create(song_id: 187, sequence: 15, reps: 1, key_id: 15, scale_id: nil, lyrics: "Esmeralda...",tag: "Outro",song: song, progression_template: progression_template_11)
-Songs::Player.new(User.first).play({played_at: "", song_id: 187}, )
 end
 
 song = Song.find_by_id(188)
@@ -4829,7 +4815,6 @@ They're happier there today, today ",tag: "Chorus 3",song: song, progression_tem
   ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_6)
   ProgressionChord.create(chord_id: 4, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 4, staccato: nil, muted: nil, progression_template: progression_template_6)
   Progression.create(song_id: 188, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 2",song: song, progression_template: progression_template_6)
-Songs::Player.new(User.first).play({played_at: "", song_id: 188}, )
 end
 
 song = Song.find_by_id(189)
@@ -4910,7 +4895,6 @@ You're gonna be the one that saves me
 And after all
 You're my wonderwall",tag: "Chorus 3",song: song, progression_template: progression_template_6)
   Progression.create(song_id: 189, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_6)
-Songs::Player.new(User.first).play({played_at: "", song_id: 189}, )
 end
 
 song = Song.find_by_id(190)
@@ -4944,7 +4928,6 @@ Con mis colmillos sin filo, desgarrando por instinto",tag: "Verse 2",song: song,
 Mala fortuna es el miedo de perder, mala fortuna es",tag: "Chorus 1",song: song, progression_template: progression_template_3)
   Progression.create(song_id: 190, sequence: 5, reps: 1, key_id: nil, scale_id: nil, lyrics: "Instinto animal que me obliga a luchar y no me deja caer
 Qué triste debe ser vivir para cumplir, vivir para obedecer",tag: "Chorus 2",song: song, progression_template: progression_template_3)
-Songs::Player.new(User.first).play({played_at: "", song_id: 190}, )
 end
 
 song = Song.find_by_id(191)
@@ -5012,7 +4995,6 @@ Me es más fácil hacer este viaje contigo.
   ProgressionChord.create(chord_id: 1, degree: 7, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 5, staccato: nil, muted: nil, progression_template: progression_template_6)
   Progression.create(song_id: 191, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "Me es más fácil hacer este viaje contigo
 Me es más fácil viajar",tag: "Bridge",song: song, progression_template: progression_template_6)
-Songs::Player.new(User.first).play({played_at: "", song_id: 191}, )
 end
 
 song = Song.find_by_id(192)
@@ -5069,7 +5051,6 @@ I will survive, I will survive",tag: "Chorus 2",song: song, progression_template
   progression_template_2 = ProgressionTemplate.create(tag: "Finale",reps: 1, key_id: nil, scale_id: nil, song: song)
   ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
   Progression.create(song_id: 192, sequence: 12, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Outro",song: song, progression_template: progression_template_2)
-Songs::Player.new(User.first).play({played_at: "", song_id: 192}, )
 end
 
 song = Song.find_by_id(193)
@@ -5214,7 +5195,6 @@ A total eclipse of the heart",tag: "Chorus 2",song: song, progression_template: 
   Progression.create(song_id: 193, sequence: 15, reps: 1, key_id: nil, scale_id: nil, lyrics: "A total eclipse of the heart
 A total eclipse of the heart
 ",tag: "Chorus 2",song: song, progression_template: progression_template_10)
-Songs::Player.new(User.first).play({played_at: "", song_id: 193}, )
 end
 
 song = Song.find_by_id(194)
@@ -5266,7 +5246,6 @@ I don't belong here",tag: "Chorus 3",song: song, progression_template: progressi
   progression_template_2 = ProgressionTemplate.create(tag: "Finale",reps: 1, key_id: nil, scale_id: nil, song: song)
   ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_2)
   Progression.create(song_id: 194, sequence: 9, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Chorus 3",song: song, progression_template: progression_template_2)
-Songs::Player.new(User.first).play({played_at: "", song_id: 194}, )
 end
 
 song = Song.find_by_id(195)
@@ -5418,7 +5397,6 @@ Are we?",tag: "Bridge",song: song, progression_template: progression_template_13
   ProgressionChord.create(chord_id: 1, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_14)
   ProgressionChord.create(chord_id: 2, degree: 2, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 1, sequence: 3, staccato: nil, muted: nil, progression_template: progression_template_14)
   Progression.create(song_id: 195, sequence: 22, reps: 1, key_id: nil, scale_id: nil, lyrics: " Don't tell me 'cause it hurts",tag: "Chorus 3",song: song, progression_template: progression_template_14)
-Songs::Player.new(User.first).play({played_at: "", song_id: 195}, )
 end
 
 song = Song.find_by_id(196)
@@ -5490,7 +5468,6 @@ Tu r'viendrais pas, juste pour nous dire de pas s'en faire avec tout ça",tag: "
   Progression.create(song_id: 196, sequence: 7, reps: 1, key_id: nil, scale_id: nil, lyrics: "Tu r'viendrais pas, attiré pour de bon par le fin fond du bois",tag: "Bridge",song: song, progression_template: progression_template_6)
   progression_template_7 = ProgressionTemplate.create(tag: "Finale",reps: 1, key_id: nil, scale_id: nil, song: song)
   ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_7)
-Songs::Player.new(User.first).play({played_at: "", song_id: 196}, )
 end
 
 song = Song.find_by_id(197)
@@ -5562,7 +5539,6 @@ And we'll dance on its ashes when it's gone",tag: "Chorus 2",song: song, progres
   progression_template_3 = ProgressionTemplate.create(tag: "Finale",reps: 1, key_id: nil, scale_id: nil, song: song)
   ProgressionChord.create(chord_id: 1, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 0, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_3)
   Progression.create(song_id: 197, sequence: 10, reps: 1, key_id: nil, scale_id: nil, lyrics: "No regrets at all",tag: "Verse 4",song: song, progression_template: progression_template_3)
-Songs::Player.new(User.first).play({played_at: "", song_id: 197}, )
 end
 
 song = Song.find_by_id(198)
@@ -5601,7 +5577,6 @@ Nació una bella, una bella flor.",tag: "Bridge",song: song, progression_templat
   ProgressionChord.create(chord_id: 2, degree: 1, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 1, staccato: nil, muted: nil, progression_template: progression_template_4)
   ProgressionChord.create(chord_id: 2, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 2, staccato: nil, muted: nil, progression_template: progression_template_4)
   Progression.create(song_id: 198, sequence: 13, reps: 1, key_id: nil, scale_id: nil, lyrics: "",tag: "Break 3",song: song, progression_template: progression_template_4)
-Songs::Player.new(User.first).play({played_at: "", song_id: 198}, )
 end
 
 song = Song.find_by_id(199)
@@ -5694,4 +5669,4 @@ But hopes and dreams never seem to unfold",tag: "Verse 2",song: song, progressio
   ProgressionChord.create(chord_id: 2, degree: 6, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 3, sequence: 12, staccato: nil, muted: nil, progression_template: progression_template_6)
   ProgressionChord.create(chord_id: 1, degree: 4, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 7, sequence: 13, staccato: nil, muted: nil, progression_template: progression_template_6)
   ProgressionChord.create(chord_id: 1, degree: 5, modifier: 0, bass_degree: nil, bass_modifier: 0, duration: 7, sequence: 14, staccato: nil, muted: nil, progression_template: progression_template_6)
-Songs::Player.new(User.first).play({played_at: "", song_id: 199}, )
+end
