@@ -23,6 +23,8 @@ unless Tuning.any?
         TuningPitch.create(pitch: Pitch.find_by_midi(59)),
         TuningPitch.create(pitch: Pitch.find_by_midi(64))])
 
+    instrument__guitar.update(default_tuning: tuning__6_string_guitar__standard)
+
     tuning__6_string_guitar__drop_d = Tuning.create(instrument: instrument__guitar, label: "Drop D", strings: [
         TuningPitch.create(pitch: Pitch.find_by_midi(38)),
         TuningPitch.create(pitch: Pitch.find_by_midi(45)),
@@ -47,6 +49,8 @@ unless Tuning.any?
         TuningPitch.create(pitch: Pitch.find_by_midi(50)),
         TuningPitch.create(pitch: Pitch.find_by_midi(55))])
 
+    instrument__bass.update(default_tuning: tuning__4_string_bass_guitar__standard)
+
 
     # banjo tunings
     tuning__5_string_banjo__standard = Tuning.create(instrument: instrument__banjo, label: "Standard", strings: [
@@ -57,6 +61,9 @@ unless Tuning.any?
         TuningPitch.create(pitch: Pitch.find_by_midi(50))])
 
 
+    instrument__banjo.update(default_tuning: tuning__5_string_banjo__standard)
+
+
     # ukulele tunings
     tuning__ukulele__standard = Tuning.create(instrument: instrument__ukulele, label: "Standard", strings: [
         TuningPitch.create(pitch: Pitch.find_by_midi(67)),
@@ -65,6 +72,8 @@ unless Tuning.any?
         TuningPitch.create(pitch: Pitch.find_by_midi(69)),
     ])
 
+    instrument__ukulele.update(default_tuning: tuning__ukulele__standard)
+
     # mandolin tunings
     tuning__mandolin__standard = Tuning.create(instrument: instrument__mandolin, label: "Standard", strings: [
         TuningPitch.create(pitch: Pitch.find_by_midi(55)),
@@ -72,4 +81,6 @@ unless Tuning.any?
         TuningPitch.create(pitch: Pitch.find_by_midi(69)),
         TuningPitch.create(pitch: Pitch.find_by_midi(76)),
     ])
+
+    instrument__mandolin.update(default_tuning: tuning__mandolin__standard)
 end
