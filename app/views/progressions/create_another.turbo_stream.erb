@@ -14,6 +14,6 @@
 
 <%= turbo_stream.remove "no-song-progressions" %>
 
-<% unless @progression.valid %>
+<% unless @progression.valid? %>
     <%= flash_model_errors @progression %>
 <% end %>

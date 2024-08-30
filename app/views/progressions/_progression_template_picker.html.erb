@@ -3,7 +3,7 @@
     <%= form_tag new_progression_path, class: "progression-template-picker", method: :get, data: { turbo_stream: true } do %>
         <%= tag.div class: "field" do %>
             <%= label_tag t('activerecord.models.progression_template') %>
-            <%= select_tag :progression_template_id, options_from_collection_for_select(progression_templates, :id, :print, 1) %>
+            <%= select_tag :progression_template_id, options_from_collection_for_select(progression_templates, :id, :print_for_select, 1) %>
         <% end %>
         <%= hidden_field_tag :song_id, song.id %>
         <%= submit_tag t('actions.new', thing: t('activerecord.models.progression')) %>

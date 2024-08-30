@@ -33,7 +33,8 @@ en:
   confirm: 
     delete: "Are you sure you wish to delete %{model}?"
   alerts:
-    invalid_form: "Error creating or updating %{model}. Please check the following:"    log_in:
+    invalid_form: "Error creating or updating %{model}. Please check the following:"    
+    log_in:
       error: "Error logging in. Check:"
       check_1: "Are you using the right email address? Try resetting your password if you're sure."
       check_2: "Re-type your password. Reset it if you can't find it."

@@ -1,4 +1,4 @@
-<%= model_form_with model: progression, url: progression.new_record? ? progressions_path(song_id: progression.song.id) : progression_path(id: progression.id, song_id: progression.song.id), class: "song-progression-form", id: "#{dom_id(progression)}__form" do |form| %>
+<%= model_form_with model: progression, url: progression.new_record? ? progressions_path(song_id: progression.song.id, format: :turbo_stream) : progression_path(id: progression.id, song_id: progression.song.id, format: :turbo_stream), class: "song-progression-form", id: "#{dom_id(progression)}__form" do |form| %>
     <%= render "progressions/errors", progression: progression %>
     <%= tag.div class: "template-cypher-print" do %>
         <%= tag.div "#{progression.progression_template.print(song.key, song.scale)}" %>

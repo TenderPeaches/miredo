@@ -55,15 +55,15 @@ module SongsHelper
     # a button that lets user filter songs by their suggested ca
     # @current_sort decides how the button looks, to indicate the user the current sort, default to :desc so that it initializes with no sort, as :desc sort leads to no sort (see rotate_filter_options)
     def song_filter_capo(current_sort = :none)
-        sort_button "Capo", songs_path(sort_options: { capo: nil }), "sort-by-capo", current_sort
+        sort_button "Capo", songs_path(sort_options: { capo: nil }, "format" => :turbo_stream), "sort-by-capo", current_sort
     end
 
     def song_filter_last_played(user_id, current_sort = :none)
-        sort_button "Last Played", songs_path(sort_options: { "last_played(#{user_id})" => nil }), "sort-by-last-played", current_sort, inverted_sort: true
+        sort_button "Last Played", songs_path(sort_options: { "last_played(#{user_id})" => nil }, "format" => :turbo_stream), "sort-by-last-played", current_sort, inverted_sort: true
     end
 
     def song_filter_most_played_by_user(user_id, current_sort = :none)
-        sort_button "Play Count", songs_path(sort_options: { "most_played_by_user(#{user_id})" => nil }), "sort-by-most-played-by-user", current_sort, inverted_sort: true
+        sort_button "Play Count", songs_path(sort_options: { "most_played_by_user(#{user_id})" => nil }, "format" => :turbo_stream), "sort-by-most-played-by-user", current_sort, inverted_sort: true
     end
 
     # the header row of a default song list
