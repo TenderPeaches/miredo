@@ -47,4 +47,8 @@ module ModelsHelper
         options = options.reverse_merge(builder: ModelFormBuilder)
         form_with(model: model, scope: scope, url: url, format: format, class: "form#{options.has_key?(:class) ? " #{options[:class]}" : ""}", **options, &block)
     end
+
+    def flag_model_field_errors(model)
+        render "application/flag_error_fields", errors: @song.errors, field_id_prefix: :song
+    end
 end

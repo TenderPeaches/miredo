@@ -2,6 +2,9 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |form| %>
 
+    <%= tag.section id: "flashes", class: "flashes" %>
+
+
     <%# user email %>
     <%= tag.div class: "field" do %>
         <%= form.label :email %>

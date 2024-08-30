@@ -69,6 +69,23 @@
     resize: none;
 }
 
+/* Error stuff */
+.field.error {
+    color: var(--color-error-light);
+}
+
+.field.error label::before {
+    content: "❌";
+    margin-right: var(--size-xxs);
+}
+
+.field.error input {
+    background: var(--color-error-light);
+    color: var(--color-error);
+    box-shadow: 0 0 4px 4px var(--color-error);
+    border: var(--default-border-style) var(--thin-border-width) var(--color-error);
+}
+
 @media screen and (min-width: 720px) {
     form .actions {
         flex-direction: row;

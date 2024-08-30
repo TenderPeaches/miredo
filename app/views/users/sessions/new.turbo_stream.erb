@@ -1,0 +1,4 @@
+<% unless @user.valid? %>
+    <%= turbo_stream.add_field_error :user_email %>
+    <%= turbo_stream.add_field_error :user_password %>
+<% end %>

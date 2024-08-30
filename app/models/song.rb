@@ -13,10 +13,21 @@ class Song < ApplicationRecord
     has_many :song_plays, dependent: :destroy
     has_many :user_favorites
 
+    # songs need at least a name
+    validates :name, presence: true
+
+    # if there's a number, it should be a positive integer
     validates :number, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
+
+    # if there's a duration, it's in seconds so keeping it as an integer is acceptable
     validates :duration, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }, allow_nil: true
+
+    # suggested capo can range from -1 to 10, covering all 12 semitines
     validates :capo, comparison: { greater_than_or_equal_to: -1, less_than_or_equal_to: 11 }, numericality: { only_integer: true }, allow_nil: true
+
+    # bpm, if specified, is realisitcally between 0 and 360 and is an integer
     validates :bpm, comparison: { greater_than_or_equal_to: 0, less_than_or_equal_to: 360 }, numericality: { only_integer: true }, allow_nil: true
+
     validates_associated :song_contributions
 
     attr_accessor(:new_album_name, :new_artist_name)        # in case of new album/artist

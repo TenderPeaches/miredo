@@ -8,3 +8,5 @@
         <% end %>
     <% end %>
 <% end %>
+
+<%= render "application/flag_error_fields", errors: model.errors, form_id_prefix: (local_assigns[:form_id_prefix] ? "#{form_id_prefix}_" : "")%>

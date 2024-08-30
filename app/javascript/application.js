@@ -53,3 +53,52 @@ Turbo.StreamActions.show = function() {
         })
     }
 }
+
+
+
+Turbo.StreamActions.add_class = function() {
+    const added_class = this.getAttribute("value");
+
+    this.targetElements.forEach((target) => {
+        // Unless the target already has the target class
+        if (!target.classList.contains(added_class)) {
+            target.classList.add(added_class);
+        }
+    })
+}
+
+Turbo.StreamActions.remove_class = function() {
+    const removed_class = this.getAttribute("value");
+
+    this.targetElements.forEach((target) => {
+        // Unless the target already has the target class
+        if (target.classList.contains(removed_class)) {
+            target.classList.remove(removed_class);
+        }
+    })
+}
+
+// field errors can be applied on more than just the input itself, so wrap them around their own turbo function
+Turbo.StreamActions.add_field_error = function() {
+    
+    // The target is the input field with an ID, which is meant to be targetted by a turbo_stream response that triggers the errors on each invalid attribute's fields 
+    const targetElement = document.querySelector(`#${this.target}`);
+
+    // Target not found, see on triggering turbo_script response if the target ID is correct
+    if (targetElement) {
+
+        // The <div class="field"> wrapped around the invalid input
+        const field = targetElement.parentElement;
+    
+        // The error message to be displayed, should already be a tag.div or something otherwise will be displayed as raw string
+        const message = this.getAttribute("value");
+    
+        // Add the error class to the field itself, the input's class doesn't need to change as the CSS can target it as a children of .field.error
+        field.classList.add("error");
+    
+        // Insert the error message below/after the field, if there's any message to display
+        if (message && message.length > 0) {
+            this.target.after(message);
+        }
+    }
+}

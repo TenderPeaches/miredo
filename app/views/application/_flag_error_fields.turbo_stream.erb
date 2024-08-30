@@ -1,0 +1,3 @@
+<% errors.each do |error| %>
+    <%= turbo_stream.add_field_error "#{field_id_prefix}_#{error.attribute}", tag.span(error.full_message, class: "error-message") %>
+<% end %>

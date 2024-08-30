@@ -25,5 +25,7 @@ module Miredo
     config.admin_email = "pxs@miredo.ca"
 
     config.inquiries_email = "inquiries@miredo.ca"
+
+    config.action_mailer.delivery_method = :mailgun
   end
 end

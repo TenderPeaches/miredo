@@ -1,2 +1,8 @@
 <%= tag.h1 t('actions.new', thing: Song.model_name.human) %>
 <%= render "form", song: @song %>
+
+<%# song privacy notice %>
+<%= notice do %>
+    <%= tag.h2 t("notices.song_privacy.title") %>
+    <%= tag.p t("notices.song_privacy.blurb") %>
+<% end %>

@@ -27,6 +27,12 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Email API
+gem "mailgun-ruby"
+
+# Keeps credentials accessible through the app but out of the Git
+gem "figaro"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

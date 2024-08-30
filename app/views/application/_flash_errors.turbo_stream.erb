@@ -1,0 +1,14 @@
+<% flashes_id = local_assigns[:flashes_id] ? flashes_id : :flashes %>
+
+<%= turbo_stream.update flashes_id do %>
+    <%= tag.div class: "flash flash--alert" do %>
+        <%= tag.h5 t("alerts.error") %>
+        <%= tag.ol do %>
+            <% errors.each do |error| %>
+                <%= tag.li "#{error.attribute}: #{error.message}" %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
+
+<%= render "application/flag_error_fields", errors: errors %>
