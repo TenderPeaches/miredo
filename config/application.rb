@@ -22,10 +22,10 @@ module Miredo
     config.autoload_paths += %W(#{config.root}/lib)
 
     # set a lone admin email for now
-    config.admin_email = "pxs@miredo.ca"
+    config.admin_email = "tendrepeches@protonmail.com"
 
-    config.inquiries_email = "inquiries@miredo.ca"
+    config.inquiries_email = "admin@miredo.ca"
 
-    config.action_mailer.delivery_method = :mailgun
+    config.no_reply_email = "no-replay@miredo.ca"
   end
 end
