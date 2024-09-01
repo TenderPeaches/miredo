@@ -3,6 +3,8 @@ class ProgressionsController < ApplicationController
 
     def index
         @song = Song.includes(:progressions, :progression_templates).find_by_id(params[:song_id])
+
+        authorize! @song, with: SongPolicy, to: :edit?
     end
 
     def new
@@ -19,10 +21,14 @@ class ProgressionsController < ApplicationController
             set_progression_template
             @progression = Progressions::Creator.new(@song, current_user).build(Progression.new(progression_template: @progression_template)).progression
         end
+
+        authorize! @song, with: SongPolicy, to: :edit?
     end
 
     def create
         set_song
+
+        authorize! @song, with: SongPolicy, to: :edit?
 
         # called more than once so save as a separate variable
         progression_creator = Progressions::Creator.new(@song, current_user)
@@ -44,11 +50,15 @@ class ProgressionsController < ApplicationController
     def update
         set_progression
 
+        authorize! @progression.song, with: SongPolicy, to: :edit?
+
         @progression.update(progression_params)
     end
 
     def destroy
         set_progression
+
+        authorize! @progression.song, with: SongPolicy, to: :edit?
         @progression.destroy
     end
 

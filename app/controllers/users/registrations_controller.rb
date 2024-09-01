@@ -17,13 +17,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
   def edit
       @minimum_password_length = 8
-  #   super
+      authorize! resource, with: UserPolicy
+      super
   end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+      authorize! resource, with: UserPolicy
+      super
+  end
 
   # DELETE /resource
   # def destroy

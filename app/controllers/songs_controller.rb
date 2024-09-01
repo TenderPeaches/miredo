@@ -43,6 +43,10 @@ class SongsController < ApplicationController
     # GET /[id]/
     def show
         set_song
+
+        # make sure only authorized users can view song
+        authorize! @song
+
         if @song.key.nil?
             @song.update(key: Key.default)
         else
@@ -76,6 +80,8 @@ class SongsController < ApplicationController
 
     # POST /songs
     def create
+
+        authorize! @song, to: :new?
         @song = Songs::Creator.new(current_user&.id).create(song_params).song
 
         if @song.valid?
@@ -91,6 +97,7 @@ class SongsController < ApplicationController
 
     def update
         set_song
+        authorize! @song
 
         Songs::Updater.new(@song).update(song_params, current_user)
 
@@ -107,13 +114,18 @@ class SongsController < ApplicationController
     end
 
     def new
-        @song = Song.new
-        @song.song_contributions << SongContribution.new
+        if current_user&.is_admin?
+            @song = Song.new
+            @song.song_contributions << SongContribution.new
+        else
+            redirect_to new_user_session_path
+        end
     end
 
     # GET /edit/[id]
     def edit
         set_song
+        authorize! @song, to: :update?
     end
 
     private

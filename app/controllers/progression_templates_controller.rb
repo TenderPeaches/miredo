@@ -4,6 +4,9 @@ class ProgressionTemplatesController < ApplicationController
     def index
         @song = Song.includes(:key, :scale, :progression_templates).find_by_id(params[:song_id])
 
+        # can only access progression templates as the song maintainer
+        authorize! @song, with: SongPolicy, to: :edit?
+
         # if the song's key and scale aren't both defined, redirect to the edit song view to let the user define them
         if @song.key.nil? || @song.scale.nil?
             flash[:alert] = "Set the song's key and scale before defining its progressions"
@@ -34,6 +37,10 @@ class ProgressionTemplatesController < ApplicationController
     def create
         @progression_template = ProgressionTemplate.new(progression_template_params)
         @song = Song.find_by_id(progression_template_params[:song_id])
+
+        # can only access progression templates as the song maintainer
+        authorize! @song, with: SongPolicy, to: :edit?
+
         @progression_template_index = @song.progression_templates.distinct.count + 1
         update_chords_from_cypher
         @progression_template.save
@@ -47,6 +54,10 @@ class ProgressionTemplatesController < ApplicationController
     def update
         set_progression_template
         @song = @progression_template.song
+
+        # can only access progression templates as the song maintainer
+        authorize! @song, with: SongPolicy, to: :edit?
+
         cypher_interpreter = interpreter
         cypher_interpretation = interpret_cypher cypher_interpreter
 
@@ -61,6 +72,9 @@ class ProgressionTemplatesController < ApplicationController
 
     def destroy
         set_progression_template
+
+        # can only access progression templates as the song maintainer
+        authorize! @progression_template.song, with: SongPolicy, to: :edit?
         @progression_template.destroy
     end
 

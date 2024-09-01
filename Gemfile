@@ -33,6 +33,9 @@ gem "mailgun-ruby"
 # Keeps credentials accessible through the app but out of the Git
 gem "figaro"
 
+# Role-Based Access Control
+gem "action_policy"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
