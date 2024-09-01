@@ -215,7 +215,7 @@ class Song < ApplicationRecord
 
     def can_edit?(user)
         if user
-            self.submitter == user || user.is_admin?
+            self.submitter == user || user.admin?
         end
     end
 
@@ -378,6 +378,10 @@ class Song < ApplicationRecord
         end
 
         lyrics
+    end
+
+    def public?
+        self.is_public
     end
 
     private

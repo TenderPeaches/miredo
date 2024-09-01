@@ -44,77 +44,81 @@ class SongsController < ApplicationController
     def show
         set_song
 
-        # make sure only authorized users can view song
-        authorize! @song
+        if @song.public? || current_user == @song.submitter
+            if @song.key.nil?
+                @song.update(key: Key.default)
+            else
+                # user might specify to shift the song to a different key
+                @key_shift = params[:key_shift]
+                # capo can be provided as query string argument, if absent then use the song's suggested capo
+                @capo = (params.has_key? :capo) ? params[:capo].to_i : (@song.capo || 0)
+                # same for the key, either the user specifies a shift from the original key or the original song key is used
+                @key = @key_shift ? @song.key.shift(@key_shift.to_i) : @song.key
 
-        if @song.key.nil?
-            @song.update(key: Key.default)
+                # the scale should always be the song's scale
+                @scale = @song.scale
+
+                @key_with_capo = @key.shift(@capo * -1)
+
+                # instrument to be shown as a helper
+                @instrument = if current_user then current_user.default_instrument else Instrument.default end
+
+                # instrument helper to make all the necessary data accessible to the view
+                @instrument_view = Instruments::Viewer.new(@instrument).view({
+                    tuning_id: @instrument.default_tuning&.id, #! could be made a user setting or be defined in the song
+                    fret_count: 12, # default to 12 to see full scale
+                    capo: @capo,
+                    scale: @scale,
+                    key: @key
+                })
+
+                @chords = @song.distinct_chords
+            end
         else
-            # user might specify to shift the song to a different key
-            @key_shift = params[:key_shift]
-            # capo can be provided as query string argument, if absent then use the song's suggested capo
-            @capo = (params.has_key? :capo) ? params[:capo].to_i : (@song.capo || 0)
-            # same for the key, either the user specifies a shift from the original key or the original song key is used
-            @key = @key_shift ? @song.key.shift(@key_shift.to_i) : @song.key
-
-            # the scale should always be the song's scale
-            @scale = @song.scale
-
-            @key_with_capo = @key.shift(@capo * -1)
-
-            # instrument to be shown as a helper
-            @instrument = if current_user then current_user.default_instrument else Instrument.default end
-
-            # instrument helper to make all the necessary data accessible to the view
-            @instrument_view = Instruments::Viewer.new(@instrument).view({
-                tuning_id: @instrument.default_tuning&.id, #! could be made a user setting or be defined in the song
-                fret_count: 12, # default to 12 to see full scale
-                capo: @capo,
-                scale: @scale,
-                key: @key
-            })
-
-            @chords = @song.distinct_chords
+            redirect_to new_user_session_path
         end
     end
 
     # POST /songs
     def create
 
-        authorize! @song, to: :new?
-        @song = Songs::Creator.new(current_user&.id).create(song_params).song
+        if current_user&.admin?
+            @song = Songs::Creator.new(current_user&.id).create(song_params).song
 
-        if @song.valid?
-            if params[:progression_templates]
-                redirect_to progression_templates_path(@song), notice: t('')
+            if @song.valid?
+                if params[:progression_templates]
+                    redirect_to progression_templates_path(@song), notice: t('')
+                else
+                    redirect_to song_url(@song), notice: "Song was successfully created."
+                end
             else
-                redirect_to song_url(@song), notice: "Song was successfully created."
+                render :new, status: :unprocessable_entity
             end
-        else
-            render :new, status: :unprocessable_entity
         end
     end
 
     def update
         set_song
-        authorize! @song
 
-        Songs::Updater.new(@song).update(song_params, current_user)
+        if @song.can_edit? current_user
 
-        if @song.errors.any?
-            flash.alert = @song.errors.full_messages
-            render :edit, status: :unprocessable_entity
-        else
-            if params[:progression_templates]
-                redirect_to song_progression_templates_path @song
+            Songs::Updater.new(@song).update(song_params, current_user)
+
+            if @song.errors.any?
+                flash.alert = @song.errors.full_messages
+                render :edit, status: :unprocessable_entity
             else
-                redirect_to song_path @song
+                if params[:progression_templates]
+                    redirect_to song_progression_templates_path @song
+                else
+                    redirect_to song_path @song
+                end
             end
         end
     end
 
     def new
-        if current_user&.is_admin?
+        if current_user&.admin?
             @song = Song.new
             @song.song_contributions << SongContribution.new
         else
@@ -125,7 +129,10 @@ class SongsController < ApplicationController
     # GET /edit/[id]
     def edit
         set_song
-        authorize! @song, to: :update?
+
+        if !@song.can_edit? current_user
+            redirect_to songs_path, status: 401
+        end
     end
 
     private

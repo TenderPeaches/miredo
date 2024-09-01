@@ -4,7 +4,9 @@ class ProgressionsController < ApplicationController
     def index
         @song = Song.includes(:progressions, :progression_templates).find_by_id(params[:song_id])
 
-        authorize! @song, with: SongPolicy, to: :edit?
+        if !(@song.can_edit? current_user)
+            redirect_to new_user_session_path
+        end
     end
 
     def new
@@ -22,44 +24,53 @@ class ProgressionsController < ApplicationController
             @progression = Progressions::Creator.new(@song, current_user).build(Progression.new(progression_template: @progression_template)).progression
         end
 
-        authorize! @song, with: SongPolicy, to: :edit?
+        if !@song.can_edit? current_user
+            redirect_to new_user_session_path
+        end
     end
 
     def create
         set_song
 
-        authorize! @song, with: SongPolicy, to: :edit?
+        if @song.can_edit? current_user
 
-        # called more than once so save as a separate variable
-        progression_creator = Progressions::Creator.new(@song, current_user)
+            # called more than once so save as a separate variable
+            progression_creator = Progressions::Creator.new(@song, current_user)
 
-        # create the progression
-        @progression = progression_creator.create(progression_params).progression
+            # create the progression
+            @progression = progression_creator.create(progression_params).progression
 
-        # unique ID to list the progression until it has a proper tag
-        @progression_index = @song.progressions.count
+            # unique ID to list the progression until it has a proper tag
+            @progression_index = @song.progressions.count
 
-        if params[:create_another]
-            @new_progression = progression_creator.build(@progression).progression
-            render :create_another
+            if params[:create_another]
+                @new_progression = progression_creator.build(@progression).progression
+                render :create_another
+            else
+                render :create
+            end
         else
-            render :create
+            redirect_to new_user_session_path
         end
     end
 
     def update
         set_progression
 
-        authorize! @progression.song, with: SongPolicy, to: :edit?
-
-        @progression.update(progression_params)
+        if @progression.song.can_edit? current_user
+            @progression.update(progression_params)
+        else
+            redirect_to new_user_session_path
+        end
     end
 
     def destroy
         set_progression
 
-        authorize! @progression.song, with: SongPolicy, to: :edit?
-        @progression.destroy
+
+        if @song.can_edit? current_user
+            @progression.destroy
+        end
     end
 
     private

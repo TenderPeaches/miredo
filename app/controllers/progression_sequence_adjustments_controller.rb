@@ -3,11 +3,12 @@ class ProgressionSequenceAdjustmentsController < ApplicationController
     def new
         set_progression
 
-        authorize! @progression.song, with: SongPolicy, to: :edit?
+        if @progression.song.can_edit? current_user
 
-        @shift_result = Progressions::Sequencer.new(@progression.song).shift(@progression, params[:direction].to_sym, { all: params[:all]&.to_sym == :true })
+            @shift_result = Progressions::Sequencer.new(@progression.song).shift(@progression, params[:direction].to_sym, { all: params[:all]&.to_sym == :true })
 
-        render "songs/show_sequencer"
+            render "songs/show_sequencer"
+        end
     end
 
     private

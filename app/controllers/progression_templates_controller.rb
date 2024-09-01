@@ -4,13 +4,14 @@ class ProgressionTemplatesController < ApplicationController
     def index
         @song = Song.includes(:key, :scale, :progression_templates).find_by_id(params[:song_id])
 
-        # can only access progression templates as the song maintainer
-        authorize! @song, with: SongPolicy, to: :edit?
-
-        # if the song's key and scale aren't both defined, redirect to the edit song view to let the user define them
-        if @song.key.nil? || @song.scale.nil?
-            flash[:alert] = "Set the song's key and scale before defining its progressions"
-            redirect_to edit_song_path(@song)
+        if @song.can_edit? current_user
+            # if the song's key and scale aren't both defined, redirect to the edit song view to let the user define them
+            if @song.key.nil? || @song.scale.nil?
+                flash[:alert] = "Set the song's key and scale before defining its progressions"
+                redirect_to edit_song_path(@song)
+            end
+        else
+            redirect_to new_user_session_path
         end
     end
 
@@ -38,44 +39,47 @@ class ProgressionTemplatesController < ApplicationController
         @progression_template = ProgressionTemplate.new(progression_template_params)
         @song = Song.find_by_id(progression_template_params[:song_id])
 
-        # can only access progression templates as the song maintainer
-        authorize! @song, with: SongPolicy, to: :edit?
+        if @song.can_edit? current_user
 
-        @progression_template_index = @song.progression_templates.distinct.count + 1
-        update_chords_from_cypher
-        @progression_template.save
+            @progression_template_index = @song.progression_templates.distinct.count + 1
+            update_chords_from_cypher
+            @progression_template.save
 
-        if params[:create_another]
-            @new_progression_template = @song.progression_templates.build
-            render :create_another
+            if params[:create_another]
+                @new_progression_template = @song.progression_templates.build
+                render :create_another
+            end
+        else
+            redirect_to new_user_session_path
         end
     end
 
     def update
         set_progression_template
         @song = @progression_template.song
+        if @song.can_edit? current_user
 
-        # can only access progression templates as the song maintainer
-        authorize! @song, with: SongPolicy, to: :edit?
+            cypher_interpreter = interpreter
+            cypher_interpretation = interpret_cypher cypher_interpreter
 
-        cypher_interpreter = interpreter
-        cypher_interpretation = interpret_cypher cypher_interpreter
-
-        # if the cypher from the chords defined in the user cypher (converting back instead of using the cypher itself to make sure any extra whitespaces are ignored) is identical to the cypher from the progression chords already assigned to this progression template, there is no need to update the chords as they are functionally identical
-        unless cypher_interpreter.to_cypher(cypher_interpretation.progression_chords) == cypher_interpreter.to_cypher(@progression_template.progression_chords)
-            # otherwise, update the progression chords accordingly - don't try and isolate which ones for now, just dump the whole lot and recreate them. ID real estate is not a concern
-            update_chords_from_cypher cypher_interpreter
-            @progression_template.save
+            # if the cypher from the chords defined in the user cypher (converting back instead of using the cypher itself to make sure any extra whitespaces are ignored) is identical to the cypher from the progression chords already assigned to this progression template, there is no need to update the chords as they are functionally identical
+            unless cypher_interpreter.to_cypher(cypher_interpretation.progression_chords) == cypher_interpreter.to_cypher(@progression_template.progression_chords)
+                # otherwise, update the progression chords accordingly - don't try and isolate which ones for now, just dump the whole lot and recreate them. ID real estate is not a concern
+                update_chords_from_cypher cypher_interpreter
+                @progression_template.save
+            end
+            @progression_template.update(progression_template_params)
+        else
+            redirect_to new_user_session_path
         end
-        @progression_template.update(progression_template_params)
     end
 
     def destroy
         set_progression_template
 
-        # can only access progression templates as the song maintainer
-        authorize! @progression_template.song, with: SongPolicy, to: :edit?
-        @progression_template.destroy
+        if @song.can_edit? current_user
+            @progression_template.destroy
+        end
     end
 
     private
