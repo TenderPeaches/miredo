@@ -7,6 +7,7 @@
         <%= hidden_field_tag :pitch_ids, instrument_view.pitch_ids.to_s %>
         <%= hidden_field_tag :capo, instrument_view.capo, id: "instrument-view-capo" %>
         <%= submit_tag t('keywords.apply') %>
+        <%= hidden_field_tag :format, :turbo_stream %>
     <% end %>
     <%= tag.div id: "instrument-view", class: "instrument-view" do %>
         <%= instrument_print(instrument_view) %>
