@@ -1,6 +1,6 @@
 class UserSongsController < ApplicationController
     def index
-        @songs = Song.where(submitter_id: @user.id)
+        @songs = Song.where(submitter_id: @user.id).order(id: :asc)
     end
 
     private

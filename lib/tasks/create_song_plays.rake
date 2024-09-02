@@ -11,7 +11,7 @@ namespace :song do
     def create_song_plays(song, player = Songs::Player.new(User.first))
         player.play({song_id: song.id}, song.nb_practices)
         # reset the playtime to null for all songs except the last
-        SongPlay.where(song: song).all.each do |song_play|
+        SongPlay.where(song: song).each do |song_play|
             # unless the song_play is the last for this given song
             unless song_play.id == SongPlay.where(song: song).last.id
                 song_play.update(played_at: nil)

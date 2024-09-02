@@ -4,7 +4,7 @@ class Chord < ApplicationRecord
     has_many :interval_qualities, through: :chord_components
 
     def self.for_select
-        Chord.all
+        Chord.order(id: :asc)
     end
 
     def for_select

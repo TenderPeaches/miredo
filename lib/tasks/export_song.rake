@@ -13,7 +13,7 @@ namespace :song do
     end
 
     task :export_all => [:environment] do |task|
-        Song.all.each do |song|
+        Song.order(id: :asc).each do |song|
             export_song(song)
         end
     end

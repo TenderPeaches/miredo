@@ -4,7 +4,7 @@ class User::SettingsController < ApplicationController
     def index
         if user_signed_in?
             # need to display instrument choices as setting
-            @instruments = Instrument.all
+            @instruments = Instrument.order(id: :asc)
 
             # assume current user wishes to change own settings
             @user = current_user

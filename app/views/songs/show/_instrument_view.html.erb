@@ -1,7 +1,7 @@
 <%= tag.div id: "instruments", class: "instruments" do %>
-    <%= form_tag instrument_views_path do %>
+    <%= form_tag instrument_views_path(format: :turbo_stream) do %>
         <%= hint_label :instrument_view %>
-        <%= select_tag :instrument, options_from_collection_for_select(Instrument.all, :id, :name) %>
+        <%= select_tag :instrument, options_from_collection_for_select(Instrument.order(id: :asc), :id, :name) %>
         <%= hidden_field_tag :tuning, instrument_view.tuning.id.to_s, id: "instrument-view-tuning" %>
         <%= hidden_field_tag :fret_count, instrument_view.fret_count, id: "instrument-view-fret-count" %>
         <%= hidden_field_tag :pitch_ids, instrument_view.pitch_ids.to_s %>

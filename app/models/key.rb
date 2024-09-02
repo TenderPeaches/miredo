@@ -18,6 +18,6 @@ class Key < ApplicationRecord
     end
 
     def self.for_select
-        Key.all
+        Key.order(id: :asc)
     end
 end

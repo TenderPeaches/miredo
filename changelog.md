@@ -1,5 +1,13 @@
 # Changelog: Early Access
 
+## v1.0.0.2
+
+* Fix a crash when creating progressions
+* Fix a crash when creating progression templates
+* Standardize order of instrument lists
+* Standardize order of song lists
+
+
 ## v1.0.0.1
 
 * Fix a bug where user settings were not being created correctly
