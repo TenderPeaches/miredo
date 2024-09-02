@@ -1,5 +1,5 @@
 <%# song options form %>
-<%= form_tag song_path(song.id, format: :turbo_stream), class: "song-options", method: :get do %>
+<%= form_tag song_path(song.id), class: "song-options", method: :get do %>
     <%# capo selection %>
     <%= tag.div class: "field" do %>
         <%= label_tag :capo, "Capo:" %>

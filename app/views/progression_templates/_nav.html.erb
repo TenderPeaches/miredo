@@ -1,6 +1,6 @@
 <%= tag.nav do %>
     <%# "new progression templates" button %>
-    <%= link_to t('actions.new', thing: t('activerecord.models.progression_template')), new_progression_template_path(song_id: song.id.to_s, format: :turbo_stream), data: { turbo_stream: true }, title: t('instructions.new_progression_template') %>
+    <%= link_to t('actions.new', thing: t('activerecord.models.progression_template')), new_progression_template_path(song_id: song.id.to_s), data: { turbo_stream: true }, title: t('instructions.new_progression_template') %>
     <%# "edit song" button %>
     <%= link_to t('actions.edit', thing: t('activerecord.models.song')), edit_song_path(song) %>
     <%# "define song progressions" button %>
