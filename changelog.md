@@ -1,6 +1,12 @@
-# Early Access
+# Changelog: Early Access
 
-## v1.0.0
+## v1.0.0.1
+
+* Fix a bug where user settings were not being created correctly
+* Fix a bug where unset user settings could cause a crash
+* Fix labels, typos
+
+## v1.0.0 - 2024/09/02
 
 **Launch!**
 

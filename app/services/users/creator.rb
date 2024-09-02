@@ -3,7 +3,7 @@ module Users
         def create(user_params)
             @user = User.create(user_params)
             # assign default user settings
-            @user.user_settings = UserSettings::Setter.new.set_default
+            UserSettings::Setter.new(@user).set_default
         end
     end
 end

@@ -164,7 +164,7 @@ class Song < ApplicationRecord
         # wrap in if in case never played, then would be nil
         if last_play = last_user_play(user)
             # if last play was by heart and over a month ago
-            if last_play.by_heart && last_play.played_at < threshold.days.ago
+            if last_play.by_heart && last_play.played_at && last_play.played_at < threshold.days.ago
                 # consider it in need of practice
                 return true
             end

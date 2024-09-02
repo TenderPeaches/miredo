@@ -29,7 +29,7 @@ module UserSettings
         def default_settings
             {
                 instrument_id: 1,           # default instrument ID, assume guitar
-                hot_plays_treshold: 3,      # how many times per timelapse a song needs to be played to be considered "hot"
+                hot_plays_threshold: 3,      # how many times per timelapse a song needs to be played to be considered "hot"
                 hot_timelapse: 7,           # over a period of how many days ago a song needs to have been played X times in order to be considered "hot"
                 old_heart_threshold: 60,    # how many days ago must a song must have been played (by heart) before it's flagged as needing a practice }
             }
