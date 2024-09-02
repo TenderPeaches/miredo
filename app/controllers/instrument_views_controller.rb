@@ -1,7 +1,8 @@
 # when viewing a (digital representation of an) instrument
 class InstrumentViewsController < ApplicationController
     def create
-        @instrument = if current_user then Instrument.find_by_id(current_user.user_settings.default_instrument) else Instrument.default end
+
+        @instrument = if current_user && current_user.user_settings then Instrument.find_by_id(current_user.user_settings.default_instrument) else Instrument.default end
 
         @instrument_view = Instruments::Viewer.new(Instrument.find_by_id(params[:instrument])).view({
             fret_count: params[:fret_count].to_i,
