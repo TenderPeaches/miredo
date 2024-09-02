@@ -120,7 +120,8 @@ class Song < ApplicationRecord
         song_plays.where(user: user, by_heart: true).order(played_at: :desc).first
     end
 
-    def self.forgotten?(user)
+    def self.default_sort
+        "artists.name ASC, songs.name ASC"
     end
 
     # if user has forgotten a song -> used to know it by heart, but then didn't
