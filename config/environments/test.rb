@@ -38,8 +38,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.mailgun_settings = {
-      api_key: 'ENV["MAILGUN_API_KEY"]',
-      domain: 'ENV["MAILGUN_DOMAIN"]'
+      api_key: ENV["MAILGUN_API_KEY"],
+      domain: ENV["MAILGUN_DOMAIN"]
   }
 
   # Tell Action Mailer not to deliver emails to the real world.
