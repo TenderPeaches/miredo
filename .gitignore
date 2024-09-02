@@ -54,3 +54,6 @@ scripts/song_seeds_2.rb
 scribbles/*
 # Ignore application configuration
 /config/application.yml
+latest.dump
+miredo.ca.csr
+miredo.ca.key

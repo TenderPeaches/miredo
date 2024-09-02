@@ -1,12 +1,15 @@
-# Changelog: Early Access
+# Changelog
+
+## Early Access
+
+## v1.0.0.3
+
+* Fix a crash when creating progression templates, moving progressions, playing and sorting songs
 
 ## v1.0.0.2
 
-* Fix a crash when creating progressions
-* Fix a crash when creating progression templates
-* Standardize order of instrument lists
-* Standardize order of song lists
-
+* Fix a crash when creating progressions, progression templates
+* Standardize order of instrument lists, songs lists, chords lists, keys lists, scales lists
 
 ## v1.0.0.1
 
@@ -20,21 +23,21 @@
 
 * Deploy on [main website](https://miredo.ca)
 
-# Staging
+## Staging
 
 ## v0.5.x
 
 * Migrate to PSQL
 * Deploy with Heroku
 
-# v0.4.x
+## v0.4.x
 
 * Implement online features:
   * Users, authentication, registration
   * Mailing
   * References, hints, feedback
 
-# Development
+## Development
 
 ## v0.3.x
 
@@ -47,4 +50,3 @@
 ## v0.1.x
 
 * Use an excel spreadsheet and Ultimate-guitar tabs
-

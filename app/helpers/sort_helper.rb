@@ -13,6 +13,6 @@ module SortHelper
 
     def sort_button(label, link, id, current_sort = :none, inverted_sort: false)
         sort_order = rotate_sort_order(inverted_sort, current_sort)
-        turbo_link_to "#{label}#{sort_order_label(current_sort)}", "#{link}#{sort_order.to_s}", id: id
+        turbo_link_to "#{label}#{sort_order_label(current_sort)}", "#{link}#{sort_order.to_s}&format=turbo_stream", id: id
     end
 end

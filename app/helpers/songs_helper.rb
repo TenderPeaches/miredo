@@ -102,11 +102,11 @@ module SongsHelper
     end
 
     def song_play_button(song_id)
-        turbo_link_button t('controls.play'), song_plays_path(song_id: song_id), method: :post, class: "button--square", title: t('instructions.song_play')
+        turbo_link_button t('controls.play'), song_plays_path(song_id: song_id, format: :turbo_stream), method: :post, class: "button--square", title: t('instructions.song_play')
     end
 
     def song_play_by_heart_button(song_id)
-        turbo_link_button t('controls.play_by_heart'), song_plays_path(song_id: song_id, by_heart: true), method: :post, class: "button--square", title: t('instructions.song_play_by_heart')
+        turbo_link_button t('controls.play_by_heart'), song_plays_path(song_id: song_id, by_heart: true, format: :turbo_stream), method: :post, class: "button--square", title: t('instructions.song_play_by_heart')
     end
 
     def song_edit_button(song_id)
