@@ -52,3 +52,5 @@ scripts/song_seeds_2.rb
 
 # scribbles is the dev private notepad
 scribbles/*
+# Ignore application configuration
+/config/application.yml
