@@ -2,9 +2,10 @@
 
 ## Early Access
 
-## v1.0.0.3
+## v1.0.0.4
 
-* Upgraded to Rails 7.1.5
+* Upgrade to Rails 7.1.5
+* Fix vulnerabilities
 
 ## v1.0.0.3
 

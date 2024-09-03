@@ -27,6 +27,9 @@ gem "jbuilder"
 # Email API
 gem "mailgun-ruby"
 
+# monitor SQL, memory performance
+gem "scout_apm"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

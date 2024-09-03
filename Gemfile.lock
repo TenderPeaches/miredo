@@ -75,6 +75,7 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
+    ast (2.4.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
@@ -157,6 +158,9 @@ GEM
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    parser (3.3.4.2)
+      ast (~> 2.4.1)
+      racc
     pg (1.5.7)
     pg (1.5.7-x64-mingw-ucrt)
     puma (6.4.2)
@@ -229,6 +233,8 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
+    scout_apm (5.3.8)
+      parser
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -281,6 +287,7 @@ DEPENDENCIES
   rails (~> 7.1.4)
   requestjs-rails
   rspec-rails
+  scout_apm
   sprockets-rails
   sqlite3
   stimulus-rails
