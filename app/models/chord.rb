@@ -20,7 +20,8 @@ class Chord < ApplicationRecord
                 unless selector.empty?
                     selector << "|"
                 end
-                  selector << chord.notation.gsub("/", "\/").gsub("+", "\+").gsub("*", "\*")
+                # string escapes double backslash, then need a double backslash to escape to the regex aswell
+                selector << chord.notation.gsub("/", "\/").gsub("+", "\\\\+").gsub("*", "\\\\*")
             end
         end
 

@@ -131,7 +131,7 @@ class SongsController < ApplicationController
         set_song
 
         if !@song.can_edit? current_user
-            redirect_to songs_path, status: 401
+            redirect_to songs_path, status: :forbidden
         end
     end
 

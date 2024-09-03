@@ -6,6 +6,9 @@
 
 * Upgrade to Rails 7.1.5
 * Fix vulnerabilities
+* Fix a bug that prevented changing instrument view more than once
+* Fix a bug when trying to recognize chords for new progression templates
+* Fix a bug where anyone could see the button to edit songs on any song list
 
 ## v1.0.0.3
 
