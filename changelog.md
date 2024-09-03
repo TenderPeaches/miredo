@@ -4,6 +4,10 @@
 
 ## v1.0.0.3
 
+* Upgraded to Rails 7.1.5
+
+## v1.0.0.3
+
 * Fix a crash when creating progression templates, moving progressions, playing and sorting songs
 
 ## v1.0.0.2
