@@ -12,9 +12,9 @@
     <% end %>
 
     <%# show currently instanciated ProgressionTemplates %>
-    <%= render "progression_templates/current_progression_templates", progression_templates: @song.progression_templates, scale: @song.scale, key: @song.key %>
+    <%= render "progression_templates/current_progression_templates", progression_templates: @song.progression_templates, scale: @song.scale || Scale.default, key: @song.key || Key.default %>
     <%# show new progression_template forms %>
-    <%= render "progression_templates/new_progression_templates", progression_templates: [], song: @song, scale: @song.scale, key: @song.key %>
+    <%= render "progression_templates/new_progression_templates", progression_templates: [], song: @song, scale: @song.scale || Scale.default, key: @song.key || Key.default %>
 
     <%= tag.section class: "flashes", id: "flashes" %>
 

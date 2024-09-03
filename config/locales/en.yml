@@ -30,6 +30,7 @@ en:
     select: "Select %{thing}"
     show: "Show %{thing}"
     copy: "Copy %{thing}"
+    unknown: "Unknown %{thing}"
   confirm: 
     delete: "Are you sure you wish to delete %{model}?"
   alerts:

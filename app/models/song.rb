@@ -232,7 +232,13 @@ class Song < ApplicationRecord
     end
 
     def keyscale
-        "#{key.natural_shorthand} #{scale.name}"
+        if key && scale
+            "#{key.natural_shorthand} #{scale.name}"
+        elsif key
+            "#{key.natural_shorthand}"
+        else
+            t("actions.unknown", thing: Key.model_name.human)
+        end
     end
 
     #! the form passes along song_contributions with artist_id == 1 when artist field is left blank (for new artists), so weed that one out before the validations are made otherwise it raises a validation error with artist_id missing

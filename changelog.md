@@ -2,6 +2,12 @@
 
 ## Early Access
 
+## v1.0.1
+
+* Fix a bug that prevented updating progression templates
+* Fix a bug that displays the one too many duration notches in progression template forms
+* Fix a crash when showing a song whose key has not been set
+
 ## v1.0.0.4
 
 * Upgrade to Rails 7.1.5
