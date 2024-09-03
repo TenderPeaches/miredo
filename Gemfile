@@ -30,6 +30,11 @@ gem "mailgun-ruby"
 # monitor SQL, memory performance
 gem "scout_apm"
 
+# monitor Rails/process errors
+gem "stackprof"
+gem "sentry-ruby"
+gem "sentry-rails"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

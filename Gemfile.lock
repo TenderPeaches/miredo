@@ -235,6 +235,12 @@ GEM
     rspec-support (3.13.1)
     scout_apm (5.3.8)
       parser
+    sentry-rails (5.19.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.19.0)
+    sentry-ruby (5.19.0)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -244,6 +250,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (2.0.4-x64-mingw-ucrt)
     sqlite3 (2.0.4-x86_64-linux-gnu)
+    stackprof (0.2.26)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.2)
@@ -288,8 +295,11 @@ DEPENDENCIES
   requestjs-rails
   rspec-rails
   scout_apm
+  sentry-rails
+  sentry-ruby
   sprockets-rails
   sqlite3
+  stackprof
   stimulus-rails
   turbo-rails
   tzinfo-data
