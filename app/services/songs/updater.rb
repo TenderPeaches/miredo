@@ -7,8 +7,8 @@ module Songs
         def update(song_params, modifying_user = @song.submitter)
             # only perform the update if they are submitted by the user responsible for the tablature
             if modifying_user == @song.submitter
-                # intercept updates to the song's key
-                cyphers = if song_params[:key_id].to_i != @song.key_id
+                # intercept updates to the song's key, if the "freeze chords" option was activated
+                cyphers = if song_params[:key_id].to_i != @song.key_id && song_params[:freeze_chords] == "1"
                     get_cyphers
                 else
                     nil

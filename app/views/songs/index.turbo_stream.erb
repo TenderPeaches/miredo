@@ -1,10 +1,8 @@
 <%# songs#index turbo_stream requests updates the song list and filter/sorting controls %>
 
 <%# update the song list %>
-<%= turbo_stream.update "songs-list" do %>
-    <% @songs.each do |song| %>
-        <%= render song %>
-    <% end %>
+<%= turbo_stream.update "songs" do %>
+    <%= render "songs/index/song_list", songs: @songs, page_count: @page_count, expected_page: @expected_page %>
 <% end %>
 
 <%# if any sort_option was applied, replace the control to allow for different sorting orders (ascending/descending/none) %>

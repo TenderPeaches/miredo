@@ -1,4 +1,7 @@
 en:
+  app:
+    name: "Miredo"
+    motto: "The busker's songbook"
   keywords:
     ok: "OK"
     cancel: "Cancel"
@@ -72,6 +75,7 @@ en:
     user_song_plays: "How many times you played this song"
     user_last_practice: "Last time you practiced this song"
     song_is_public: "Anyone can see public songs, whereas private songs can only be viewed by whomever is responsible for them"
+    song_freeze_chords: "\"Freeze\" chords if you only want to change the key, without changing the chords being displayed. Miredo will adjust the progressions accordingly. Otherwise, a change of key will lead to a change in the chords that are displayed, as the progressions remain the same."
     instrument_view: "Pick your instrument!"
     chord_composition: "See which notes make up each type of chord"
     key_scale: "Find out how to tell a song's key and scale"

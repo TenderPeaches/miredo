@@ -17,6 +17,18 @@
     <%= form.collection_select :key_id, Key.for_select, :id, :shorthand %>
 <% end %>
 
+<%# when a change is made to a key, miredo can either:
+    1) "freeze" the chords, meaning the displayed chords will remain the same after the key change. This situation is called for when the displayed chords are correct, but the key isn't.
+    2) adjust the chords, meaning the displayed chords will change according to the new key. This situation is called for when the song is displaying the wrong chords due to a wrong key being used when the song was initially created. %>
+<%= tag.div class: "checkbox-field" do %>
+    <%# put the "if" within the field, so that the fields remain in the same place whether or not this particular field is displayed %>
+    <%# only show this option for persisted songs, as this process isn't relevant for a new song since those cannot already be linked to progression_templates/progression_chords %>
+    <% if form.object.persisted? %>
+        <%= form.label :freeze_chords, title: t('hints.song_freeze_chords') %>
+        <%= form.check_box :freeze_chords %>
+    <% end %>
+<% end %>
+
 <%# scale that is used to build the chords for the song %>
 <%= tag.div class: "field" do %>
     <%= form.label :scale %>

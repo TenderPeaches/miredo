@@ -30,7 +30,8 @@ class Song < ApplicationRecord
 
     validates_associated :song_contributions
 
-    attr_accessor(:new_album_name, :new_artist_name)        # in case of new album/artist
+    # form options
+    attr_accessor :new_album_name, :new_artist_name, :freeze_chords
 
     accepts_nested_attributes_for :artists
     accepts_nested_attributes_for :song_contributions, :allow_destroy => true

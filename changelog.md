@@ -2,6 +2,11 @@
 
 ## Early Access
 
+## v1.0.1.1
+
+* Add the "Freeze Chords" setting when updating songs, to indicate that song key changes shouldn't change the displayed chords
+* Fix a bug where the pagination widget wouldn't update when changing pages
+
 ## v1.0.1
 
 * Fix a bug that prevented updating progression templates
