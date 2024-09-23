@@ -72,11 +72,11 @@ module ProgressionChords
 
             if print_duration
                 # print the duration
-                progression_chord.duration - 1.times do |i|
+                (progression_chord.duration - 1).times do |i|
                     # separate beats by groups of 4 by prepending a space on the 5th, 9th, 13th, etc. beats
                     #todo could be set according to the song's time signature, for 3/4, etc.
                     if i > 1 && i % 4 == 0
-                    cypher << " "
+                        cypher << " "
                     end
 
                     beat_marker = if progression_chord.staccato
@@ -84,7 +84,7 @@ module ProgressionChords
                     elsif progression_chord.muted
                         beat_marker = "x"
                     else
-                        beat_marker = "–"
+                        beat_marker = "-"
                     end
 
                     cypher << beat_marker

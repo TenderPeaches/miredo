@@ -106,6 +106,14 @@ class Song < ApplicationRecord
         end
     end
 
+    def next
+        self.class.where("id > ?", id).first
+    end
+
+    def previous
+        self.class.where("id < ?", id).last
+    end
+
     # get last performance of a given user
     def last_user_play(user)
         song_plays.where(user: user).order(played_at: :desc).first

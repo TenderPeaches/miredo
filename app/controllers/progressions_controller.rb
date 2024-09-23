@@ -67,8 +67,8 @@ class ProgressionsController < ApplicationController
     def destroy
         set_progression
 
-
-        if @song.can_edit? current_user
+        # quick validation to ensure user has the rights to edit this progression/song
+        if @progression.song.can_edit? current_user
             @progression.destroy
         end
     end

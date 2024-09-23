@@ -2,6 +2,15 @@
 
 ## Early Access
 
+## v1.0.1.2
+
+* Fix a bug that prevented progressions from being deleted
+* Fix a bug where the song form always set the capo to 0 on page load, regardless of the song's actual capo recommendation
+* Fix a bug that prevented editing progressions when the song's ID is not in sequence with the rest
+* Fix a bug where the song progression templates shifter would redirect to the progressions' screen, rather than the progression templates' screen  
+* Standardize regular beat markers, from medium dashes to regular dashes
+* Fix a bug where progression chord cyphers would never display more than 1 duration marker, even when required to
+
 ## v1.0.1.1
 
 * Add the "Freeze Chords" setting when updating songs, to indicate that song key changes shouldn't change the displayed chords

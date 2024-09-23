@@ -8,7 +8,7 @@
 <%# suggested capo given the song's default key %>
 <%= tag.div class: "field" do %>
     <%= form.label :capo %>
-    <%= song_capo_input(form) %>
+    <%= song_capo_input(form, form.object.capo || 0) %>
 <% end %>
 
 <%# default key that the song is typically played in %>

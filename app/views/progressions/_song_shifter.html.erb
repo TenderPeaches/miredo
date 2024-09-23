@@ -1,9 +1,9 @@
 <%= tag.div class: "song-shifter" do %>
-    <% if song.id > 1 %>
-        <%= link_to "<", song_progressions_path(song.id - 1), title: Song.find(song.id - 1).label_with_artist %>
+    <% if previous_song = song.previous %>
+        <%= link_to "<", song_progressions_path(previous_song), title: previous_song.label_with_artist %>
     <% end %>
-    <%= link_to song.name, song_path(song.id) %>
-    <% if song.id < Song.last.id %>
-        <%= link_to ">", song_progressions_path(song.id + 1), title: Song.find(song.id + 1).label_with_artist %>
+    <%= tag.h1 song.name %>
+    <% if next_song = song.next %>
+        <%= link_to ">", song_progressions_path(next_song), title: next_song.label_with_artist %>
     <% end %>
 <% end %>
