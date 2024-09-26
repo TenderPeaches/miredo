@@ -43,6 +43,9 @@ class ProgressionTemplatesController < ApplicationController
 
             @progression_template_index = @song.progression_templates.distinct.count + 1
             update_chords_from_cypher
+            # ensure no mistake was made entering the number of reps
+            @progression_template.reps = 1 if @progression_template.reps.to_i < 1
+
             @progression_template.save
 
             if params[:create_another]

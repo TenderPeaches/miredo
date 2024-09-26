@@ -75,7 +75,7 @@ module ProgressionChords
                 (progression_chord.duration - 1).times do |i|
                     # separate beats by groups of 4 by prepending a space on the 5th, 9th, 13th, etc. beats
                     #todo could be set according to the song's time signature, for 3/4, etc.
-                    if i > 1 && i % 4 == 0
+                    if i > 0 && (i - 1) % 4 == 0
                         cypher << " "
                     end
 

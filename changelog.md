@@ -2,6 +2,12 @@
 
 ## Early Access
 
+## v1.0.1.3
+
+* Fix a bug where shifting a song's key in the viewer didn't change the keys displayed through the lyrics
+* Fix a bug where viewing a song would print an extra duration marker for every single chord
+* Default reps number to 1 if invalid
+
 ## v1.0.1.2
 
 * Fix a bug that prevented progressions from being deleted

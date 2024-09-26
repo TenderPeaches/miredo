@@ -16,8 +16,11 @@
 <%= render "songs/show/info", song: @song %>
 <%# helper %>
 <%= tag.section class: "helpers" do %>
+    <%# print the scale in the song's key %>
     <%= render "scales/print", scale: @song.scale, key: @key %> 
+    <%# the instrument's key & scale are defined at the controller level %>
     <%= render "songs/show/instrument_view", instrument_view: @instrument_view %>
+    <%# the chord helpers' key & scale are also defined at the controller level %>
     <%= render "songs/show/chords", chords: @chords %>
 <% end %>
 <%= tag.div do %>
@@ -25,7 +28,7 @@
 <% end %>
 <%# print the song lyrics & chords %>
 <%= tag.section class: "show-song", data: { controller: "show-song" } do %> 
-    <%= Songs::Printer.new(@song, @key_with_capo, @song.scale, @capo).print %>
+    <%= Songs::Printer.new(@song, @capo, @key_shift).print %>
 <% end %>
 <%= render "songs/show/tips" %>
 <%# do another action div because they contain user controls, and we want it at the very end as these actions are pretty much only used after the song is played %>

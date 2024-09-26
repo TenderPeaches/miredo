@@ -3,11 +3,11 @@ module Songs
 
         attr_accessor :key, :scale, :song, :capo
 
-        def initialize(song, key, scale, capo)
+        def initialize(song, capo, key_shift = 0)
             @song = song
-            @key = key
-            @scale = scale
             @capo = capo
+            # if key_shift isn't specified, it could be nil so make sure it has a value of 0 instead
+            @key_shift = key_shift.to_i
         end
 
         def print
@@ -35,7 +35,7 @@ module Songs
                         tick_counter -= chord_ticks_per_line
                     end
                     # print the colored chord & duration notches
-                    @output << progression_chord.print_with_colors(progression.effective_key(@capo * -1), progression.effective_scale)
+                    @output << progression_chord.print_with_colors(progression.effective_key(@capo * -1 + @key_shift), progression.effective_scale)
                 end
 
                 # only show reps if there are more than 1

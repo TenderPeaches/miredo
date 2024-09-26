@@ -1,7 +1,3 @@
-<%= content_for :header do %>
-    <%= render "scales/print_for_header", scale: @song.scale || Scale.default, key: @song.key || Key.default %>
-<% end %>
-
 <%= tag.section id: "progression-templates" do %>
     <%# shift from one song to the previous/next, for now by ID %>
     <%= render "progression_templates/song_shifter", song: @song %>

@@ -145,7 +145,8 @@ class ProgressionChord < ApplicationRecord
       printed << "/" << PitchClass.find_by(position: bass__pitch_class__position).print
     end
 
-    duration.times do |i|
+    # do duration - 1 times, because the chord symbol itself acts as the "1" duration marker, so only need to draw n-1 duration markers
+    (duration - 1).times do |i|
       # separate beats by groups of 4 by prepending a space on the 5th, 9th, 13th, etc. beats
       #todo could be set according to the song's time signature, for 3/4, etc.
       if i > 1 && i % 4 == 0
