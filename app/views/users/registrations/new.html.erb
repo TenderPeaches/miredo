@@ -9,6 +9,11 @@
     <% end %>
 
   <%= tag.div class: "field" do %>
+      <%= f.label :username %><br />
+      <%= f.text_field :username %>
+  <% end %>
+
+  <%= tag.div class: "field" do %>
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   <% end %>

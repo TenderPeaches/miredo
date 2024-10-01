@@ -2,6 +2,12 @@
 
 ## Early Access
 
+## v1.0.1.4
+
+* Add the `username` field to the user registration form
+* Fix a bug when updating a song's info if it had its key or scale set to nil
+* Fix a bug when showing a song if it had its key or scale set to nil
+
 ## v1.0.1.3
 
 * Fix a bug where shifting a song's key in the viewer didn't change the keys displayed through the lyrics

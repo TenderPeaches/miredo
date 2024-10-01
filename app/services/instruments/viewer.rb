@@ -27,8 +27,8 @@ module Instruments
                     instrument_view_params[:pitch_ids]
                 end
             else
-                @scale = instrument_view_params[:scale]
-                @key = instrument_view_params[:key]
+                @scale = instrument_view_params[:scale] || Scale.default
+                @key = instrument_view_params[:key] || Key.default
                 key_with_capo = @key.shift(@capo * -1)
 
                 @display_key = if @instrument.uses_capo then

@@ -113,11 +113,15 @@ class ProgressionChord < ApplicationRecord
   end
 
   def root_note_by_keyscale(key = Key.default, scale = Scale.default)
+
+      # ensure key/scale aren't set to nil, in case they were explicitly passed along
+      key = key || Key.default
+      scale = scale || Scale.default
       # pitch_class associated with this chord given a key and scale, only 12 options
       pitch_class__position = (key.pitch_class.position + scale.get_degrees_interval(degree) + modifier) % 12
       # position == 0 doesn't exist, multiples of 12 should have their position set to 12
       if pitch_class__position == 0
-        pitch_class__position = 12
+          pitch_class__position = 12
       end
       #todo option to use solfège aswell
       PitchClass.find_by(position: pitch_class__position)
