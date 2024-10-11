@@ -4,7 +4,7 @@ class SongsController < ApplicationController
     # GET /songs => Any list of songs, params might include filter/sort/search options
     def index
 
-        filter_options = params[:filter_options] || {}
+        assign_list_options
 
         # use params(:page) to apply a limit(Song.page_size) to the query
         limit = Song.page_size
@@ -15,29 +15,33 @@ class SongsController < ApplicationController
 
         # if user is logged in
         if user_signed_in?
-            # ensure that only songs visible to the user are shown by setting the visibility filter
-            @songs = Song.filter(filter_options.merge({visibility: current_user.id}), Song.includes(:song_plays, :song_contributions, :artists)).order(Song.default_sort)
+            # base the song selection off of those that are visible to the user, including their own private songs, if any, and apply to filters to that list
+            @songs = Song.filter(session[:list_options]["songs"]["filter_options"].merge({visibility: current_user.id}), Song.includes(:song_plays, :song_contributions, :artists))
         # otherwise, user is logged out
         else
-            # apply filters and ensure that out of the results, only the public songs are shown
-            @songs = Song.filter(filter_options, Song.only_public.includes(:song_plays, :song_contributions, :artists)).order(Song.default_sort)
+            # apply the filters to the public songs, which are the only ones that should be displayed to an anon user
+            @songs = Song.filter(filter_options, Song.only_public.includes(:song_plays, :song_contributions, :artists))
         end
 
         # page count is collection count / how many items per page, rounded up
         @page_count = (@songs.size.to_f / limit.to_f).ceil
 
+        # sort the songs according to user specifications, if any
+        if session[:list_options]["songs"]["sort_options"].present?
+            @songs = Song.sort(session[:list_options]["songs"]["sort_options"], @songs)
+
+            if params[:sort_options]
+                # keep track of the sort being applied, as the turbo response will modify the corresponding controls (to swap the :ascending/:descending order or reset the sort)
+                #! only the first sort option is applied, everything else is ignored, as sorts are applied by the click of a button. Complex sorts are TBI.
+                # convert to kebabcase because the sort controls should have an ID that matches their corresponding sort_option, prefixed with "sort-by-"
+                @sort_control_id = "sort-by-#{params[:sort_options].keys.first.match(/([\w_]+)(\(([^)]+)\))?/)[1].kebabcase}"
+                @sort_control_order = params[:sort_options][params[:sort_options].keys.first].to_sym
+            end
+        end
+
+        # slice the songs list according to the songs/page settings, offset according to the requested page
         @songs = @songs.limit(limit).offset(offset)
 
-        # sort the songs according to user specifications, if any
-        if (params[:sort_options].present?)
-            @songs = Song.sort(params[:sort_options], @songs)
-
-            # keep track of the sort being applied, as the turbo response will modify the corresponding controls (to swap the :ascending/:descending order or reset the sort)
-            #! only the first sort option is applied, everything else is ignored, as sorts are applied by the click of a button. Complex sorts are TBI.
-            # convert to kebabcase because the sort controls should have an ID that matches their corresponding sort_option, prefixed with "sort-by-"
-            @sort_control_id = "sort-by-#{params[:sort_options].keys.first.match(/([\w_]+)(\(([^)]+)\))?/)[1].kebabcase}"
-            @sort_control_order = params[:sort_options][params[:sort_options].keys.first].to_sym
-        end
     end
 
     # GET /[id]/
@@ -142,5 +146,56 @@ class SongsController < ApplicationController
 
     def song_params
         params.require(:song).permit(:name, :number, :duration, :capo, :bpm, :key_id, :scale_id, :is_public, :freeze_chords, :new_album_name, :new_artist_name, :album_id, song_contributions_attributes: [:id, :artist_id, :_destroy], progressions_attributes: [:sequence, :id])
+    end
+
+    def sort_params
+        params.require(:sort_options).permit(:capo, "last_played(#{current_user&.id})", "most_played_by_user(#{current_user&.id})")
+    end
+
+    def filter_params
+        params.require(:filter_options)
+    end
+
+    # when displaying a list, it's customary to let users manipulate the lists through two options in particular:
+    #   filter => to display a subset of the data, according to certain filters
+    #   sort => to change the order in which the data appears
+    def assign_list_options
+        # if the user selected new list options, they will appear in the request's parameters
+        request_filter_options = if params.has_key?(:filter_options) then filter_params else {} end
+        request_sort_options = if params.has_key?(:sort_options) then sort_params else {} end
+
+        # initialize the session's [:list_options][:songs] structure
+        unless session[:list_options]
+            session[:list_options] = { "songs" => {}}
+        end
+
+        unless session[:list_options]["songs"]
+            session[:list_options]["songs"] = {}
+        end
+
+        # if the request has a flag to reset the list options, the session's list options are not only ignored, they are to be overwritten by the request's list options which could very well be nothing
+        if params[:reset_list]
+            # reset the session list options
+            session[:list_options]["songs"] = {
+                "filter_options" => request_filter_options || {},
+                "sort_options" => request_sort_options || {},
+            }
+        # otherwise, any list options featured in the request are meant to be added to the current list options
+        else
+            song_list_options = session[:list_options]["songs"]
+            # session list options
+            session_sort_options = song_list_options["sort_options"] || {}
+            session_filter_options = song_list_options["filter_options"] || {}
+
+            # merge the session's list options with the request's options: only the options that match (like say the sort by name is set from :asc to :desc)
+            new_filter_options = session_filter_options.merge request_filter_options.as_json
+
+            # only single-column sorts are supported for now, so overwrite whatever previous sort options were present in the session with the requests' sort options, unless there are no sort options in the request in which case the session's current sort options remain as is
+            new_sort_options = if request_sort_options.present? then request_sort_options.as_json else session_sort_options end
+
+            # store the new list options in the user's session
+            session[:list_options]["songs"]["filter_options"] = new_filter_options
+            session[:list_options]["songs"]["sort_options"] = new_sort_options
+        end
     end
 end

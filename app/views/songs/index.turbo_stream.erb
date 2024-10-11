@@ -5,6 +5,11 @@
     <%= render "songs/index/song_list", songs: @songs, page_count: @page_count, expected_page: @expected_page %>
 <% end %>
 
+<%# replace the sort controls, as only single-column sort is supported; thus, reset the sort controls, then flag the one that needs to be updated with an indicator %>
+<%= turbo_stream.replace "songs-sort-options" do %>
+    <%= render "songs/index/sort_options" %>
+<% end %>
+
 <%# if any sort_option was applied, replace the control to allow for different sorting orders (ascending/descending/none) %>
 <% if @sort_control_id %>
     <%= turbo_stream.replace @sort_control_id do %>

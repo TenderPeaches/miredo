@@ -2,6 +2,13 @@
 
 ## Early Access
 
+## v1.0.1.5
+
+* Fix a bug where a new user's username would always be set to blank, triggering a "not null" constraint violation error
+* Remove the username field from the registration form, as it will only be necessary once users are able to contribute their own songs
+* Remove the default sort by artist name and song name, as it was clashing with the custom sorts, until a harmonious solution is found
+* Fix sorting, should now keep track of filter and sort options when using pagination or reloading the page
+
 ## v1.0.1.4
 
 * Add the `username` field to the user registration form

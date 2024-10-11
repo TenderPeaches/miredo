@@ -130,7 +130,7 @@ class Song < ApplicationRecord
     end
 
     def self.default_sort
-        "artists.name ASC, songs.name ASC"
+        {"artists.name" => :asc, "songs.name" => :asc}
     end
 
     # if user has forgotten a song -> used to know it by heart, but then didn't
