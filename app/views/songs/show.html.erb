@@ -1,3 +1,7 @@
+<%= content_for :title do %>
+    <%= "#{@song.name} - #{app_title}" %>
+<% end %>
+
 <!-- to be used with songs whose structure is dictated by Progression entities, rather than plaintext -->
 <%= tag.section class: "actions" do %>
  <%# options_panel %>

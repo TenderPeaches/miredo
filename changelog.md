@@ -8,6 +8,13 @@
 * Remove the username field from the registration form, as it will only be necessary once users are able to contribute their own songs
 * Remove the default sort by artist name and song name, as it was clashing with the custom sorts, until a harmonious solution is found
 * Fix sorting, should now keep track of filter and sort options when using pagination or reloading the page
+* Enforce single-column songs sort
+* Center fretboard labels
+* Set page title to song name when viewing it
+
+Editor:
+
+* Fix a display bug with the progression cyphers
 
 ## v1.0.1.4
 

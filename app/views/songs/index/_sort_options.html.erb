@@ -1,4 +1,4 @@
-<%= tag.div class: "sort-options" do %>
+<%= tag.div class: "sort-options", id: "songs-sort-options" do %>
     <%= tag.label "#{t('keywords.sort_by')}:" %>
     <%= song_filter_capo %>
     <% if current_user %>
