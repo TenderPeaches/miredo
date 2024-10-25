@@ -180,26 +180,34 @@ section {
         justify-content: space-between;                     /* title to the left, nav to the right */
         padding: var(--size-xxs) var(--size-l);             /* header internal padding */
         align-items: center;
-        font-size: var(--font-size-xxl);              /* everything on header is important */
+        font-size: var(--font-size-l);                      /* everything on header is important */
         z-index: 10;                    /* prevent clipping */
     }
 
     footer {
         bottom: 0;
-        padding: var(--size-l);
+        padding: var(--size-s);
         justify-content: center;
     }
 
     /* header bat title */
     header h2 {
-        padding-left: var(--size-xxxl);
+        padding-left: var(--size-xl);
     }
 
     /* header bar navigational links */
     header nav, footer nav {
         display: flex;
-        gap: var(--size-xxxl);                              /* space out links */
+        gap: var(--size-xl);                              /* space out links */
         flex-direction: row;
+    }
+
+    header h1 {
+        margin: var(--size-xxxs);
+    }
+
+    header nav {
+        padding: var(--size-xxs);               /* reset padding to something small */
     }
 
     /* header links */

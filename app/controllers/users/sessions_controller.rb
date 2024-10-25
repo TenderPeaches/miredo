@@ -21,7 +21,7 @@ class Users::SessionsController < Devise::SessionsController
       self.resource = warden.authenticate!(auth_options)
 
       # feedback sent to user on successful auth
-      flash.notice = t("flashes.log_in", user: resource.username)
+      flash.notice = t("flashes.log_in")
       # start session, log in DB, etc.
       sign_in(resource_name, resource)
 

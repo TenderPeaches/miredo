@@ -20,7 +20,7 @@ class SongsController < ApplicationController
         # otherwise, user is logged out
         else
             # apply the filters to the public songs, which are the only ones that should be displayed to an anon user
-            @songs = Song.filter(filter_options, Song.only_public.includes(:song_plays, :song_contributions, :artists))
+            @songs = Song.filter(session[:list_options]["songs"]["filter_options"], Song.only_public.includes(:song_plays, :song_contributions, :artists))
         end
 
         # page count is collection count / how many items per page, rounded up

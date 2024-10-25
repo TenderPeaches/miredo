@@ -45,7 +45,7 @@ en:
       check_3: "Use a password manager to stop this from happening!"
     error: "Error!"
   flashes:
-    log_in: "Successfully logged in. Welcome back, %{user}"
+    log_in: "Successfully logged in"
     song_played: "You just practiced playing \"%{song}\" for the %{play_count} time!"
     song_played_by_heart: "You just practiced playing \"%{song}\" by heart, for the %{play_count} time!"
     song_added: "\"%{song}\" has been created and added to the database."

@@ -1,7 +1,6 @@
 <%= tag.h2 t('cta.sign_up') %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form" }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
 
     <%= tag.div class: "field" do %>
         <%= f.label :email %><br />
