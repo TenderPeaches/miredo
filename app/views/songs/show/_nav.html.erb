@@ -3,15 +3,15 @@
     <%= link_to "< #{Song.model_name.human.pluralize}", songs_path %>
     <%# if there is a previous song %>
     <%#todo there needs to be a list of songs passed along, so that it can be better ascertained whether or not there is a previous song on the list. same for last song, how the previous/next songs are selected, etc. %>
-    <% if song.id > 1 %>
+    <% if previous_song = song.previous %>
         <%# previous song button %>
-        <%= link_to "#{t('controls.previous')}", song_path(song.id - 1) %>
+        <%= link_to "#{t('controls.previous')}", song_path(previous_song.id) %>
     <% end %>
     <%# random song button %>
     <%= link_to "#{t('controls.random')}", song_path(Song.random_id) %>
-    <% if song.id < Song.last.id %>
+    <% if next_song = song.next %>
         <%# next song button %>
-        <%= link_to "#{t('controls.next')}", song_path(song.id + 1) %>
+        <%= link_to "#{t('controls.next')}", song_path(next_song.id) %>
     <% end %>
     <% if user_signed_in? %>
         <%# create a new song button %>

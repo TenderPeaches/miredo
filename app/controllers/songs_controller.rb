@@ -48,7 +48,9 @@ class SongsController < ApplicationController
     def show
         set_song
 
-        if @song.public? || current_user == @song.submitter
+        if @song.nil?
+            redirect_to songs_path
+        elsif @song.public? || current_user == @song.submitter
             if @song.key.nil?
                 @song.update(key: Key.default)
             else

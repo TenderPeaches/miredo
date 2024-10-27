@@ -11,6 +11,9 @@
 * Enforce single-column songs sort
 * Center fretboard labels
 * Set page title to song name when viewing it
+* Reduce header element size
+* Fix bug where previous/next songs would lead to an error if song IDs aren't in sequence
+* Redirect to songs list if song with invalid ID accessed
 
 Editor:
 
