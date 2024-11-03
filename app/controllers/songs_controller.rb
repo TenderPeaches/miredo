@@ -13,14 +13,16 @@ class SongsController < ApplicationController
         # with offset = (params(:page)-1) * Song.page_size (since offset signals the start of the batch, 1st page has a start of 0, not 20 or whatever)
         offset = (@expected_page.to_i - 1) * limit
 
+        @songs = Song.includes(:song_plays, :song_contributions, :artists).order(Song.default_sort)
+
         # if user is logged in
         if user_signed_in?
             # base the song selection off of those that are visible to the user, including their own private songs, if any, and apply to filters to that list
-            @songs = Song.filter(session[:list_options]["songs"]["filter_options"].merge({visibility: current_user.id}), Song.includes(:song_plays, :song_contributions, :artists))
+            @songs = Song.filter(session[:list_options]["songs"]["filter_options"].merge({visibility: current_user.id}), @songs)
         # otherwise, user is logged out
         else
             # apply the filters to the public songs, which are the only ones that should be displayed to an anon user
-            @songs = Song.filter(session[:list_options]["songs"]["filter_options"], Song.only_public.includes(:song_plays, :song_contributions, :artists))
+            @songs = Song.filter(session[:list_options]["songs"]["filter_options"], @songs.only_public)
         end
 
         # page count is collection count / how many items per page, rounded up

@@ -14,6 +14,8 @@
 * Reduce header element size
 * Fix bug where previous/next songs would lead to an error if song IDs aren't in sequence
 * Redirect to songs list if song with invalid ID accessed
+* Readjusted song ID sequence
+* Apply default sort order to the songs list
 
 Editor:
 

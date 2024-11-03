@@ -329,12 +329,13 @@ ActiveRecord::Schema[7.1].define(version: 54) do
   add_foreign_key "pitches", "pitch_standards"
   add_foreign_key "progression_chords", "chords"
   add_foreign_key "progression_chords", "progression_templates"
+  add_foreign_key "progression_templates", "songs", on_update: :cascade
   add_foreign_key "progressions", "progression_templates"
-  add_foreign_key "progressions", "songs"
   add_foreign_key "scale_intervals", "interval_qualities"
   add_foreign_key "scale_intervals", "intervals"
   add_foreign_key "scale_intervals", "scales"
-  add_foreign_key "song_plays", "songs"
+  add_foreign_key "song_contributions", "artists", on_update: :cascade
+  add_foreign_key "song_contributions", "songs", on_update: :cascade
   add_foreign_key "song_plays", "users"
   add_foreign_key "songs", "users", column: "submitter_id"
   add_foreign_key "tuning_pitches", "pitches"
