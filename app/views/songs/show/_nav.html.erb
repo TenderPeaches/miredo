@@ -7,12 +7,12 @@
         <%# previous song button %>
         <%= link_to "#{t('controls.previous')}", song_path(previous_song.id) %>
     <% end %>
-    <%# random song button %>
-    <%= link_to "#{t('controls.random')}", song_path(Song.random_id) %>
     <% if next_song = song.next %>
         <%# next song button %>
         <%= link_to "#{t('controls.next')}", song_path(next_song.id) %>
     <% end %>
+    <%# random song button %>
+    <%= link_to "#{t('controls.random')}", song_path(Song.random_id) %>
     <% if user_signed_in? %>
         <%# create a new song button %>
         <%= link_to "#{t('actions.new', thing: Song.model_name.human )}", new_song_path %>

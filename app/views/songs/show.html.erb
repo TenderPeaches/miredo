@@ -3,8 +3,9 @@
 <% end %>
 
 <!-- to be used with songs whose structure is dictated by Progression entities, rather than plaintext -->
-<%= tag.section class: "actions" do %>
+<%= tag.div class: "view-song" do %>
  <%# options_panel %>
+    
     <%# song title, above everything else %>
     <%= tag.div class: "title" do %>
         <%= tag.h1 "#{@song.id}) #{@song.artist} - #{@song.name}" %>
@@ -14,31 +15,27 @@
     <%# song edition action links %>
     <%= render "songs/show/admin_actions", song: @song %>
     <%# song settings: key, capo, etc. %>
-    <%= render "songs/show/options", song: @song %> 
+    <%= render "songs/show/options", song: @song, key: @key, capo: @capo %> 
+    <%# song information (non-interactive) %>
+    <%= render "songs/show/info", song: @song %>
+    <%# helper %>
+    <%= tag.section class: "helpers" do %>
+        <%# the instrument's key & scale are defined at the controller level %>
+        <%= render "songs/show/instrument_view", instrument_view: @instrument_view %>
+        <%# the chord helpers' key & scale are also defined at the controller level %>
+        <%= render "songs/show/chords", chords: @chords %>
+    <% end %>
+    <%# print the song lyrics & chords %>
+    <%= tag.section class: "show-song", data: { controller: "show-song" } do %> 
+        <%= tag.p "Capo #{@capo}" %>
+        <%= Songs::Printer.new(@song, @capo, @key_shift).print %>
+    <% end %>
+    <%= render "songs/show/tips" %>
+    <%# do another action div because they contain user controls, and we want it at the very end as these actions are pretty much only used after the song is played %>
+    <%= tag.div class: "actions" do %>
+        <%= render "songs/show/play_actions", song: @song %>
+    <% end %>
+    <%= tag.section class: "flashes", id: "flashes" %>
+    <%# navigation options: next/previous/random songs, back to songs %>
+    <%= render "songs/show/nav", song: @song %>
 <% end %>
-<%# song information (non-interactive) %>
-<%= render "songs/show/info", song: @song %>
-<%# helper %>
-<%= tag.section class: "helpers" do %>
-    <%# print the scale in the song's key %>
-    <%= render "scales/print", scale: @song.scale, key: @key %> 
-    <%# the instrument's key & scale are defined at the controller level %>
-    <%= render "songs/show/instrument_view", instrument_view: @instrument_view %>
-    <%# the chord helpers' key & scale are also defined at the controller level %>
-    <%= render "songs/show/chords", chords: @chords %>
-<% end %>
-<%= tag.div do %>
-    <%= tag.p "Capo #{@capo}" %>
-<% end %>
-<%# print the song lyrics & chords %>
-<%= tag.section class: "show-song", data: { controller: "show-song" } do %> 
-    <%= Songs::Printer.new(@song, @capo, @key_shift).print %>
-<% end %>
-<%= render "songs/show/tips" %>
-<%# do another action div because they contain user controls, and we want it at the very end as these actions are pretty much only used after the song is played %>
-<%= tag.div class: "actions" do %>
-    <%= render "songs/show/play_actions", song: @song %>
-<% end %>
-<%= tag.section class: "flashes", id: "flashes" %>
-<%# navigation options: next/previous/random songs, back to songs %>
-<%= render "songs/show/nav", song: @song %>

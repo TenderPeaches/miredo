@@ -1,9 +1,13 @@
+.view-song {
+   display: flex;
+   flex-direction: column;
+}
 /* content that displays a song's lyrics, chords, etc. */ 
 .show-song {
-      display: initial;             /* reset */ 
-    padding: var(--size-m);         /* maximize content space, just enough padding */
-    text-align: left;               /* maximize readability */
-    margin-top: var(--size-l);      /* space away from the helpers or whatever is above */
+   display: initial;             /* reset */ 
+   padding: var(--size-m);         /* maximize content space, just enough padding */
+   text-align: left;               /* maximize readability */
+   margin-top: var(--size-l);      /* space away from the helpers or whatever is above */
 }
 
 /* song title */
@@ -65,6 +69,12 @@
    font-style: italic;
 }
 
+.scale-print {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   width: calc(3 * var(--size-xxxl));
+}
+
 /* degree/chords coloring */
 .degree-1 {
 color: var(--color-degree-first-light);
@@ -101,15 +111,6 @@ color: var(--color-degree-seventh-light);
    flex-direction: column;       /* vertical flex */
    gap: var(--size-s);           /* buffer between each admin action link */
    text-align: left;             /* align for cleaner look */
-}
-
-/* elements with a default border */
-.admin-actions, .nav-links, .song-options {
-   border-width: var(--thin-border-width);      /* group together visually */
-   border-style: var(--default-border-style);   /* default */
-   border-color: var(--color-primary-white);    /* default */
-   padding: var(--size-m);       /* internal buffer with the border */
-   margin-bottom: calc(var(--thin-border-width) * -1);
 }
 
 .admin-actions *, .nav-links * {
@@ -157,12 +158,43 @@ color: var(--color-degree-seventh-light);
 }
 
 @media screen and (min-width: 720px) {
+
+   /* the show song page container */
+   .view-song {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--size-m);
+
+      .title {
+         grid-column: 1 / 3;
+      }
+
+      .song-options {
+         display: flex;
+         flex-direction: row;
+         gap: var(--size-s);
+      }
+
+      .show-song {
+         grid-column: 1 / 3;
+      }
+
+      form {
+         background-color: var(--color-primary-darkest);    /* until we get rid of the apply btns */
+      }
+   
+   }
+
    .show-song {
       columns: 2;             /* on pc, screen is large enough to accomodate content in two columns */ /*? should this be the case? with a scrolling feature, the lyrics will need to be in a single column */
    }
 
    .song-info {
       margin: var(--size-xl);          /* more external buffer on large screens */
+   }
+
+   .helpers {
+      columns: 2;
    }
 
    .helpers .chords {

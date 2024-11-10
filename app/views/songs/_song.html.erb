@@ -10,14 +10,22 @@
     <%= tag.span class: "songs-list__artist" do %>
         <%= "#{song.artist}" %>
     <% end %>
-    <%= tag.span class: "songs-list__capo" do %>
-        <%= song.capo %>
-    <% end %>
-    <%= tag.span class: "songs-list__plays" do %>
-        <%= song.plays current_user %>
-    <% end %>
-    <%= tag.span class: "songs-list__last-played" do %>
-        <%= "#{song.last_played(current_user)&.strftime("%Y-%m-%d")}" %>
+    <%# if a short_row local parameter was assigned, the row is expected to show less data than usual %>
+    <% if local_assigns[:short_row] %>
+        <%# 3 data columns are cut from the row, so 3 empty ones must be added in order to maintain the same grid layout %>
+        <% 3.times do |i| %>
+            <%= tag.span %>
+        <% end %>
+    <% else %>
+        <%= tag.span class: "songs-list__capo" do %>
+            <%= song.capo %>
+        <% end %>
+        <%= tag.span class: "songs-list__plays" do %>
+            <%= song.plays current_user %>
+        <% end %>
+        <%= tag.span class: "songs-list__last-played" do %>
+            <%= "#{song.last_played(current_user)&.strftime("%Y-%m-%d")}" %>
+        <% end %>
     <% end %>
     <%= tag.span class: "songs-list__play" do %>
         <%= song_play_button(song.id) %>

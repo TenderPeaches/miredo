@@ -91,21 +91,71 @@ label {
 /* click-to-show content subdivisions */
 details, details[open] {
     margin: var(--size-m);
+    text-align: center;
 }
 
 /* the bit of content visible from a closed "details" panel */
 details > summary {
-    cursor: pointer;
-    font-size: var(--font-size-xl);
-    background: var(--color-primary-darkest);
-    padding: var(--size-s);
-    margin: var(--size-s);
-    border: 1px ridge var(--color-primary-light);
+    position: relative;                                 /* to act as an anchor for the custom display marker */
+    display: inline-block;                              /* hides the default display triangle (on Firefox, at least), inline for alignment, block to buttonize */              
+    cursor: pointer;                                    /* buttonize */
+    font-size: var(--font-size-xl);                     /* draw attention */
+    background: var(--color-primary-darkest);           /* mesh with page bg */
+    padding: var(--size-s);                             /* match spacing between arrow and text, more or less */
+    padding-left: var(--size-xxl);                      /* oversize left padding to accomodate the custom display marker */
+    margin: var(--size-xs);                             /* mirror padding */
+    border: 1px ridge var(--color-primary-light);       /* buttonize */
+    border-radius: var(--size-s);                       /* buttonize */
+    max-width: fit-content;                             /* would rather avoid dealing with animations here, so keeping the summary of a consistent width seems like the best option for now */
+}
+
+/* use a custom display marker */
+details > summary:before {
+    content: '';                        /* define content otherwise not displayed */
+    border-width: var(--size-xs);       /*  */
+    border-style: solid;                /* to display a triangle, must be solid */
+    border-color: transparent transparent transparent var(--color-primary-lightest);        /* only make the one corner not transparent, thus showing a triangle */
+    position: absolute;                 /* to allow setting explicit dimensions & position */
+    top: 1rem;                          /* use the relative font size to ensure it's centered vertically */ 
+    left: var(--size-s);                /* push from the left, towards the label; must pair with the padding on the summary element */
+    transform: rotate(0);               /* ? */
+    transform-origin: .2rem 50%;        /* set the immutable transformation properties here */
+    transition: var(--quick-duration) transform ease; /* quick transition for a small element */
+}
+
+details > summary:hover {
+    border-color: var(--color-primary-white);   /* highlight effect */
+}
+
+details > summary:active {
+    background: var(--color-primary-black);     /* pressed shading effect */
+}
+
+details > summary,
+details > summary:hover,
+details > summary:active {
+    transition: all var(--quick-duration) ease-in-out;
+}
+
+details > summary::marker, /* for all decent browsers */
+details > summary::-webkit-details-marker /* for safari's special needs */ {
+    /* display: none; */ /* not deleting this whole tidbit because I need to test whether it might be necessary on some browsers, given the tricks to replace the display triangle */
 }
 
 /* when a details panel is open */
 details[open] {
     border-bottom: 1px solid var(--color-primary-lightest);
+}
+
+/* custom display marker when the details are opened */
+details[open] > summary:before {
+    transform: rotate(90deg);           /* perform the rotation */
+}
+
+details p {
+    text-align: justify;
+    animation: fadeIn var(--slow-duration);
+    line-height: var(--font-size-xxl);
 }
 
 /* horizontal dividers */
@@ -213,5 +263,15 @@ section {
     /* header links */
     header a, footer a {
         text-decoration: none;                  /* remove underline */ 
+    }
+ }
+
+ @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
  }

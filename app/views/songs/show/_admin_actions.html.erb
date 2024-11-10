@@ -1,5 +1,5 @@
-<% if song.can_edit? current_user %>
-    <%= tag.div class: "admin-actions" do %>
+<%= tag.div class: "admin-actions" do %>
+    <% if song.can_edit? current_user %>
         <%= link_to t('cta.edit_song'), edit_song_path(song) %>
         <%= song_edit_progression_templates_link(song.id) %>
         <%= song_edit_progressions_link(song.id) %>

@@ -2,6 +2,11 @@
 
 ## Early Access
 
+## v1.0.2
+
+* Fix a bug where trying to send a password reset email would throw an error
+* Add Contributor user status
+
 ## v1.0.1.5
 
 * Fix a bug where a new user's username would always be set to blank, triggering a "not null" constraint violation error
