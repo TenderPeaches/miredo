@@ -1,20 +1,15 @@
 <%= tag.nav class: "nav-links" do %>
     <%# back to "songs" button %>
-    <%= link_to "< #{Song.model_name.human.pluralize}", songs_path %>
+    <%= turbo_link_button t('controls.return'), songs_path, class: "button--square", title: t('controls.return_text') %>
+    <%# random song button %>
+    <%= turbo_link_button t('controls.random'), song_path(Song.random_id), class: "button--square", title: t('controls.random_text') %>
     <%# if there is a previous song %>
-    <%#todo there needs to be a list of songs passed along, so that it can be better ascertained whether or not there is a previous song on the list. same for last song, how the previous/next songs are selected, etc. %>
     <% if previous_song = song.previous %>
         <%# previous song button %>
-        <%= link_to "#{t('controls.previous')}", song_path(previous_song.id) %>
+        <%= turbo_link_button t('controls.previous'), song_path(previous_song.id), class: "button--square", title: t('controls.previous_text') %>
     <% end %>
     <% if next_song = song.next %>
         <%# next song button %>
-        <%= link_to "#{t('controls.next')}", song_path(next_song.id) %>
-    <% end %>
-    <%# random song button %>
-    <%= link_to "#{t('controls.random')}", song_path(Song.random_id) %>
-    <% if user_signed_in? %>
-        <%# create a new song button %>
-        <%= link_to "#{t('actions.new', thing: Song.model_name.human )}", new_song_path %>
+        <%= turbo_link_button t('controls.next'), song_path(next_song.id), class: "button--square", title: t('controls.next_text') %>
     <% end %>
 <% end %>

@@ -94,7 +94,7 @@ module SongsHelper
     # song capo selector
     def song_capo_tag(selected = 0, label = nil)
         # assume capo goes up to 10
-        select_tag(label || :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: selected))
+        select_tag(label || :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: selected), class: "select-capo")
     end
 
     def song_capo_input(form, selected = 0, label = nil)

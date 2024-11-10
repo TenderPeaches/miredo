@@ -82,9 +82,14 @@ en:
     progression_templates: "Conventions and tips for creating song progression templates"
     progressions: "Conventions and tips for implementing the progression templates into a proper song"
   controls:
-    next: "Next"
-    previous: "Previous"
-    random: "Random"
+    return: "⏎"
+    return_text: "Return"
+    next: "⇥"
+    next_text: "Next"
+    previous: "⇤"
+    previous_text: "Previous"
+    random: "⤭"
+    random_text: "Random"
     play: "✓"
     play_by_heart: "♥︎"
     edit: "✎"
@@ -237,7 +242,7 @@ en:
       rep_hint: "For reps (or repetitions), consider that it is also possible to set a number of reps when building the song strucutre. Thus, in order to minimize the number of templates you create, try to set the template reps to the smallest number that can be multiplied to reach the final number of times that that progression will be played throughout the song."
       rep_example: "For instance, if some song has a progression 'C-F-Am-G' that is played sometimes twice in a row and other times 4 times in a row, then you should create a template 'C-F-Am-G' with a reps value of 2. When you set the song's structure, you can invoke that template with a reps value of 1 or 2 in order to get the desired result of 2 or 4 repetitions."
       keyscale_hint: "If a certain progression's key always differs from the song's key, then the progression's template should have its key set. Anytime that template will be called, it will be understood that it's of a different key. If the key changes throughout the song, leave the template key field blank and adjust the key individually for each implementation."
-      cypher_hint: "In order to recognize the chords you are assigning to the template, Miredo must receive them in a very specific format that is fortunately kept as simple as possible - a cypher. Simply write down each chord with the usual letter notation (C, D, E, etc.) immediately followed by the chord's notation, as listed in the %{chords_reference}. A chord being written down is equivalent to the chord being played for 1 beat. Add one dash for each additional beat. It doesn't need to be an exact match, as long as anyone can easily figure out the relative duration of each chord to one another."
+      cypher_hint: "In order to recognize the chords you are assigning to the template, Miredo must receive them in a very specific format that is fortunacapotely kept as simple as possible - a cypher. Simply write down each chord with the usual letter notation (C, D, E, etc.) immediately followed by the chord's notation, as listed in the %{chords_reference}. A chord being written down is equivalent to the chord being played for 1 beat. Add one dash for each additional beat. It doesn't need to be an exact match, as long as anyone can easily figure out the relative duration of each chord to one another."
       cypher: "Cypher"
     progressions: 
       introduction: "The final step is to put it all together by creating progressions out of templates, sprinkling in the lyrics and adjusting each progression as necessary. Make sure you click the button to create each progression, as they are not saved until then."
@@ -286,6 +291,10 @@ en:
       search_result_by_name: "Songs with name matching %{search}"
       search_result_by_artist: "Songs with artist name matching %{search}"
       search_result_by_lyrics: "Songs with lyrics containing %{search}"
+    show_song:
+      capo: "Capo"
+      shift_key: "Shift key"
+      helpers: "Helpers"
   activerecord:
     models:
       admin: "Admin"

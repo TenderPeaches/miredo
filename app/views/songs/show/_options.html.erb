@@ -2,14 +2,14 @@
 <%= form_tag song_path(song.id), class: "song-options", method: :get do %>
     <%# capo selection %>
     <%= tag.div class: "field" do %>
-        <%= label_tag :capo, "Capo:" %>
+        <%= label_tag :capo, t("content.show_song.capo") %>
         <%= song_capo_tag(capo) %>
     <% end %>
     <%# key selection %>
     <%= tag.div class: "field" do %>
-        <%= label_tag :key_shift, "Shift key (by this many semitones):" %>
-        <%= number_field_tag :key_shift, @key_shift || 0, in: -6...7 %>
+        <%= label_tag :key_shift, t("content.show_song.shift_key") %>
+        <%= number_field_tag :key_shift, @key_shift || 0, in: -6...7, class: "key-shift" %>
     <% end %>
 
-    <%= submit_tag "Apply" %>
+    <%= submit_tag t("keywords.apply") %>
 <% end %>
