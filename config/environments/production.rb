@@ -73,7 +73,7 @@ Rails.application.configure do
     domain: ENV["MAILGUN_DOMAIN"]
   }
 
-  config.action_mailer.default_url_options = "miredo.ca"
+  config.action_mailer.default_url_options = { host: "miredo.ca" }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
