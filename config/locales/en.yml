@@ -89,15 +89,23 @@ en:
     play_by_heart: "♥︎"
     edit: "✎"
   notices:
+    welcome:
+      title: "Welcome!"
+      blurb_what: "Miredo is a virtual songbook, made to help you and/or your friends play and sing along to your favorite songs. Made by a musician for musicians with no ads, no hidden tracking, no links to social media."
+      blurb_register: "Register an account in order to log your practice sessions. This helps you keep track of which songs you've mastered and which ones could use a little bit more practice. A busker's best friend!"
+      blurb_novice: "Novice musician? Through optional visual helpers, Miredo can also help you put into practice the basic tenets of musical theory."
     early_access:
       title: "Early access"
-      blurb_warning: "Miredo is my first large Rails website and is a 1-person operation. As such, many features might behave unexpectedly or outright not work under certain circumstances."
+      blurb_warning: "Miredo is my first large Ruby on Rails project and I work on it alone. As such, many features might behave unexpectedly or outright not work under certain circumstances."
       blurb_reach_out_prompt: "Please reach out"
-      blurb_reach_out_text: "to describe any issues and hopefully I will be able to fix them in somewhat timely fashion."
+      blurb_reach_out_text: "to describe any such issues and hopefully I will be able to fix them in somewhat timely fashion. Alternatively, feel free to join our"
+      blurb_discord: "Discord server"
       blurb_suggestions: "Suggestions for new features are welcome but the current priority is to fine-tune the existing ones."
     funding: 
       title: "Help Miredo stay afloat!"
-      blurb: "Support me on Patreon so that I can work on projects like this full-time instead of finding part-time gigs. There is one premium feature - submitting your own songs. This restriction will be lifted in time but as the website runs on a low-budget server, I would rather put the song creation process behind a paywall as it is relatively more resource-intensive than everything else. Until then, you can send me your suggestions and I'll consider adding them myself."
+      blurb_1: "Become a Contributor by supporting me on "
+      blurb_patreon: "Patreon"
+      blurb_2: "! As a Contributor, you will be able to submit new songs to the website, whether they are your own creation or from an artist you really like. If you're unable to pay but still want to see a particular song in there, send it to me as a suggestion and with any luck, you'll see it on the website soon."
       blurb_alt: "As of now Miredo has no ads or premium features so it is solely funded through investments from its developers and voluntary donations from its users. Please give according to your usage and means. If you're a professional, check if your donation can be tax-deductible in your jurisdiction, as this could be used for musical or educational purposes."
     song_privacy:
       title: "Privacy"
@@ -245,10 +253,10 @@ en:
       page_title: "Settings"
       default_instrument: "Default instrument"
       user_instruments: "Set Instruments"
-      hot: "🔥"
-      hot_plays_threshold: "For a song to be flagged 🔥, you must have practiced it %{threshold} times over the last %{timelapse} days"
-      old_heart: "Old ♥︎s"
-      old_heart_threshold: "If your last practice of a song was done by heart over %{threshold} days ago, it will be flagged as an Old ♥︎"
+      hot: "Hot"
+      hot_plays_threshold: "For a song to be flagged Hot, you must have practiced it %{threshold} times over the last %{timelapse} days"
+      old_heart: "Tests of time"
+      old_heart_threshold: "If your last practice of a song was done by heart over %{threshold} days ago, it will be flagged as a Test of Time"
       update_notice: "Settings successfully updated"
     inquiries:
       return_address: "Your email address"

@@ -26,6 +26,10 @@ module Miredo
 
     config.inquiries_email = "admin@miredo.ca"
 
-    config.no_reply_email = "no-replay@miredo.ca"
+    config.no_reply_email = "no-reply@miredo.ca"
+
+    # external resources paths
+    config.discord_server_url = "https://discord.gg/qVc7vQVfET"
+    config.patreon_url = "https://patreon.com/miredo"
   end
 end

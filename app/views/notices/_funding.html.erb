@@ -1,4 +1,9 @@
+<%# use a notice instead of a details element because we want the funding prompt to be always visible (unless user is already a contributor) %>
 <%= tag.section class: "notice" do %>
     <%= tag.h2 t('notices.funding.title') %>
-    <%= tag.p t('notices.funding.blurb') %>
+    <%= tag.p do %>
+        <%= tag.span t('notices.funding.blurb_1') %>
+        <%= link_to t("notices.funding.patreon"), Rails.application.config.patreon_url %>
+        <%= tag.span t('notices.funding.blurb_2') %>
+    <% end %>
 <% end %>
