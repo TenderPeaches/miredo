@@ -2,10 +2,17 @@
 
 ## Early Access
 
+## v1.0.2.1
+
+* Fix a bug where the password reset email would not get sent
+* Fix a bug where all songs would show up in the list when logged in, rather than just the songs that should be visible to the authenticated user
+* Removed potentially unsafe feedback from the password reset form
+
 ## v1.0.2
 
 * Fix a bug where trying to send a password reset email would throw an error
 * Add Contributor user status
+* Visual update for public release
 
 ## v1.0.1.5
 
