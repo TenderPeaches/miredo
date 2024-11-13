@@ -7,6 +7,8 @@
 * Fix a bug where the password reset email would not get sent
 * Fix a bug where all songs would show up in the list when logged in, rather than just the songs that should be visible to the authenticated user
 * Removed potentially unsafe feedback from the password reset form
+* Add and fix visual feedback to the password reset form
+* Add Contributor status to users
 
 ## v1.0.2
 

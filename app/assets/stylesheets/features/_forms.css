@@ -70,20 +70,24 @@
 }
 
 /* Error stuff */
-.field.error {
+.field.error, .field-with-errors {
     color: var(--color-error-light);
 }
 
-.field.error label::before {
+.field.error label::before, .field-with-errors label::before {
     content: "❌";
     margin-right: var(--size-xxs);
 }
 
-.field.error input {
+.field.error input, .field-with-errors input  {
     background: var(--color-error-light);
     color: var(--color-error);
     box-shadow: 0 0 4px 4px var(--color-error);
     border: var(--default-border-style) var(--thin-border-width) var(--color-error);
+}
+
+.field-with-errors input {
+    width: 100%;            /* needed because of the <div class="field-with-errors"> that gets wrapped around error-fields */
 }
 
 @media screen and (min-width: 720px) {
@@ -103,6 +107,9 @@
         display: flex;
         align-items: stretch;
         margin: var(--size-m);
+    }
+
+    .field, .checkbox-field {
         border-bottom: 1px solid var(--color-primary-lightest);
     }
 
