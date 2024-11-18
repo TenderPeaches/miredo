@@ -9,6 +9,7 @@
 * Removed potentially unsafe feedback from the password reset form
 * Add and fix visual feedback to the password reset form
 * Add Contributor status to users
+* Fix a bug where trying to sort by capo while not logged in would cause an error
 
 ## v1.0.2
 

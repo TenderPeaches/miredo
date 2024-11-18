@@ -13,7 +13,7 @@ class SongsController < ApplicationController
         # with offset = (params(:page)-1) * Song.page_size (since offset signals the start of the batch, 1st page has a start of 0, not 20 or whatever)
         offset = (@expected_page.to_i - 1) * limit
 
-        @songs = Song.includes(:song_plays, :song_contributions, :artists).order(Song.default_sort)
+        @songs = Song.includes(:song_plays, :song_contributions, :artists)
 
         # if user is logged in
         if user_signed_in?
@@ -28,8 +28,11 @@ class SongsController < ApplicationController
         # page count is collection count / how many items per page, rounded up
         @page_count = (@songs.size.to_f / limit.to_f).ceil
 
-        # sort the songs according to user specifications, if any
-        if session[:list_options]["songs"]["sort_options"].present?
+        # keeping track of sort options in a session to ensure that using "back" button (as in, back to the songs list) keeps the list sorted in the way the user expects
+        sort_options = session[:list_options]["songs"]["sort_options"]
+        # use a particular sort if specified, unless the sort is "none"
+        # assume only a single sort column, hence why it's ok to use .first here instead of some iterative structure
+        if sort_options.present? && sort_options.values.first.to_sym != :none
             @songs = Song.sort(session[:list_options]["songs"]["sort_options"], @songs)
 
             if params[:sort_options]
@@ -39,6 +42,9 @@ class SongsController < ApplicationController
                 @sort_control_id = "sort-by-#{params[:sort_options].keys.first.match(/([\w_]+)(\(([^)]+)\))?/)[1].kebabcase}"
                 @sort_control_order = params[:sort_options][params[:sort_options].keys.first].to_sym
             end
+        # otherwise, if no sort options have been provided, use a default sort
+        else
+            @songs = @songs.order(Song.default_sort)
         end
 
         # slice the songs list according to the songs/page settings, offset according to the requested page
