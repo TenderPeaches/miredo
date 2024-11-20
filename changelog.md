@@ -2,6 +2,16 @@
 
 ## Early Access
 
+## v1.0.2.2
+
+* Remove "play" options from songs list if user is not logged in
+* Add key & scale selection options for progression templates
+* Conceal progression, progression template key & scale selection behind a details element
+* Remove unnecessary server output from progression chord interpreter
+* Hide irrelevant information from the song list when shown to a user that is not logged in, thereby also improving its layout in such circumstances
+* Improve song list data alignment
+* Fix a bug where the song's last play for a user might not return the correct song play, leading to incoherencies when assessing whether a song is forgotten
+
 ## v1.0.2.1
 
 * Fix a bug where the password reset email would not get sent

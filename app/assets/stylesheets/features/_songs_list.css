@@ -25,6 +25,7 @@
 /* sub-items of the song list header row */ 
 .song-list-header > * {
     padding: var(--size-s);             /* buffer between each header cell */
+    text-align: center;                 /* center align the text for multi-line labels (doesn't align within the cell as it's a grid, use justify-items/self for that) */
 }
 
 .song:hover {
@@ -48,7 +49,7 @@
 
 .songs-list__capo,
 .songs-list__plays {
-    text-align: right;          /* align the data with the rightmost edge for consistency */
+    justify-self: center;          /* small numbers can be centered in the column */
 }
 
 /* color classes */
@@ -76,6 +77,11 @@
     .songs-list {
         grid-template-columns: [start] 1fr [song] 6fr [artist] 4fr [capo] 1fr [play-count] 1fr [last-play] 2fr [play-actions] 2fr [end];    /* songs are displayed as: "[FavoriteBtn] Song Title by Some Artist [Capo] [PlayCount] [LastPlayed] [Play] [Play+] */
         row-gap: var(--size-xxxs);  /* smaller gap on PC as each individual item is easier to make out */
+    }
+
+    /* for song lists where the user is not logged in, certain columns will not appear thus the column template must be adjusted accordingly (see _song_list_header.index.erb or _song.html.erb) */
+    .songs-list--anon {
+        grid-template-columns: [start] 6fr [artist] 4fr [capo] 1fr [end];
     }
 
     .songs-list__title {

@@ -216,8 +216,9 @@ class Song < ApplicationRecord
         collection
     end
 
+    # last performance of this song by the given user
     def last_play(user)
-        song_plays.where(user: user).where.not(played_at: nil).last
+        song_plays.where(user: user).where.not(played_at: nil).order(played_at: :desc).first
     end
 
     def last_played(user)

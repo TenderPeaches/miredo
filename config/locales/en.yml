@@ -1,7 +1,7 @@
 en:
   app:
     name: "Miredo"
-    motto: "The busker's songbook"
+    motto: "The busker's virtual songbook"
   keywords:
     ok: "OK"
     cancel: "Cancel"
@@ -133,6 +133,8 @@ en:
     progression_reps: "How many times the template is repeated throughout this sequence. For instance, if the progression template has a reps value of 2, and a progression that uses that template has a reps value of 3, the template must be repeated 6 times overall before the next progression is to be played."
     progression_key: "If the progression key differs from the general key of the song (or of the progression template being implemented), specify it here."
     progression_scale: "If the progression scale differs from the general scale of the song (or of the progression template being implemented), specify it here."
+    progression_template_key: "If the progression template's key differs from the general key of the song, specify it here."
+    progression_template_scale: "If the progression template's scale differs from the general scale of the song, specify it here."
     copy_progression: "Create a new progression identical to this one."
     modify_progression: "Make sure you confirm your changes by clicking \"Update Progression\""
   music_theory:
@@ -243,6 +245,7 @@ en:
       rep_example: "For instance, if some song has a progression 'C-F-Am-G' that is played sometimes twice in a row and other times 4 times in a row, then you should create a template 'C-F-Am-G' with a reps value of 2. When you set the song's structure, you can invoke that template with a reps value of 1 or 2 in order to get the desired result of 2 or 4 repetitions."
       keyscale_hint: "If a certain progression's key always differs from the song's key, then the progression's template should have its key set. Anytime that template will be called, it will be understood that it's of a different key. If the key changes throughout the song, leave the template key field blank and adjust the key individually for each implementation."
       cypher_hint: "In order to recognize the chords you are assigning to the template, Miredo must receive them in a very specific format that is fortunacapotely kept as simple as possible - a cypher. Simply write down each chord with the usual letter notation (C, D, E, etc.) immediately followed by the chord's notation, as listed in the %{chords_reference}. A chord being written down is equivalent to the chord being played for 1 beat. Add one dash for each additional beat. It doesn't need to be an exact match, as long as anyone can easily figure out the relative duration of each chord to one another."
+      key_scale: "Key & Scale"
       cypher: "Cypher"
     progressions: 
       introduction: "The final step is to put it all together by creating progressions out of templates, sprinkling in the lyrics and adjusting each progression as necessary. Make sure you click the button to create each progression, as they are not saved until then."
@@ -252,6 +255,7 @@ en:
       reps_hint: "Progressions have their own multiplier, which is applied to the template's multiplier. For instance, a template with 2 reps being implemented with its own 2 reps means the chord progression is ultimately to be played 4 times."
       keyscale: "The ultimate decider of a progression's key is the progression's own key value. If left empty, the progression will take the template's key and if that one's empty too, it will take the song's key. Most songs remain in the same key throughout, so it's normal to ignore the key and scale fields most of the time."
       sequencer: "Once the progressions have been created, they appear in the sequencer which lets you move them around. Use the double arrows to move a progression to the start/end of the list and the single arrows to move them once over. It's not great but it works for now!"
+      key_scale: "Key & Scale"
       modifications: "When you modify a progression, make sure to confirm your changes otherwise they will not be saved. "
       sequencing: "Sequencing"
     settings:
@@ -334,8 +338,8 @@ en:
         number: "#"
         duration: "Duration (s or m:s)"
         capo: "Suggested capo"
-        last_practiced: "Your last practice"
-        nb_practices: "Your practice count" 
+        last_practiced: "Last practice"
+        nb_practices: "Times practiced" 
         bpm: "Beats per minute (bpm)"
         is_public: "Make public?"
         time_signature: "Time signature"
