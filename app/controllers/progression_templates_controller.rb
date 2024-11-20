@@ -112,6 +112,6 @@ class ProgressionTemplatesController < ApplicationController
     end
 
     def progression_template_params
-        params.require(:progression_template).permit(:tag, :uid, :scale, :cypher, :key, :reps, :id, :song_id, progression_chords_attributes: [:id, :degree, :modifier, :bass_modifier, :bass_degree, :chord_id, :duration, :staccato, :muted, :_destroy] )
+        params.require(:progression_template).permit(:tag, :uid, :scale_id, :cypher, :key_id, :reps, :id, :song_id, progression_chords_attributes: [:id, :degree, :modifier, :bass_modifier, :bass_degree, :chord_id, :duration, :staccato, :muted, :_destroy] )
     end
 end
