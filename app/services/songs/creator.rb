@@ -6,7 +6,8 @@ module Songs
 
         def create(song_params)
 
-            @song = Song.new(song_params.merge({submitter_id: @submitter_id}))
+            #! Because for some reason the ID keeps running off, not sure how it's being triggered but to go around, we'll hard force the ID off of the highest current ID + 1
+            @song = Song.new(song_params.merge({id: Song.maximum(:id) + 1, submitter_id: @submitter_id}))
             if @song.valid?
                 @song.save
                 # unless user specified a new artist
