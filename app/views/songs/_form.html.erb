@@ -4,7 +4,7 @@
     <%= tag.div class: "form-fields" do %>
         <%= render "songs/fields", form: form %>
         <%= tag.div class: "actions" do %>
-            <%= form.submit "#{song.new_record? ? "Create" : "Update"} song" %>
+            <%= form.submit "#{song.new_record? ? t("keywords.create") : t("keywords.update")} song" %>
         <% end %>        
     <% end %>
 <% end %>

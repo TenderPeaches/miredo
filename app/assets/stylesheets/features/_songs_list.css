@@ -84,6 +84,20 @@
         grid-template-columns: [start] 6fr [artist] 4fr [capo] 1fr [end];
     }
 
+    .song--short {
+        column-gap: var(--size-xxl);
+    }
+
+    .song--short .songs-list__title {
+        grid-column-start: start;
+        grid-column-end: artist;
+    }
+
+    .song--short .songs-list__artist {
+        grid-column-start: artist;
+        grid-column-end: end;
+    }
+
     .songs-list__title {
         text-align: left;           /* align the title with the left-most edge for cleaner look */
     }
@@ -94,6 +108,12 @@
 
     .song-list-header > * {
         padding: var(--size-s) var(--size-m);
+    }
+
+    .song-search {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 
 }

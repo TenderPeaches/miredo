@@ -10,7 +10,7 @@
 @media screen and (min-width: 720px) {
     .content nav {
         flex-direction: row;
-        gap: var(--size-xxxl);
+        gap: var(--size-m);
         padding: var(--size-xl);
     }
 

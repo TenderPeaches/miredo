@@ -12,7 +12,7 @@ body {
 }
 
 /* links */
-a {
+a, a:active {
     color: var(--color-accent-lightest);                    /* contrast with regular content, light-fg */
 }
 
@@ -105,7 +105,7 @@ details > summary {
     padding-left: var(--size-xxl);                      /* oversize left padding to accomodate the custom display marker */
     margin: var(--size-xs);                             /* mirror padding */
     border: 1px ridge var(--color-primary-light);       /* buttonize */
-    border-radius: var(--size-s);                       /* buttonize */
+    border-radius: var(--border-radius-small);                       /* buttonize */
     max-width: fit-content;                             /* would rather avoid dealing with animations here, so keeping the summary of a consistent width seems like the best option for now */
 }
 
@@ -223,13 +223,13 @@ section {
 
     /* header nav bar */
     header, footer {
-        position: fixed;
-        flex-direction: row;
+        position: fixed;                                    /* remains visible when content is scrolled down */
+        flex-direction: row;                                /* horizontal flex */
         display: flex;                                      /* horizontal flex */
-        width: 100vw;
+        width: 100vw;                                       /* stretch the entire width of the screen */
         justify-content: space-between;                     /* title to the left, nav to the right */
-        padding: var(--size-xxs) var(--size-l);             /* header internal padding */
-        align-items: center;
+        padding: var(--size-xxs) var(--size-xxl);           /* header internal padding, large sides to accomodate rounded borders */
+        align-items: center;                                /* vertical center */
         font-size: var(--font-size-l);                      /* everything on header is important */
         z-index: 10;                    /* prevent clipping */
     }
@@ -257,12 +257,31 @@ section {
     }
 
     header nav {
-        padding: var(--size-xxs);               /* reset padding to something small */
+        padding: var(--size-xs);               /* reset padding to something small */
     }
 
     /* header links */
     header a, footer a {
         text-decoration: none;                  /* remove underline */ 
+        padding: var(--size-xs) var(--size-m);  /* larger clickable area */
+    }
+
+    header nav a,
+    footer nav a {
+        border: var(--color-black) var(--thick-border-width) solid;
+        border-radius: var(--border-radius-small);
+    }
+
+    header nav a:hover,
+    footer nav a:hover {
+        box-shadow: 0 0 2px 2px var(--color-white);
+    }
+
+    header nav a:active,
+    footer nav a:active {
+        background: var(--color-accent-darkest);
+        color: var(--color-accent-lightest);
+        box-shadow: 0 0 2px 2px var(--color-accent-lightest);
     }
  }
 

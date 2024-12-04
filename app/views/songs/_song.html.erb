@@ -1,4 +1,5 @@
-<%= tag.div id: dom_id(song), class: "song #{song_row_color(song)}" do %>
+<%# about song--short; if user is signed out and the row is short, then the display will feel very empty because there is nothing past the name & artist name, so add the class that has a modified grid column template %>
+<%= tag.div id: dom_id(song), class: "song #{song_row_color(song)}#{(local_assigns[:short_row] && !user_signed_in?) ? "song--short" : ""}" do %>
     <% if user_signed_in? %>
         <%= tag.span class: "songs-list__favorite" do %>
             <%= star_toggle(current_user.favorites.include?(song), new_song_user_favorite_path(song_id: song.id)) %>

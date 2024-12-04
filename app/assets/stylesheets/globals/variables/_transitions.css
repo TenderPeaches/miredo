@@ -1,5 +1,5 @@
 :root {
-    --quick-duration: 0.15s;
-    --medium-duration: 0.32s;
+    --quick-duration: 0.25s;
+    --medium-duration: 0.5s;
     --slow-duration: 0.8s;
 }

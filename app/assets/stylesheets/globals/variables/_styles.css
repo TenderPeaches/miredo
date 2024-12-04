@@ -8,5 +8,8 @@
     --dirty-border-style: dashed;           /* with pending changes */
     --thin-border-width: 1px;               /* don't link with var(--size-..) stuff because single pixels make a huge difference with border-width properties */
     --thick-border-width: 2px;              /* don't link with var(--size-..) stuff because single pixels make a huge difference with border-width properties */
-    --thicker-border-width: 4px;               
+    --thicker-border-width: 4px;      
+    
+    --border-radius-small: var(--size-s);
+    --border-radius-large: var(--size-l);
 }

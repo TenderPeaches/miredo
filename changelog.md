@@ -2,6 +2,10 @@
 
 ## Early Access
 
+## v1.0.3
+
+* Cosmetic update
+
 ## v1.0.2.2
 
 * Remove "play" options from songs list if user is not logged in
@@ -11,6 +15,7 @@
 * Hide irrelevant information from the song list when shown to a user that is not logged in, thereby also improving its layout in such circumstances
 * Improve song list data alignment
 * Fix a bug where the song's last play for a user might not return the correct song play, leading to incoherencies when assessing whether a song is forgotten
+* Fix a bug where new songs would skip unused IDs
 
 ## v1.0.2.1
 

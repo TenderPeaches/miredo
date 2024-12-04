@@ -63,6 +63,7 @@ en:
     edit_song: "Edit Song Info"
     view_song: "View Song"
     new_song: "New Song"
+    my_songs: "My Songs"
     practice_random: "Random Practice"
   hints:
     browse_songs: "View all available song tablatures"
