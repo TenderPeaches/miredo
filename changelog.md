@@ -5,6 +5,11 @@
 ## v1.0.3
 
 * Cosmetic update
+* Add a Discord prompt to the inquiries view
+* Add added second chords (add2, shortened to 2)
+* Add visual indicators to field label with a tooltip
+* Improved visual feedback of menu buttons
+* Replaced pagination links with buttons
 
 ## v1.0.2.2
 

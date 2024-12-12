@@ -272,6 +272,9 @@ en:
       return_address: "Your email address"
       subject: "Subject"
       body: "Content"
+      discord_blurb: "Drop us a line on our "
+      discord: "Discord"
+      email_blurb: "Alternatively, send us an email through the form below:"
     songs:
       no_progression_template: "No progression templates have been defined for this song"
       no_progression: "No song progressions have been defined for this song"

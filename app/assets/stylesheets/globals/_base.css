@@ -88,6 +88,20 @@ label {
     font-size: var(--font-size-l);
 }
 
+/* labels with a tooltip */
+label[title] {
+    cursor: help;
+}
+
+/* add a "?" after labels which have a tooltip */
+label[title]::after {
+    content: "?";
+    vertical-align: super;
+    color: var(--color-accent-lightest);
+    font-size: var(--font-size-xs);
+    margin: 0 var(--size-xxs);
+}
+
 /* click-to-show content subdivisions */
 details, details[open] {
     margin: var(--size-m);
