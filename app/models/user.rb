@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_many :submissions, class_name: "Song", inverse_of: :submitter, foreign_key: :submitter_id
     has_many :user_favorites, dependent: :destroy
     has_many :favorites, through: :user_favorites, source: :song
+    has_many :setlists, dependent: :destroy
     has_one :user_setting
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

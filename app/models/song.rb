@@ -12,6 +12,8 @@ class Song < ApplicationRecord
     has_many :progression_templates, dependent: :destroy
     has_many :song_plays, dependent: :destroy
     has_many :user_favorites
+    has_many :setlist_songs, dependent: :destroy
+    has_many :setlists, through: :setlist_songs
 
     # songs need at least a name
     validates :name, presence: true
