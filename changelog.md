@@ -2,7 +2,7 @@
 
 ## Early Access
 
-## v1.0.3
+## v1.0.2.3
 
 * Cosmetic update
 * Add a Discord prompt to the inquiries view

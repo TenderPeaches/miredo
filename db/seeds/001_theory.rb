@@ -398,6 +398,12 @@ unless Chord.any?
     ChordComponent.create(chord: chord__added_ninth, interval: interval__third, interval_quality: interval_quality__major)  # M3 => 4 => E
     ChordComponent.create(chord: chord__added_ninth, interval: interval__fifth, interval_quality: interval_quality__perfect) # P5 => 7 => G
     ChordComponent.create(chord: chord__added_ninth, interval: interval__ninth, interval_quality: interval_quality__perfect) # P9 => 14 => D
+
+    chord__added_second = Chord.create(name: "Added Second", notation: "2")
+    ChordComponent.create(chord: chord__added_second, interval: interval__unison, interval_quality: interval_quality__perfect)   # p1 => 0 => C
+    ChordComponent.create(chord: chord__added_second, interval: interval__second, interval_quality: interval_quality__major)   # M2 => 2 => D
+    ChordComponent.create(chord: chord__added_second, interval: interval__third, interval_quality: interval_quality__major)  # M3 => 4 => E
+    ChordComponent.create(chord: chord__added_second, interval: interval__fifth, interval_quality: interval_quality__perfect) # P5 => 7 => G
 end
 
 # time signatures
