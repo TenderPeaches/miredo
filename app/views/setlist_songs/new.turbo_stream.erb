@@ -1,0 +1,5 @@
+<%= turbo_stream.update "search-results" do %>
+    <% @results.each do |song| %>
+        <%= turbo_link_button song.label_with_artist, setlist_songs_path(setlist_id: @setlist_id, song_id: song.id), method: :post%>
+    <% end %>
+<% end %>

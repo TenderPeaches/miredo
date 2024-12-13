@@ -65,6 +65,7 @@ en:
     new_song: "New Song"
     my_songs: "My Songs"
     practice_random: "Random Practice"
+    manage_setlists: "Manage setlists"
   hints:
     browse_songs: "View all available song tablatures"
     new_song: "Create and save a tablature for a song that isn't currently listed"
@@ -82,6 +83,7 @@ en:
     key_scale: "Find out how to tell a song's key and scale"
     progression_templates: "Conventions and tips for creating song progression templates"
     progressions: "Conventions and tips for implementing the progression templates into a proper song"
+    manage_setlists: "Create and maintain setlists"
   controls:
     return: "⏎"
     return_text: "Return"
@@ -323,6 +325,8 @@ en:
       progression: "Progression"
       scale_interval: "Scale interval"
       scale: "Scale"
+      setlist: "Setlist"
+      setlist_song: "Setlist song"
       song_contribution: "Artist contribution"
       song_play: "Repetition"
       song: "Song"
@@ -360,5 +364,10 @@ en:
         lyrics: "Lyrics"
         reps: "Progression reps"
         template_tag: "Template tag"
+      setlist:
+        label: "Name"
+        name: "Name"
+        song_count: "Songs"
+        play_count: "Plays"
       user: 
         email: "Email address"

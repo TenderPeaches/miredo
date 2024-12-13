@@ -1,0 +1,7 @@
+<%= tag.div class: "table-row setlist" do %>
+    <%= tag.span do %>
+        <%= turbo_link_to setlist.label, setlist_path(setlist) %>
+    <% end %>
+    <%= tag.span setlist.songs.count %>
+    <%= tag.span setlist.play_count %>
+<% end %>

@@ -1,0 +1,16 @@
+<%= tag.h1 Setlist.model_name.human.pluralize %>
+
+<%= tag.section id: "current-setlists", class: "table setlists" do %>
+    <%= tag.div class: "table-header setlist-header" do %>
+        <%= tag.span Setlist.human_attribute_name(:label) %>
+        <%= tag.span Setlist.human_attribute_name(:song_count) %>
+        <%= tag.span Setlist.human_attribute_name(:play_count) %>
+    <% end %>
+    <% @setlists.each do |setlist| %>
+        <%= render "setlist/row", setlist: setlist %>
+    <% end %>
+<% end %>
+<%= tag.section id: "setlist-content" %>
+<%= tag.section id: "setlist-form" do %>
+    <%= turbo_link_button t("actions.new", thing: Setlist.model_name.human.downcase), new_setlist_path %>
+<% end %>

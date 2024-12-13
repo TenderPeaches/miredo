@@ -1,0 +1,12 @@
+<%= turbo_stream.append "current-setlists" do %>
+    <%= render "setlists/row", setlist: @setlist %>
+<% end %>
+
+<%= turbo_stream.update "setlist-form" do %>
+    <% form_tag new_setlist_song_path, method: :get, class: "form song-search" do %>
+        <%= text_field_tag :search %>
+        <%= hidden_field_tag :setlist_id, @setlist.id %>
+        <%= submit_tag "🔍" %>
+    <% end %>
+    <%= tag.div id: "search-results" %>
+<% end %>

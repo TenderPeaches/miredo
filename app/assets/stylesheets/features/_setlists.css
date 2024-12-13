@@ -1,0 +1,3 @@
+.setlists {
+    grid-template-columns: [start] 3fr 1fr 1fr [end];
+}

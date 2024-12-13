@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 54) do
+ActiveRecord::Schema[7.1].define(version: 58) do
   create_table "album_contributions", force: :cascade do |t|
     t.integer "albums_id", null: false
     t.integer "artists_id", null: false
@@ -194,6 +194,24 @@ ActiveRecord::Schema[7.1].define(version: 54) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "setlist_songs", force: :cascade do |t|
+    t.integer "setlist_id", null: false
+    t.integer "song_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setlist_id"], name: "index_setlist_songs_on_setlist_id"
+    t.index ["song_id"], name: "index_setlist_songs_on_song_id"
+  end
+
+  create_table "setlists", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id", null: false
+    t.integer "play_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_setlists_on_user_id"
+  end
+
   create_table "song_contributions", force: :cascade do |t|
     t.string "parts"
     t.integer "song_id", null: false
@@ -314,9 +332,9 @@ ActiveRecord::Schema[7.1].define(version: 54) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_contributor", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "chord_components", "chords"
@@ -330,12 +348,19 @@ ActiveRecord::Schema[7.1].define(version: 54) do
   add_foreign_key "progression_chords", "chords"
   add_foreign_key "progression_chords", "progression_templates"
   add_foreign_key "progression_templates", "songs", on_update: :cascade
+  add_foreign_key "progression_templates", "songs", on_update: :cascade
   add_foreign_key "progressions", "progression_templates"
+  add_foreign_key "progressions", "songs", on_update: :cascade
   add_foreign_key "scale_intervals", "interval_qualities"
   add_foreign_key "scale_intervals", "intervals"
   add_foreign_key "scale_intervals", "scales"
+  add_foreign_key "setlist_songs", "setlists"
+  add_foreign_key "setlist_songs", "songs"
+  add_foreign_key "setlists", "users"
   add_foreign_key "song_contributions", "artists", on_update: :cascade
   add_foreign_key "song_contributions", "songs", on_update: :cascade
+  add_foreign_key "song_contributions", "songs", on_update: :cascade
+  add_foreign_key "song_plays", "songs", on_update: :cascade, on_delete: :cascade
   add_foreign_key "song_plays", "users"
   add_foreign_key "songs", "users", column: "submitter_id"
   add_foreign_key "tuning_pitches", "pitches"
