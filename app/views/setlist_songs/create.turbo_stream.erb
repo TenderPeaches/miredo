@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "song-actions_#{@song.id}" do %>
+    <%= render "songs/song_actions", song: @song %>
+<% end %>

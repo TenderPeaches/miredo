@@ -50,7 +50,7 @@ input[type="submit"] {
 }
 
 /* square buttons, usually used with icons or single characters */
-.button--square {
+.button--square, input[type="submit"].button--square {
     display: inline-flex;                                  /* force inline display, otherwise flex will change the dimensions */
     padding: 0;                                             /* set dimensions manually, remove padding for easier calculations */
     width: var(--size-xxl);                                  /* ensure same size as height */

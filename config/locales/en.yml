@@ -96,6 +96,7 @@ en:
     play: "✓"
     play_by_heart: "♥︎"
     edit: "✎"
+    add: "+"
   notices:
     welcome:
       title: "Welcome!"
@@ -140,6 +141,7 @@ en:
     progression_template_scale: "If the progression template's scale differs from the general scale of the song, specify it here."
     copy_progression: "Create a new progression identical to this one."
     modify_progression: "Make sure you confirm your changes by clicking \"Update Progression\""
+    add_to_setlist: "Add this song to one of your setlists"
   music_theory:
     semitone: "Semitone"
     semitones_from_root: "Semitones from the root"

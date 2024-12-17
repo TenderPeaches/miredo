@@ -113,6 +113,10 @@ module SongsHelper
         link_button_to t('controls.edit'), edit_song_path(song_id), class: "button--square button--secondary", title: t('instructions.edit_song')
     end
 
+    def song_add_to_setlist_button(song_id)
+        turbo_link_button t("controls.add"), new_setlist_song_path(song_id:), class: "button--square", title: t("instructions.add_to_setlist")
+    end
+
     def song_edit_progression_templates_link(song_id)
         link_to t('cta.define_progression_templates'), song_progression_templates_path(song_id: song_id), title: t('instructions.define_progressions')
     end

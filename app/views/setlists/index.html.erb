@@ -7,7 +7,7 @@
         <%= tag.span Setlist.human_attribute_name(:play_count) %>
     <% end %>
     <% @setlists.each do |setlist| %>
-        <%= render "setlist/row", setlist: setlist %>
+        <%= render "setlists/row", setlist: setlist %>
     <% end %>
 <% end %>
 <%= tag.section id: "setlist-content" %>

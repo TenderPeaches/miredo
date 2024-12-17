@@ -2,6 +2,10 @@
 
 ## Early Access
 
+## v1.0.3
+
+* Removed "Favorite?" column header
+
 ## v1.0.2.3
 
 * Cosmetic update

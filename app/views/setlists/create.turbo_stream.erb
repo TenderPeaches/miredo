@@ -1,12 +1,9 @@
+<%# add the created setlist's entry to the list %>
 <%= turbo_stream.append "current-setlists" do %>
     <%= render "setlists/row", setlist: @setlist %>
 <% end %>
 
+<%# reset the form area back to the "new setlist" button %>
 <%= turbo_stream.update "setlist-form" do %>
-    <% form_tag new_setlist_song_path, method: :get, class: "form song-search" do %>
-        <%= text_field_tag :search %>
-        <%= hidden_field_tag :setlist_id, @setlist.id %>
-        <%= submit_tag "🔍" %>
-    <% end %>
-    <%= tag.div id: "search-results" %>
+    <%= turbo_link_button t("actions.new", thing: Setlist.model_name.human.downcase), new_setlist_path %>
 <% end %>

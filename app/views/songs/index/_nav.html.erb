@@ -2,6 +2,7 @@
     <% if user_signed_in? %>
         <%= link_button_to t("cta.new_song"), new_song_path %>
         <%= link_button_to t("cta.my_songs"), songs_path(filter_options: { submitter_id: current_user.id }) %>
+        <%= link_button_to t("cta.manage_setlists"), setlists_path %>
     <% end %>
 
     <%= link_button_to t("cta.practice_random"), song_path(Song.random_id(current_user&.id)) %>

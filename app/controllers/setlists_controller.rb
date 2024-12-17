@@ -12,7 +12,7 @@ class SetlistsController < ApplicationController
     end
 
     def create
-        @setlist = Setlist.create(setlist_params.merge {user: current_user})
+        @setlist = Setlist.create(setlist_params.merge({user: current_user}))
     end
 
     private

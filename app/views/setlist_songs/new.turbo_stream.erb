@@ -1,5 +1,7 @@
-<%= turbo_stream.update "search-results" do %>
-    <% @results.each do |song| %>
-        <%= turbo_link_button song.label_with_artist, setlist_songs_path(setlist_id: @setlist_id, song_id: song.id), method: :post%>
+<%= turbo_stream.replace "song-actions_#{@song_id}" do %>
+    <%= model_form_for @setlist_song, class: "inline-form", id: "song-actions_#{@song_id}" do |form| %>
+        <%= form.select :setlist, options_from_collection_for_select(@setlists, :id, :label) %>
+        <%= form.hidden_field :song, value: @song_id %>
+        <%= form.submit t("controls.add"), class: "button button--square" %>
     <% end %>
 <% end %>
