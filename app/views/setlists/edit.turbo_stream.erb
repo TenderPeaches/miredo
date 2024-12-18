@@ -1,0 +1,9 @@
+<%# show the songs within the setlist %>
+<%= turbo_stream.update "setlist-content" do %>
+    <%= render "setlists/sequencer", setlist: @setlist %>
+<% end %>
+
+<%# show the form to edit the setlist's informations %>
+<%= turbo_stream.update "setlist-form" do %>
+    <%= render "setlists/form", setlist: @setlist %>
+<% end %>

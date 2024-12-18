@@ -307,6 +307,8 @@ en:
       capo: "Capo"
       shift_key: "Shift key"
       helpers: "Helpers"
+    setlists: 
+      sequencing: "Sequencing"
   activerecord:
     models:
       admin: "Admin"
@@ -357,7 +359,8 @@ en:
         scale: "Scale"
         album: "Initial release Album"
         submitter: "Submitting user"
-        artist: "Artist whose rendition of the song the tab was based on"
+        artist: "Artist"
+        artist_long: "Artist whose rendition of the song the tab was based on"
       progression_template:
         tag: "Template tag"
         reps: "Template reps"

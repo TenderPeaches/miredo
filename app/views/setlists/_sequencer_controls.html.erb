@@ -1,0 +1,6 @@
+<%= tag.span class: "sequencer-buttons" do %>
+    <%= turbo_link_button "⇈", new_setlist_sequence_adjustment_path(setlist_id: setlist.id, song_id: song.id, direction: :up, all: true) %>
+    <%= turbo_link_button "↑", new_setlist_sequence_adjustment_path(setlist_id: setlist.id, song_id: song.id, direction: :up) %>
+    <%= turbo_link_button "↓", new_setlist_sequence_adjustment_path(setlist_id: setlist.id, song_id: song.id, direction: :down) %>
+    <%= turbo_link_button "⇊", new_setlist_sequence_adjustment_path(setlist_id: setlist.id, song_id: song.id, direction: :down, all: true) %>
+<% end %>

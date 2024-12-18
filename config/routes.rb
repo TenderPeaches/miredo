@@ -53,7 +53,9 @@ Rails.application.routes.draw do
 
     resources :inquiries, only: [:index, :create]
 
-    resources :setlists
+    resources :setlists do
+        resources :sequence_adjustments, only: [ :new ], controller: :setlist_sequence_adjustments
+    end
     resources :setlist_songs, only: [:new, :create]
 
     root "application#index"

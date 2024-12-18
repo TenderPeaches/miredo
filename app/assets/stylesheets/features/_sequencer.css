@@ -1,4 +1,4 @@
-.progressions-sequencer {
+.sequencer {
     grid-template-columns: [start] 1fr 1fr [end];       /* mobile has two equal-sized columns */
 }
 
@@ -10,16 +10,20 @@
     margin: var(--size-xs);
 }
 
-.table.progressions-sequencer .sequencer-progression {
+.table.sequencer .sequencer-row {
     padding: var(--size-xxs) var(--size-m);             /* buffer content away from the edges */
 }
 
-.sequencer-progression > *:first-child {
+.sequencer-row > *:first-child {
     color: var(--color-secondary-lightest);
 }
 
 @media screen and (min-width: 720px) {
     .progressions-sequencer {
         grid-template-columns: [start] 1fr 3fr 1fr 2fr [end];     /* progression tag, lyrics stub, template tag, sequencer actions */ 
+    }
+
+    .setlists-sequencer {
+        grid-template-columns: [start] 3fr 2fr 2fr [end];
     }
 }

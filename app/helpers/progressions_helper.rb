@@ -14,7 +14,7 @@ module ProgressionsHelper
     end
 
     def progressions_sequencer_header
-        tag.div class: "progressions-sequencer-header table-header" do
+        tag.div class: "sequencer-header progressions-sequencer-header table-header" do
             safe_join [
                 tag.span(Progression.human_attribute_name(:tag)),
                 tag.span(Progression.human_attribute_name(:lyrics)),

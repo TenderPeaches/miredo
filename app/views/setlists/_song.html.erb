@@ -1,0 +1,5 @@
+<%= tag.div class: "table-row sequencer-row" do %>
+    <%= tag.span "#{setlist_song.sequence} - #{setlist_song.song.name}" %>
+    <%= tag.span setlist_song.song.artist %>
+    <%= render "setlists/sequencer_controls", setlist: setlist, song: setlist_song.song %>
+<% end %>

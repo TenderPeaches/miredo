@@ -1,0 +1,10 @@
+<%= tag.div id: "setlist-sequencer" do %>
+    <%= tag.div id: "sequencer-setlists", class: "table sequencer setlists-sequencer" do %>
+        <%= setlist_sequencer_header %>
+        <% if setlist.setlist_songs.any? %>
+            <% setlist.setlist_songs.order(sequence: :asc).each do |setlist_song| %>
+                <%= render "setlists/song", setlist_song:, setlist: %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

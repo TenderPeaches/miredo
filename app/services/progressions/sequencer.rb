@@ -3,7 +3,6 @@ module Progressions
     class Sequencer
         def initialize(song)
             @song = song
-            @next = @song.progressions.maximum(:sequence) || 1
         end
 
         # sets a sequence number for a single progression

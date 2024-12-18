@@ -15,7 +15,15 @@ class SetlistsController < ApplicationController
         @setlist = Setlist.create(setlist_params.merge({user: current_user}))
     end
 
+    def edit
+        set_setlist
+    end
+
     private
+    def set_setlist
+        @setlist = Setlist.find_by_id(params[:id])
+    end
+
     def setlist_params
         params.require(:setlist).permit(:name)
     end

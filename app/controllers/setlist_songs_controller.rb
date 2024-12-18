@@ -6,11 +6,11 @@ class SetlistSongsController < ApplicationController
     end
 
     def create
-        setlist_id = setlist_song_params[:setlist]
-        song_id = setlist_song_params[:song]
+        setlist = Setlist.find_by_id(setlist_song_params[:setlist])
+        song = Song.find_by_id(setlist_song_params[:song])
         # if both setlist & song IDs are provided AND the specified setlist doesn't already include the given song (going with the assumption that a song cannot appear in a setlist more than once)
-        if setlist_id && song_id && !Setlist.find(setlist_id).songs.include?(Song.find(song_id))
-            SetlistSong.create(song_id:, setlist_id:)
+        if setlist && song && !setlist.songs.include?(song)
+            SetlistSong.create(song:, setlist:, sequence: (setlist.setlist_songs.maximum(:sequence) || 0) + 1)
         end
 
         @song = Song.find(song_id)
