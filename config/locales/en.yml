@@ -97,6 +97,7 @@ en:
     play_by_heart: "♥︎"
     edit: "✎"
     add: "+"
+    remove: "✕"
   notices:
     welcome:
       title: "Welcome!"

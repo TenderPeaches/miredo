@@ -23,7 +23,7 @@ module ApplicationHelper
     end
 
     def turbo_link_button(text, target, options = {})
-        link_to text, target, class: "button" + (options[:class] ? " #{options[:class]}" : ""), data: { turbo_stream: true, turbo_method: options[:method] || :get }, id: options[:id], title: options[:title]
+        link_to text, target, class: "button" + (options[:class] ? " #{options[:class]}" : ""), data: { turbo_stream: true, turbo_method: options[:method] || :get, turbo_confirm: options[:confirm] }, id: options[:id], title: options[:title]
     end
 
     def turbo_link_to(text, target, options = {})

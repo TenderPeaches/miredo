@@ -1,0 +1,8 @@
+<%= turbo_stream.replace "setlist_#{@setlist.id}" do %>
+    <%= render "setlists/row", setlist: @setlist %>
+<% end %>
+
+<%= turbo_stream.update "setlist-content" %>
+<%= turbo_stream.update "setlist-form" do %>
+    <%= turbo_link_button t("actions.new", thing: Setlist.model_name.human.downcase), new_setlist_path %>
+<% end %>

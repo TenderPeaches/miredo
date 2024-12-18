@@ -5,6 +5,7 @@
         <%= tag.span Setlist.human_attribute_name(:label) %>
         <%= tag.span Setlist.human_attribute_name(:song_count) %>
         <%= tag.span Setlist.human_attribute_name(:play_count) %>
+        <%= tag.span %><%# for action buttons %>
     <% end %>
     <% @setlists.each do |setlist| %>
         <%= render "setlists/row", setlist: setlist %>
