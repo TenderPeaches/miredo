@@ -36,7 +36,8 @@ module ModelsHelper
             options[:class] = "form"
         end
 
-        options[:html] = { class: options[:class] }
+        #! any other HTML attributes won't be set unless explicitly assigned here
+        options[:html] = { class: options[:class], id: options[:id] }
 
         args << options
 

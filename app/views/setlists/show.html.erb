@@ -1,0 +1,7 @@
+<%= tag.h1 @setlist.label %>
+
+<%= tag.section class: "list songs-list" do %>
+    <% @setlist.setlist_songs.order(:sequence).each do |setlist_song| %>
+        <%= render "songs/song", song: setlist_song.song %>
+    <% end %>
+<% end %>

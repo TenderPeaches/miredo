@@ -13,7 +13,7 @@ class SetlistSongsController < ApplicationController
             SetlistSong.create(song:, setlist:, sequence: (setlist.setlist_songs.maximum(:sequence) || 0) + 1)
         end
 
-        @song = Song.find(song_id)
+        @song = song
     end
 
     private

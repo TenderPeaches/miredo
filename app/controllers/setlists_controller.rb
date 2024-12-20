@@ -31,6 +31,10 @@ class SetlistsController < ApplicationController
         @setlist.destroy
     end
 
+    def show
+        set_setlist
+    end
+
     private
     def set_setlist
         @setlist = Setlist.find_by_id(params[:id])

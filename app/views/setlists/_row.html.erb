@@ -1,10 +1,11 @@
 <%= tag.div class: "table-row setlist", id: "setlist_#{setlist.id}" do %>
     <%= tag.span do %>
-        <%= turbo_link_to setlist.label, edit_setlist_path(setlist) %>
+        <%= link_to setlist.label, setlist_path(setlist) %>
     <% end %>
     <%= tag.span setlist.songs.count %>
     <%= tag.span setlist.play_count %>
     <%= tag.span class: "row-actions" do %>
+        <%= turbo_link_button t("controls.edit"), edit_setlist_path(setlist), class: "button--square button--secondary" %>
         <%= turbo_link_button t("controls.remove"), setlist_path(setlist), method: :delete, class: "button--square button--secondary", confirm: t("confirm.delete", model: "#{Setlist.model_name.human.downcase} \"#{setlist.label}\"") %>
     <% end %>
 <% end %>
