@@ -322,9 +322,12 @@ en:
       monthly: "Last month"
       yearly: "Last year"
       all_time: "All time"
-      distinct_songs: "You have played %{count} different songs"
-      distinct_songs_by_heart: "You can play %{count} different songs by heart"
-      percent: "That's %{ratio}%!"
+      distinct_songs_1: "You have played"
+      distinct_songs_2: "different songs"
+      distinct_songs_by_heart_1: "You can play"
+      distinct_songs_by_heart_2: "different songs by heart"
+      percent_1: "That's"
+      percent_2: "% of all songs you've played on this site!"
   activerecord:
     models:
       admin: "Admin"

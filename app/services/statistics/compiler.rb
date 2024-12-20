@@ -33,10 +33,10 @@ module Statistics
 
             # if a timelapse (in days) is provided, count how many plays per day on average since timelapse began
             play_count = if timelapse then
-                SongPlay.where(user: @user, played_at: timelapse.days.ago..Time.now).count / timelapse
+                SongPlay.where(user: @user, played_at: timelapse.days.ago..Time.now).count.to_f / timelapse.to_f
             # otherwise, count average plays per day since user account was created
             else
-                SongPlay.where(user: @user).count / user_timelapse
+                SongPlay.where(user: @user).count.to_f / user_timelapse.to_f
             end
 
             # round to 1 decimal

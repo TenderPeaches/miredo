@@ -1,15 +1,19 @@
 .stats {
     display: flex;                      /* vertical flex */
     flex-direction: column;             
-    gap: var(--size-m);
+    gap: var(--size-m);                 /* spacing between different stat sections */
 }
 
-.daily-average {
-    display: flex;
+.daily-average, .heart-stats {
+    display: flex;                      /* vertical flex */
     flex-direction: column;
-    gap: var(--size-s);
+    gap: var(--size-s);                 /* spacing between each statline */
 }
 
 .daily-average div:nth-child(n+2) {
-    padding-left: var(--size-xxxl);
+    padding-left: var(--size-xxxl);     /* first div in this statline acts as a header, everything below should be indented */
+}
+
+.stats .data {
+    color: var(--color-secondary-lightest); /* contrast with regular text, as data is the focal component of a stats screen */
 }
