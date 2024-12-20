@@ -1,0 +1,14 @@
+<%# color legend not relevant if user not logged in, as colors pertain to user's SongPlays %>
+<% if user_signed_in? %>
+    <%= tag.div class: "legend" do %>
+        <%= tag.h4 t("content.songs.color_legend") %>
+        <%= tag.div class: "color-legend" do %>
+            <%# sync with songs_helper.rb method `song_row_color`, until these are changed into user_settings %>
+            <%= song_color_legend_sample "purple", t("content.songs.by_heart") %>
+            <%= song_color_legend_sample "green", "< 10 #{t("content.songs.days_ago")}" %>
+            <%= song_color_legend_sample "yellow", "< 20 #{t("content.songs.days_ago")}" %>
+            <%= song_color_legend_sample "orange", "< 30 #{t("content.songs.days_ago")}" %>
+            <%= song_color_legend_sample "red", "< 50 #{t("content.songs.days_ago")}" %>
+        <% end %>
+    <% end %>
+<% end %>

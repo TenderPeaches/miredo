@@ -116,4 +116,11 @@ module SongsHelper
     def song_edit_progressions_link(song_id)
         link_to t('cta.edit_song_structure'), song_progressions_path(song_id: song_id), title: t('instructions.edit_song_structure')
     end
+
+    def song_color_legend_sample(name, text)
+        safe_join [
+            tag.div(class: "color-sample color-sample--#{name.kebabcase}"),
+            tag.div(text, class: "description")
+        ]
+    end
 end

@@ -9,6 +9,7 @@
 * Add "Setlists" feature, allowing users to string songs together into setlists
 * Add "Created at/last added" song filter
 * Add "Statistics" feature, showing some statistics relevant to the user's usage of the website
+* Add color-code legend for song plays
 
 ### Adjustments
 

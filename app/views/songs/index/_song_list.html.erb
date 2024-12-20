@@ -5,6 +5,7 @@
         <%= tag.h2 title %>
     <% end %>
     <%= paginator songs, page_count, expected_page %>
+    <%= render "songs/index/legend" %>
     <%= tag.div class: "list songs-list #{!user_signed_in? ? "songs-list--anon" : ""}", id: "#{(local_assigns[:id] ? id : "songs")}-list" do %>
         <%= render "songs/index/song_list_header" %>
         <% songs.each do |song| %>
