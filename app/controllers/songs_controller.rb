@@ -171,42 +171,52 @@ class SongsController < ApplicationController
     #   filter => to display a subset of the data, according to certain filters
     #   sort => to change the order in which the data appears
     def assign_list_options
-        # if the user selected new list options, they will appear in the request's parameters
-        request_filter_options = if params.has_key?(:filter_options) then filter_params else {} end
-        request_sort_options = if params.has_key?(:sort_options) then sort_params else {} end
 
-        # initialize the session's [:list_options][:songs] structure
-        unless session[:list_options]
-            session[:list_options] = { "songs" => {}}
-        end
-
-        unless session[:list_options]["songs"]
-            session[:list_options]["songs"] = {}
-        end
-
-        # if the request has a flag to reset the list options, the session's list options are not only ignored, they are to be overwritten by the request's list options which could very well be nothing
-        if params[:reset_list]
-            # reset the session list options
+        # if the request specifies that sort/filter options should be cleared
+        if params[:filter_options]&.to_sym == :clear && params[:sort_options]&.to_sym == :clear
+            # reset the list options
             session[:list_options]["songs"] = {
-                "filter_options" => request_filter_options || {},
-                "sort_options" => request_sort_options || {},
+                "sort_options" => {},
+                "filter_options" => {},
             }
-        # otherwise, any list options featured in the request are meant to be added to the current list options
         else
-            song_list_options = session[:list_options]["songs"]
-            # session list options
-            session_sort_options = song_list_options["sort_options"] || {}
-            session_filter_options = song_list_options["filter_options"] || {}
+            # if the user selected new list options, they will appear in the request's parameters
+            request_filter_options = if params.has_key?(:filter_options) then filter_params else {} end
+            request_sort_options = if params.has_key?(:sort_options) then sort_params else {} end
 
-            # merge the session's list options with the request's options: only the options that match (like say the sort by name is set from :asc to :desc)
-            new_filter_options = session_filter_options.merge request_filter_options.as_json
+            # initialize the session's [:list_options][:songs] structure
+            unless session[:list_options]
+                session[:list_options] = { "songs" => {}}
+            end
 
-            # only single-column sorts are supported for now, so overwrite whatever previous sort options were present in the session with the requests' sort options, unless there are no sort options in the request in which case the session's current sort options remain as is
-            new_sort_options = if request_sort_options.present? then request_sort_options.as_json else session_sort_options end
+            unless session[:list_options]["songs"]
+                session[:list_options]["songs"] = {}
+            end
 
-            # store the new list options in the user's session
-            session[:list_options]["songs"]["filter_options"] = new_filter_options
-            session[:list_options]["songs"]["sort_options"] = new_sort_options
+            # if the request has a flag to reset the list options, the session's list options are not only ignored, they are to be overwritten by the request's list options which could very well be nothing
+            if params[:reset_list]
+                # reset the session list options
+                session[:list_options]["songs"] = {
+                    "filter_options" => request_filter_options || {},
+                    "sort_options" => request_sort_options || {},
+                }
+            # otherwise, any list options featured in the request are meant to be added to the current list options
+            else
+                song_list_options = session[:list_options]["songs"]
+                # session list options
+                session_sort_options = song_list_options["sort_options"] || {}
+                session_filter_options = song_list_options["filter_options"] || {}
+
+                # merge the session's list options with the request's options: only the options that match (like say the sort by name is set from :asc to :desc)
+                new_filter_options = session_filter_options.merge request_filter_options.as_json
+
+                # only single-column sorts are supported for now, so overwrite whatever previous sort options were present in the session with the requests' sort options, unless there are no sort options in the request in which case the session's current sort options remain as is
+                new_sort_options = if request_sort_options.present? then request_sort_options.as_json else session_sort_options end
+
+                # store the new list options in the user's session
+                session[:list_options]["songs"]["filter_options"] = new_filter_options
+                session[:list_options]["songs"]["sort_options"] = new_sort_options
+            end
         end
     end
 end

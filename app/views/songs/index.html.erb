@@ -6,6 +6,7 @@
     <%= render "songs/index/sort_options", sort_control_id: @sort_control_id, sort_control_order: @sort_control_order %>
     <%= render "songs/index/filters" %>
     <%= render "songs/index/search" %>
+    <%= link_button_to t("keywords.clear_filters"), songs_path(sort_options: :clear, filter_options: :clear) %>
 <% end %>
 
 <%= tag.section id: "songs" do %>

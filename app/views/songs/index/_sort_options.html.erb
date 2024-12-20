@@ -7,13 +7,13 @@
         <%= song_filter_capo %>
     <% end %>
     <% if current_user %>
-        <% if sort_control_id == :sort_by_last_played.to_s.kebabcase %>
+        <% if sort_control_id == :sort_by_most_played_by_user.to_s.kebabcase %>
             <%= song_filter_most_played_by_user current_user.id, sort_control_order %>
         <% else %>
             <%= song_filter_most_played_by_user current_user.id %>
         <% end %>
-        <% if sort_control_id == :sort_by_most_played_by_user.to_s.kebabcase %>
-            <%= song_filter_most_played_by_user current_user.id, sort_control_order %>
+        <% if sort_control_id == :sort_by_last_played.to_s.kebabcase %>
+            <%= song_filter_last_played current_user.id, sort_control_order %>
         <% else %>
             <%= song_filter_last_played current_user.id %>
         <% end %>
