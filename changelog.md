@@ -8,10 +8,12 @@
 
 * Add "Setlists" feature, allowing users to string songs together into setlists
 * Add "Created at/last added" song filter
+* Add "Statistics" feature, showing some statistics relevant to the user's usage of the website
 
-### UI Improvements
+### Adjustments
 
 * Remove "Favorite?" column header
+* "Practice Random" link now always appears on the front page, regardless of whether the user is logged in or not
 
 ### Bug Fixes
 

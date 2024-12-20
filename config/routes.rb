@@ -58,5 +58,7 @@ Rails.application.routes.draw do
     end
     resources :setlist_songs, only: [:new, :create]
 
+    resources :statistics, only: [ :index ]
+
     root "application#index"
 end

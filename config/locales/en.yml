@@ -84,6 +84,7 @@ en:
     progression_templates: "Conventions and tips for creating song progression templates"
     progressions: "Conventions and tips for implementing the progression templates into a proper song"
     manage_setlists: "Create and maintain setlists"
+    statistics: "Show statistics related to your Miredo usage"
   controls:
     return: "⏎"
     return_text: "Return"
@@ -314,6 +315,16 @@ en:
       helpers: "Helpers"
     setlists: 
       sequencing: "Sequencing"
+    statistics:
+      title: "Statistics"
+      daily_plays: "Average songs played per day"
+      weekly: "Last week"
+      monthly: "Last month"
+      yearly: "Last year"
+      all_time: "All time"
+      distinct_songs: "You have played %{count} different songs"
+      distinct_songs_by_heart: "You can play %{count} different songs by heart"
+      percent: "That's %{ratio}%!"
   activerecord:
     models:
       admin: "Admin"
