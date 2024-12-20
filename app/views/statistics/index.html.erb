@@ -2,16 +2,14 @@
 
 <%= tag.section id: "user-stats", class: "stats" do %>
     <%= tag.div class: "daily-average" do %>
-        <%= tag.div do %>
-            <%= tag.div "#{t("content.statistics.daily_plays")}:" %>
-            <%= tag.div "... #{t("content.statistics.weekly")}: #{@stats.daily_plays_last_week}" %>
-            <%= tag.div "... #{t("content.statistics.monthly")}: #{@stats.daily_plays_last_month}" %>
-            <%= tag.div "... #{t("content.statistics.yearly")}: #{@stats.daily_plays_last_year}" %>
-            <%= tag.div "... #{t("content.statistics.all_time")}: #{@stats.daily_plays_last_year}" %>
-        <% end %>
+        <%= tag.div "#{t("content.statistics.daily_plays")}:" %>
+        <%= tag.div "... #{t("content.statistics.weekly")}: #{@stats.daily_plays_last_week}" %>
+        <%= tag.div "... #{t("content.statistics.monthly")}: #{@stats.daily_plays_last_month}" %>
+        <%= tag.div "... #{t("content.statistics.yearly")}: #{@stats.daily_plays_last_year}" %>
+        <%= tag.div "... #{t("content.statistics.all_time")}: #{@stats.daily_plays_last_year}" %>
     <% end %>
     <%= tag.div class: "heart-stats" do %>
-        <%= tag.div t("content.statistics.distinct_songs", count: @stats.distinct_songs_played )%>
+        <%= tag.div "#{t("content.statistics.distinct_songs", count: @stats.distinct_songs_played )}" %>
         <%= tag.div "#{t("content.statistics.distinct_songs_by_heart", count: @stats.distinct_songs_by_heart )}. #{t("content.statistics.percent", ratio: @stats.heart_ratio)}" %>
     <% end %>
 <% end %>
