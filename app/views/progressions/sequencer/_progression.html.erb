@@ -1,5 +1,6 @@
 <%= tag.div class: "table-row sequencer-row" do %>
-    <%= tag.span progression.tag %>
+    <%# link to the progression form within the page %>
+    <%= link_to progression.tag, "#{song_progressions_path(song)}#progression_#{progression.id}" %>
     <%= tag.span progression_lyrics_preview(progression) %>
     <%= tag.span progression.progression_template.tag %>
     <%= render "progressions/sequencer/controls", progression: %>

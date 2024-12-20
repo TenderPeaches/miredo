@@ -5,7 +5,7 @@
         <%= progressions_sequencer_header %>
         <% if song.progressions.any? %>
             <% song.progressions.order(:sequence, :id).each do |progression| %>
-                <%= render "progressions/sequencer/progression", progression: %>
+                <%= render "progressions/sequencer/progression", progression:, song: %>
             <% end %>
         <% end %>
     <% end %>

@@ -14,6 +14,7 @@
 
 * Remove "Favorite?" column header
 * "Practice Random" link now always appears on the front page, regardless of whether the user is logged in or not
+* Add links from the progressions sequencer to each progression's form
 
 ### Bug Fixes
 
