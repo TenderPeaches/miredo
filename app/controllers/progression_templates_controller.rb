@@ -80,7 +80,8 @@ class ProgressionTemplatesController < ApplicationController
     def destroy
         set_progression_template
 
-        if @song.can_edit? current_user
+        # ensure user is allowed to edit song before destroying the progression template
+        if @progression_template.song.can_edit? current_user
             @progression_template.destroy
         end
     end
