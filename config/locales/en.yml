@@ -304,6 +304,10 @@ en:
       search_result_by_name: "Songs with name matching %{search}"
       search_result_by_artist: "Songs with artist name matching %{search}"
       search_result_by_lyrics: "Songs with lyrics containing %{search}"
+      filter_capo: "Capo"
+      filter_last_played: "Last Played"
+      filter_most_played: "Most Played"
+      filter_created_at: "Last added"
     show_song:
       capo: "Capo"
       shift_key: "Shift key"

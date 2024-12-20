@@ -28,11 +28,13 @@ class SongsController < ApplicationController
         # page count is collection count / how many items per page, rounded up
         @page_count = (@songs.size.to_f / limit.to_f).ceil
 
+
         # keeping track of sort options in a session to ensure that using "back" button (as in, back to the songs list) keeps the list sorted in the way the user expects
         sort_options = session[:list_options]["songs"]["sort_options"]
         # use a particular sort if specified, unless the sort is "none"
         # assume only a single sort column, hence why it's ok to use .first here instead of some iterative structure
         if sort_options.present? && sort_options.values.first.to_sym != :none
+
             @songs = Song.sort(session[:list_options]["songs"]["sort_options"], @songs)
 
             if params[:sort_options]
@@ -159,7 +161,7 @@ class SongsController < ApplicationController
     end
 
     def sort_params
-        params.require(:sort_options).permit(:capo, "last_played(#{current_user&.id})", "most_played_by_user(#{current_user&.id})")
+        params.require(:sort_options).permit(:capo, "last_played(#{current_user&.id})", "most_played_by_user(#{current_user&.id})", :created_at)
     end
 
     def filter_params

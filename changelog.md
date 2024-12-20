@@ -4,8 +4,17 @@
 
 ## v1.0.3
 
+### New Features
+
 * Add "Setlists" feature, allowing users to string songs together into setlists
+* Add "Created at/last added" song filter
+
+### UI Improvements
+
 * Remove "Favorite?" column header
+
+### Bug Fixes
+
 * Empty or single-letter song searches now redirect to the songs page, as they generate too many results without being particularly useful
 * Fix a bug where progression templates could not be deleted
 * Fix a bug where updating progression templates would not visually update the template's tag until the page was refreshed
