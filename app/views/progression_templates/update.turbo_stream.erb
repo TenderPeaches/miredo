@@ -1,5 +1,6 @@
 <% if @progression_template.valid? %>
-    <%= turbo_stream.replace "#{dom_id(@progression_template)}__form" do %>
+    <%= turbo_stream.update dom_id(@progression_template) do %>
+        <%= tag.legend "#{@index}) #{@progression_template.tag}" %>
         <%= render "progression_templates/form", progression_template: @progression_template %>
     <% end %>
 <% else %>

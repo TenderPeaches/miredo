@@ -72,6 +72,9 @@ class ProgressionTemplatesController < ApplicationController
                 @progression_template.save
             end
             @progression_template.update(progression_template_params)
+
+            # in case the name label needs updating, supply the position of the progression template within the song, 1-indexed
+            @index = @song.progression_templates.find_index(@progression_template) + 1
         else
             redirect_to new_user_session_path
         end
