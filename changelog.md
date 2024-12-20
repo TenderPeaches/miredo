@@ -20,6 +20,7 @@
 * Empty or single-letter song searches now redirect to the songs page, as they generate too many results without being particularly useful
 * Fix a bug where progression templates could not be deleted
 * Fix a bug where updating progression templates would not visually update the template's tag until the page was refreshed
+* Fix a bug where the current sort might not show when reloading the "Browse Songs" page
 
 ## v1.0.2.3
 

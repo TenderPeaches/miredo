@@ -1,9 +1,26 @@
 <%= tag.div class: "sort-options", id: "songs-sort-options" do %>
     <%= tag.label "#{t('keywords.sort_by')}:" %>
-    <%= song_filter_capo %>
-    <% if current_user %>
-        <%= song_filter_most_played_by_user current_user.id %>
-        <%= song_filter_last_played current_user.id %>
+    <%#! this is ugly, but because I haven't found a way to turbo_stream something right after serving an HTML response, we need to pre-emptively check for any active sort control ID and if present, apply the appropriate sort to the appropriate control %>
+    <% if sort_control_id == :sort_by_capo.to_s.kebabcase %>
+        <%= song_filter_capo sort_control_order %>
+    <% else %>
+        <%= song_filter_capo %>
     <% end %>
-    <%= song_filter_created_at %>
+    <% if current_user %>
+        <% if sort_control_id == :sort_by_last_played.to_s.kebabcase %>
+            <%= song_filter_most_played_by_user current_user.id, sort_control_order %>
+        <% else %>
+            <%= song_filter_most_played_by_user current_user.id %>
+        <% end %>
+        <% if sort_control_id == :sort_by_most_played_by_user.to_s.kebabcase %>
+            <%= song_filter_most_played_by_user current_user.id, sort_control_order %>
+        <% else %>
+            <%= song_filter_last_played current_user.id %>
+        <% end %>
+    <% end %>
+    <% if sort_control_id == :sort_by_created_at.to_s.kebabcase %>
+        <%= song_filter_created_at sort_control_order %>
+    <% else %>
+        <%= song_filter_created_at %>
+    <% end %>
 <% end %>

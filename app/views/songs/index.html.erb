@@ -3,7 +3,7 @@
 <%= render "songs/index/nav" %>
 
 <%= tag.section class: "form-options" do %>
-    <%= render "songs/index/sort_options" %>
+    <%= render "songs/index/sort_options", sort_control_id: @sort_control_id, sort_control_order: @sort_control_order %>
     <%= render "songs/index/filters" %>
     <%= render "songs/index/search" %>
 <% end %>

@@ -37,18 +37,17 @@ class SongsController < ApplicationController
 
             @songs = Song.sort(session[:list_options]["songs"]["sort_options"], @songs)
 
-            if params[:sort_options]
+            if sort_options.any?
                 # keep track of the sort being applied, as the turbo response will modify the corresponding controls (to swap the :ascending/:descending order or reset the sort)
                 #! only the first sort option is applied, everything else is ignored, as sorts are applied by the click of a button. Complex sorts are TBI.
                 # convert to kebabcase because the sort controls should have an ID that matches their corresponding sort_option, prefixed with "sort-by-"
-                @sort_control_id = "sort-by-#{params[:sort_options].keys.first.match(/([\w_]+)(\(([^)]+)\))?/)[1].kebabcase}"
-                @sort_control_order = params[:sort_options][params[:sort_options].keys.first].to_sym
+                @sort_control_id = "sort-by-#{sort_options.keys.first.match(/([\w_]+)(\(([^)]+)\))?/)[1].kebabcase}"
+                @sort_control_order = sort_options[sort_options.keys.first].to_sym
             end
         # otherwise, if no sort options have been provided, use a default sort
         else
             @songs = @songs.order(Song.default_sort)
         end
-
         # slice the songs list according to the songs/page settings, offset according to the requested page
         @songs = @songs.limit(limit).offset(offset)
 
