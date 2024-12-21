@@ -21,6 +21,9 @@ module Miredo
 
     config.autoload_paths += %W(#{config.root}/lib)
 
+    # locale files
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
+
     # set a lone admin email for now
     config.admin_email = "tendrepeches@protonmail.com"
 
