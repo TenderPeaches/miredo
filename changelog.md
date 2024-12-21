@@ -2,6 +2,10 @@
 
 ## Early Access
 
+## v1.0.3.1
+
+* Fix bug where songs played by heart statistics were wrong
+
 ## v1.0.3
 
 ### New Features

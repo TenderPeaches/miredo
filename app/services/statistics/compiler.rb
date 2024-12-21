@@ -48,7 +48,7 @@ module Statistics
             distinct_songs_played = SongPlay.where(user: @user).group(:song_id).count.size
 
             # distinct songs where the last play was made by heart
-            songs_played = Song.joins(:song_plays).where(song_plays: { user: @user, by_heart: true })
+            songs_played = Song.joins(:song_plays).where(song_plays: { user: @user, by_heart: true }).distinct
 
             # running count
             distinct_songs_played_by_heart = 0
