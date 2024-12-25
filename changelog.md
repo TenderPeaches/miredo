@@ -4,6 +4,7 @@
 
 ## v1.0.3.1
 
+* UI changes to the header's design, links and links throughout the site
 * Fix bug where songs played by heart statistics were wrong
 
 ## v1.0.3
