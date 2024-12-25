@@ -1,7 +1,5 @@
 <%= content_for :title do %><%= app_title %><% end %>
 
-<%= render "songs/index/nav" %>
-
 <%= tag.section class: "form-options" do %>
     <%= render "songs/index/sort_options", sort_control_id: @sort_control_id, sort_control_order: @sort_control_order %>
     <%= render "songs/index/filters" %>
@@ -11,8 +9,4 @@
 
 <%= tag.section id: "songs" do %>
     <%= render "songs/index/song_list", songs: @songs, page_count: @page_count, expected_page: @expected_page %>
-<% end %>
-
-<%= tag.nav do %>
-    <%= render "songs/index/nav" %>
 <% end %>

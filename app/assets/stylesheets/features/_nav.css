@@ -1,12 +1,15 @@
 .content nav {
-    display: flex;              /* because we're appliying this to an HTML element selector, we're not using the .column class even though it would do the job */
-    flex-direction: column;
+    display: flex;                  
     justify-content: center;
     align-items: center;
     gap: var(--size-m);
     padding: var(--size-m);
 }
 
+.content nav a:nth-child(n+2) {
+    padding-left: var(--size-s);
+    border-left: var(--color-primary-white) 1px solid;
+}
 @media screen and (min-width: 720px) {
     .content nav {
         flex-direction: row;

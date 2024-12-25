@@ -1,5 +1,8 @@
 :root {
-    --quick-duration: 0.25s;
-    --medium-duration: 0.5s;
-    --slow-duration: 0.8s;
+    --transition-s: 0.25s;          /* short transition */
+    --transition-m: 0.5s;           /* medium transition */
+    --transition-l: 0.8s;           /* long transition */
+
+    --header-slide-mobile: -280px;       /* space on which the header rolls out of */
+    --header-slide-desktop: -300px;     
 }

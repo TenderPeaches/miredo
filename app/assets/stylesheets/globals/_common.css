@@ -169,6 +169,21 @@ input[type="submit"]:active {
     color: var(--primary-color-white);      /* secondary table titles use a different color for contrast */
 }
 
+.title-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.app-title {
+    position: absolute;
+    margin: 0;                  /* remove margin with regular <header> */
+    padding: var(--size-m);     /* use padding instead */
+    text-decoration: none;      /* remove underline from logo */
+    text-align: center;         /* vertical align */
+    z-index: 5;                 /* above <header> */
+}
+
 /* logo styling */
 .app-title > span:nth-child(1) {
     color: var(--color-secondary-light);
@@ -184,10 +199,14 @@ input[type="submit"]:active {
 
 /* screen-size dependent considerations */
 /* for large screens */
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 720px) {
     .content {
         max-width: var(--max-content-width--large-screen);  /* prevent the content from spreading over too wide an area */
         padding: calc(4 * var(--size-xxl)) calc(2 * var(--size-xxxl));    /* large padding for large screens */
         margin: auto;           /* center horizontally */ 
+    }
+
+    .app-title {
+        position: fixed;        /* stick to header */;
     }
  }

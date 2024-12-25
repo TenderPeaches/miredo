@@ -3,6 +3,12 @@
   <%= render "layouts/head" %>
   <%#todo warning that learning how to use the app is easier on a PC/large screen %>
   <%= tag.body do %>
+    <%# title/homepage link, over the header %>
+    <%= tag.div class: "title-background" do %>
+      <%= link_to root_path do %> 
+        <%= app_logo %>
+      <% end %>
+    <% end %>
     <%= render "layouts/header" %>
     <%= tag.main class: "content" do %>
       <%= tag.section class: "flashes" do %>

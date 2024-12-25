@@ -25,12 +25,16 @@ module TurboStreamActionsHelper
 
     # add class to targets HTML class list
     def add_class(targets, value)
-        turbo_stream_action_tag :add_class, targets: targets, value: value
+        turbo_stream_action_tag "addClass", targets: targets, value: value
     end
 
     # remove class from targets HTML class list
     def remove_class(targets, value)
-        turbo_stream_action_tag :remove_class, targets: targets, value: value
+        turbo_stream_action_tag "removeClass", targets: targets, value: value
+    end
+
+    def change_url(target, value)
+        turbo_stream_action_tag "changeUrl", target:, value:
     end
 
     # add error flags to field

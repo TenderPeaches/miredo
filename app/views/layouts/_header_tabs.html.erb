@@ -1,0 +1,9 @@
+<%= tag.div class: "header-tabs" do %>
+    <% if user_signed_in? %>
+        <%= link_to t('cta.browse_songs'), songs_path %>
+    <% else %>
+        <%= link_to t('cta.log_in'), new_user_session_path %>
+        <%= link_to t('cta.browse_songs'), songs_path %>
+        <%= link_to t('cta.sign_up'), new_user_registration_path %>
+    <% end %>
+<% end %>

@@ -178,23 +178,18 @@ hr {
     color: var(--color-primary-darker);
 }
 
-/* header for mobile */
-/* apply same style to footer for consistency */ 
+/* as the website's main purpose is to show tablatures without needing to scroll around, maximizing the visual space means making the header as small as possible */
 header, footer {
     position: relative;                 /* make it stick to the top of the page so it doesn't always occupy space, and also because I'm not in love with the burger-expanding-menu paradigm so KISS for now */ 
     display: flex;                      /* vertical flex */
     flex-direction: column;             /* vertical flex */
     align-items: center;                /* center items along the Y-axis */
-    background: var(--color-black);     /* different background from page content */
-}
-
-header {
-    border-bottom: 1px ridge var(--color-primary-dark); /* add an edge to the bottom */
+    background: var(--sheen-dark);     /* different background from page content */
 }
 
 footer {
     border-top: var(--thin-border-width) ridge var(--color-primary-dark);
-    padding: var(--size-xs);
+    padding: var(--size-m);
 }
 
 /* nav menu within header for mobile */
@@ -203,19 +198,20 @@ header nav, footer nav {
     flex-direction: column;             /* vertical flex */
     gap: var(--size-m);                 /* space elemenets away from each other to prevent fat-fingering */ 
     align-items: center;                /* center items along the y-axis */
-
 }
 
-header nav {
-    padding: var(--size-xxs) var(--size-s) var(--size-l);   /* add padding to the bottom and a little bit towards the edges */
+header {
+    border-bottom: 1px ridge var(--color-primary-dark); /* add an edge to the bottom */
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: var(--size-m) 0 0 var(--size-m);
 }
-
-
 
 /* header title */
 header h1, header h2 {
     color: var(--color-primary-lightest);   /* use default color for header title */
-    margin: var(--size-s) 0 var(--size-l)   /* little padding up top, a lot below, none on the sides */
+    margin: var(--size-xxs);
 }
 
 /* direct header links get no underline (so far only title link is not in nav child) */
@@ -237,16 +233,19 @@ section {
 @media screen and (min-width: 720px) {
 
     /* header nav bar */
-    header, footer {
-        position: fixed;                                    /* remains visible when content is scrolled down */
-        flex-direction: row;                                /* horizontal flex */
-        display: flex;                                      /* horizontal flex */
-        width: 100vw;                                       /* stretch the entire width of the screen */
+    header, footer {                                  /* remains visible when content is scrolled down */
+        display: flex;                                      
+        flex-direction: column;                             /* vertical flex */
         justify-content: space-between;                     /* title to the left, nav to the right */
-        padding: var(--size-xxs) var(--size-xxl);           /* header internal padding, large sides to accomodate rounded borders */
-        align-items: center;                                /* vertical center */
+        align-items: center;                                /* horizontal center */
         font-size: var(--font-size-l);                      /* everything on header is important */
-        z-index: 10;                    /* prevent clipping */
+        z-index: 1;                    /* prevent clipping */
+    }
+
+    header {
+        position: fixed;            /* maintain at the top of the screen at all times */
+        right: 0;                   /* tuck to the right, clearing out the middle space */
+        border-left: 1px ridge var(--color-primary-dark);     /* as desktop header doesn't take up all the page, add left border like the bottom one */
     }
 
     footer {
@@ -260,19 +259,8 @@ section {
         padding-left: var(--size-xl);
     }
 
-    /* header bar navigational links */
-    header nav, footer nav {
-        display: flex;
-        gap: var(--size-xl);                              /* space out links */
-        flex-direction: row;
-    }
-
     header h1 {
         margin: var(--size-xxxs);
-    }
-
-    header nav {
-        padding: var(--size-xs);               /* reset padding to something small */
     }
 
     /* header links */
@@ -283,7 +271,7 @@ section {
 
     header nav a,
     footer nav a {
-        border: var(--color-black) var(--thick-border-width) solid;
+        border: transparent var(--thick-border-width) solid;
         border-radius: var(--border-radius-small);
     }
 

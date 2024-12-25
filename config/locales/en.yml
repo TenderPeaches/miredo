@@ -65,8 +65,8 @@ en:
     view_song: "View Song"
     new_song: "New Song"
     my_songs: "My Songs"
-    practice_random: "Random Practice"
-    manage_setlists: "Manage setlists"
+    practice_random: "Random"
+    manage_setlists: "Setlists"
   hints:
     browse_songs: "View all available song tablatures"
     new_song: "Create and save a tablature for a song that isn't currently listed"

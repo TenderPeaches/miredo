@@ -60,5 +60,7 @@ Rails.application.routes.draw do
 
     resources :statistics, only: [ :index ]
 
+    resources :header_links, only: [ :index ]
+
     root "application#index"
 end

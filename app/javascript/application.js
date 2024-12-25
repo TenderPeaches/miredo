@@ -53,28 +53,30 @@ Turbo.StreamActions.show = function() {
     }
 }
 
-
-
-Turbo.StreamActions.add_class = function() {
-    const added_class = this.getAttribute("value");
+Turbo.StreamActions.addClass = function() {
+    const addedClass = this.getAttribute("value");
 
     this.targetElements.forEach((target) => {
         // Unless the target already has the target class
-        if (!target.classList.contains(added_class)) {
-            target.classList.add(added_class);
+        if (!target.classList.contains(addedClass)) {
+            target.classList.add(addedClass);
         }
     })
 }
 
-Turbo.StreamActions.remove_class = function() {
-    const removed_class = this.getAttribute("value");
+Turbo.StreamActions.removeClass = function() {
+    const removedClass = this.getAttribute("value");
 
     this.targetElements.forEach((target) => {
         // Unless the target already has the target class
-        if (target.classList.contains(removed_class)) {
-            target.classList.remove(removed_class);
+        if (target.classList.contains(removedClass)) {
+            target.classList.remove(removedClass);
         }
     })
+}
+
+Turbo.StreamActions.changeUrl = function() {
+    document.querySelector("#" + this.target).href = this.getAttribute("value");
 }
 
 // field errors can be applied on more than just the input itself, so wrap them around their own turbo function
