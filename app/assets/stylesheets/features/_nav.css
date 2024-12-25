@@ -6,10 +6,6 @@
     padding: var(--size-m);
 }
 
-.content nav a:nth-child(n+2) {
-    padding-left: var(--size-s);
-    border-left: var(--color-primary-white) 1px solid;
-}
 @media screen and (min-width: 720px) {
     .content nav {
         flex-direction: row;
