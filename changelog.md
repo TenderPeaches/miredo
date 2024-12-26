@@ -5,6 +5,7 @@
 ## v1.0.3.2
 
 * Header links remain visible or hidden throughout the user's navigation
+* Paywall setlists
 
 ## v1.0.3.1
 

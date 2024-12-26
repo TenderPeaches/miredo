@@ -1,7 +1,12 @@
 class SetlistsController < ApplicationController
     def index
         if user_signed_in?
-            @setlists = Setlist.where(user: current_user)
+            # premium feature
+            if current_user.is_contributor
+                @setlists = Setlist.where(user: current_user)
+            else
+                redirect_to root_path
+            end
         else
             redirect_to new_user_session_path
         end
@@ -12,11 +17,19 @@ class SetlistsController < ApplicationController
     end
 
     def create
-        @setlist = Setlist.create(setlist_params.merge({user: current_user}))
+        if current_user.is_contributor
+            @setlist = Setlist.create(setlist_params.merge({user: current_user}))
+        else
+            redirect_to root_path
+        end
     end
 
     def edit
         set_setlist
+
+        unless @setlist.user == current_user
+            redirect_to root_path
+        end
     end
 
     def update
@@ -28,7 +41,9 @@ class SetlistsController < ApplicationController
     def destroy
         set_setlist
         @setlist_id = @setlist.id
-        @setlist.destroy
+        if current_user == @setlist.user
+            @setlist.destroy
+        end
     end
 
     def show
