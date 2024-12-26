@@ -2,6 +2,10 @@
 
 ## Early Access
 
+## v1.0.3.2
+
+* Header links remain visible or hidden throughout the user's navigation
+
 ## v1.0.3.1
 
 * UI changes to the header's design, links and links throughout the site
