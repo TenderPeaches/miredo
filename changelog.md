@@ -6,6 +6,7 @@
 
 * Header links remain visible or hidden throughout the user's navigation
 * Paywall setlists
+* Fix an error when creating progressions
 
 ## v1.0.3.1
 
