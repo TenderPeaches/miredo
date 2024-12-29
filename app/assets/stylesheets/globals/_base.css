@@ -179,6 +179,10 @@ hr {
 }
 
 /* as the website's main purpose is to show tablatures without needing to scroll around, maximizing the visual space means making the header as small as possible */
+header {
+    position: relative;                 
+}
+
 header, footer {
     position: relative;                 /* make it stick to the top of the page so it doesn't always occupy space, and also because I'm not in love with the burger-expanding-menu paradigm so KISS for now */ 
     display: flex;                      /* vertical flex */
@@ -188,6 +192,7 @@ header, footer {
 }
 
 footer {
+    display: fixed;
     border-top: var(--thin-border-width) ridge var(--color-primary-dark);
     padding: var(--size-m);
 }
@@ -249,6 +254,8 @@ section {
     }
 
     footer {
+        position: fixed;
+        width: 100%;
         bottom: 0;
         padding: var(--size-s);
         justify-content: center;
