@@ -1,0 +1,2 @@
+class ArtistLink < ApplicationRecord
+end

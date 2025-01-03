@@ -1,0 +1,2 @@
+class SongLink < ApplicationRecord
+end

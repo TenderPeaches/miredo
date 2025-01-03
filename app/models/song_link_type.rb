@@ -1,0 +1,2 @@
+class SongLinkType < ApplicationRecord
+end

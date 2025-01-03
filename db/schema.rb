@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 58) do
+ActiveRecord::Schema[7.1].define(version: 64) do
   create_table "album_contributions", force: :cascade do |t|
     t.integer "albums_id", null: false
     t.integer "artists_id", null: false
@@ -25,6 +25,15 @@ ActiveRecord::Schema[7.1].define(version: 58) do
     t.date "release_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "artist_links", force: :cascade do |t|
+    t.integer "artist_id", null: false
+    t.integer "song_link_type_id", null: false
+    t.string "url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_artist_links_on_artist_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -199,6 +208,7 @@ ActiveRecord::Schema[7.1].define(version: 58) do
     t.integer "song_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sequence"
     t.index ["setlist_id"], name: "index_setlist_songs_on_setlist_id"
     t.index ["song_id"], name: "index_setlist_songs_on_song_id"
   end
@@ -220,6 +230,23 @@ ActiveRecord::Schema[7.1].define(version: 58) do
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_song_contributions_on_artist_id"
     t.index ["song_id"], name: "index_song_contributions_on_song_id"
+  end
+
+  create_table "song_link_types", force: :cascade do |t|
+    t.string "label", null: false
+    t.string "description"
+    t.string "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "song_links", force: :cascade do |t|
+    t.integer "song_id", null: false
+    t.integer "song_link_type_id", null: false
+    t.string "url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_id"], name: "index_song_links_on_song_id"
   end
 
   create_table "song_plays", force: :cascade do |t|
@@ -337,6 +364,8 @@ ActiveRecord::Schema[7.1].define(version: 58) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "artist_links", "artists"
+  add_foreign_key "artist_links", "song_link_types"
   add_foreign_key "chord_components", "chords"
   add_foreign_key "chord_components", "interval_qualities"
   add_foreign_key "chord_components", "intervals"
@@ -360,6 +389,8 @@ ActiveRecord::Schema[7.1].define(version: 58) do
   add_foreign_key "song_contributions", "artists", on_update: :cascade
   add_foreign_key "song_contributions", "songs", on_update: :cascade
   add_foreign_key "song_contributions", "songs", on_update: :cascade
+  add_foreign_key "song_links", "song_link_types"
+  add_foreign_key "song_links", "songs"
   add_foreign_key "song_plays", "songs", on_update: :cascade, on_delete: :cascade
   add_foreign_key "song_plays", "users"
   add_foreign_key "songs", "users", column: "submitter_id"
