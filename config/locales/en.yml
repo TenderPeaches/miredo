@@ -125,6 +125,9 @@ en:
     request_removal:
       title: "Own this music?"
       blurb: "If you own this music as an artist and don't wish to see it on this site, contact me and I will mark them private. If you represent the music industry and are unhappy about seeing them there, kindly fuck off. I made these tabs by ear, with help from friends, from songs I bought legally. "
+    sign_up:
+      title: "Why Sign up?"
+      blurb: "By signing up, you'll be able to track how often you practice each song. You'll also be able to designate some tracks as favorites."
   instructions:
     song_play: "Press the Play (✓) button after having practiced a song with the help of a tablature or any sort of aid that wouldn't be available during a live performance"
     song_play_by_heart: "Press the Play by Heart (♥︎) button after having practiced a song by heart, without going to a tablature for the chords, lyrics or other helpers at any given time"

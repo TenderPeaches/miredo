@@ -7,6 +7,7 @@
 * Header links remain visible or hidden throughout the user's navigation
 * Paywall setlists
 * Fix an error when creating progressions
+* Add a "Why Sign up?" notice to the registration page
 
 ## v1.0.3.1
 
