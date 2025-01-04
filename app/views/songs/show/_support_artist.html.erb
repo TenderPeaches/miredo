@@ -1,0 +1,13 @@
+<%= tag.div class: "support-artists" do %>
+    <%= tag.div "#{t("content.show_song.support_artist")}!" %>
+    <% artists.each do |artist| %>
+        <%= tag.div class: "artist-links" do %>
+            <% artist.artist_links.each_with_index do |link, i| %>
+                <% if i > 0 %>
+                    <%= tag.span "|" %>
+                <% end %>
+                <%= link_to link.song_link_type.label, link.url %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

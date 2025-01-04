@@ -19,6 +19,22 @@
    margin: var(--size-m) 0 var(--size-xxl);
 }
 
+.support-artists {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: var(--size-xs);
+}
+
+/* artist links */
+.artist-links {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   gap: var(--size-s);
+}
+
 .song-info {
    margin: var(--size-m);           /* loose text, add external buffer */ 
 }
@@ -180,7 +196,8 @@ color: var(--color-degree-seventh-light);
       grid-template-columns: repeat(3, 1fr);
       gap: var(--size-m);
 
-      .title {
+      /* sections that span the entire page */
+      .title, .support-artists {
          grid-column: 1 / 4;
       }
 
