@@ -8,6 +8,7 @@
 * Paywall setlists
 * Fix an error when creating progressions
 * Add a "Why Sign up?" notice to the registration page
+* Add links to artists webpages
 
 ## v1.0.3.1
 
