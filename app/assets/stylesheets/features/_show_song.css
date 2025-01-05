@@ -205,16 +205,12 @@ color: var(--color-degree-seventh-light);
          display: flex;
          flex-direction: row;
          gap: var(--size-s);
+         align-items: center;
       }
 
       .show-song {
          grid-column: 1 / 4;
-      }
-
-      form {
-         background-color: var(--color-primary-darkest);    /* until we get rid of the apply btns */
-      }
-   
+      }   
    }
 
    .show-song {

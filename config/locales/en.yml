@@ -89,9 +89,9 @@ en:
   controls:
     return: "⏎"
     return_text: "Return"
-    next: "⇥"
+    next: "➡"
     next_text: "Next"
-    previous: "⇤"
+    previous: "⬅"
     previous_text: "Previous"
     random: "⤭"
     random_text: "Random"
@@ -117,7 +117,7 @@ en:
       title: "Help Miredo stay afloat!"
       blurb_1: "Become a Contributor by supporting me on "
       blurb_patreon: "Patreon"
-      blurb_2: "! As a Contributor, you will be able to submit new songs to the website, whether they are your own creation or from an artist you really like. If you're unable to pay but still want to see a particular song in there, send it to me as a suggestion and with any luck, you'll see it on the website soon."
+      blurb_2: "! As a Contributor, you will be able to submit new songs to the website, whether they are your own creation or from an artist you really like. If you're unable to pay but still want to see a particular song in there, send it to me as a suggestion and with any luck, you'll see it on the website soon. You'll also be able to create and manage your own setlists."
       blurb_alt: "As of now Miredo has no ads or premium features so it is solely funded through investments from its developers and voluntary donations from its users. Please give according to your usage and means. If you're a professional, check if your donation can be tax-deductible in your jurisdiction, as this could be used for musical or educational purposes."
     song_privacy:
       title: "Privacy"

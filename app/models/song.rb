@@ -405,6 +405,15 @@ class Song < ApplicationRecord
         self.is_public
     end
 
+    def has_artist_links?
+        artists.each do |artist|
+            if artist.artist_links
+                return true
+            end
+        end
+        return false
+    end
+
     private
     def get_user_if_id(user)
         if user.is_a? Integer

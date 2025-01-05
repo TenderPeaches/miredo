@@ -192,9 +192,11 @@ header, footer {
 }
 
 footer {
-    display: fixed;
+    position: fixed;
     border-top: var(--thin-border-width) ridge var(--color-primary-dark);
     padding: var(--size-m);
+    width: 100%;
+    bottom: 0;
 }
 
 /* nav menu within header for mobile */
@@ -254,9 +256,6 @@ section {
     }
 
     footer {
-        position: fixed;
-        width: 100%;
-        bottom: 0;
         padding: var(--size-s);
         justify-content: center;
     }

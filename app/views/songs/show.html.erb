@@ -10,7 +10,9 @@
     <%= tag.div class: "title" do %>
         <%= tag.h1 "#{@song.artist} - #{@song.name}" %>
     <% end %>
-    <%= render "songs/show/support_artist", artists: @song.artists %>
+    <% if @song.has_artist_links? %>
+        <%= render "songs/show/support_artist", artists: @song.artists %>
+    <% end %>
     <%# song information (non-interactive) %>
     <%= render "songs/show/info", song: @song %>
     <%# navigation options: next/previous/random songs, back to songs %>

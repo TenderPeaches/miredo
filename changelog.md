@@ -9,6 +9,8 @@
 * Fix an error when creating progressions
 * Add a "Why Sign up?" notice to the registration page
 * Add links to artists webpages
+* Adjust header tab links display
+* Adjust footer to remain visible no matter scroll position
 
 ## v1.0.3.1
 
