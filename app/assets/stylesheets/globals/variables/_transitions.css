@@ -4,7 +4,7 @@
     --transition-l: 0.8s;           /* long transition */
 
     --header-slide-mobile: -165px;       /* space on which the header rolls out of */
-    --header-slide-desktop: -165px;      
+    --header-slide-desktop: -140px;      
     --header-slide-mobile-logged-in: -280px;
-    --header-slide-desktop-logged-in: -300px;
+    --header-slide-desktop-logged-in: -275px;
 }

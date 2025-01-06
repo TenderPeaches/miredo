@@ -180,7 +180,12 @@ hr {
 
 /* as the website's main purpose is to show tablatures without needing to scroll around, maximizing the visual space means making the header as small as possible */
 header {
-    position: relative;                 
+    position: relative;
+    border-bottom: 1px ridge var(--color-primary-dark); /* add an edge to the bottom */
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: var(--size-m) 0 0 0;
 }
 
 header, footer {
@@ -205,14 +210,6 @@ header nav, footer nav {
     flex-direction: column;             /* vertical flex */
     gap: var(--size-m);                 /* space elemenets away from each other to prevent fat-fingering */ 
     align-items: center;                /* center items along the y-axis */
-}
-
-header {
-    border-bottom: 1px ridge var(--color-primary-dark); /* add an edge to the bottom */
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    padding: var(--size-m) 0 0 var(--size-m);
 }
 
 /* header title */
@@ -275,18 +272,15 @@ section {
         padding: var(--size-xs) var(--size-m);  /* larger clickable area */
     }
 
-    header nav a,
     footer nav a {
         border: transparent var(--thick-border-width) solid;
         border-radius: var(--border-radius-small);
     }
 
-    header nav a:hover,
     footer nav a:hover {
         box-shadow: 0 0 2px 2px var(--color-white);
     }
 
-    header nav a:active,
     footer nav a:active {
         background: var(--color-accent-darkest);
         color: var(--color-accent-lightest);
