@@ -66,3 +66,5 @@ en:
         play_count: "Plays"
       user: 
         email: "Email address"
+        password: "Password"
+        username: "Username"

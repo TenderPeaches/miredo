@@ -23,6 +23,7 @@ en:
     confirm: "Are you sure?"
     tips: "💡"
     clear_filters: "Clear filters"
+    optional: "Optional"
   actions:
     new: "New %{thing}"
     add: "Add %{thing}"
@@ -47,6 +48,7 @@ en:
     error: "Error!"
   flashes:
     log_in: "Successfully logged in"
+    sign_up: "Account succesfully created. Welcome!"
     song_played: "You just practiced playing \"%{song}\" for the %{play_count} time!"
     song_played_by_heart: "You just practiced playing \"%{song}\" by heart, for the %{play_count} time!"
     song_added: "\"%{song}\" has been created and added to the database."
@@ -336,4 +338,3 @@ en:
       distinct_songs_by_heart_2: "different songs by heart"
       percent_1: "That's"
       percent_2: "% of all songs you've played on this site!"
-  
