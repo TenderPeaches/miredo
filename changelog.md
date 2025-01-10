@@ -6,15 +6,16 @@
 
 * Header links remain visible or hidden throughout the user's navigation
 * Paywall setlists
-* Fix an error when creating progressions
 * Add a "Why Sign up?" notice to the registration page
 * Add links to artists webpages
 * Add optional username to user creation and update forms
 * Adjust header tab links display
 * Adjust header links display
 * Adjust footer to remain visible no matter scroll position
+* Fix an error when creating progressions
 * Fix chords display when 5+ beats of the same chord
 * Fix a bug where user settings weren't set on user creation
+* Fix a display bug when filtering songs
 
 ## v1.0.3.1
 
