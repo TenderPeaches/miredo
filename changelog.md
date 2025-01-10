@@ -16,6 +16,7 @@
 * Fix chords display when 5+ beats of the same chord
 * Fix a bug where user settings weren't set on user creation
 * Fix a display bug when filtering songs
+* Fix a bug where sorting filtered results would not work
 
 ## v1.0.3.1
 

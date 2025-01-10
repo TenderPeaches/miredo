@@ -140,7 +140,10 @@ class SongsController < ApplicationController
         end
 
         unless session[:list_options]["songs"]
-            session[:list_options]["songs"] = {}
+            session[:list_options]["songs"] = {
+                "filter_options" => {},
+                "song_options" => {},
+            }
         end
     end
 end

@@ -79,7 +79,7 @@ class Song < ApplicationRecord
     scope :filter_by_old_heart, -> user { select {|s| s.old_heart? (user) } }
 
     # private songs filter
-    scope :filter_by_private, -> user { select {|s| !s.is_public && s.submitter == user }}
+    scope :filter_by_private, -> user { where(is_public: false, submitter: user) }
 
     scope :search_by_song_name, -> query { where("name like ?", "%#{query}%") }
 
@@ -100,7 +100,8 @@ class Song < ApplicationRecord
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
 
     # when adding filters, must add to this list
-    VALID_FILTERS = [:key, :capo, :artist, :favorite, :forgotten, :hot, :old_heart, :visibility, :private]
+    #! :visibility must be first as it's the most important filter (to ensure users can't see other users' private songs)
+    VALID_FILTERS = [:visibility, :key, :capo, :artist, :favorite, :forgotten, :hot, :old_heart, :private]
 
     def self.page_size
         100
@@ -194,31 +195,38 @@ class Song < ApplicationRecord
     # @params => params of a typical song_filter form (that would be submitted to a SongFiltersControllert), see VALID_FILTERS for valid filter keys; can also contain a :user_id value for some filters that need the current_user.id
     def self.filter(params, collection = Song.none)
         if params.present?
-            params_user = User.find_by_id(params[:user_id])
+            params_user = User.find_by_id(params[:user_id] || params["user_id"])
             VALID_FILTERS.each do |filter|
-                if params[filter]
+                if collection.is_a? Array
+                    # can't call method filters on array, so break out and ignore subsequent filters; it's technically a bug but it's better than throwing up an error screen until filters all return ActiveRecord::Relations instead of Arrays
+                    break
+                end
+                # accept both symbol and string filter param keys (like "capo" => "true" or capo: "true")
+                filter_value = params[filter.to_sym] || params[filter.to_s]
+                # if filter not part of the list, this will be false
+                if filter_value
                     case filter
                     when :key then
-                        collection = collection.filter_by_keyscale(params[:key], params[:scale])
+                        collection = collection.filter_by_keyscale(filter_value, params[:scale])
                     when :capo then
-                        collection = collection.filter_by_capo(params[:capo])
+                        collection = collection.filter_by_capo(filter_value)
                     when :artist then
-                        collection = collection.filter_by_artist(params[:artist])
+                        collection = collection.filter_by_artist(filter_value)
                     when :favorite then
                         # only filter for favorites, otherwise do nothing to keep including both favorites and non-favorites, rather than just non-favorites
-                        if params[:favorite] == "true" && params[:user_id]
+                        if filter_value == "true" && params[:user_id]
                             collection = collection.filter_by_favorite(params[:user_id])
                         end
                     when :forgotten then
-                        collection = collection.filter_by_forgotten(params_user) unless params[filter] == "false"
+                        collection = collection.filter_by_forgotten(params_user) unless filter_value == "false"
                     when :hot then
-                        collection = collection.filter_by_hot(params_user) unless params[filter] == "false"
+                        collection = collection.filter_by_hot(params_user) unless filter_value == "false"
                     when :old_heart then
-                        collection = collection.filter_by_old_heart(params_user) unless params[filter] == "false"
+                        collection = collection.filter_by_old_heart(params_user) unless filter_value == "false"
                     when :visibility then
-                        collection = collection.filter_by_visibility(params[filter])
+                        collection = collection.filter_by_visibility(filter_value)
                     when :private then
-                        collection = collection.filter_by_private(params_user) unless params[filter] == "false"
+                        collection = collection.filter_by_private(params_user) unless filter_value == "false"
                     end
                 end
             end

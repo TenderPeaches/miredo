@@ -17,18 +17,17 @@ module Songs
         end
 
         def list(options = {})
-            new_options = assign_list_options(options[:sort_options], options[:filter_options], options[:reset_list])
+            new_options = assign_list_options(options[:filter_options], options[:sort_options], options[:reset_list])
 
             filter_options = new_options["filter_options"]
-
             # tailor the list to a specific user
             if @user
                 # enforce a filter that only selects songs visibile to the user, either by virtue of being public or having been submitted by said user
-                @songs = Song.filter(new_options.merge({ visibility: @user.id }), @songs)
+                @songs = Song.filter(filter_options.merge({ visibility: @user.id }), @songs)
             # assume the list is being made for a user that isn't logged in
             else
                 # only select from the list of public songs
-                @songs = Song.filter(new_options, @songs.only_public)
+                @songs = Song.filter(filter_options, @songs.only_public)
             end
 
             # page count is collection count / how many items per page, rounded up
@@ -91,7 +90,7 @@ module Songs
         def assign_list_options(filter_options, sort_options, reset_list = false)
 
             # if the request specifies that sort/filter options should be cleared
-            if filter_options&.to_sym == :clear && sort_options&.to_sym == :clear
+            if filter_options&.to_s&.to_sym == :clear && sort_options&.to_sym == :clear
                 # reset the list options
                 return {
                     "filter_options" => {},
