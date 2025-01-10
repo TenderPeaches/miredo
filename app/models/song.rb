@@ -70,13 +70,13 @@ class Song < ApplicationRecord
     scope :filter_by_user_played_by_heart, -> (user_id) { joins(:song_plays).where(song_plays: { user_id: user_id, by_heart: true }).group(:song_id) }
 
     # filter by whether the user ever played a song by heart, then played it with a reference, implying that they used to know it by heart but forgot
-    scope :filter_by_forgotten, -> (user) { select {|s| s.forgotten? (user) } }
+    scope :filter_by_forgotten, -> (user) { where(id: (select {|s| s.forgotten? (user) }).map(&:id)) }
 
     # songs that have been played a lot recently filter
-    scope :filter_by_hot, -> (user) { select {|s| s.hot? (user) } }
+    scope :filter_by_hot, -> (user) { where(id: (select {|s| s.hot? (user) }).map(&:id)) }
 
     # songs that have last been played by heart a long time ago filter
-    scope :filter_by_old_heart, -> user { select {|s| s.old_heart? (user) } }
+    scope :filter_by_old_heart, -> user { where(id: (select {|s| s.old_heart? (user) }).map(&:id)) }
 
     # private songs filter
     scope :filter_by_private, -> user { where(is_public: false, submitter: user) }
