@@ -100,7 +100,7 @@ class Song < ApplicationRecord
     OUTPUT_LINE_TYPE__LYRICS = "lyrics"
 
     # when adding filters, must add to this list
-    VALID_FILTERS = [:key, :capo, :artist, :favorite, :forgotten, :hot, :old_heart, :visibility]
+    VALID_FILTERS = [:key, :capo, :artist, :favorite, :forgotten, :hot, :old_heart, :visibility, :private]
 
     def self.page_size
         100
@@ -217,6 +217,8 @@ class Song < ApplicationRecord
                         collection = collection.filter_by_old_heart(params_user) unless params[filter] == "false"
                     when :visibility then
                         collection = collection.filter_by_visibility(params[filter])
+                    when :private then
+                        collection = collection.filter_by_private(params_user) unless params[filter] == "false"
                     end
                 end
             end
