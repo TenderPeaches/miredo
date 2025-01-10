@@ -72,9 +72,14 @@ class Song < ApplicationRecord
     # filter by whether the user ever played a song by heart, then played it with a reference, implying that they used to know it by heart but forgot
     scope :filter_by_forgotten, -> (user) { select {|s| s.forgotten? (user) } }
 
+    # songs that have been played a lot recently filter
     scope :filter_by_hot, -> (user) { select {|s| s.hot? (user) } }
 
+    # songs that have last been played by heart a long time ago filter
     scope :filter_by_old_heart, -> user { select {|s| s.old_heart? (user) } }
+
+    # private songs filter
+    scope :filter_by_private, -> user { select {|s| !s.is_public && s.submitter == user }}
 
     scope :search_by_song_name, -> query { where("name like ?", "%#{query}%") }
 

@@ -315,6 +315,7 @@ en:
       filter_last_played: "Last Played"
       filter_most_played: "Most Played"
       filter_created_at: "Last added"
+      filter_private: "Your private songs"
       color_legend: "Last played"
       days_ago: "days ago"
       by_heart: "By heart"

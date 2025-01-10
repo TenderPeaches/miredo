@@ -1,5 +1,3 @@
 <%= turbo_stream.update :songs do %>
-    <% @songs.each do |song| %>
-        <%= render song %>
-    <% end %>
+    <%= render "songs/index/song_list", songs: @songs %>
 <% end %>
