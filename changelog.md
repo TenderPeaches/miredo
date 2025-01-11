@@ -10,7 +10,7 @@
 * Add links to artists webpages
 * Add optional username to user creation and update forms
 * Adjust header tab links display
-* Adjust header links display
+* Adjust header, footer links display
 * Adjust footer to remain visible no matter scroll position
 * Fix an error when creating progressions
 * Fix chords display when 5+ beats of the same chord
