@@ -2,6 +2,10 @@
 
 ## Early Access
 
+## v1.1.0.1
+
+* Stripe implementation
+
 ## v1.0.3.2
 
 * Header links remain visible or hidden throughout the user's navigation

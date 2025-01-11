@@ -57,3 +57,6 @@ scribbles/*
 latest.dump
 miredo.ca.csr
 miredo.ca.key
+
+# ignore environment variables, might contain private keys
+.env
