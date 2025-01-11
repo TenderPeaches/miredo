@@ -37,7 +37,7 @@ input[type="submit"] {
     margin: var(--size-xxxs);                               /* as small a margin as possible, since flex/grid layouts use the gap attribute to space out elements */
     border-width: var(--thick-border-width);                /* let the border pop */
     border-style: var(--button-border-style);               /* standard */
-    transition-duration: var(--quick-duration);             /* standard */
+    transition-duration: var(--transition-s);             /* standard */
     text-align: center;                                     /* standard */
     font-size: 1.2rem;
     text-decoration: none;
@@ -67,7 +67,7 @@ input[type="submit"] {
     border-width: var(--default-border-size);               /* simple border */
     border-style: var(--button-border-style);               /* standard */
 
-    transition-duration: var(--quick-duration);
+    transition-duration: var(--transition-s);
 }
 
 /* generic clickable disabled element */

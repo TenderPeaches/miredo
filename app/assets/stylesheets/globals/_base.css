@@ -21,7 +21,7 @@ a:hover {
 }
 
 a, a:hover {
-    transition: var(--quick-duration);
+    transition: var(--transition-s);
 }
 
 /* data tables */
@@ -134,7 +134,7 @@ details > summary:before {
     left: var(--size-s);                /* push from the left, towards the label; must pair with the padding on the summary element */
     transform: rotate(0);               /* ? */
     transform-origin: .2rem 50%;        /* set the immutable transformation properties here */
-    transition: var(--quick-duration) transform ease; /* quick transition for a small element */
+    transition: var(--transition-s) transform ease; /* quick transition for a small element */
 }
 
 details > summary:hover {
@@ -148,7 +148,7 @@ details > summary:active {
 details > summary,
 details > summary:hover,
 details > summary:active {
-    transition: all var(--quick-duration) ease-in-out;
+    transition: all var(--transition-s) ease-in-out;
 }
 
 details > summary::marker, /* for all decent browsers */
@@ -199,9 +199,22 @@ header, footer {
 footer {
     position: fixed;
     border-top: var(--thin-border-width) ridge var(--color-primary-dark);
-    padding: var(--size-m);
     width: 100%;
     bottom: 0;
+}
+
+footer nav a {
+    padding: var(--size-m) var(--size-xxl);
+    text-decoration: none;
+}
+    
+footer nav a:hover {
+    background: var(--color-primary-darkest);
+}
+
+footer nav a:active {
+    background: var(--color-primary-lightest);
+    color: var(--color-accent-darker);
 }
 
 /* nav menu within header for mobile */
@@ -253,7 +266,6 @@ section {
     }
 
     footer {
-        padding: var(--size-s);
         justify-content: center;
     }
 
@@ -269,22 +281,7 @@ section {
     /* header links */
     header a, footer a {
         text-decoration: none;                  /* remove underline */ 
-        padding: var(--size-xs) var(--size-m);  /* larger clickable area */
-    }
-
-    footer nav a {
-        border: transparent var(--thick-border-width) solid;
-        border-radius: var(--border-radius-small);
-    }
-
-    footer nav a:hover {
-        box-shadow: 0 0 2px 2px var(--color-white);
-    }
-
-    footer nav a:active {
-        background: var(--color-accent-darkest);
-        color: var(--color-accent-lightest);
-        box-shadow: 0 0 2px 2px var(--color-accent-lightest);
+        padding: var(--size-s) var(--size-m);  /* larger clickable area */
     }
  }
 

@@ -34,7 +34,7 @@
 
 .song, 
 .song:hover {
-    transition-duration: var(--quick-duration);     /* standard */
+    transition-duration: var(--transition-s);     /* standard */
 }
 
 .songs-list__title {
