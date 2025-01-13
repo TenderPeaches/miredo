@@ -62,7 +62,11 @@ gem 'requestjs-rails'
 # auth
 gem 'devise'
 
+# use environment variables in dev environment
 gem 'dotenv-rails'
+
+# enable cross-domain ajax calls
+gem 'rack-cors'
 
 # payments
 gem 'stripe'

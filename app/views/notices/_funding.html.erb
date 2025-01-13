@@ -3,7 +3,7 @@
     <%= tag.h2 t('notices.funding.title') %>
     <%= tag.p do %>
         <%= tag.span t('notices.funding.blurb_1') %>
-        <%= link_to t("notices.funding.patreon"), Rails.application.config.patreon_url %>
+        <%= link_to t("notices.funding.blurb_link"), new_subscription_path %>
         <%= tag.span t('notices.funding.blurb_2') %>
     <% end %>
 <% end %>

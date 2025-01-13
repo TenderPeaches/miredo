@@ -62,5 +62,7 @@ Rails.application.routes.draw do
 
     resources :header_links, only: [ :index ]
 
+    resources :subscriptions
+
     root "application#index"
 end

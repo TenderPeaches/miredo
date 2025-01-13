@@ -33,6 +33,5 @@ module Miredo
 
     # external resources paths
     config.discord_server_url = "https://discord.gg/qVc7vQVfET"
-    config.patreon_url = "https://patreon.com/miredo"
   end
 end
