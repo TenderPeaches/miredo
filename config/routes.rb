@@ -64,5 +64,8 @@ Rails.application.routes.draw do
 
     resources :subscriptions
 
+    # webhooks are always POST request, so only need create action
+    resources :webhooks, only: [:create]
+
     root "application#index"
 end

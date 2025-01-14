@@ -25,12 +25,17 @@ module Subscriptions
                 }]
             })
 
-            Result.new(checkout_session)
+            CheckoutResult.new(checkout_session)
+        end
+
+        # when a subscription is confirmed/paid for, its effects need to apply to the user
+        def create(options = {})
+            @user.update(is_contributor: true)
         end
 
         private
 
-        class Result
+        class CheckoutResult
             def initialize(checkout_session)
                 @checkout_session = checkout_session
             end
