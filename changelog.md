@@ -4,7 +4,8 @@
 
 ## v1.1.0.1
 
-* Stripe implementation
+* Stripe implementation: Busking subscription plan, which grant access to the Setlists and New Song features
+* Admin: added Artists, Artist Links form
 
 ## v1.0.3.2
 

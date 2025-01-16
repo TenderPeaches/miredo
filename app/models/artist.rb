@@ -7,6 +7,8 @@ class Artist < ApplicationRecord
 
     validates :name, presence: true
 
+    accepts_nested_attributes_for :artist_links
+
     def self.for_select
         Artist.order(name: :asc)
     end

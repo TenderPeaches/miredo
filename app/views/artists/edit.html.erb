@@ -1,0 +1,23 @@
+<%= tag.h1 t("actions.edit", thing: @artist.name) %>
+
+<%= model_form_for @artist do |form| %>
+    <%= form.field :name %>
+
+    <%= tag.h2 Song.model_name.human.pluralize %>
+
+    <%= tag.div class: "artist-songs table" do %>
+        <% @artist.songs.order(name: :asc).each do |song| %>
+            <%= tag.div class: "table-row" do %>
+                <%= link_to song.name, edit_song_path(song) %>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <%= tag.h2 t("keywords.link").pluralize %>
+
+    <% @link_types.each do |link_type| %>
+        <%= form.field :artist_links, label: link_type.label, input_html: { id: "artist-links-#{link_type.label.gsub(/\s+/, "").kebabcase}", name: "artist[artist_links][#{link_type.id}]", value: @artist.artist_links.where(song_link_type: link_type).first&.url } %>
+    <% end %>
+
+    <%= form.submit %>
+<% end %>

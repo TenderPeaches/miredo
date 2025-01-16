@@ -9,7 +9,11 @@
         <%= link_to "#{song.name}", song_path(song.id) %>
     <% end %>
     <%= tag.span class: "songs-list__artist" do %>
-        <%= "#{song.artist}" %>
+        <% if current_user&.is_admin%>
+            <%= link_to song.artist, edit_artist_path(song.artists.first) %>
+        <% else %>
+            <%= "#{song.artist}" %>
+        <% end %>
     <% end %>
     <%# if a short_row local parameter was assigned, the row is expected to show less data than usual %>
     <% if local_assigns[:short_row] %>

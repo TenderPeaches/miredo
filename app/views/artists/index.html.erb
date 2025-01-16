@@ -1,0 +1,10 @@
+<%= tag.div class: "artists table" do %>
+    <% @artists.each do |artist|%>
+        <%= tag.div class: "table-row" do %>
+            <%= tag.div do %>
+                <%= link_to artist.name, edit_artist_path(artist) %>
+            <% end %>
+            <%= artist_links(artist) %>
+        <% end %>
+    <% end %>
+<% end %>

@@ -64,6 +64,9 @@ Rails.application.routes.draw do
 
     resources :subscriptions, only: [ :new, :destroy ]
 
+    resources :artists, only: [ :index, :edit, :update ]
+    resources :artist_links, only: [ :new, :create, :edit, :update, :destroy ]
+
     # webhooks are always POST request, so only need create action
     resources :webhooks, only: [:create]
 

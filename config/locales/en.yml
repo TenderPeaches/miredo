@@ -27,6 +27,7 @@ en:
     proceed: "Proceed"
     checkout: "Checkout"
     help: "Help"
+    link: "Link"
   actions:
     new: "New %{thing}"
     add: "Add %{thing}"
