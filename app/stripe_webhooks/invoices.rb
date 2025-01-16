@@ -15,8 +15,9 @@ module Webhooks
 			# ensure the subscription has been acivated from Stripe's end
 			subscription = Stripe::Subscription.retrieve(@invoice.subscription)
 			if subscription.status.to_sym == :active
-				# update the user to activate the features
-				user.update(is_contributor: true, stripe_subscription_id: subscription.id, subscribed_until: subscription.current_period_end, subscription_active: true)
+
+				# update the user's model subscription info to activate the features and keep track of the subscription data without querying the Stripe API every time
+				user.update(is_contributor: true, stripe_subscription_id: subscription.id, subscribed_until: Time.at(subscription.current_period_end), subscription_active: true)
 			end
 		end
 	end

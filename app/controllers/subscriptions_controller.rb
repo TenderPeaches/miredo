@@ -16,7 +16,7 @@ class SubscriptionsController < ApplicationController
     end
 
     def destroy
-        @user = User.find_by_id(params[:user_id])
+        @user = User.find_by_id(params[:id])
 
         # ensure the subscription is being cancelled by the user currently logged in, and the current user has a stripe_customer_id (otherwise it's assumed impossible for said user to be subscribed, as having that ID is a required part of the process)
         if current_user == @user && current_user.stripe_customer_id

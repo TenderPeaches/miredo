@@ -7,4 +7,6 @@
     <%= link_to t('cta.edit_song_structure'), song_progressions_path(song), title: t('instructions.edit_song_structure') %>
     <%# "view song" button %>
     <%= link_to t('cta.view_song'), song_path(song) %>
+    <%# help %>
+    <%= link_to t("keywords.help"), progression_template_references_path %>
 <% end %>
