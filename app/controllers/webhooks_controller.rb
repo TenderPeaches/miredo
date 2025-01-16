@@ -24,7 +24,9 @@ class WebhooksController < ApplicationController
 		debugger
 		case event.type
 		when "invoice.paid"
-			Webhooks::Invoice.new(event).paid
+			Webhooks::Invoices.new(event).paid
+		when "customer.subscription.deleted"
+			Webhooks::Subscriptions.new(event).deleted
 		end
 
 		# handle the event

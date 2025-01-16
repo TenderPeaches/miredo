@@ -62,7 +62,7 @@ Rails.application.routes.draw do
 
     resources :header_links, only: [ :index ]
 
-    resources :subscriptions
+    resources :subscriptions, only: [ :new, :destroy ]
 
     # webhooks are always POST request, so only need create action
     resources :webhooks, only: [:create]

@@ -16,7 +16,7 @@ module Webhooks
 			subscription = Stripe::Subscription.retrieve(@invoice.subscription)
 			if subscription.status.to_sym == :active
 				# update the user to activate the features
-				user.update(is_contributor: true)
+				user.update(is_contributor: true, stripe_subscription_id: subscription.id, subscribed_until: subscription.current_period_end, subscription_active: true)
 			end
 		end
 	end

@@ -35,8 +35,6 @@ header.pulled {
     transform: translateY(-100%) translateY(55px);
 }
 
-/*todo USE THIS: translateY(-100%) translateY(60px) instead of these stupid classes */
-
 header.pulled .header-links {
     padding-bottom: calc(2 * var(--size-xxl));
 }
