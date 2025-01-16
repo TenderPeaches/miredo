@@ -2,11 +2,4 @@
     --transition-s: 0.25s;          /* short transition */
     --transition-m: 0.5s;           /* medium transition */
     --transition-l: 0.8s;           /* long transition */
-
-    --header-slide-mobile: -165px;       /* space on which the header rolls out of */
-    --header-slide-desktop: -140px;      
-    --header-slide-mobile-logged-in: -250px;
-    --header-slide-desktop-logged-in: -245px;
-    --header-slide-mobile-logged-in-pro: -282px;
-    --header-slide-desktop-logged-in-pro: -275px;
 }

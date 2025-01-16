@@ -1,5 +1,5 @@
 <%# session should be storing a boolean indicating whether or not the user expects to see the header links; if they are not to be seen, then the header is "pulled" out of frame %>
-<%= tag.header class: "#{session[:show_header_links] ? "" : "pulled"} #{header_class(current_user)}" do %>
+<%= tag.header class: "#{session[:show_header_links] ? "" : "pulled"}" do %>
     <%= tag.nav id: "header-links", class: "header-links" do %>
         <%= render "layouts/header_links" %>
     <% end %>

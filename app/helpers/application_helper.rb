@@ -152,18 +152,6 @@ module ApplicationHelper
         end
     end
 
-    def header_class(user)
-        if user
-            if user.is_contributor
-                "logged-in-pro"
-            else
-                "logged-in"
-            end
-        else
-            ""
-        end
-    end
-
     private
     def print_pages(page_count, current_page, path)
         html_output = []

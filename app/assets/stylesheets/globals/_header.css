@@ -29,20 +29,13 @@ header, header.pulled {
     transition: transform linear var(--transition-s), margin linear var(--transition-s);
 } 
 
+/* when the header is "pulled" off the screen */
 header.pulled {
-    margin-bottom: var(--header-slide-mobile);
-    transform: translateY(var(--header-slide-mobile));
+    /* move it out of the way by 100% of its width, then back into view for whatever size is enough to show the control that triggers it back to view */
+    transform: translateY(-100%) translateY(55px);
 }
 
-header.pulled.logged-in {
-    margin-bottom: var(--header-slide-mobile-logged-in);
-    transform: translateY(var(--header-slide-mobile-logged-in));
-}
-
-header.pulled.logged-in-pro {
-    margin-bottom: var(--header-slide-mobile-logged-in-pro);
-    transform: translateY(var(--header-slide-mobile-logged-in-pro));
-}
+/*todo USE THIS: translateY(-100%) translateY(60px) instead of these stupid classes */
 
 header.pulled .header-links {
     padding-bottom: calc(2 * var(--size-xxl));
@@ -96,19 +89,7 @@ header.pulled .header-links-toggle {
 
 
     header.pulled {
-        margin-bottom: var(--header-slide-desktop);
-        transform: translateY(var(--header-slide-desktop));
         align-items: center;                /* horizontally center items */
-    }
-
-    header.pulled.logged-in {
-        margin-bottom: var(--header-slide-desktop-logged-in);
-        transform: translateY(var(--header-slide-desktop-logged-in));
-    }
-
-    header.pulled.logged-in-pro {
-        margin-bottom: var(--header-slide-desktop-logged-in-pro);
-        transform: translateY(var(--header-slide-desktop-logged-in-pro));
     }
 
     header.pulled .header-links {
