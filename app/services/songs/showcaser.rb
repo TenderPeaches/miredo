@@ -20,19 +20,20 @@ module Songs
         # when the user is logged in
         def showcase_logged_in
             # show songs the user might want to practice because they forgot
-            forgotten_songs = Showcase.new(I18n.t('content.songs.forgotten'), Song.filter_by_forgotten(@user))
+            forgotten_songs = Showcase.new(I18n.t('content.songs.forgotten'), Song.filter_by_forgotten(@user), :forgotten)
             # show songs the user has been practicing a lot lately
-            hot_songs = Showcase.new(I18n.t('content.songs.hot'), Song.filter_by_hot(@user))
+            hot_songs = Showcase.new(I18n.t('content.songs.hot'), Song.filter_by_hot(@user), :hot)
             # show songs the user is supposed to know by heart but might not have practiced in a while
-            rusty_songs = Showcase.new(I18n.t('content.songs.old_heart'), Song.filter_by_old_heart(@user))
+            old_heart_songs = Showcase.new(I18n.t('content.songs.old_heart'), Song.filter_by_old_heart(@user), :old_heart)
 
-            Result.new([forgotten_songs, hot_songs, rusty_songs])
+            Result.new([forgotten_songs, hot_songs, old_heart_songs])
         end
 
         class Showcase
-            attr_accessor :title, :songs
-            def initialize(title = "", songs = [])
+            attr_accessor :title, :songs, :category
+            def initialize(title = "", songs = [], category = :random)
                 @title = title
+                @category = category
                 @songs = songs
             end
         end

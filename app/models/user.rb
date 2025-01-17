@@ -25,4 +25,16 @@ class User < ApplicationRecord
             Instrument.default
         end
     end
+
+    def hot_plays_setting
+        user_setting&.hot_plays_threshold || UserSetting::Default::HOT_PLAYS
+    end
+
+    def hot_days_setting
+        user_setting&.hot_timelapse || UserSetting::Default::HOT_DAYS
+    end
+
+    def old_heart_days_setting
+        user_setting&.old_heart_threshold || UserSetting::Default::OLD_HEART_DAYS
+    end
 end

@@ -167,8 +167,8 @@ class Song < ApplicationRecord
     # songs that user has played a lot recently
     def hot?(user)
         user = get_user_if_id(user)
-        threshold = user.user_setting&.hot_plays_threshold || 3
-        timelapse = user.user_setting&.hot_timelapse || 7
+        threshold = user.hot_plays_setting
+        timelapse = user.hot_days_setting
         # "a lot" is 3+ times in the past week
         #todo make this a setting
         song_plays.where(user: user, played_at: timelapse.days.ago..Time.now).count >= threshold
@@ -177,7 +177,7 @@ class Song < ApplicationRecord
     # songs that the user last played by heart, but hasn't played in a while
     def old_heart?(user)
         user = get_user_if_id(user)
-        threshold = user.user_setting&.old_heart_threshold || 60
+        threshold = user.hot_days_setting
         #todo make this a setting
         # wrap in if in case never played, then would be nil
         if last_play = last_user_play(user)

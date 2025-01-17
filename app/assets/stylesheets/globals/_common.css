@@ -197,6 +197,11 @@ input[type="submit"]:active {
     color: var(--color-primary-light);
 }
 
+/* text that appears when a list of items is expected, but is empty in this particular case */
+.empty-list-text {
+    font-style: italic;
+}
+
 /* screen-size dependent considerations */
 /* for large screens */
 @media screen and (min-width: 720px) {

@@ -8,6 +8,7 @@
 * Admin: added Artists, Artist Links form
 * Progressions may now exist without being linked to a template
 * Progression templates can now be deleted even if associated with existing progressions, in such cases the progressions are not linked to any template
+* When logged in, song showcases appear even if empty, in which case they appear with a text indicating the requirement for songs to appear in the given showcase
 
 ## v1.0.3.2
 

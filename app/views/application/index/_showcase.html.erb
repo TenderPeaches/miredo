@@ -1,12 +1,20 @@
-<%= tag.section class: "showcase" do %>
+<%= tag.section class: "showcases" do %>
     <% songs.showcases.each do |showcase| %>
-        <% if showcase.songs.any? %>
-            <%= tag.fieldset do %>
-                <%= tag.legend showcase.title %>
+        <%= tag.fieldset class: "showcase" do %>
+            <%= tag.legend showcase.title %>
+            <% if showcase.songs.any? %>
                 <%= tag.div class: "songs-list" do %>
                     <% showcase.songs.each do |song| %>
                         <%= render song, short_row: true %>
                     <% end %>
+                <% end %>
+            <% else %>
+                <% if showcase.category == :forgotten %>
+                    <%= tag.div t("content.home_page.no_forgotten_songs"), class: "empty-list-text" %>
+                <% elsif showcase.category == :hot %>
+                    <%= tag.div t("content.home_page.no_hot_songs", times: current_user&.hot_plays_setting, days: current_user&.hot_days_setting), class: "empty-list-text" %>
+                <% elsif showcase.category == :old_heart %>
+                    <%= tag.div t("content.home_page.no_old_heart_songs", days: current_user&.old_heart_days_setting), class: "empty-list-text" %>
                 <% end %>
             <% end %>
         <% end %>
