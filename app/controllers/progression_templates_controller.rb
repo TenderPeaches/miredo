@@ -89,7 +89,7 @@ class ProgressionTemplatesController < ApplicationController
             @progression_template.progressions.each do |progression|
                 progression.update(progression_template: nil)
             end
-            debugger
+
             @progression_template.destroy
         end
     end

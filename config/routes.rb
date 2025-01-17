@@ -62,7 +62,7 @@ Rails.application.routes.draw do
 
     resources :header_links, only: [ :index ]
 
-    resources :subscriptions, only: [ :new, :destroy ]
+    resources :subscriptions, only: [ :new, :destroy, :update ]
 
     resources :artists, only: [ :index, :edit, :update ]
     resources :artist_links, only: [ :new, :create, :edit, :update, :destroy ]

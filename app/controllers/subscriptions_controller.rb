@@ -15,6 +15,18 @@ class SubscriptionsController < ApplicationController
         end
     end
 
+    def update
+        @user = User.find_by_id(params[:id])
+
+        # only valid for the current user and if that user has a subscription on file, which is assumed to be inactive and meant to be activated as for now there is no other use case
+        if current_user == @user && current_user.stripe_subscription_id
+            # renew the stripe subscription, keeping the same payment info on file
+            @subscription = Stripe::Subscription.update(current_user.stripe_subscription_id, cancel_at_period_end: false)
+            # update the user's subscription data accordingly
+            current_user.update(subscription_active: true)
+        end
+    end
+
     def destroy
         @user = User.find_by_id(params[:id])
 

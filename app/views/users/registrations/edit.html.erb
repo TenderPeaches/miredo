@@ -1,17 +1,6 @@
-<%= tag.h1 t("content.my_account.title") %>
+<%= tag.h1 t("cta.my_account") %>
 
-<%# contributors that aren't admin are assumed to be subscribed to a premium plan, which they can cancel from here %>
-<% if current_user.is_contributor && !current_user.is_admin %>
-    <%= tag.div class: "notice" do %>
-        <% if current_user.subscription_active %>
-            <%= tag.div t("content.my_account.subscription_active", date: current_user.subscribed_until) %>
-            <%= turbo_link_to t("content.my_account.cancel_subscription"), subscription_path(id: current_user.id), method: :delete, confirm: t("content.my_account.cancel_subscription_confirm") %>
-        <% else %>
-            <%= tag.div t("content.my_account.subscription_inactive", date: current_user.subscribed_until) %>
-            <%= link_button_to t("keywords.proceed"), new_subscription_path(checkout: :true) %>
-        <% end %>
-    <% end %>
-<% end %>
+<%= render "subscription" %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form" }) do |form| %>
     <%= render "users/shared/error_messages", resource: resource %>

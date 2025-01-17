@@ -1,0 +1,21 @@
+
+<%# contributors that aren't admin are assumed to be subscribed to a premium plan, which they can cancel from here; admins are premium by default %>
+<% if current_user.is_contributor && !current_user.is_admin %>
+    <%= tag.div class: "notice", id: "user-subscription" do %>
+        <%# active subscription implies it's due to be renewed at the end of the current billing period%>
+        <% if current_user.subscription_active %>
+            <%# show how long the subscription is active for %>
+            <%= tag.div t("content.my_account.subscription_active", date: current_user.subscribed_until) %>
+            <%# cancel subscription link %>
+            <%= turbo_link_to t("content.my_account.cancel_subscription"), subscription_path(id: current_user.id), method: :delete, confirm: t("content.my_account.cancel_subscription_confirm") %>
+        <%# otherwise, if the user's subscription is inactive but they are still flagged as a contributor, it means their billing period has not yet expired from their last payment %>
+        <% elsif !current_user.subscription_active && current_user.is_contributor %>
+            <%= tag.div t("content.my_account.subscription_inactive", date: current_user.subscribed_until) %>
+            <%= turbo_link_button t("cta.resubscribe"), subscription_path(current_user.id), method: :patch, class: "button--accent" %>
+        <%# otherwise, the user's subscription is inactive and they are not flagged as a contributor %>
+        <% else %>
+            <%= tag.div t("content.my_account.not_subscribed") %>
+            <%= turbo_link_button t("keywords.subscribe"), new_subscription_path(checkout: :true), class: "button--accent" %>
+        <% end %>
+    <% end %>
+<% end %>

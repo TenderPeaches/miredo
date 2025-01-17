@@ -21,7 +21,6 @@ class WebhooksController < ApplicationController
 			return
 		end
 
-		debugger
 		case event.type
 		when "invoice.paid"
 			Webhooks::Invoices.new(event).paid
