@@ -2,10 +2,12 @@
 
 ## Early Access
 
-## v1.1.0.1
+## v1.1.0.0
 
 * Stripe implementation: Busking subscription plan, which grant access to the Setlists and New Song features
 * Admin: added Artists, Artist Links form
+* Progressions may now exist without being linked to a template
+* Progression templates can now be deleted even if associated with existing progressions, in such cases the progressions are not linked to any template
 
 ## v1.0.3.2
 

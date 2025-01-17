@@ -12,3 +12,10 @@ ArtistLink.create(song_link_type: link_type__spotify, artist: Artist.find_by_nam
 ArtistLink.create(song_link_type: link_type__amazon, artist: Artist.find_by_name("Apes of the State"), url: "https://www.amazon.com/s?k=Apes+of+the+State&i=digital-music&search-type=ss&ref=ntt_srch_drd_B01CXYVFQI")
 ArtistLink.create(song_link_type: link_type__apple, artist: Artist.find_by_name("Apes of the State"), url: "https://music.apple.com/us/artist/apes-of-the-state/1093028135")
 ArtistLink.create(song_link_type: link_type__google, artist: Artist.find_by_name("Apes of the State"), url: "https://play.google.com/store/music/artist?id=Ad6gleo4upqbyfdk2bsf45xdcji")
+
+ArtistLink.create(song_link_type: link_type__website, artist: Artist.find_by_name("AJJ"), url: "https://ajjtheband.bandcamp.com/")
+ArtistLink.create(song_link_type: link_type__bandcamp, artist: Artist.find_by_name("AJJ"), url: "https://ajjtheband.bandcamp.com/")
+ArtistLink.create(song_link_type: link_type__spotify, artist: Artist.find_by_name("AJJ"), url: "https://open.spotify.com/artist/4IDpDJIDfK96HMLD4Tphyl?si=WgvXO5SwSq-RT-e631RKhQ")
+ArtistLink.create(song_link_type: link_type__amazon, artist: Artist.find_by_name("AJJ"), url: "https://music.amazon.com/artists/B01BWPWP4A")
+ArtistLink.create(song_link_type: link_type__apple, artist: Artist.find_by_name("AJJ"), url: "https://music.apple.com/us/artist/ajj/265075519")
+ArtistLink.create(song_link_type: link_type__youtube, artist: Artist.find_by_name("AJJ"), url: "https://youtube.com/ajjtheband")

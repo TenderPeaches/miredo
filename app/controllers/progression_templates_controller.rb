@@ -85,6 +85,11 @@ class ProgressionTemplatesController < ApplicationController
 
         # ensure user is allowed to edit song before destroying the progression template
         if @progression_template.song.can_edit? current_user
+            # disassociate any progressions using this template
+            @progression_template.progressions.each do |progression|
+                progression.update(progression_template: nil)
+            end
+            debugger
             @progression_template.destroy
         end
     end
