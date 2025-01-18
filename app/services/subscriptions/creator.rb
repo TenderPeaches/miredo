@@ -11,7 +11,7 @@ module Subscriptions
             create_stripe_customer if @user.stripe_customer_id.nil?
 
             # single product for now, keep it simple
-            product = Stripe::Product.retrieve("prod_RZPcMd7DgbHF6Z")
+            product = Stripe::Product.retrieve("prod_RbxHbJ9bFqmwO4")
             price = Stripe::Price.retrieve(product.default_price)
 
             # create a checkout session
