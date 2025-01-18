@@ -3,7 +3,7 @@ module Songs
         # @user is the user to whom this list applies, presumably the user currently logged in
         # @current_options is a hash containing the current "sort_options" and "filter_options"
         # @songs is the list of songs from which this list is compiled, presumably all the songs stored on the website
-        def initialize(user = nil, current_options = {}, songs: Song.includes(:song_plays, :song_contributions, :artists), page_size: Song.page_size, expected_page: 1)
+        def initialize(user = nil, current_options = {}, songs: Song.includes(:song_contributions, :artists), page_size: Song.page_size, expected_page: 1)
             @user = user
             @songs = songs
             @page_size = page_size
