@@ -22,7 +22,8 @@ module Subscriptions
                 line_items: [{
                     quantity: 1,            # single subscription
                     price: price.id
-                }]
+                }],
+                customer: @user.stripe_customer_id
             })
 
             CheckoutResult.new(checkout_session)

@@ -17,7 +17,7 @@ class WebhooksController < ApplicationController
 			)
 		rescue JSON::ParserError => e
 			# invalid payload
-			status 400
+			head 400
 			return
 		end
 
@@ -28,9 +28,8 @@ class WebhooksController < ApplicationController
 			Webhooks::Subscriptions.new(event).deleted
 		end
 
-		# handle the event
-
-		status 200
+		# return 200 response to Stripe server
+		head 200
 	end
 
 	private
