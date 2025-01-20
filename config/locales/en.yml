@@ -58,6 +58,7 @@ en:
     song_added: "\"%{song}\" has been created and added to the database."
     song_added_thanks: "Thank you for contributing to Miredo's public songbook!"
     song_added_privacy: "Flag the song as public if you want everyone to be able to play along."
+    inquiry_sent: "Message sent, we'll get back to you as soon as possible."
   cta:
     log_in: "Log in"
     log_out: "Log out"

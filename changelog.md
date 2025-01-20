@@ -9,7 +9,8 @@
 * Progressions may now exist without being linked to a template
 * Progression templates can now be deleted even if associated with existing progressions, in such cases the progressions are not linked to any template
 * When logged in, song showcases appear even if empty, in which case they appear with a text indicating the requirement for songs to appear in the given showcase
-* Fix bug where the "New Song" header link is being shown to logged out users and users without access to the feature
+* Fix a bug where the "New Song" header link is being shown to logged out users and users without access to the feature
+* Fix a bug where the "Contact Us" email would throw an error and not send anything
 
 ## v1.0.3.2
 
