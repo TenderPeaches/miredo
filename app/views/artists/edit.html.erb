@@ -8,7 +8,7 @@
     <%= tag.div class: "artist-songs table" do %>
         <% @artist.songs.order(name: :asc).each do |song| %>
             <%= tag.div class: "table-row" do %>
-                <%= link_to song.name, edit_song_path(song) %>
+                <%= link_to song.name, song_path(song) %>
             <% end %>
         <% end %>
     <% end %>
