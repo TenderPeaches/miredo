@@ -6,6 +6,6 @@ class ContactMailer < ApplicationMailer
         @subject = params[:subject]
         @body = params[:body]
 
-        mail(to: Rails.configuration.admin_email, subject: @subject)
+        mail(to: Rails.configuration.inquiries_email, subject: @subject)
     end
 end
