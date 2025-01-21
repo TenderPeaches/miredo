@@ -177,8 +177,8 @@ class Song < ApplicationRecord
     # songs that the user last played by heart, but hasn't played in a while
     def old_heart?(user)
         user = get_user_if_id(user)
-        threshold = user.hot_days_setting
-        #todo make this a setting
+        threshold = user.old_heart_days_setting
+
         # wrap in if in case never played, then would be nil
         if last_play = last_user_play(user)
             # if last play was by heart and over a month ago
