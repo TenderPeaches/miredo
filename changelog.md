@@ -11,6 +11,7 @@
 * When logged in, song showcases appear even if empty, in which case they appear with a text indicating the requirement for songs to appear in the given showcase
 * Fix a bug where the "New Song" header link is being shown to logged out users and users without access to the feature
 * Fix a bug where the "Contact Us" email would throw an error and not send anything
+* Fix a bug where the artist links prompt would show up even if no links have been defined for said artist
 
 ## v1.0.3.2
 

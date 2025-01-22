@@ -422,7 +422,7 @@ class Song < ApplicationRecord
 
     def has_artist_links?
         artists.each do |artist|
-            if artist.artist_links
+            if artist.artist_links.any?
                 return true
             end
         end
