@@ -1,7 +1,14 @@
 <%= tag.section class: "showcases" do %>
     <% songs.showcases.each do |showcase| %>
         <%= tag.fieldset class: "showcase" do %>
-            <%= tag.legend showcase.title %>
+            <% if user_signed_in? %>
+                <%= tag.legend showcase.title %>
+            <% else %>
+                <%= tag.legend do %> 
+                    <%= tag.span showcase.title %>
+                    <%= link_to t("content.home_page.more_songs"), songs_path %>
+                <% end %>
+            <% end %>
             <% if showcase.songs.any? %>
                 <%= tag.div class: "songs-list" do %>
                     <% showcase.songs.each do |song| %>

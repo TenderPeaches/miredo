@@ -223,6 +223,7 @@ en:
       no_forgotten_songs: "Songs last practiced with helpers that you have previously played by heart would appear here, if there were any."
       no_hot_songs: "Songs that you have played at least %{times} times in the past %{days} days would appear here, if there were any."
       no_old_heart_songs: "Songs that you have last played by heart but last practiced over %{days} days ago would appear here, if there were any."
+      more_songs: "... more"
     tips:
       browser_full_screen: "Need a bit more space? Press F11 (or fn+F11 on a laptop) to enter full screen. Press it again to return to normal."
       browser_zoom: "Need even more space? Zoom out by pressing `Ctrl` and `-` at the same time. Zoom back in with `Ctrl` and `+`. If using a mouse, you can use the mouse wheel while holding `Ctrl` to zoom."
