@@ -169,7 +169,7 @@ ActiveRecord::Schema[7.1].define(version: 66) do
 
   create_table "progressions", force: :cascade do |t|
     t.integer "song_id", null: false
-    t.integer "progression_template_id", null: false
+    t.integer "progression_template_id"
     t.integer "sequence", null: false
     t.integer "reps", default: 1
     t.integer "key_id"
@@ -206,9 +206,9 @@ ActiveRecord::Schema[7.1].define(version: 66) do
   create_table "setlist_songs", force: :cascade do |t|
     t.integer "setlist_id", null: false
     t.integer "song_id", null: false
+    t.integer "sequence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sequence"
     t.index ["setlist_id"], name: "index_setlist_songs_on_setlist_id"
     t.index ["song_id"], name: "index_setlist_songs_on_song_id"
   end
@@ -343,6 +343,7 @@ ActiveRecord::Schema[7.1].define(version: 66) do
 
   create_table "users", force: :cascade do |t|
     t.boolean "is_admin", default: false, null: false
+    t.boolean "is_contributor", default: false, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "username", default: "", null: false
@@ -359,8 +360,10 @@ ActiveRecord::Schema[7.1].define(version: 66) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_contributor", default: false, null: false
     t.string "stripe_customer_id"
+    t.string "stripe_subscription_id"
+    t.datetime "subscribed_until"
+    t.boolean "subscription_active"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -377,22 +380,24 @@ ActiveRecord::Schema[7.1].define(version: 66) do
   add_foreign_key "pitches", "pitch_standards"
   add_foreign_key "progression_chords", "chords"
   add_foreign_key "progression_chords", "progression_templates"
-  add_foreign_key "progression_templates", "songs", on_update: :cascade
-  add_foreign_key "progression_templates", "songs", on_update: :cascade
-  add_foreign_key "progressions", "progression_templates"
-  add_foreign_key "progressions", "songs", on_update: :cascade
+  add_foreign_key "progression_templates", "keys", on_update: :cascade, on_delete: :nullify
+  add_foreign_key "progression_templates", "scales", on_update: :cascade, on_delete: :nullify
+  add_foreign_key "progression_templates", "songs", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "progressions", "keys", on_update: :cascade, on_delete: :nullify
+  add_foreign_key "progressions", "progression_templates", on_update: :cascade, on_delete: :nullify
+  add_foreign_key "progressions", "scales", on_update: :cascade, on_delete: :nullify
+  add_foreign_key "progressions", "songs", on_update: :cascade, on_delete: :cascade
   add_foreign_key "scale_intervals", "interval_qualities"
   add_foreign_key "scale_intervals", "intervals"
   add_foreign_key "scale_intervals", "scales"
   add_foreign_key "setlist_songs", "setlists"
   add_foreign_key "setlist_songs", "songs"
   add_foreign_key "setlists", "users"
-  add_foreign_key "song_contributions", "artists", on_update: :cascade
-  add_foreign_key "song_contributions", "songs", on_update: :cascade
-  add_foreign_key "song_contributions", "songs", on_update: :cascade
+  add_foreign_key "song_contributions", "artists", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "song_contributions", "songs", on_update: :cascade, on_delete: :cascade
   add_foreign_key "song_links", "song_link_types"
   add_foreign_key "song_links", "songs"
-  add_foreign_key "song_plays", "songs", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "song_plays", "songs"
   add_foreign_key "song_plays", "users"
   add_foreign_key "songs", "users", column: "submitter_id"
   add_foreign_key "tuning_pitches", "pitches"

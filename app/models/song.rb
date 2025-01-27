@@ -373,8 +373,10 @@ class Song < ApplicationRecord
 
     # pick a song (id) at random
     def self.random_id(user_id = 0)
-        # the song must be either public or submitted by the user making the request
-        Song.where(is_public: true).or(Song.where(submitter_id: user_id)).order("RANDOM()").limit(1).first.id
+        if Song.any?
+            # the song must be either public or submitted by the user making the request
+            Song.where(is_public: true).or(Song.where(submitter_id: user_id)).order("RANDOM()").limit(1).first.id
+        end
     end
 
     def self.random_id_of_capo(capo)
