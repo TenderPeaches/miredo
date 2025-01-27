@@ -2,7 +2,7 @@
 <%= tag.div class: "chords" do %>
     <% chords.each do |chord| %>
         <%= tag.div class: "chord" do %>
-            <%= tag.span class: "cypher" do %>
+            <%= tag.span class: "cypher #{degree_class chord[:progression_chord].degree}" do %>
                 <%= chord[:cypher] %>
             <% end %>
             <%= tag.span class: "notes" do %>

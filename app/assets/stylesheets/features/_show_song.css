@@ -72,7 +72,6 @@
 .helpers .chords .chord .cypher {
    font-size: var(--font-size-l);
    font-weight: bold;
-   color: var(--color-secondary-lightest);
 }
 
 .helpers .chords .chord .cypher::after {
