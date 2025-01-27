@@ -14,8 +14,11 @@ module Instruments
         # @scale => Scale_FK, scale used for the display
         # @key => Key_FK, key used for the display
         def view(instrument_view_params = {})
+
+            # find the tuning for the given instrument
             params_tuning = Tuning.includes(:instrument).find_by_id(instrument_view_params[:tuning_id])
             @tuning = if params_tuning.nil? || params_tuning.instrument != @instrument then @instrument.default_tuning else params_tuning end
+
             @fret_count = instrument_view_params[:fret_count]
             @capo = instrument_view_params[:capo]
 
@@ -31,16 +34,18 @@ module Instruments
                 @key = instrument_view_params[:key] || Key.default
                 key_with_capo = @key.shift(@capo * -1)
 
+                capo_relative_pitches = instrument_view_params[:capo_relative_pitches] || false
+
                 @display_key = if @instrument.uses_capo then
                     key_with_capo
                 else
                     @key
                 end
 
-                @pitch_ids = @scale.chords_from_key(@display_key).map {|p| p[:pitch_class_id] }
+                @pitch_ids = @scale.chords_from_key(capo_relative_pitches ? key_with_capo : @display_key).map {|p| p[:pitch_class_id] }
             end
 
-            InstrumentView.new(@instrument, @tuning, @fret_count, @pitch_ids, @capo)
+            InstrumentView.new(@instrument, @tuning, @fret_count, @pitch_ids, @capo, capo_relative_pitches)
         end
 
 
@@ -48,12 +53,14 @@ module Instruments
 
         class InstrumentView
             attr_reader :tuning, :fret_count, :pitch_ids, :instrument, :capo
-            def initialize(instrument, tuning, fret_count, pitch_ids, capo)
+            attr_accessor :capo_relative_pitches
+            def initialize(instrument, tuning, fret_count, pitch_ids, capo, capo_relative_pitches)
                 @instrument = instrument
                 @tuning = tuning
                 @fret_count = fret_count
                 @pitch_ids = pitch_ids
                 @capo = capo
+                @capo_relative_pitches = capo_relative_pitches
             end
         end
     end

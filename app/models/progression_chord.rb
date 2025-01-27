@@ -108,8 +108,8 @@ class ProgressionChord < ApplicationRecord
     end
   end
 
-  def root_note_in_progression(progression)
-    root_note_by_keyscale(progression.effective_key, progression.effective_scale)
+  def root_note_in_progression(progression, shift = 0)
+    root_note_by_keyscale(progression.effective_key(shift), progression.effective_scale)
   end
 
   def root_note_by_keyscale(key = Key.default, scale = Scale.default)

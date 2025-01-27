@@ -387,19 +387,20 @@ class Song < ApplicationRecord
         self.progressions.order(sequence: :asc)
     end
     # List of all the distinct chords that are included in this song's progressions
-    def distinct_chords
+    def distinct_chords(shift = 0)
 
         chords = []
         #% need a list of each chord, including those that might be of progressions with a different key than the key's default song
         self.ordered_progressions.each do |progression|
             #% check all of the progression's template's chords
             progression.progression_template.ordered_chords.each do |progression_chord|
-                cypher = ProgressionChords::Interpreter.new(progression.effective_key, progression.effective_scale).to_cypher(progression_chord, print_duration: false).cypher
+                cypher = ProgressionChords::Interpreter.new(progression.effective_key(shift), progression.effective_scale).to_cypher(progression_chord, print_duration: false).cypher
                 #% see if the chord, paired with the given key (either from progression, progression_template or song), already exists in the list
                 unless chords.any? { |chord| chord[:cypher] == cypher }
                     chords << {
                         cypher: cypher,
-                        notes: progression_chord.chord.notes(progression_chord.root_note_in_progression(progression))
+                        notes: progression_chord.chord.notes(progression_chord.root_note_in_progression(progression, shift)),
+                        progression_chord: progression_chord
                     }
                 end
             end

@@ -46,10 +46,11 @@ class SongsController < ApplicationController
                     fret_count: 12, # default to 12 to see full scale
                     capo: @capo,
                     scale: @scale,
-                    key: @key
+                    key: @key,
+                    capo_relative_pitches: true
                 })
 
-                @chords = @song.distinct_chords
+                @chords = @song.distinct_chords(@capo * -1)
             end
         else
             redirect_to new_user_session_path

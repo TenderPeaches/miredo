@@ -1,6 +1,6 @@
 <%= tag.div class: "string" do %>
 <%# +1 for the open string, since any n frets will always have an open string which should be treated like a fret as it produces a note %>
     <% (instrument_view.fret_count + 1).times do |fret| %>
-        <%= fretted_instrument_fret open_pitch, fret, instrument_view.capo, instrument_view.pitch_ids %>
+        <%= fretted_instrument_fret open_pitch, fret, instrument_view.capo_relative_pitches ? 0 : instrument_view.capo, instrument_view.pitch_ids %>
     <% end %>
 <% end %>
