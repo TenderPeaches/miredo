@@ -2,6 +2,7 @@
     <%= tag.h3 t('content.songs.chords') %>
     <%= tag.div class: "chords" do %>
         <% chords.each do |chord| %>
+            <%#todo could do a form with hidden fields for the instrument view data, and each chord a submit button that resubmits the instrumentviewer with the proper pitches higlighted, + a reset button %>
             <%= tag.div class: "chord" do %>
                 <%= tag.span class: "cypher #{degree_class chord[:progression_chord].degree}" do %>
                     <%= chord[:cypher] %>

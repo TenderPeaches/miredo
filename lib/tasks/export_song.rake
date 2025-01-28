@@ -19,7 +19,7 @@ namespace :song do
     end
 
     task :export_plays, [:user_id] => [:environment] do |task, args|
-        File.open("db/exports/song_plays_for_user_#{args[:user_id]}.rb", "w") do |file|
+        File.open("db/exports/song_plays_for_user_#{args[:user_id]}.rb", "w+") do |file|
 
             SongPlay.where(user_id: args[:user_id]).each do |song_play|
                 file.puts "SongPlay.create(song_id: #{song_play.song_id}, user_id: #{args[:user_id]}, played_at: #{song_play.played_at ? "'#{song_play.played_at.strftime("%D %T %Z")}'" : 'nil'}, by_heart: #{song_play.by_heart ? 'true' : 'false'})"
@@ -30,7 +30,7 @@ namespace :song do
     private
     def export_song(song)
 
-        File.open("db/exports/song_#{song.id}.rb", 'w') do |file|
+        File.open("db/exports/song_#{song.id}.rb", 'w+') do |file|
 
             excluded_keys = ['created_at', 'updated_at', 'id', 'progression_template_id', 'nb_practices', 'last_practiced']
 
