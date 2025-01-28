@@ -8,6 +8,10 @@
         <%= hidden_field_tag :capo, instrument_view.capo, id: "instrument-view-capo" %>
         <%= submit_tag t('keywords.apply') %>
         <%= hidden_field_tag :format, :turbo_stream %>
+        <%= tag.label class: "toggle" do %>
+            <%= check_box_tag :capo_relative_pitches %>
+            <%= tag.span class: "slider" %>
+        <% end %>
     <% end %>
     <%= tag.div id: "instrument-view", class: "instrument-view" do %>
         <%= instrument_print(instrument_view) %>

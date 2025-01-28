@@ -157,6 +157,12 @@ color: var(--color-degree-seventh-light);
    align-items: center;
 }
 
+.instruments form {
+   display: flex;
+   align-items: center;
+   gap: var(--size-m);
+}
+
 .instrument-view {
    transform: scale(75%);     /* scale down for mobile, check if new features are added */ /*! this will break as soon as # of frets is a setting */
 }
