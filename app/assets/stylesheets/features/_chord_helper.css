@@ -33,6 +33,11 @@
     color: var(--color-white);
     transform: var(--transition-s);
  }
+
+ .chords-helper .chords .chord.highlighted {
+    background-color: var(--color-primary-darker);
+    border-color: var(--color-primary-lighter);
+ }
  
  .chords-helper .chords .chord .cypher {
     font-size: var(--font-size-l);

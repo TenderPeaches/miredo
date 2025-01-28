@@ -14,6 +14,8 @@ class ChordHelpersController < ApplicationController
         @key = Key.find_by_id(params[:key])
         @scale = Scale.find_by_id(params[:scale])
 
+		@progression_chord_id = params[:progression_chord_id]
+
 		@instrument_view = Instruments::Viewer.new(@instrument).view({
             fret_count: params[:fret_count]&.to_i || 12,
             tuning_id: @instrument.default_tuning.id,
