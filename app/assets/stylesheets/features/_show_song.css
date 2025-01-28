@@ -48,36 +48,6 @@
    gap: var(--size-l);              /* each sub-element is its own self-contained feature, so add a sizable gap */
 }
 
-.helpers .chords {   
-   display: grid;                   /* might have lots of chords, display as a grid to maximize data density */
-   grid-template-columns: repeat(3, 1fr); /* split in 3 columns for smaller devices */
-   text-align: left;                /* align the start of each line */ 
-   border-width: var(--thick-border-width);     /* thick helper border */ 
-   border-style: var(--default-border-style);   /* default */
-   border-color: var(--color-primary);          /* helpers have colored borders */
-}
-
-.helpers .chords .chord {
-   display: flex;                   /* display in a line */
-   justify-content: space-between;  /* tuck the cypher to the left, notes to the right */
-   align-items: center;             /* vertically center along the row */
-   padding: var(--size-s);          /* buffer between each chord */
-   border-width: var(--thin-border-width);   /* default */
-   border-color: var(--color-primary);       /* helper color */
-   border-style: solid;                      /* default */
-   margin-left: -1px;               /* collapse borders */
-   margin-bottom: -1px;             /* collapse borders */
-}
-
-.helpers .chords .chord .cypher {
-   font-size: var(--font-size-l);
-   font-weight: bold;
-}
-
-.helpers .chords .chord .cypher::after {
-   content: "→"
-}
-
 .show-song .progression-tag {
    color: var(--color-secondary-white);
    margin: var(--size-xxs) var(--size-s);
@@ -217,6 +187,10 @@ color: var(--color-degree-seventh-light);
          grid-column: 1 / 4;
       }   
    }
+   
+   .helpers {
+      grid-column: 1 / 4;
+   }
 
    .show-song {
       columns: 2;             /* on pc, screen is large enough to accomodate content in two columns */ /*? should this be the case? with a scrolling feature, the lyrics will need to be in a single column */
@@ -224,14 +198,6 @@ color: var(--color-degree-seventh-light);
 
    .song-info {
       margin: var(--size-xl);          /* more external buffer on large screens */
-   }
-
-   .helpers {
-      grid-column: 1 / 4;
-   }
-
-   .helpers .chords {
-      grid-template-columns: repeat(5, 1fr);
    }
 
    .instrument-view {

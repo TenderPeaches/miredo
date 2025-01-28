@@ -1,9 +1,17 @@
-<%= tag.div id: "chords-helper" do %>
-    <%= tag.h3 t('content.songs.chords') %>
-    <%= tag.div class: "chords" do %>
+<%= tag.div id: "chords-helper", class: "chords-helper" do %>
+    <%= link_to t('content.songs.chords'), references_chords_path, class: "chords-helper-title", target: "_blank" %>
+    <%= form_tag chord_helpers_path, class: "chords" do %>
+        <%# store the instrumentView data, ideally there should be just a single InstrumentView form encompassing both the chords helper and the instrumentView, but for now this will do %>
+        <%= hidden_field_tag :instrument_id, instrument_view.instrument.id %>
+        <%= hidden_field_tag :tuning_id, instrument_view.tuning.id %>
+        <%= hidden_field_tag :fret_count, instrument_view.fret_count %>
+        <%= hidden_field_tag :capo, instrument_view.capo %>
+        <%= hidden_field_tag :key, key.id %>
+        <%= hidden_field_tag :scale, scale.id %>
+        <%= hidden_field_tag :song, song.id %>
+        <%= hidden_field_tag :capo_relative_pitches, instrument_view.capo_relative_pitches %>
         <% chords.each do |chord| %>
-            <%#todo could do a form with hidden fields for the instrument view data, and each chord a submit button that resubmits the instrumentviewer with the proper pitches higlighted, + a reset button %>
-            <%= tag.div class: "chord" do %>
+            <%= tag.div class: "button chord", data: { controller: "chord-helper", pitches: chord_helper_pitch_classes_dataset(chord[:notes]), progression_chord_id: chord[:progression_chord].id } do %>
                 <%= tag.span class: "cypher #{degree_class chord[:progression_chord].degree}" do %>
                     <%= chord[:cypher] %>
                 <% end %>
@@ -12,5 +20,6 @@
                 <% end %>
             <% end %>
         <% end %>
+        <%= submit_tag t("keywords.reset") %>
     <% end %>
 <% end %>

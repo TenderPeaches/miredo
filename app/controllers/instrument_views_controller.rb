@@ -29,13 +29,16 @@ class InstrumentViewsController < ApplicationController
             end
         end
 
+        @key = Key.find_by_id(params[:key])
+        @scale = Scale.find_by_id(params[:scale])
+
         @instrument_view = Instruments::Viewer.new(@instrument).view({
             fret_count: params[:fret_count]&.to_i || 12,
             tuning_id: @instrument.default_tuning.id,
             capo: @capo,
             capo_relative_pitches: capo_relative_pitches,
-            key: Key.find_by_id(params[:key]),
-            scale: Scale.find_by_id(params[:scale])
+            key: @key,
+            scale: @scale,
         })
     end
 end

@@ -5,6 +5,9 @@
 ## v1.1.0.0
 
 * Stripe implementation: Busking subscription plan, which grant access to the Setlists and New Song features
+* Add capo-relative pitches setting, which make it easier to reconcile the chords being played with the visual helpers, especially for beginners
+* Add chord highlighting feature to chords helper
+* Add link to chord composition reference from the chord helper
 * Admin: added Artists, Artist Links form
 * Progressions may now exist without being linked to a template
 * Progression templates can now be deleted even if associated with existing progressions, in such cases the progressions are not linked to any template

@@ -28,6 +28,7 @@ en:
     checkout: "Checkout"
     help: "Help"
     link: "Link"
+    reset: "Reset"
   actions:
     new: "New %{thing}"
     add: "Add %{thing}"
