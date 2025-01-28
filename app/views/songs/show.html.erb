@@ -24,7 +24,7 @@
         <%= tag.details do %>
             <%= tag.summary t("content.show_song.helpers") %>
             <%# the instrument's key & scale are defined at the controller level %>
-            <%= render "songs/show/instrument_view", instrument_view: @instrument_view %>
+            <%= render "songs/show/instrument_view", instrument_view: @instrument_view, key: @key, scale: @scale, song: @song %>
             <%# the chord helpers' key & scale are also defined at the controller level %>
             <%= render "songs/show/chords", chords: @chords %>
         <% end %>

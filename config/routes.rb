@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     resources :progression_template_references, only: [:index]
     resources :progression_references, only: [:index]
 
-    resources :instrument_views, only: [:create]
+    resources :instrument_views, only: [:create, :edit]
 
     resources :user_instruments
 

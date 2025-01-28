@@ -1,3 +1,9 @@
+/* over-arching container that might contain a label to indicate the purpose of the toggle */
+.toggle-switch {
+    display: flex;
+    align-items: center;
+}
+
 /* toggle container */
 .toggle {
     position: relative;             /* act as positional anchor */

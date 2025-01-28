@@ -156,6 +156,7 @@ en:
     copy_progression: "Create a new progression identical to this one."
     modify_progression: "Make sure you confirm your changes by clicking \"Update Progression\""
     add_to_setlist: "Add this song to one of your setlists"
+    capo_relative_pitches: "When turned on, pitches are shown relative to the capo so that the helpers match the relative chords being played. When turned off, pitches are shown in an absolute manner, so that the helpers show the actual notes being played. For beginners, it's recommended to keep this setting activated."
   music_theory:
     semitone: "Semitone"
     semitones_from_root: "Semitones from the root"
@@ -333,6 +334,7 @@ en:
       shift_key: "Shift key"
       helpers: "Helpers"
       support_artist: "Support your favorite artists"
+      capo_relative_pitches: "Show pitches relative to capo"
     setlists: 
       sequencing: "Sequencing"
     statistics:

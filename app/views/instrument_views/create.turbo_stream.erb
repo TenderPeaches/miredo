@@ -3,3 +3,10 @@
 <% end %>
 
 <%= turbo_stream.update_input "instrument-view-tuning", @instrument_view.tuning %>
+
+<%# update the chords as well, if the capo_relative_pitches setting was adjusted %>
+<% if @chords %>
+    <%= turbo_stream.replace "chords-helper" do %>
+        <%= render "songs/show/chords", chords: @chords %>
+    <% end %>
+<% end %>

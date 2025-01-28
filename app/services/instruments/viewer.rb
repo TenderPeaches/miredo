@@ -22,6 +22,8 @@ module Instruments
             @fret_count = instrument_view_params[:fret_count]
             @capo = instrument_view_params[:capo]
 
+            capo_relative_pitches = instrument_view_params[:capo_relative_pitches] || false
+
             if (instrument_view_params[:pitch_ids])
 
                 @pitch_ids = if instrument_view_params[:pitch_ids].is_a? String then
@@ -33,8 +35,6 @@ module Instruments
                 @scale = instrument_view_params[:scale] || Scale.default
                 @key = instrument_view_params[:key] || Key.default
                 key_with_capo = @key.shift(@capo * -1)
-
-                capo_relative_pitches = instrument_view_params[:capo_relative_pitches] || false
 
                 @display_key = if @instrument.uses_capo then
                     key_with_capo
