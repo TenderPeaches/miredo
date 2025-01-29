@@ -4,6 +4,13 @@
 
 <%= turbo_stream.update_input "instrument-view-tuning", @instrument_view.tuning %>
 
+<%= turbo_stream.replace "capo-relative-pitches-toggle" do %>
+    <%= tag.label class: "toggle", id: "capo-relative-pitches-toggle", data: { controller: "capo-relative-toggle", url: instrument_views_path, instrument_id: @instrument_view.instrument.id, fret_count: @instrument_view.fret_count, capo: @instrument_view.capo, pitch_ids: @instrument_view.pitch_ids.to_s, key_id: @key.id, scale_id: @scale.id, song_id: @song.id } do %>
+        <%= check_box_tag :capo_relative_pitches, checked: @instrument_view.capo_relative_pitches || nil %>
+        <%= tag.span class: "slider" %>
+    <% end %>
+<% end %>
+
 <%# update the chords as well, if the capo_relative_pitches setting was adjusted %>
 <% if @chords %>
     <%= turbo_stream.replace "chords-helper" do %>
