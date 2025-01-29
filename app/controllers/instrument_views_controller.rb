@@ -8,7 +8,6 @@ class InstrumentViewsController < ApplicationController
         else
             Instrument.default
         end
-
         capo_relative_pitches = if params[:capo_relative_pitches].nil? then
             # default to true if unspecified, because it's the beginner-friendly setting
             true

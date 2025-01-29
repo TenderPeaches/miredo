@@ -36,13 +36,7 @@ module Instruments
                 @key = instrument_view_params[:key] || Key.default
                 key_with_capo = @key.shift(@capo * -1)
 
-                @display_key = if @instrument.uses_capo then
-                    key_with_capo
-                else
-                    @key
-                end
-
-                @pitch_ids = @scale.chords_from_key((capo_relative_pitches && @instrument.uses_capo) ? key_with_capo : @display_key).map {|p| p[:pitch_class_id] }
+                @pitch_ids = @scale.chords_from_key((capo_relative_pitches && @instrument.uses_capo) ? key_with_capo : @key).map {|p| p[:pitch_class_id] }
             end
 
             InstrumentView.new(@instrument, @tuning, @fret_count, @pitch_ids, @capo, capo_relative_pitches)
