@@ -1,7 +1,6 @@
 # when viewing a (digital representation of an) instrument
 class InstrumentViewsController < ApplicationController
     def create
-
         @instrument = if params[:instrument] then
             Instrument.find_by_id(params[:instrument])
         elsif current_user && current_user.user_settings then
@@ -19,10 +18,10 @@ class InstrumentViewsController < ApplicationController
         end
 
         @capo = params[:capo].to_i
-        # song will be passed as a parameter if the capo_relative_pitches is adjusted, in order to update the chords helper as well
+
         @song = Song.find_by_id(params[:song])
         if @song
-            @chords = if capo_relative_pitches then
+            @chords = if capo_relative_pitches && @instrument.uses_capo then
                 @song.distinct_chords(@capo * -1)
             else
                 @song.distinct_chords
@@ -34,7 +33,7 @@ class InstrumentViewsController < ApplicationController
 
         @instrument_view = Instruments::Viewer.new(@instrument).view({
             fret_count: params[:fret_count]&.to_i || 12,
-            tuning_id: @instrument.default_tuning.id,
+            tuning_id: @instrument.default_tuning&.id,
             capo: @capo,
             capo_relative_pitches: capo_relative_pitches,
             key: @key,

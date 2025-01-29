@@ -6,6 +6,9 @@
         <%= hidden_field_tag :fret_count, instrument_view.fret_count, id: "instrument-view-fret-count" %>
         <%= hidden_field_tag :pitch_ids, instrument_view.pitch_ids.to_s %>
         <%= hidden_field_tag :capo, instrument_view.capo, id: "instrument-view-capo" %>
+        <%= hidden_field_tag :song, song.id %>
+        <%= hidden_field_tag :key, key.id %>
+        <%= hidden_field_tag :scale, scale.id %>
         <%= submit_tag t('keywords.apply') %>
         <%= hidden_field_tag :format, :turbo_stream %>
         <%= tag.div class: "toggle-switch" do %>

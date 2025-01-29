@@ -3,7 +3,7 @@
     <%= form_tag chord_helpers_path, class: "chords" do %>
         <%# store the instrumentView data, ideally there should be just a single InstrumentView form encompassing both the chords helper and the instrumentView, but for now this will do %>
         <%= hidden_field_tag :instrument_id, instrument_view.instrument.id %>
-        <%= hidden_field_tag :tuning_id, instrument_view.tuning.id %>
+        <%= hidden_field_tag :tuning_id, instrument_view.tuning&.id %>
         <%= hidden_field_tag :fret_count, instrument_view.fret_count %>
         <%= hidden_field_tag :capo, instrument_view.capo %>
         <%= hidden_field_tag :key, key.id %>
