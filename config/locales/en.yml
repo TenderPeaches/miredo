@@ -55,7 +55,7 @@ en:
     log_in: "Successfully logged in"
     sign_up: "Account succesfully created. Welcome!"
     song_played: "You just practiced playing \"%{song}\" for the %{play_count} time!"
-    song_played_by_heart: "You just practiced playing \"%{song}\" by heart, for the %{play_count} time!"
+    song_played_by_heart: "You just practiced playing \"%{song}\" by heart for the %{heart_count} time! You've played this song a total of %{play_count} times."
     song_added: "\"%{song}\" has been created and added to the database."
     song_added_thanks: "Thank you for contributing to Miredo's public songbook!"
     song_added_privacy: "Flag the song as public if you want everyone to be able to play along."

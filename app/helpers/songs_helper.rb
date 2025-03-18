@@ -40,7 +40,7 @@ module SongsHelper
         end
     end
 
-    # a button that lets user filter songs by their suggested ca
+    # a button that lets user filter songs by their suggested capo
     # @current_sort decides how the button looks, to indicate the user the current sort, default to :desc so that it initializes with no sort, as :desc sort leads to no sort (see rotate_filter_options)
     def song_filter_capo(current_sort = :none)
         sort_button I18n.t("content.songs.filter_capo"), songs_path(sort_options: { capo: nil }), "sort-by-capo", current_sort

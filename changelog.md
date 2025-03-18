@@ -2,6 +2,10 @@
 
 ## Early Access
 
+## v1.1.1
+
+* Add total play count in the feedback when a song is played by heart
+
 ## v1.1.0.0
 
 * Stripe implementation: Busking subscription plan, which grant access to the Setlists and New Song features
