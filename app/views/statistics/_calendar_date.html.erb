@@ -1,7 +1,9 @@
 <%= tag.div class: "calendar__date" do %>
-    <%= tag.div date.day, class: "calendar__day-of-month#{" off-month" if local_assigns[:off_month] && off_month}" %>
+    <%= tag.div date.day, class: "calendar__date__day-of-month#{" off-month" if local_assigns[:off_month] && off_month}" %>
     <% if stats %>
-        <%= tag.div stats.plays > 0 ? stats.plays : "", class: "stats__plays" %>
-        <%= tag.div stats.adds > 0 ? stats.adds : "", class: "stats__adds" %>
+        <%= tag.div class: "calendar__date__stats" do %>
+            <%= tag.div stats.plays > 0 ? stats.plays : "", class: "stats__plays" %>
+            <%= tag.div stats.adds > 0 ? stats.adds : "", class: "stats__adds" %>
+        <% end %>
     <% end %>
 <% end %>

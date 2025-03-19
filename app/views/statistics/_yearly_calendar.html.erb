@@ -2,7 +2,7 @@
     <%# keep track of how many days have been processed yet, in order to parcel up the stats for each month %>
     <% days_tally = 0 %>
     <%#todo use translations for month names %>
-    <%= Date::MONTHNAMES.each_with_index do |month, i| %>
+    <% Date::MONTHNAMES.compact.each_with_index do |month, i| %>
         <%# starting date for the current month %>
         <% month_start_date = start_date + days_tally %>
         <%# total number of days in the current month %>

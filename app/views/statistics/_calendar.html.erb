@@ -1,14 +1,14 @@
-<%= tag.div class: "calendar", id: "stats-calendar" do %>
+<%= tag.div class: "stats-calendar" do %>
     <%# choose period type - yearly, monthly, weekly %>
-    <%= tag.div class: "calendar-period-type" do %>
+    <%= tag.search class: "calendar-period-type" do %>
         <%= turbo_link_to "<", calendar_stats_path(type: :previous, current: stats.period_type) %>
-        <%= tag.span stats.period_type, id: "calendar-period-type" %>
+        <%= tag.h3 t("content.statistics.calendar.#{stats.period_type.to_s}"), id: "calendar-period-type" %>
         <%= turbo_link_to ">", calendar_stats_path(type: :next, current: stats.period_type) %>
     <% end %>
     <%# choose actual period - year, month, week %>
-    <%= tag.div class: "calendar-period-selector" do %>
+    <%= tag.search class: "calendar-period-selector" do %>
         <%= turbo_link_to "<", calendar_stats_path(period: :previous, current: stats.period.start_date.strftime("%Y_%m_%d"), period_type: stats.period_type) %>
-        <%= tag.span calendar_current_period_string stats %>
+        <%= tag.h3 calendar_current_period_string stats %>
         <%= turbo_link_to ">", calendar_stats_path(period: :next, current: stats.period.start_date.strftime("%Y_%m_%d"), period_type: stats.period_type) %>
     <% end %>
     <%# show the calendar accordingly %>

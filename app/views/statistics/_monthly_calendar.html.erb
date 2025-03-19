@@ -1,6 +1,6 @@
 <%= tag.div class: "monthly-calendar" do %>
     <% if local_assigns[:month] %>
-        <%= tag.h3 month %>
+        <%= tag.h4 month, class: "month" %>
     <% end %>
     <%= render "statistics/calendar_header" %>
     <%# build the empty dates leading up to the specified month, in case it doesn't start on a Monday %>

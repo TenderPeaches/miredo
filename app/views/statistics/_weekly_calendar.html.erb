@@ -1,6 +1,6 @@
 <%= tag.div class: "weekly-calendar" do %>
     <%= render "statistics/calendar_header" %>
     <% (start_date..start_date + 6).each_with_index do |date, i| %>
-        <%= render "statistics/calendar_date", stats: stats[i] %>
+        <%= render "statistics/calendar_date", stats: stats[i], date: %>
     <% end %>
 <% end %>
