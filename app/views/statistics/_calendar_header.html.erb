@@ -1,0 +1,4 @@
+<%# show only first letter of each day %>
+<% weekdays_starting_monday.map {|d| d[0].upcase}.each do |day| %>
+    <%= tag.div day, class: "calendar__header__day" %>
+<% end %>

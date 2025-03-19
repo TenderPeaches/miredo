@@ -3,10 +3,11 @@
 <% if user_signed_in? %>
     <%= link_to t('content.settings.page_title'), user_settings_path %>
     <%= link_to t('cta.my_account'), edit_user_registration_path %>
-    <%# premium feature %>
+    <%# premium features %>
     <% if current_user.is_contributor? %>
         <%= link_to t("cta.new_song"), new_song_path %>
         <%= link_to t("cta.manage_setlists"), setlists_path %>
+        <%= link_to t("content.statistics.title"), statistics_path %>
     <% end %>
     <%= link_to t('cta.log_out'), destroy_user_session_path, data: { turbo_method: :delete } %>
 <% end %>

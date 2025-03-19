@@ -12,6 +12,8 @@ module Statistics
 
         private
 
+        # returns a hash with daily plays for given periods:
+        # { week: ..., month: ..., year: ..., all_time: ... }
         def daily_plays
             periods = [:week, :month, :year, :all_time]
             daily_plays = {}

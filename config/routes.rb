@@ -60,6 +60,7 @@ Rails.application.routes.draw do
     resources :setlist_songs, only: [:new, :create]
 
     resources :statistics, only: [ :index ]
+    resources :calendar_stats, only: [ :index ]
 
     resources :header_links, only: [ :index ]
 

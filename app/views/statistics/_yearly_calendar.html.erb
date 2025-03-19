@@ -1,0 +1,13 @@
+<%= tag.div class: "yearly-calendar" do %>
+    <%# keep track of how many days have been processed yet, in order to parcel up the stats for each month %>
+    <% days_tally = 0 %>
+    <%#todo use translations for month names %>
+    <%= Date::MONTHNAMES.each_with_index do |month, i| %>
+        <%# starting date for the current month %>
+        <% month_start_date = start_date + days_tally %>
+        <%# total number of days in the current month %>
+        <% days_in_month = month_start_date.end_of_month.day %>
+        <%= render "statistics/monthly_calendar", month: month, start_date: month_start_date, stats: stats.shift(days_in_month) %>
+        <% days_tally += days_in_month %>
+    <% end %>
+<% end %>

@@ -1,0 +1,22 @@
+<%= tag.div class: "monthly-calendar" do %>
+    <% if local_assigns[:month] %>
+        <%= tag.h3 month %>
+    <% end %>
+    <%= render "statistics/calendar_header" %>
+    <%# build the empty dates leading up to the specified month, in case it doesn't start on a Monday %>
+    <% if start_date.beginning_of_week != start_date %>
+        <% (start_date.beginning_of_week..start_date - 1).each do |leading_day| %>
+            <%= render "statistics/calendar_date", stats: nil, off_month: true, date: leading_day %>
+        <% end %>
+    <% end %>
+    <%# build a calendar date for each stat %>
+    <% stats.each_with_index do |stat, i| %>
+        <%= render "statistics/calendar_date", stats: stat, date: start_date + i %>
+    <% end %>
+    <%# build the empty trailing dates %>
+    <% if start_date.end_of_month != start_date.end_of_month.end_of_week %>
+        <% (start_date.end_of_month + 1..start_date.end_of_month.end_of_week).each do |trailing_day| %>
+            <%= render "statistics/calendar_date", stats: nil, off_month: true, date: trailing_day %>
+        <% end %>
+    <% end %>
+<% end %>

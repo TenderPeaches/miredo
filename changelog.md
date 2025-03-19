@@ -5,6 +5,7 @@
 ## v1.1.1
 
 * Add total play count in the feedback when a song is played by heart
+* Add link to Statistics in the header
 
 ## v1.1.0.0
 

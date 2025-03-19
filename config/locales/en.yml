@@ -351,6 +351,25 @@ en:
       distinct_songs_by_heart_2: "different songs by heart"
       percent_1: "That's"
       percent_2: "% of all songs you've played on this site!"
+      calendar:
+        period_types:
+          yearly: "Yearly"
+          monthly: "Monthly"
+          daily: "Daily"
+        periods:
+          months:
+            january: "January"
+            february: "February"
+            march: "March"
+            april: "April"
+            may: "May"
+            june: "June"
+            july: "July"
+            august: "August"
+            september: "September"
+            october: "October"
+            november: "November"
+            december: "December"
     subscriptions:
       title: "Subscribe"
       blurb: "There is only one subscription plan right now - the Busker plan. For $5 CAD/month, you get to use the Setlist feature that lets you bundle together existing songs. You also acquire the ability to submit your own songs to the catalog. If you cancel your subscription, you won't be able to access your setlists but your uploaded songs will still appear on the website. You also get our warm thanks for helping us keep the lights on :)"
