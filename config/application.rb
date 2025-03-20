@@ -33,5 +33,7 @@ module Miredo
 
     # external resources paths
     config.discord_server_url = "https://discord.gg/qVc7vQVfET"
+
+    config.sass.preferred_syntax = :scss
   end
 end

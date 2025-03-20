@@ -1,0 +1,209 @@
+@use "../globals/globals" as *;
+
+.view-song {
+   display: flex;
+   flex-direction: column;
+   
+   // song title
+   .title {
+      display: flex;                   // horizontal flex
+      flex-direction: row;             // horizontal flex
+      justify-content: center;         // center in the page
+      color: $color-secondary-lightest;   // use a contrast color, this is the _title_!
+      margin: $size-m 0 $size-xxl;
+   }
+
+   .support-artists {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $size-xs;
+   }
+
+   // artist links
+   .artist-links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: $size-s;
+   }
+
+   .song-info {
+      margin: $size-m;           // loose text, add external buffer 
+
+      @include tablet {
+         margin: $size-xl;          // more external buffer on large screens
+      }
+   }
+
+   // nav links: previous song, next song, random song, ...
+   .nav-links {
+      display: flex;                // display in a single, horizontal line. should be short enough to fit even in a vertical screen
+      flex-direction: row;          // horizontal flex
+      justify-items: space-around;  // maximize space
+      gap: $size-m;           // gutter between links
+   }
+   
+   .admin-actions {
+      display: flex;                // actions have longer labels, so use a vertical flex
+      flex-direction: column;       // vertical flex
+      gap: $size-s;           // buffer between each admin action link
+      text-align: left;             // align for cleaner look
+   }
+
+   .admin-actions *, .nav-links * {
+      margin: 0;                    // remove extraneous margins
+   }
+
+   // top side info panel
+   .helpers {
+      display: flex;                   // vertical flex, ideally should be some sort of tabbed pane
+      flex-direction: column;          // vertical flex
+      justify-content: space-between;  // space elements out, minimize buffer to the outside
+      align-items: stretch;            // required for grid child elements to strech across
+      gap: $size-l;              // each sub-element is its own self-contained feature, so add a sizable gap
+
+      @include tablet {
+         grid-column: 1 / 4;
+      }
+   }
+
+   // content that displays a song's lyrics, chords, etc. 
+   .show-song {
+      display: initial;             // reset 
+      padding: $size-m;         // maximize content space, just enough padding
+      text-align: left;               // maximize readability
+      margin-top: $size-l;      // space away from the helpers or whatever is above
+
+      .progression-tag {
+         color: $color-secondary-white;
+         margin: $size-xxs $size-s;
+         font-style: italic;
+      }
+
+      @include tablet {
+         grid-column: 1 / 4;      
+         columns: 2;             // on pc, screen is large enough to accomodate content in two columns //? should this be the case? with a scrolling feature, the lyrics will need to be in a single column
+      }
+
+      @include large-desktop {
+         columns: 3;
+      }
+   }
+
+   .song-options {
+      display: flex;
+      gap: $size-xs;
+      flex-direction: column;
+      
+      .field {
+         label {
+            max-width: fit-content; 
+         }
+
+         .key-shift, .select-capo {
+            width: fit-content;
+            padding: $size-xxs $size-m;
+         }
+      }
+
+      @include tablet {
+         display: flex;
+         flex-direction: row;
+         gap: $size-s;
+         align-items: center;
+      }
+   }
+
+   // degree/chords coloring
+   .degree-1 {
+      color: $color-degree-first-light;
+   }
+   .degree-2 {
+      color: $color-degree-second-light;
+   }
+   .degree-3 {
+      color: $color-degree-third-light;
+   }
+   .degree-4 {
+      color: $color-degree-fourth-light;
+   }
+   .degree-5 {
+      color: $color-degree-fifth-light;
+   }
+   .degree-6 {
+      color: $color-degree-sixth-light;
+   }
+   .degree-7 {
+      color: $color-degree-seventh-light;
+   }
+
+   .instruments {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      form {
+         display: flex;
+         align-items: center;
+         gap: $size-m;
+      }
+   }
+
+   .instrument-view {
+      transform: scale(75%);     // scale down for mobile, check if new features are added //! this will break as soon as # of frets is a setting
+
+      @include tablet {
+         transform: initial;
+      }
+
+      @include large-desktop {
+         transform: scale(125%);
+         margin: $size-xl;
+      }
+   }
+
+   .play-actions {
+      display: grid;
+      grid-template-columns: [start] 3fr 1fr [end];
+      align-items: center;
+      justify-items: center;
+      background: $color-black;
+      padding: $size-m;
+      border-color: $color-primary-light;
+      border-width: $thin-border-width;
+      border-style: $default-border-style;
+
+      & > * {
+         display: grid;
+         grid-template-columns: subgrid;
+         grid-column-start: start;
+         grid-column-end: end;
+         justify-content: space-between;
+         align-items: center;
+         gap: $size-m;
+
+         a {
+            justify-self: flex-end;
+         }
+      }
+   }
+
+   @include tablet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $size-m;
+
+      // sections that span the entire page
+      .title, .support-artists {
+         grid-column: 1 / 4;
+      }
+   }
+
+   @include large-desktop {
+      .helpers .chords {
+         grid-template-columns: repeat(8, 1fr);
+      }
+   }
+}

@@ -1,0 +1,80 @@
+@use "../globals/globals" as *;
+
+.fretted-instrument {
+    text-align: center;             // center the fretboard
+    padding: $size-l;               // acts as margin, spacing 
+
+    .fretboard {
+        border-style: none;         // the frets have their own border
+        display: inline-flex;       // center the fretboard, wrap it around the frets and flex-vertical the strings
+        flex-direction: column;     // vertical list the strings  
+
+        .fretboard-header, .string {
+            display: flex;
+        }
+
+        .fret {
+            width: calc(2.5 * $size-xl);
+            height: $size-xl;
+            color: $color-primary-dark;
+        
+            border-color: $color-primary-white;
+            border-style: solid;
+            border-width: 2px;
+            padding: 0.10rem;
+        
+            margin-left: -1px;
+            margin-top: -1px;
+        
+            text-align: center;
+
+            &--outside {
+                border-color: transparent;
+            }
+
+            &--included {
+                background: $color-accent-darker;
+                color: $color-white;
+            }
+
+            &:hover {
+                background: $color-secondary;
+                border-color: $color-secondary-lightest;
+                box-shadow: 2px 2px 2px $color-secondary-lighter;
+            }
+
+            &--degree-1 {
+                background: $color-degree-first-dark;
+            }
+
+            &--degree-2 {
+                background: $color-degree-second-dark;
+            }
+
+            &--degree-3 {
+                background: $color-degree-third-dark;
+            }
+
+            &--degree-4 {
+                background: $color-degree-fourth-dark;
+            }
+
+            &--degree-5 {
+                background: $color-degree-fifth-dark;
+            }
+
+            &--degree-6 {
+                background: $color-degree-sixth-dark;
+            }
+
+            &--degree-7 {
+                background: $color-degree-seventh-dark;
+            }
+
+            &--invisible {
+                border-color: transparent;
+                background: transparent;
+            }
+        }
+    }
+}

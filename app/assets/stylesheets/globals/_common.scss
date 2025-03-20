@@ -1,0 +1,217 @@
+/* _common.css => for common classes that aren't tied to one specific page or feature */
+
+/* main application content viewport, occupies most of the screen */
+.content {  
+    display: flex;                          /* by default, display content in a vertical flex */
+    flex-direction: column;                 /* verticality of the flex */
+    padding: $size-m $size-s;   /* maximize content with a small buffer zone for mobile */
+    align-items: center;                    /* horizontally align the items along the center axis */
+    
+    /** we could've used just text-align: center but that trickles down to every sub-element, which isn't the desired behavior, so instead we're using a vertical flex */
+}
+
+.content > h1 {
+    margin: $size-l;
+}
+
+.content > h2 {
+    margin: $size-m;
+}
+
+/* class added to elements that need to be hidden from the layout */
+.hidden {
+    display: none !important;   /*! maybe only acceptable use of !important, but should still look to see if really necessary */
+}
+
+/* class added to elements that need to clash with the surrounding content */
+.contrast-text {
+    color: $color-accent-light;                       /* clash with text (by not using secondary color) and background (by not using primary) */
+}
+
+/* generic button */
+.button,
+input[type="submit"] {
+    display: inline-block;                                  /* occupy a block */
+    cursor: pointer;                                        /* standard */
+    padding: $size-s;                                 /* inner spacing */
+    margin: $size-xxxs;                               /* as small a margin as possible, since flex/grid layouts use the gap attribute to space out elements */
+    border-width: $thick-border-width;                /* let the border pop */
+    border-style: $button-border-style;               /* standard */
+    transition-duration: $transition-s;             /* standard */
+    text-align: center;                                     /* standard */
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.button {
+    background-color: $color-primary-darkest;
+    border-color: var(---color-primary-white);              /* highlight against dark background */
+    color: $color-primary-white;
+}
+
+/* square buttons, usually used with icons or single characters */
+.button--square, input[type="submit"].button--square {
+    display: inline-flex;                                  /* force inline display, otherwise flex will change the dimensions */
+    padding: 0;                                             /* set dimensions manually, remove padding for easier calculations */
+    width: $size-xxl;                                  /* ensure same size as height */
+    height: $size-xxl;                                 /* ensure same size as width */
+    flex-direction: column;                                 /* center vertically */
+    justify-content: center;                                /* center vertically */
+    font-size: $font-size-xxl;                       /* big character, since there's just one */ 
+}
+
+/* generic clickable element */ 
+.clickable {
+    cursor: pointer;                                        /* standard */
+    border-color: transparent;                              /* prevent element size from changing when border is not shown */
+    border-width: $default-border-size;               /* simple border */
+    border-style: $button-border-style;               /* standard */
+
+    transition-duration: $transition-s;
+}
+
+/* generic clickable disabled element */
+.clickable--disabled {
+    border-color: $color-disabled;
+    background-color: $color-disabled-dark;
+    color: $color-disabled;
+    pointer-events: none;
+}
+
+.clickable:hover,
+.button:hover {
+    border-style: outset;
+    border-color: $color-primary-light;
+    background: $color-primary;
+    color: $color-primary-black;
+}
+
+.clickable:active,
+.button:active {
+    background: $color-primary-darkest;
+}
+
+.button--secondary {
+    background-color: $color-secondary-darkest;
+    border-color: var(---color-secondary-white);              /* highlight against dark background */
+    color: $color-secondary-white;
+}
+
+.button--accent {
+    background-color: $color-accent-darkest;
+    border-color: var(---color-accent-white);              /* highlight against dark background */
+    color: $color-accent-white;
+}
+
+.button--alert {
+    background-color: $color-error;
+    border-color: $color-white;
+    color: $color-white;
+}
+
+.button--alert:hover {
+    background-color: $color-white;
+    border-color: $color-error;
+    color: $color-error;
+}
+
+.button--alert:active {
+    background-color: $color-error-light;
+}
+
+input[type="submit"] {
+    border-color: $color-accent-white;
+    background: $color-accent-darkest;
+    color: $color-accent-white;
+}
+
+input[type="submit"]:hover {
+    background: $color-accent;
+    color: $color-accent-black;
+}
+  
+input[type="submit"]:active {
+    background: $color-accent-darker;
+}
+
+.text-secondary {
+    color: $color-secondary-lightest;
+}
+
+.bg-secondary {
+    background: $color-secondary-darkest;
+}
+
+.text-accent {
+    color: $color-accent-lightest;
+}
+
+.bg-accent {
+    background: $color-accent-darkest;
+}
+
+/* typical horizontal flex element */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* typical vertical flex element */
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.table-title h4{
+    color: var(--primary-color-white);      /* secondary table titles use a different color for contrast */
+}
+
+.title-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.app-title {
+    position: absolute;
+    margin: 0;                  /* remove margin with regular <header> */
+    padding: $size-m;     /* use padding instead */
+    text-decoration: none;      /* remove underline from logo */
+    text-align: center;         /* vertical align */
+    z-index: 5;                 /* above <header> */
+}
+
+/* logo styling */
+.app-title > span:nth-child(1) {
+    color: $color-secondary-light;
+}
+
+.app-title > span:nth-child(2) {
+    color: $color-accent-light;
+}
+
+.app-title > span:nth-child(3) {
+    color: $color-primary-light;
+}
+
+/* text that appears when a list of items is expected, but is empty in this particular case */
+.empty-list-text {
+    font-style: italic;
+}
+
+/* screen-size dependent considerations */
+/* for large screens */
+@media screen and (min-width: 720px) {
+    .content {
+        max-width: var(--max-content-width--large-screen);  /* prevent the content from spreading over too wide an area */
+        padding: calc(4 * $size-xxl) calc(2 * $size-xxxl);    /* large padding for large screens */
+        margin: auto;           /* center horizontally */ 
+    }
+
+    .app-title {
+        position: fixed;        /* stick to header */;
+    }
+ }

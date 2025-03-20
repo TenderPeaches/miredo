@@ -1,0 +1,14 @@
+@use "../globals/globals" as *;
+
+// inline forms appear in vertically-constrained spaces, usually a table row; they must therefore be very compact 
+.inline-form {
+    display: flex;                      // horizontal layout 
+    flex-direction: row;                // horizontal layout  
+    width: 100%;                        // take up all available space 
+    justify-content: space-between;     // minimize empty space 
+    align-items: center;                // center vertical alignment 
+    
+    select {
+        font-size: $font-size-s;      // shrink down the text to prevent the form's container from having to expand to accomodate the content of the selection box 
+    }
+}

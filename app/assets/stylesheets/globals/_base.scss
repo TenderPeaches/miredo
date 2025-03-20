@@ -1,0 +1,246 @@
+@use "../application" as *;
+
+// _base.css => for base HTML element definitions
+
+// for all content
+body {
+    background-color: $color-primary-black;           // dark-bg
+    color: $color-primary-white;                      // light-fg 
+    margin: auto;                                           // to center content
+}
+
+* {
+    box-sizing: border-box;
+    font-family: $font-family;
+}
+
+// links
+a {
+    color: $color-accent-lightest;                    // contrast with regular content, light-fg
+
+    &:hover {
+        color: $color-white;
+    }
+
+    &, &:active, &:hover {
+        transition: $transition-s;
+    }
+}
+
+// header defaults
+h1, h2, h3, h4, h5, h6 {
+    color: $color-secondary-lightest;     // all headers are implicitly of importance, thus use a contrasting color 
+}
+
+h2, h3, h4, h5, h6 {
+    margin: 0;          // if non-page headers need margin, specify it explicitly rather than default to it  
+}
+
+// helps with complex forms, used for submodels
+fieldset {
+    padding: $size-m;                                 // internal spacing
+    margin: $size-m;                                  // external spacing
+}
+
+// fieldset titles
+legend {
+    font-size: $font-size-l;                          // fieldset legends act as headers
+    padding: 0 $size-m;                               // space out from the fieldset border
+    color: $color-secondary-lightest;                 // to aid navigation
+}
+
+// short bits of text that indicate the nature of another element
+label {
+    font-size: $font-size-l;     
+    
+    &[title] {
+        cursor: help;
+
+        // add a "?" after labels which have a tooltip
+        &::after {
+            content: "?";
+            vertical-align: super;
+            color: $color-accent-lightest;
+            font-size: $font-size-xs;
+            margin: 0 $size-xxs;
+
+        }
+    }
+}
+
+// click-to-show content subdivisions
+details {
+    &[open] {
+        border-bottom: 1px solid $color-primary-lightest;
+    }
+
+    &, &[open] {
+        margin: $size-m;
+        text-align: center;
+    }
+
+    // the bit of content visible from a closed "details" panel
+    & > summary {
+        position: relative;                                 // to act as an anchor for the custom display marker
+        display: inline-block;                              // hides the default display triangle (on Firefox, at least), inline for alignment, block to buttonize              
+        cursor: pointer;                                    // buttonize
+        font-size: $font-size-xl;                     // draw attention
+        background: $color-primary-darkest;           // mesh with page bg
+        padding: $size-s;                             // match spacing between arrow and text, more or less
+        padding-left: $size-xxl;                      // oversize left padding to accomodate the custom display marker
+        margin: $size-xs;                             // mirror padding
+        border: 1px ridge $color-primary-light;       // buttonize
+        border-radius: var(--border-radius-small);                       // buttonize
+        max-width: fit-content;                             // would rather avoid dealing with animations here, so keeping the summary of a consistent width seems like the best option for now
+
+        &::before {
+            content: '';                        // define content otherwise not displayed
+            border-width: $size-xs;       // 
+            border-style: solid;                // to display a triangle, must be solid
+            border-color: transparent transparent transparent $color-primary-lightest;        // only make the one corner not transparent, thus showing a triangle
+            position: absolute;                 // to allow setting explicit dimensions & position
+            top: 1rem;                          // use the relative font size to ensure it's centered vertically 
+            left: $size-s;                // push from the left, towards the label; must pair with the padding on the summary element
+            transform: rotate(0);               // ?
+            transform-origin: .2rem 50%;        // set the immutable transformation properties here
+            transition: $transition-s transform ease; // quick transition for a small element
+
+        }
+
+        &:hover {
+            border-color: $color-primary-white;   // highlight effect
+        }
+
+        &:active {
+            background: $color-primary-black;     // pressed shading effect
+        }
+
+        &, &:hover, &:active {
+            transition: all $transition-s ease-in-out;
+        }
+
+        &::marker, &::-webkit-marker {
+            // display: none; // not deleting this whole tidbit because I need to test whether it might be necessary on some browsers, given the tricks to replace the display triangle
+        }
+    }
+
+    &[open] > summary::before {
+        transform: rotate(90deg);           // perform the rotation
+    }
+
+    p {
+        text-align: justify;
+        animation: fadeIn var(--slow-duration);
+        line-height: $font-size-xxl;
+    }
+}
+
+// horizontal dividers
+hr {
+    width: 80%;
+    color: $color-primary-darker;
+}
+
+// as the website's main purpose is to show tablatures without needing to scroll around, maximizing the visual space means making the header as small as possible
+header {
+    position: relative;
+    border-bottom: 1px ridge $color-primary-dark; // add an edge to the bottom
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: $size-m 0 0 0;
+
+    @include tablet {
+        position: fixed;            // maintain at the top of the screen at all times
+        right: 0;                   // tuck to the right, clearing out the middle space
+        border-left: 1px ridge $color-primary-dark;     // as desktop header doesn't take up all the page, add left border like the bottom one
+    }
+
+    &, footer {
+        align-items: center;                // center items along the Y-axis
+        background: var(--sheen-dark);     // different background from page content
+
+        nav {
+            display: flex;                      // vertical flex
+            flex-direction: column;             // vertical flex
+            gap: $size-m;                 // space elemenets away from each other to prevent fat-fingering 
+            align-items: center;                // center items along the y-axis
+        }
+
+        h1, h2 {
+            color: $color-primary-lightest;   // use default color for header title
+            margin: $size-xxs;
+        }
+
+        & > a {
+            text-decoration: none;
+            
+            @include tablet {
+                padding: $size-s $size-m;  // larger clickable area
+            }
+        }
+
+        @include tablet {
+            display: flex;                                      
+            flex-direction: column;                             // vertical flex
+            justify-content: space-between;                     // title to the left, nav to the right
+            align-items: center;                                // horizontal center
+            font-size: $font-size-l;                      // everything on header is important
+            z-index: 1;     
+        }
+    }
+
+    @include tablet {
+        h1 {
+            padding-left: $size-xl;
+        }
+
+        h2 {
+            margin: $size-xxxs;
+        }
+    }
+}
+
+footer {
+    position: fixed;
+    border-top: $thin-border-width ridge $color-primary-dark;
+    width: 100%;
+    bottom: 0;
+
+    nav a {
+        padding: $size-m $size-xxl;
+        text-decoration: none;
+
+        &:hover {
+            background: $color-primary-darkest;
+        }
+
+        &:active {
+            background: $color-primary-lightest;
+            color: $color-accent-darker;
+        }
+    }
+
+    @include tablet {
+        justify-content: center;
+    }
+}
+
+// standalone parts of the content
+section { 
+    display: flex;              // default to a vertical flex
+    flex-direction: column;     // vertical flex
+    justify-content: center;    // default to center
+    align-items: stretch;       // default to stretch for mobile
+    margin: $size-xxs;    // default spacing
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,5 +1,5 @@
 <%= tag.div id: "chords-helper", class: "chords-helper" do %>
-    <%= link_to t('content.songs.chords'), references_chords_path, class: "chords-helper-title", target: "_blank" %>
+    <%= link_to t('content.songs.chords'), references_chords_path, class: "chords-helper__title", target: "_blank" %>
     <%= form_tag chord_helpers_path, class: "chords" do %>
         <%# store the instrumentView data, ideally there should be just a single InstrumentView form encompassing both the chords helper and the instrumentView, but for now this will do %>
         <%= hidden_field_tag :instrument_id, instrument_view.instrument.id %>

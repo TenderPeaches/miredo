@@ -1,0 +1,59 @@
+@use "../globals/globals" as *;
+
+.chords-helper {
+   margin-top: $size-m;
+
+   &__title {
+      font-size: $font-size-xl;
+   }
+
+   .chords {
+      display: grid;                   // might have lots of chords, display as a grid to maximize data density
+      grid-template-columns: repeat(3, 1fr); // split in 3 columns for smaller devices
+      text-align: left;                // align the start of each line 
+      border-width: $thick-border-width;     // thick helper border 
+      border-style: $default-border-style;   // default
+      border-color: $color-primary;          // helpers have colored borders
+      padding: $size-xxs;
+      margin-top: $size-m;                  // space away from title link
+      
+      .chord {
+         display: flex;                   // display in a line
+         justify-content: space-between;  // tuck the cypher to the left, notes to the right
+         align-items: center;             // vertically center along the row
+         padding: $size-s;                // buffer between each chord
+         border-width: $thin-border-width;   // default
+         border-color: $color-primary;       // helper color
+         border-style: solid;                      // default
+
+         &:hover {
+            background-color: $color-primary-darker;
+            border-color: $color-white;
+            color: $color-white;
+            transform: $transition-s;
+         }
+
+         &.highlighted {
+            background-color: $color-primary-darker;
+            border-color: $color-primary-lighter;
+         }
+
+         .cypher {
+            font-size: $font-size-l;
+            font-weight: bold;
+
+            &::after {
+               content: "→"
+            }
+         }
+      }
+
+      @include tablet {
+         grid-template-columns: repeat(5, 1fr);
+      }
+
+      @include large-desktop {
+         grid-template-columns: repeat(8, 1fr);
+      }
+   }
+}

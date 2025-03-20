@@ -1,0 +1,15 @@
+@use "../globals/globals" as *;
+
+.chords-table {
+    grid-template-columns: [start] 1fr 1fr [end];   // 2x2
+    grid-template-rows: 1fr 1fr;                    // 2x2
+
+    .table-row > *:nth-child(3) {
+        justify-self: flex-start;                       // justify left, so each interval can be more easily compared between rows
+    }
+
+    @include tablet {
+        grid-template-columns: [start] 2fr 1fr 1fr 1fr [end];   // chord name/type, chord notation, chord intervals, chord semitones
+        grid-template-rows: initial;            // reset
+    }
+}

@@ -1,0 +1,39 @@
+body.publication {
+    .content {
+    
+        display: flex;                              // vertical ribbon of publication-lines
+        flex-direction: column;                     // vertical flex
+        gap: $size-l;                         // space out the publications
+        background: $color-accent-black;      // use different color than default background to offer contrast with the screenshots
+        padding: $size-s calc($size-xxxl * 4);
+
+        .line {
+            display: flex;                          // horizontal flex
+            flex-direction: row;                    // horizontal flex
+            text-align: left;                       // default reading alignment
+            align-items: center;                    // vertically center the paragraph with the images
+            margin: $size-m 0;                // add vertical margins
+
+            &:nth-child(2n) {
+                flex-direction: row-reverse;            // reverse the flex order, making elements appear in reverse order
+            }
+        }
+        
+        p {
+            flex-grow: 2;                           // can grow to twice the size of an image
+            margin: $size-m;                  // space out with other content on the line
+        }
+
+        img {
+            flex-grow: 1;                           // can grow
+            margin: $size-m;                  // space out with other content on the line
+            max-width: 50%;                         // images never take up more than half the screen
+            box-shadow: 0 0 $size-l $size-m $color-primary-black;     // the screenshots have a natural background-color border given their nature (screenshots of this site), so apply a blur around the edge to mesh it with the publication background color
+        }
+        
+        hr {
+            color: $color-accent-darker;
+        }
+    }
+    
+}

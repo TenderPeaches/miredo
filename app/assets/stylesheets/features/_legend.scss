@@ -1,0 +1,40 @@
+@use "../globals/globals" as *;
+
+.legend {
+    display: flex;              /* vertical flex, to show legend title above said legend */
+    flex-direction: column;
+    align-items: center;        /* center content horizontally */
+
+    .color-legend {
+        display: flex;
+        flex-direction: row;        /* because the legend is simple enough to be shown in a single row, use a horizontal flex */
+        align-items: center;
+        gap: $size-xs;
+    }
+    
+    .color-sample {
+        width: $size-m;       /* show as a square */
+        height: $size-m;       
+        border: $color-primary-white 1px solid;  /* contrast with the legend color */
+
+        &--purple {
+            background-color: $color-practice--by-heart; 
+        }
+
+        &--green {
+            background-color: $color-practice--green; 
+        }
+
+        &--yellow {
+            background-color: $color-practice--yellow; 
+        }
+
+        &--orange {
+            background-color: $color-practice--orange; 
+        }
+
+        &--red {
+            background-color: $color-practice--red; 
+        }
+    }
+}

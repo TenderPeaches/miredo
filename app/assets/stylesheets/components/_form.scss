@@ -1,0 +1,125 @@
+@use "../globals/globals" as *;
+
+// target the .form class, as form elements might be used in situations where these attributes shouldn't apply 
+.form {
+    width: min(95vw, 900px);            // stretch to 900px or most of the screen, whichever is smaller, as forms that are too wide will put too much space between the input and the label that identifies it 
+    margin: auto;                       // horizontal center 
+    display: flex;                      // vertical-flex 
+    flex-direction: column;             // vertical-flex 
+    align-items: stretch;               // center items along y-axis 
+    gap: $size-s;                 // buffer space between fields 
+
+    // container for the form's fields
+    .form-fields {
+        display: flex;              // vertical flex 
+        flex-direction: column;     // vertical flex      
+        row-gap: $size-m;     // additional spacing between each field 
+        align-items: stretch;       // uniformize the width of all the inputs to take up the width of the form 
+
+        @include tablet {
+            display: grid;                                          // to allow for a uniform display between each field, regardless of input type 
+            margin: $size-l;                                  // spacing around 
+            padding: $size-l;                                 // spacing within 
+            grid-template-columns: 1fr 3fr;                         // 1 frame for the label, 3 frames for the field itself 
+            align-items: center;                                    // vertically align each grid item
+        }
+    }
+    
+    .actions {
+        display: flex;
+        flex-direction: column;
+
+        * {
+            flex: 1;
+        }
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    select {
+        text-align: center;
+    }
+    
+    // any form field
+    .field {
+        display: flex;                      // vertical flex for the label & input to be displayed on top of each other 
+        flex-direction: column;             // vertical flex 
+        justify-content: space-between;     // maximize the space, align 
+        gap: $size-xs;                // just enough to cleanly separate the label from its input 
+
+        input {
+            text-align: center;
+        }
+
+        textarea {
+            resize: none;
+        }
+    }
+    
+    .checkbox-field {
+        display: flex;                      // checkbox fields have a smaller input, so horizontal flex 
+        flex-direction: row;                // horizontal flex 
+        justify-content: space-between;     // tuck label and input into their respective corners
+
+        label {
+            width: initial;             // remove the fixed width, to allow for good centering 
+            margin-right: initial;
+
+            @include tablet {
+                display: inline-block;
+                width: min(40vw, calc($size-xxxl * 6));   // set fixed width so the flex displays in grid-like manner  
+                text-align: left;               //? could do right 
+                margin-right: $size-xxl;  // space away from the input
+            }
+        }
+    }
+
+    .field, .checkbox-field {
+        label {
+            text-align: center; 
+            color: $color-secondary-white;
+            font-weight: bold;
+        }
+
+        @include tablet {
+            display: flex;
+            align-items: stretch;
+            margin: $size-m;
+            border-bottom: 1px solid $color-primary-lightest;
+        }
+    }
+
+    //todo check which one is actually used
+    // Error styles
+    .field.error, .field-with-errors {
+        color: $color-error-light;
+
+        label::before {
+            content: "❌";
+            margin-right: $size-xxs;
+        }
+
+        input {
+            background: $color-error-light;
+            color: $color-error;
+            box-shadow: 0 0 4px 4px $color-error;
+            border: $default-border-style $thin-border-width $color-error;
+        }
+    }
+
+    .field-with-errors {
+        input {
+            width: 100%;    // needed because of the <div class="field-with-errors"> that gets wrapped around error-fields
+        }
+    }
+    
+    .form-options {
+        margin-top: $size-m;        // breathing room 
+        margin-bottom: $size-m;     // breathing room 
+        display: flex;                    // vertical flex 
+        flex-direction: column;           // vertical flex 
+        gap: $size-s;
+    }
+}

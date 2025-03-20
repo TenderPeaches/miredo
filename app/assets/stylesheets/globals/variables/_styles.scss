@@ -1,0 +1,14 @@
+// Style variables
+$default-border-style: solid;          // standard 
+$button-border-style: outset;          // standard
+$pressed-border-style: inset;          // standard
+$alert-border-style: double;           // for alerts, messages that need to pop
+$clean-border-style: double;           // to differentiate from regular borders
+$dirty-border-style: dashed;           // with pending changes
+
+$thin-border-width: 1px;               
+$thick-border-width: 2px;              
+$thicker-border-width: 4px;      
+
+$border-radius-small: $size-s;
+$border-radius-large: $size-l;

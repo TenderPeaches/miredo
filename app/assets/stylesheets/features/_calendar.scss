@@ -1,0 +1,99 @@
+@use "../application" as *;
+
+.stats-calendar {
+    position :relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $size-m;
+
+    search {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: $size-s;
+        
+        width: 100%;
+        font-size: $font-size-l;
+
+        a {
+            text-decoration: none;
+            font-size: $font-size-xl;
+        }
+    }
+
+    .yearly-calendar {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $size-s;
+
+        @include tablet {
+            grid-template-columns: repeat(3, 1fr);
+            gap: $size-m;
+        }
+    }
+
+    .weekly-calendar,
+    .monthly-calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .monthly-calendar {
+        gap: $size-m;
+    
+        .month {
+            grid-column: 1 / 8;
+            justify-self: center;
+            font-size: $size-xl;
+        }
+    }
+    
+    .weekly-calendar {
+        gap: $size-l;
+    }
+    
+    .calendar-header-day {
+        justify-self: center;
+        font-size: $font-size-l;
+    }
+    
+    .calendar__date { 
+
+        display: grid;
+    
+        grid-template-areas: 
+            "date ."
+            ". stats";
+    
+        width: $size-xxl;
+        height: $size-xxxl;
+    
+        .calendar__date__day-of-month {
+            font-weight: bold;
+            font-size: $font-size-l;
+            grid-area: date;
+        }
+    
+        .calendar__date__stats {
+    
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: $size-xxs;
+    
+            grid-area: stats;
+            .stats__plays {
+                color: $color-secondary-lighter;
+            }
+        
+            .stats__adds {
+                color: $color-accent-lighter;
+            }
+        }
+
+        &__date__day-of-month.off-month {
+            color: $color-disabled;
+        }
+    }
+}

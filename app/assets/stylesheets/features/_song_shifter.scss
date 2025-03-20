@@ -1,0 +1,16 @@
+@use "../globals/globals" as *;
+
+// doodad that aids navigating from one song to the next
+.song-shifter {
+    display: flex;                      // horizontal flex
+    justify-content: center;            // center screen
+    gap: $size-xl;                // space out elements
+    padding: $size-m;             // internal spacing
+    margin: $size-m;              // external spacing 
+    align-items: center;                // vertically center items
+
+    a {
+        text-decoration: none;              // remove underline  
+        font-size: $font-size-xxxl;   // prominent links
+    }
+}

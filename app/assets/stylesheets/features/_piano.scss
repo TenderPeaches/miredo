@@ -1,0 +1,52 @@
+@use "../globals/globals" as *;
+
+.piano {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    
+    .piano-key {
+        width: $piano-key-width;
+        height: $piano-key-height;
+        background: $color-white;
+        border: $color-primary-dark 1px solid;
+
+        &--sharp {
+            position: relative;
+            background: $color-black;
+            width: $piano-key-sharp-width;
+            margin-right: calc($piano-key-sharp-width) * -1;
+            height: $piano-key-sharp-height;
+            z-index: 1;
+            left: calc($piano-key-sharp-width) / -2;
+        }
+
+        &--degree-1 {
+            background: $color-degree-first-dark;
+        }
+
+        &--degree-2 {
+            background: $color-degree-second-dark;
+        }
+
+        &--degree-3 {
+            background: $color-degree-third-dark;
+        }
+
+        &--degree-4 {
+            background: $color-degree-fourth-dark;
+        }
+
+        &--degree-5 {
+            background: $color-degree-fifth-dark;
+        }
+
+        &--degree-6 {
+            background: $color-degree-sixth-dark;
+        }
+
+        &--degree-7 {
+            background: $color-degree-seventh-dark;
+        }
+    }
+}

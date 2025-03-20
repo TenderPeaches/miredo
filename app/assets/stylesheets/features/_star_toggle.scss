@@ -1,0 +1,37 @@
+@use "../globals/globals" as *;
+
+// a favorite-like star-shaped toggle button/input
+.star-toggle {
+    
+    // hide the actual input (usually a checkbox)
+    input {
+        position: absolute;             // position the checkbox underneath the star svg
+        opacity: 0;                     // make invisible but responsive
+        cursor: pointer;                // act as a button/toggle
+        transform: initial;             // reset
+        margin: 0;                      // reset
+    }
+
+    display: flex;                  // position the checkbox underneath the svg
+    flex-direction: column;         // probably doesn't matter but it works
+    justify-content: center;        // ensure the checkbox is under the svg (with position:absolute)
+    position: relative;             // needs to anchor the absolutely-positioned invisicheckbox
+    user-select: none;              // prevent text-selection of the checkbox
+
+    svg {
+        transition: all $transition-s;
+    }
+
+    svg, input {
+        height: $size-xxl;
+        width: $size-xxl;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    input:checked ~ svg {
+        fill: $color-white;
+    }
+}

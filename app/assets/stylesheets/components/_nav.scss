@@ -1,0 +1,18 @@
+@use "../globals/globals" as *;
+
+.content {
+
+    nav {
+        display: flex;                  
+        justify-content: center;
+        align-items: center;
+        gap: $size-m;
+        padding: $size-m;
+
+        @include tablet {
+            flex-direction: row;
+            gap: $size-m;
+            padding: $size-xl;
+        }
+    }
+}

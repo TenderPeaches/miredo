@@ -1,0 +1,24 @@
+@use "../globals/globals" as *;
+
+.artists.table {
+    grid-template-columns: [start] 2fr 3fr [end];
+    
+    .table-row {
+        grid-column-start: start;
+        grid-column-end: end;
+
+        @include tablet {
+            width: 100%;
+            grid-column-start: initial;         // overwrite generic table row properties
+            grid-column-end: initial;
+        }
+    }
+    
+    &.table {
+        grid-template-columns: 1fr;
+
+        .table-row > :last-child {
+            justify-self: center;               // overwrite generic table row properties
+        }
+    }
+}

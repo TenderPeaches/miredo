@@ -1,0 +1,5 @@
+@use "../globals/globals" as *;
+
+.scales-table {
+    grid-template-columns: [start] 1fr 1fr [end];
+}
