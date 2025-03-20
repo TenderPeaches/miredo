@@ -2,15 +2,15 @@
 // Layout dimensions and measurement units
 $base-unit: 16px;  // must be divisible by 4
 
-$size-xxxs: calc(var($base-unit) / 8);
-$size-xxs: calc(var($base-unit) / 4);
-$size-xs: calc(var($base-unit) / 2);
-$size-s: calc(var($base-unit) * 3 / 4);
-$size-m: var($base-unit);
-$size-l: calc(var($base-unit) * 5 / 4);
-$size-xl: calc(var($base-unit) * 3 / 2);
-$size-xxl: calc(var($base-unit) * 2);
-$size-xxxl: calc(var($base-unit) * 3);
+$size-xxxs: calc($base-unit / 8);
+$size-xxs: calc($base-unit / 4);
+$size-xs: calc($base-unit / 2);
+$size-s: calc($base-unit * 3 / 4);
+$size-m: $base-unit;
+$size-l: calc($base-unit * 5 / 4);
+$size-xl: calc($base-unit * 3 / 2);
+$size-xxl: calc($base-unit * 2);
+$size-xxxl: calc($base-unit * 3);
 
 $font-size-default: 1em;
 $font-size-lyrics: 1.15em;

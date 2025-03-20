@@ -7,7 +7,7 @@
 
     .progression {
         border: $thicker-border-width $color-primary-light $clean-border-style;  // use a border that stands out, primary color happens to be green which correlates with the progressions being valid/confirmed/matching the DB
-        background: radial-gradient(var(--sheen-dark), transparent);  // depth effect shrug
+        background: radial-gradient($sheen-dark, transparent);  // depth effect shrug
     }
 
     @include tablet {
@@ -17,7 +17,7 @@
 
 .new-progressions {
     .progression {
-        background: var(--sheen-light);    // lighter sheen, more ephemeral
+        background: $sheen-light;    // lighter sheen, more ephemeral
         border: $thick-border-width $color-secondary-white $dirty-border-style;   // appropriately contrasting border, hinting that there are unsaveged changes with the dirty border style
     }
 }
