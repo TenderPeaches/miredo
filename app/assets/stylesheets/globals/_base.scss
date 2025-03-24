@@ -149,6 +149,7 @@ header {
     flex-direction: column;
     align-items: end;
     padding: $size-m 0 0 0;
+    background: $sheen-dark;
 
     @include tablet {
         position: fixed;            // maintain at the top of the screen at all times
@@ -156,38 +157,34 @@ header {
         border-left: 1px ridge $color-primary-dark;     // as desktop header doesn't take up all the page, add left border like the bottom one
     }
 
-    &, footer {
-        align-items: center;                // center items along the Y-axis
-        background: $sheen-dark;     // different background from page content
 
-        nav {
-            display: flex;                      // vertical flex
-            flex-direction: column;             // vertical flex
-            gap: $size-m;                 // space elemenets away from each other to prevent fat-fingering 
-            align-items: center;                // center items along the y-axis
-        }
+    nav {
+        display: flex;                      // vertical flex
+        flex-direction: column;             // vertical flex
+        gap: $size-m;                 // space elemenets away from each other to prevent fat-fingering 
+        align-items: center;                // center items along the y-axis
+    }
 
-        h1, h2 {
-            color: $color-primary-lightest;   // use default color for header title
-            margin: $size-xxs;
-        }
+    h1, h2 {
+        color: $color-primary-lightest;   // use default color for header title
+        margin: $size-xxs;
+    }
 
-        & > a {
-            text-decoration: none;
-            
-            @include tablet {
-                padding: $size-s $size-m;  // larger clickable area
-            }
-        }
-
+    & > a {
+        text-decoration: none;
+        
         @include tablet {
-            display: flex;                                      
-            flex-direction: column;                             // vertical flex
-            justify-content: space-between;                     // title to the left, nav to the right
-            align-items: center;                                // horizontal center
-            font-size: $font-size-l;                      // everything on header is important
-            z-index: 1;     
+            padding: $size-s $size-m;  // larger clickable area
         }
+    }
+
+    @include tablet {
+        display: flex;                                      
+        flex-direction: column;                             // vertical flex
+        justify-content: space-between;                     // title to the left, nav to the right
+        align-items: center;                                // horizontal center
+        font-size: $font-size-l;                      // everything on header is important
+        z-index: 1;     
     }
 
     @include tablet {
@@ -202,10 +199,13 @@ header {
 }
 
 footer {
+    display: flex;
     position: fixed;
     border-top: $thin-border-width ridge $color-primary-dark;
     width: 100%;
     bottom: 0;
+    padding: $size-s;
+    background: $sheen-dark;
 
     nav a {
         padding: $size-m $size-xxl;
@@ -223,6 +223,9 @@ footer {
 
     @include tablet {
         justify-content: center;
+        nav a {
+            padding: $size-s;
+        }
     }
 }
 
