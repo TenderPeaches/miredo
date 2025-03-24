@@ -9,7 +9,7 @@
     
     .song, .song-list-header {
         display: grid;                      // the songs themselves are displayed as a subgrid
-        grid-column-start: start;           // it spans from the start (before 1st column) ...grid-column-end: span end;          // ... to the end (after last column
+        grid-column: start / end;           // it spans from the start (before 1st column) ...grid-column-end: span end;          // ... to the end (after last column
         grid-template-columns: subgrid;     // it uses the same column templates as its parent grid
         grid-template-rows: 1fr 1fr;        // use a 2-row layout for mobile
         column-gap: $size-s;          // small gap between each piece of data

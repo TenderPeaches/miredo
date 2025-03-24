@@ -1,4 +1,4 @@
-@use "./globals" as *;
+@use "../globals/globals" as *;
 
 .header-links {
     align-items: flex-end;          // align horiztonally to the right
@@ -103,7 +103,7 @@ header {
         }
     }    
 
-    &, a:hover {
+    a:hover {
         background: $color-primary-darker;
     }
 
