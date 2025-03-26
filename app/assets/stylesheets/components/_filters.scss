@@ -1,15 +1,18 @@
 @use "../globals/globals" as *;
 
-.filter-field {
+.filter {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    padding: $size-xxs;
+    padding: $size-xxs $size-m;
     height: 3em;                // standardize height regardless of filter content 
-    cursor: pointer;
-    border: rgba(0, 0, 0, 0) 1px solid;
+    border: $color-primary-darkest $thin-border-width solid;
+    
+    &, &__label { 
+        cursor: pointer;
+    }
 
     &:hover {
         background: rgba(0, 0, 0, 0.2);
@@ -20,8 +23,12 @@
         border-color: $color-accent-lightest;
         background: rgba(0, 0, 0, 0.1);
 
-        .filter-label {
+        &__label {
             color: $color-accent-lightest;
         }
+    }
+
+    &, &:hover, &:active {
+        transition: $transition-s;
     }
 }

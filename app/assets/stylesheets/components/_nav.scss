@@ -7,12 +7,12 @@
         justify-content: center;
         align-items: center;
         gap: $size-m;
-        padding: $size-m;
+        padding: $size-xxxs;
 
         @include tablet {
             flex-direction: row;
             gap: $size-m;
-            padding: $size-xl;
+            padding: $size-xxs;
         }
     }
 }

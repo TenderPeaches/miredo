@@ -25,14 +25,14 @@ export default class extends Controller {
                 return      // don't toggle, the click was meant to interact with the control
             }
 
-            // If the target's class contains either "filter-field" (what we're looking for) or "filters" (to let us know we've gone too far and somehow the triggering field hasn't been found, which implies a bug)
-            while (!target.classList.contains("filter-field") && !target.classList.contains("filters")) {
+            // If the target's class contains either "filter" (what we're looking for) or "filters" (to let us know we've gone too far and somehow the triggering field hasn't been found, which implies a bug)
+            while (!target.classList.contains("filter") && !target.classList.contains("filters")) {
                 // Evaluate the target's parent element
                 target = target.parentElement;
             }
 
             // If a valid filter field target has been assessed
-            if (target.classList.contains("filter-field")) {
+            if (target.classList.contains("filter")) {
                 // If the filter is already active
                 if (target.classList.contains("active")) {
                     // Remove the active flag

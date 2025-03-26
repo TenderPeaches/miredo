@@ -9,7 +9,7 @@
 
    .chords {
       display: grid;                   // might have lots of chords, display as a grid to maximize data density
-      grid-template-columns: repeat(3, 1fr); // split in 3 columns for smaller devices
+      grid-template-columns: repeat(1, 1fr); // split in 3 columns for smaller devices
       text-align: left;                // align the start of each line 
       border-width: $thick-border-width;     // thick helper border 
       border-style: $default-border-style;   // default

@@ -1,12 +1,21 @@
 @use "../application" as *;
 
 .stats-calendar {
-    position :relative;
+    position: relative;
+
+    // Display inner components on top of one another
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: $size-m;
+    align-items: flex-start;
+    gap: $size-s;
 
+    @include tablet {
+        // Include border on tablet+ only, as the smaller screen's edges act as a natural border
+        padding: $size-s 0;
+        border: $thick-border-width $color-primary-darker solid;
+    }
+
+    // Date navigators
     search {
         display: flex;
         flex-direction: row;
@@ -17,9 +26,17 @@
         width: 100%;
         font-size: $font-size-l;
 
+        padding: 0 $size-s $size-s;
+        border-bottom: $color-primary-darkest $thin-border-width solid;
+
         a {
             text-decoration: none;
             font-size: $font-size-xl;
+            color: $color-secondary-lightest;
+
+            &:hover {
+                color: $color-white;
+            }
         }
     }
 
@@ -29,8 +46,17 @@
         gap: $size-s;
 
         @include tablet {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: $size-m;
+        }
+
+        @include desktop {
+            grid-template-columns: repeat(3, 1fr);
+            gap: $size-l;
+        }
+
+        @include large-desktop {
+            grid-template-columns: repeat(4, 1fr);
         }
     }
 
@@ -38,10 +64,13 @@
     .monthly-calendar {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
+        padding: 0 $size-s;
+
+        // Don't stretch the calendar in case it's on the same row as another with more weeks
+        align-content: start;
     }
 
     .monthly-calendar {
-        gap: $size-m;
     
         .month {
             grid-column: 1 / 8;
@@ -66,13 +95,19 @@
         grid-template-areas: 
             "date ."
             ". stats";
+
+        grid-template-rows: 1fr auto;
+        grid-template-columns: 1fr auto;
     
-        width: $size-xxl;
-        height: $size-xxxl;
+        width: 3 * $size-l;
+        height: 4 * $size-l;
+        font-size: $font-size-m;
+
+        padding: $size-xxs;
+        border: $color-primary-darkest $thin-border-width ridge;
     
         .calendar__date__day-of-month {
             font-weight: bold;
-            font-size: $font-size-l;
             grid-area: date;
         }
     
@@ -92,7 +127,7 @@
             }
         }
 
-        &__date__day-of-month.off-month {
+        &__day-of-month.off-month {
             color: $color-disabled;
         }
     }

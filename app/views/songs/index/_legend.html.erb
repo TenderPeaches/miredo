@@ -2,7 +2,7 @@
 <% if user_signed_in? %>
     <%= tag.div class: "legend" do %>
         <%= tag.h4 t("content.songs.color_legend") %>
-        <%= tag.div class: "color-legend" do %>
+        <%= tag.div class: "legend__colors" do %>
             <%# sync with songs_helper.rb method `song_row_color`, until these are changed into user_settings %>
             <%= song_color_legend_sample "purple", t("content.songs.by_heart") %>
             <%= song_color_legend_sample "green", "< 10 #{t("content.songs.days_ago")}" %>

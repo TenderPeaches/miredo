@@ -20,7 +20,7 @@
                 background-color: $color-primary-dark;    // track color for "on" position
 
                 &::before {
-                    transform: translateX(calc($size-xl - $size-xxs)); // travel half the .toggle width, minus the left: position anchor value of the "off" indicator to keep a consistant padding with the rightmost edge 
+                    transform: translateX($size-xl - $size-xxs); // travel half the .toggle width, minus the left: position anchor value of the "off" indicator to keep a consistant padding with the rightmost edge 
                     background-color: $color-primary-lightest;    // style
                 }
             }
@@ -35,18 +35,18 @@
             width: 100%;                                        // match parent size
             height: 100%;                       
             transition: background-color $transition-s;   // smooth transition
-        }
-
-        &::before {
-            content: "";                                    // no content, but necessary to force display
-            position: absolute;                             // position relative to parent
-            height: calc($size-xl - $size-xxs); // match height of .toggle, minus half the padding between the indicator and the edge of the track                                
-            width: calc($size-xl - $size-xxs);  // copy height value, for a round indicator
-            left: $size-xxs;                          // anchor to the left of the track, same value as that which is removed from .toggle height to get the indicator height
-            bottom: $size-xxxs;                       // anchor to the bottom of the track, should be half the value removed from .toggle height to get the indicator height
-            background-color: $color-primary-white;   // indicator color
-            border-radius: 50%;                             // full circle shape
-            transition: $transition-s;                // style
+    
+            &::before {
+                content: "";                                    // no content, but necessary to force display
+                position: absolute;                             // position relative to parent
+                height: $size-xl - $size-xxs; // match height of .toggle, minus half the padding between the indicator and the edge of the track                                
+                width: $size-xl - $size-xxs;  // copy height value, for a round indicator
+                left: $size-xxs;                          // anchor to the left of the track, same value as that which is removed from .toggle height to get the indicator height
+                bottom: $size-xxxs;                       // anchor to the bottom of the track, should be half the value removed from .toggle height to get the indicator height
+                background-color: $color-primary-white;   // indicator color
+                border-radius: 50%;                             // full circle shape
+                transition: $transition-s;                // style
+            }
         }
 
     }

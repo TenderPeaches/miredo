@@ -36,10 +36,41 @@ h2, h3, h4, h5, h6 {
     margin: 0;          // if non-page headers need margin, specify it explicitly rather than default to it  
 }
 
-// helps with complex forms, used for submodels
+
+// main application content viewport, occupies most of the screen
+main {  
+    display: flex;                          // by default, display content in a vertical flex
+    flex-direction: column;                 // verticality of the flex
+    padding: $size-m $size-s;   // maximize content with a small buffer zone for mobile
+    align-items: center;                    // horizontally align the items along the center axis
+    
+    //* we could've used just text-align: center but that trickles down to every sub-element, which isn't the desired behavior, so instead we're using a vertical flex
+
+    & > h1 {
+        margin: $size-l;
+    }
+
+    & > h2 {
+        margin: $size-m;
+    }
+
+    @include tablet {
+        max-width: $max-content-width--large-screen;  // prevent the content from spreading over too wide an area
+        padding: $size-m;
+        margin: auto;           // center horizontally 
+    }
+}
+
+// helps with complex forms, used for submodels, notices and showcasing song lists
 fieldset {
-    padding: $size-m;                                 // internal spacing
-    margin: $size-m;                                  // external spacing
+    // On mobile, keep 0 lateral margin because otherwise the content overflows sideways
+    padding: $size-m $size-s;                     
+    margin: $size-m 0;                                 
+
+    @include tablet {
+        padding: $size-m;
+        margin: $size-m;
+    }
 }
 
 // fieldset titles
@@ -51,7 +82,9 @@ legend {
 
 // short bits of text that indicate the nature of another element
 label {
-    font-size: $font-size-l;     
+    font-size: $font-size-l; 
+
+    color: $color-secondary-white;
     
     &[title] {
         cursor: help;
@@ -139,94 +172,6 @@ details {
 hr {
     width: 80%;
     color: $color-primary-darker;
-}
-
-// as the website's main purpose is to show tablatures without needing to scroll around, maximizing the visual space means making the header as small as possible
-header {
-    position: relative;
-    border-bottom: 1px ridge $color-primary-dark; // add an edge to the bottom
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    padding: $size-m 0 0 0;
-    background: $sheen-dark;
-
-    @include tablet {
-        position: fixed;            // maintain at the top of the screen at all times
-        right: 0;                   // tuck to the right, clearing out the middle space
-        border-left: 1px ridge $color-primary-dark;     // as desktop header doesn't take up all the page, add left border like the bottom one
-    }
-
-
-    nav {
-        display: flex;                      // vertical flex
-        flex-direction: column;             // vertical flex
-        gap: $size-m;                 // space elemenets away from each other to prevent fat-fingering 
-        align-items: center;                // center items along the y-axis
-    }
-
-    h1, h2 {
-        color: $color-primary-lightest;   // use default color for header title
-        margin: $size-xxs;
-    }
-
-    & > a {
-        text-decoration: none;
-        
-        @include tablet {
-            padding: $size-s $size-m;  // larger clickable area
-        }
-    }
-
-    @include tablet {
-        display: flex;                                      
-        flex-direction: column;                             // vertical flex
-        justify-content: space-between;                     // title to the left, nav to the right
-        align-items: center;                                // horizontal center
-        font-size: $font-size-l;                      // everything on header is important
-        z-index: 1;     
-    }
-
-    @include tablet {
-        h1 {
-            padding-left: $size-xl;
-        }
-
-        h2 {
-            margin: $size-xxxs;
-        }
-    }
-}
-
-footer {
-    display: flex;
-    position: fixed;
-    border-top: $thin-border-width ridge $color-primary-dark;
-    width: 100%;
-    bottom: 0;
-    padding: $size-s;
-    background: $sheen-dark;
-
-    nav a {
-        padding: $size-m $size-xxl;
-        text-decoration: none;
-
-        &:hover {
-            background: $color-primary-darkest;
-        }
-
-        &:active {
-            background: $color-primary-lightest;
-            color: $color-accent-darker;
-        }
-    }
-
-    @include tablet {
-        justify-content: center;
-        nav a {
-            padding: $size-s;
-        }
-    }
 }
 
 // standalone parts of the content

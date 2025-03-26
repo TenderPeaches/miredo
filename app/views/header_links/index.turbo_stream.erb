@@ -1,7 +1,0 @@
-<% if @show %>
-    <%= turbo_stream.remove_class :header, "pulled" %>
-    <%= turbo_stream.change_url "header-links-toggle", header_links_path(show: false) %>
-<% else %>
-    <%= turbo_stream.add_class :header, "pulled" %>
-    <%= turbo_stream.change_url "header-links-toggle", header_links_path(show: true) %>
-<% end %>

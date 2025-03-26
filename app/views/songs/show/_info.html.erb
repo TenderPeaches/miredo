@@ -1,17 +1,34 @@
 <%# helpful song info %>
-<%= tag.section class: "song-info" do %>
+<%= tag.div class: "song-info" do %>
+    <%# user who submitted the song tab %>
+    <%= tag.div do %>
+        <%= tag.label "#{t('content.songs.submitter')}: " %>
+        <%= tag.span song.submitter&.username || "Anon" %>
+    <% end %>
     <%# original song key & scale %>
-    <%= tag.div t('content.songs.key', key: song.keyscale) %>
+    <%= tag.div do %>
+        <%= tag.label "#{t('content.songs.key')}: " %>
+        <%= tag.span song.keyscale %>
+    <% end %>
     <%# suggested capo %>
-    <%= tag.div song_capo_label song %>
+    <%= tag.div do %>
+        <%= tag.label "#{t("content.songs.suggested_capo")}: " %>
+        <%= tag.span song_capo_label song %>
+    <% end %>
     <%# number of times practiced %>
     <% if current_user %>
-        <%= tag.div t('content.songs.nb_practice_user', times: song.plays(current_user)), id: "user-play-count" %>
+        <%= tag.div do %>
+            <%= tag.label "#{t("content.songs.nb_practice_user")}: " %>
+            <%= tag.span do %>
+                <%= tag.span song.plays(current_user), id: "user-play-count" %><%= tag.label "x" %>
+            <% end %>
+        <% end %>
     <% end %>
-    <%# user who submitted the song tab %>
-    <%= tag.div t('content.songs.submitter', user: song.submitter&.username || "Anon") %>
     <%# last played info %>
     <% if song.last_play current_user %>
-        <%= tag.div song_last_played_label(song), id: "last-played" %>
+        <%= tag.div do %>
+            <%= tag.label "#{t("content.songs.last_played_short")}: " %>
+            <%= tag.span song_last_played_label(song), id: "last-played" %>
+        <% end %>
     <% end %>
 <% end %>

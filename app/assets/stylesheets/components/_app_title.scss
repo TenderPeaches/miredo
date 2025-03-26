@@ -1,0 +1,36 @@
+@use "../globals/globals" as *;
+@use "sass:color";
+
+.app-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    a {
+        &:hover {
+            background: $color-primary-black;
+        }
+
+        &:active {
+            background: $color-primary-darker;
+        }
+    }
+}
+
+.app-logo__text {
+    margin: 0;                  // remove margin with regular <header>
+    padding: $size-m;           // use padding instead
+    text-decoration: none;      // remove underline from logo
+
+    & > span:nth-child(1) {
+        color: $color-secondary-light;
+    }
+
+    & > span:nth-child(2) {
+        color: $color-accent-light;
+    }
+
+    & > span:nth-child(3) {
+        color: $color-primary-light;
+    }
+}

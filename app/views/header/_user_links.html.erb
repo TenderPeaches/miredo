@@ -1,0 +1,12 @@
+<%# links related to user authentification and user profile %>
+<%= tag.nav class: "user-links" do %>
+    <% if user_signed_in? %>
+        <%= link_to t('cta.my_account'), edit_user_registration_path %>
+        <%= inline_separator %>
+        <%= link_to t('cta.log_out'), destroy_user_session_path, data: { turbo_method: :delete } %>
+    <% else %>
+        <%= link_to t('cta.log_in'), new_user_session_path %>
+        <%= inline_separator %>
+        <%= link_to t('cta.sign_up'), new_user_registration_path %>
+    <% end %>
+<% end %>

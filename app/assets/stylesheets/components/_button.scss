@@ -1,0 +1,108 @@
+@use "../globals/globals" as *;
+
+// generic button
+.button,
+input[type="submit"] {
+    display: inline-block;                                  // occupy a block
+    cursor: pointer;                                        // standard
+    padding: $size-s;                                 // inner spacing
+    margin: $size-xxxs;                               // as small a margin as possible, since flex/grid layouts use the gap attribute to space out elements
+    border-width: $thick-border-width;                // let the border pop
+    border-style: $button-border-style;               // standard
+    transition-duration: $transition-s;             // standard
+    text-align: center;                                     // standard
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.button {
+    background-color: $color-primary-darkest;
+    border-color: $color-primary-white;              // highlight against dark background
+    color: $color-primary-white;
+
+    &--secondary {
+        background-color: $color-secondary-darkest;
+        border-color: $color-secondary-white;              // highlight against dark background
+        color: $color-secondary-white;
+    }
+
+    &--accent {
+        background-color: $color-accent-darkest;
+        border-color: $color-accent-white;              // highlight against dark background
+        color: $color-accent-white;
+    }
+
+    &--alert {
+        background-color: $color-error;
+        border-color: $color-white;
+        color: $color-white;
+
+        &:hover {
+            background-color: $color-white;
+            border-color: $color-error;
+            color: $color-error;
+        }
+
+        &:active {
+            background-color: $color-error-light;
+        }
+    }
+}
+
+// square buttons, usually used with icons or single characters
+.button--square, input[type="submit"].button--square {
+    display: inline-flex;                                  // force inline display, otherwise flex will change the dimensions
+    padding: 0;                                             // set dimensions manually, remove padding for easier calculations
+    width: $size-xxl;                                  // ensure same size as height
+    height: $size-xxl;                                 // ensure same size as width
+    flex-direction: column;                                 // center vertically
+    justify-content: center;                                // center vertically
+    align-items: center;
+    font-size: $font-size-xxl;                       // big character, since there's just one 
+}
+
+// generic clickable element 
+.clickable {
+    cursor: pointer;                                        // standard
+    border-color: transparent;                              // prevent element size from changing when border is not shown
+    border-width: $thin-border-width;               // simple border
+    border-style: $button-border-style;               // standard
+
+    transition-duration: $transition-s;
+
+    &--disabled {
+        border-color: $color-disabled;
+        background-color: $color-disabled-dark;
+        color: $color-disabled;
+        pointer-events: none;
+    }
+}
+
+.clickable, .button {
+    &:hover {
+        border-style: outset;
+        border-color: $color-primary-light;
+        background: $color-primary;
+        color: $color-primary-black;
+    }
+
+    &:active {
+        background: $color-primary-darkest;
+    }
+}
+
+input[type="submit"] {
+    border-color: $color-accent-white;
+    background: $color-accent-darkest;
+    color: $color-accent-white;
+
+    &:hover {
+        background: $color-accent;
+        color: $color-accent-black;
+    }
+
+    &:active {
+        background: $color-accent-darker;
+    }
+    
+}

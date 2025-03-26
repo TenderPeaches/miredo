@@ -5,19 +5,19 @@ module SongsHelper
                 # difference in days between now and the last time user played the song
                 days_diff = (Time.now - song.last_played(user)) / (60*60*24)
                 if (days_diff < 0)
-                    days_label = "today"
+                    days_label = t("content.today")
                 elsif (days_diff.floor == 1)
-                    days_label = "yesterday"
+                    days_label = t("content.yesterday")
                 else
-                    days_label = "#{days_diff.floor} days ago"
+                    days_label = "#{days_diff.floor} #{t("content.songs.days_ago")}"
                 end
 
                 if song.last_play(user).by_heart
-                    days_label << " (by heart)"
+                    days_label << " (#{t("content.songs.by_heart")})"
                 end
-                "Last played #{days_label}"
+                days_label
             else
-                "Never played"
+                t("content.songs.never")
             end
         end
     end
@@ -62,24 +62,36 @@ module SongsHelper
     def songs_list_header
         tag.div class: "song-list-header" do
             safe_join [
-                tag.span(t('content.songs.favorite'), class: "songs-list__favorite"),
-                tag.span(Song.model_name.human, class: "songs-list__title"),
-                tag.span(Artist.model_name.human, class: "songs-list__artist", title: Song.human_attribute_name(:artist)),
-                tag.span(t('content.songs.capo'), class: "songs-list__capo", title: Song.human_attribute_name(:capo)),
-                tag.span(Song.human_attribute_name(:nb_practices), class: "songs-list__plays", title: t('hints.user_song_plays')),
-                tag.span(Song.human_attribute_name(:last_practice), class: "songs-list__last-played", title: t('hints.user_last_practice')),
-                tag.span(nil, class: "songs-list__play")
+                tag.span(t('content.songs.favorite'), class: "song-list__favorite"),
+                tag.span(Song.model_name.human, class: "song-list__title"),
+                tag.span(Artist.model_name.human, class: "song-list__artist", title: Song.human_attribute_name(:artist)),
+                tag.span(t('content.songs.capo'), class: "song-list__capo", title: Song.human_attribute_name(:capo)),
+                tag.span(Song.human_attribute_name(:nb_practices), class: "song-list__plays", title: t('hints.user_song_plays')),
+                tag.span(Song.human_attribute_name(:last_practice), class: "song-list__last-played", title: t('hints.user_last_practice')),
+                tag.span(nil, class: "song-list__play")
             ]
         end
     end
 
+    # This is displayed as part of a "Capo: [info]" binome, where this function provides the "info" part
     def song_capo_label(song)
         if song.capo.nil? || song.capo == 0 then
-            t('content.songs.no_capo')
+            t('content.keywords.none')
         elsif song.capo < 0 then
             t('content.songs.negative_capo', capo: (song.capo * -1).to_s)
         else
-            t('content.songs.suggested_capo', capo: song.capo)
+            song.capo.to_s
+        end
+    end
+
+    # This is displayed as a standalone label, like "No capo", "Capo 3", etc.
+    def song_capo_hint(song)
+        if song.capo.nil? || song.capo == 0 then
+            t("content.songs.no_capo")
+        elsif song.capo < 0 then
+            t("content.songs.negative_capo", capo: (song.capo * -1).to_s)
+        else
+            "#{Song.human_attribute_name(:capo)} #{song.capo}"
         end
     end
 
@@ -118,9 +130,11 @@ module SongsHelper
     end
 
     def song_color_legend_sample(name, text)
-        safe_join [
-            tag.div(class: "color-sample color-sample--#{name.kebabcase}"),
-            tag.div(text, class: "description")
-        ]
+        tag.div class: "legend__item" do
+            safe_join [
+                tag.div(class: "legend__sample legend__sample--#{name.kebabcase}"),
+                tag.div(text, class: "description")
+            ]
+        end
     end
 end

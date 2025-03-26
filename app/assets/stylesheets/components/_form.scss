@@ -1,8 +1,7 @@
 @use "../globals/globals" as *;
 
-// target the .form class, as form elements might be used in situations where these attributes shouldn't apply 
-.form {
-    width: calc(min(95vw, 900px));            // stretch to 900px or most of the screen, whichever is smaller, as forms that are too wide will put too much space between the input and the label that identifies it 
+// target the HTML form, as exceptions can target the more specific .classes instead
+form {
     margin: auto;                       // horizontal center 
     display: flex;                      // vertical-flex 
     flex-direction: column;             // vertical-flex 
@@ -20,7 +19,7 @@
             display: grid;                                          // to allow for a uniform display between each field, regardless of input type 
             margin: $size-l;                                  // spacing around 
             padding: $size-l;                                 // spacing within 
-            grid-template-columns: 1fr 3fr;                         // 1 frame for the label, 3 frames for the field itself 
+            grid-template-columns: repeat(2, 1fr);
             align-items: center;                                    // vertically align each grid item
         }
     }
@@ -35,6 +34,7 @@
 
         @include tablet {
             flex-direction: row;
+            grid-column: 1 / -1;
         }
     }
 
@@ -69,9 +69,10 @@
 
             @include tablet {
                 display: inline-block;
-                width: calc(min(40vw, calc($size-xxxl * 6)));   // set fixed width so the flex displays in grid-like manner  
+                width: calc(min(40vw, $size-xxxl * 6));   // set fixed width so the flex displays in grid-like manner  
                 text-align: left;               //? could do right 
                 margin-right: $size-xxl;  // space away from the input
+                border-bottom: 1px solid $color-primary-lightest;
             }
         }
     }
@@ -79,15 +80,12 @@
     .field, .checkbox-field {
         label {
             text-align: center; 
-            color: $color-secondary-white;
             font-weight: bold;
         }
 
         @include tablet {
-            display: flex;
             align-items: stretch;
             margin: $size-m;
-            border-bottom: 1px solid $color-primary-lightest;
         }
     }
 
@@ -113,13 +111,5 @@
         input {
             width: 100%;    // needed because of the <div class="field-with-errors"> that gets wrapped around error-fields
         }
-    }
-    
-    .form-options {
-        margin-top: $size-m;        // breathing room 
-        margin-bottom: $size-m;     // breathing room 
-        display: flex;                    // vertical flex 
-        flex-direction: column;           // vertical flex 
-        gap: $size-s;
     }
 }

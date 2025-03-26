@@ -5,7 +5,7 @@ module ApplicationHelper
     end
 
     def app_logo
-        tag.h1 class: "app-title" do
+        tag.h1 class: "app-logo__text" do
             safe_join [
                 tag.span(app_title[0..1]),
                 tag.span(app_title[2..3]),
@@ -93,63 +93,68 @@ module ApplicationHelper
                     case current_page
                     when 1
                         safe_join [
-                            tag.span("1"),
-                            turbo_link_button("2", songs_path(page: 2)),
-                            turbo_link_button("3", songs_path(page: 3)),
+                            current_page_marker("1"),
+                            page_link("2", songs_path(page: 2)),
+                            page_link("3", songs_path(page: 3)),
                             tag.span("..."),
-                            turbo_link_button(page_count, songs_path(page: page_count)),
+                            page_link(page_count, songs_path(page: page_count)),
                         ]
                     when 2
                         safe_join [
-                            turbo_link_button("1", songs_path(page: 1)),
-                            tag.span("2"),
-                            turbo_link_button("3", songs_path(page: 3)),
+                            page_link("1", songs_path(page: 1)),
+                            current_page_marker("2"),
+                            page_link("3", songs_path(page: 3)),
                             tag.span("..."),
-                            turbo_link_button(page_count, songs_path(page: page_count)),
+                            page_link(page_count, songs_path(page: page_count)),
                         ]
                     when 3
                         safe_join [
-                            turbo_link_button("1", songs_path(page: 1)),
-                            turbo_link_button("2", songs_path(page: 2)),
-                            tag.span("3"),
-                            turbo_link_button("4", songs_path(page: 4)),
+                            page_link("1", songs_path(page: 1)),
+                            page_link("2", songs_path(page: 2)),
+                            current_page_marker("3"),
+                            page_link("4", songs_path(page: 4)),
                             tag.span("..."),
-                            turbo_link_button(page_count, songs_path(page: page_count))
+                            page_link(page_count, songs_path(page: page_count))
                         ]
                     when 4
                         safe_join [
-                            turbo_link_button("1", songs_path(page: 1)),
+                            page_link("1", songs_path(page: 1)),
                             tag.span("..."),
-                            turbo_link_button("3", songs_path(page: 3)),
-                            tag.span("4"),
-                            turbo_link_button("5", songs_path(page: 5)),
+                            page_link("3", songs_path(page: 3)),
+                            current_page_marker("4"),
+                            page_link("5", songs_path(page: 5)),
                             raw("#{page_count > 6 ? tag.span('...') : ''}"),
-                            turbo_link_button(page_count, songs_path(page: page_count))
+                            page_link(page_count, songs_path(page: page_count))
                         ]
                     when 5
                         safe_join [
-                            turbo_link_button("1", songs_path(page: 1)),
+                            page_link("1", songs_path(page: 1)),
                             tag.span("..."),
-                            turbo_link_button("4", songs_path(page: 4)),
-                            tag.span("5"),
-                            raw("#{if page_count >= 7 then turbo_link_button("6", songs_path(page: 6)) end}"),
+                            page_link("4", songs_path(page: 4)),
+                            current_page_marker("5"),
+                            raw("#{if page_count >= 7 then page_link("6", songs_path(page: 6)) end}"),
                             raw("#{if page_count > 7 then tag.span("...") end}"),
-                            turbo_link_button(page_count, songs_path(page: page_count))
+                            page_link(page_count, songs_path(page: page_count))
                         ]
                     else
                         safe_join [
-                            turbo_link_button("1", songs_path(page: 1)),
+                            page_link("1", songs_path(page: 1)),
                             tag.span("..."),
-                            turbo_link_button((current_page - 1).to_s, songs_path(page: (current_page - 1))),
-                            tag.span(current_page.to_s),
-                            raw("#{if page_count > current_page + 1 then turbo_link_button((current_page + 1).to_s, songs_path(page: current_page + 1)) end}"),
+                            page_link((current_page - 1).to_s, songs_path(page: (current_page - 1))),
+                            current_page_marker(current_page.to_s),
+                            raw("#{if page_count > current_page + 1 then page_link((current_page + 1).to_s, songs_path(page: current_page + 1)) end}"),
                             raw("#{if page_count - current_page > 2 then tag.span('...') end}"),
-                            raw("#{if page_count > current_page then turbo_link_button(page_count, songs_path(page: page_count)) end}"),
+                            raw("#{if page_count > current_page then page_link(page_count, songs_path(page: page_count)) end}"),
                         ]
                     end
                 end
             end
         end
+    end
+
+    # a vertical separator, sort of like an inline equivalent of <hr/> to separate elements within the same line
+    def inline_separator
+        tag.span "|", class: "inline-separator"
     end
 
     private
@@ -160,13 +165,21 @@ module ApplicationHelper
             the_page = p + 1
             # current page gets a non-link
             html_output << if the_page == current_page
-                tag.span the_page.to_s
+                current_page_marker the_page.to_s
             else
                 # every other page gets a link
                 #(!) need to account for cases where path might already have QSA, maybe regex it
-                turbo_link_button the_page.to_s, "#{path}?page=#{the_page}"
+                page_link the_page.to_s, "#{path}?page=#{the_page}"
             end
         end
         safe_join(html_output)
+    end
+
+    def page_link(page, path)
+        turbo_link_to page, path, class: "paginator__link"
+    end
+
+    def current_page_marker(page)
+        tag.span page, class: "paginator__current"
     end
 end

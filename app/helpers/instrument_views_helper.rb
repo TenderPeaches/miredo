@@ -1,7 +1,8 @@
 module InstrumentViewsHelper
 
     def instrument_view_tag(instrument_view, &block)
-        tag.div class: "#{instrument_view.instrument.instrument_template.filename.kebabcase}-view" do
+
+        tag.div class: "#{instrument_view.instrument.instrument_template.filename.kebabcase}-view#{instrument_view.instrument.instrument_template.has_fretboard? ? " fretted-instrument" : ""}" do
             capture(&block)
         end
     end

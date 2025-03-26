@@ -1,30 +1,150 @@
 @use "../globals/globals" as *;
 
-.songs-list {
-    display: grid;                      // lots of data, so align the columns to make it easier for the user to make sense of it all         
-    grid-template-columns: [start] 1fr 3fr 2fr 2fr [end];   // on mobile, use a 2-row layout for each song
-    font-size: $font-size-l;      // important page with only short bits of text (song name & artist name), make it legible
-    row-gap: $size-s;             // small gap between songs, enough to make each one stand out
-    margin: $size-m 0;            // external vertical buffer
+.song-list {
+    // Grid ensures a size-consistent layout
+    display: grid;         
+
+    // Few points of data, make it stand out
+    font-size: $font-size-l;    
+    grid-template-columns: repeat(4, 1fr);
+
+    @include tablet {
+        grid-template-columns: 1fr 7fr 5fr 1fr 1fr 1fr 2fr 2fr; // See mobile grid-template-areas for data needing to be displayed here
+    }
     
-    .song, .song-list-header {
-        display: grid;                      // the songs themselves are displayed as a subgrid
-        grid-column: start / end;           // it spans from the start (before 1st column) ...grid-column-end: span end;          // ... to the end (after last column
-        grid-template-columns: subgrid;     // it uses the same column templates as its parent grid
-        grid-template-rows: 1fr 1fr;        // use a 2-row layout for mobile
-        column-gap: $size-s;          // small gap between each piece of data
-        row-gap: $size-xs;            // small gap between the rows
-        justify-items: left;                // align items with the edge
-        align-items: center;                // vertically center items within their tracks
-        padding: $size-s;             // extra padding for the background color
+    .song {
+
+        // Subgrid to .song-list
+        display: grid;             
+        grid-template-columns: subgrid;
+        grid-column: 1 / -1;
+        // on mobile, use a multiple row layout for each song
+        grid-template-areas:
+            "favorite   title       title       title"
+            "artist     artist      artist      artist"
+            "key        key         capo        capo"
+            "plays      plays       last_play   last_play"
+            "actions    actions     actions     actions";
+
+        border: $thin-border-width $color-primary-dark solid; 
+        padding: $size-m $size-s;
+
+        // Collapse margins for all except last child
+        &:nth-child(n - 1) {
+            margin-bottom: -1px;
+        }
+        
+        .song {
+
+            &__favorite {
+                grid-area: favorite;
+            }
+
+            &__title {
+                grid-area: title;
+
+                a {
+                    color: $color-primary-lightest;
+                    font-size: $font-size-xl;
+
+                    &:hover {
+                        color: $color-white;
+                    }
+
+                    &:active {
+                        color: $color-primary-lighter;
+                    }
+                }
+            }
+            &__artist {
+                grid-area: artist;
+                font-style: italic;
+    
+                a {
+                    text-decoration: none;
+                }
+            }
+
+            &__key {
+                grid-area: key;
+            }
+            
+            &__capo {
+                grid-area: capo;
+            }
+            
+            &__plays {
+                grid-area: plays;
+            }
+            
+            &__last-play {
+                grid-area: last_play;
+            }
+            
+            &__actions {
+                display: flex;
+                grid-area: actions;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+
+            @include tablet {
+                &__key,
+                &__capo,
+                &__plays {
+                    justify-self: center;
+                }
+            }
+        }
+        
+
+        &:hover {
+            background: $color-primary-darkest;       // imply a button, without implying clickable
+        }
+
+        &, &:hover {
+            transition-duration: $transition-s;     // standard
+        }
+    }
+    
+    .song, .song-list-header {      
+        
+        column-gap: $size-s;          
+        row-gap: $size-xs;            
+        justify-items: left;                
+        align-items: center;            
 
         @include tablet {
-            grid-template-rows: initial;    // reset
+            // reset for tablet+, instead using a simple single-row layout
+            grid-template-areas: initial;    
+            grid-template-columns: subgrid;
+
+
+            // Reset grid areas for tablets as they are not needed for the single-row layout
+            & > .song__favorite, 
+            & > .song__title, 
+            & > .song__artist, 
+            & > .song__key, 
+            & > .song__capo, 
+            & > .song__plays, 
+            & > .song__last-play, 
+            & > .song__actions {
+                grid-area: initial;
+            }
         }
     }
     
     .song-list-header {
-        justify-items: center;              // center the content of each header cell
+
+        // Hide on mobile, the data is labelled within the table
+        display: none;
+        justify-items: center;
+
+        @include tablet {
+            display: grid;
+            grid-column: 1 / -1;
+        }
 
         & > * {
             padding: $size-s;             // buffer between each header cell
@@ -34,45 +154,6 @@
                 padding: $size-s $size-m;
             }
         }
-    }
-
-    .song {
-        &:hover {
-            background: $color-primary-darkest;       // imply a button, without implying clickable
-        }
-
-        &, &:hover {
-            transition-duration: $transition-s;     // standard
-        }
-        
-        @include tablet {
-            &--short {
-                column-gap: $size-xxl;
-
-                .songs-list__title {
-                    grid-column-start: start;
-                    grid-column-end: artist;
-                }
-
-                .songs-list__artist {
-                    grid-column-start: artist;
-                    grid-column-end: end;
-                }
-            }
-        }
-    }
-
-    &__title {
-        text-align: center;         // center the song title
-    }
-
-    &__play {
-        display: flex;              // horizontal flex
-        gap: $size-m;         // medium gap between square buttons
-    }
-
-    &__capo, &__plays {
-        justify-self: center;          // small numbers can be centered in the column
     }
 
     .song-row {
@@ -96,26 +177,125 @@
             background-color: $color-practice--red;
         }
     }
-
-    @include tablet {
-        grid-template-columns: [start] 1fr [song] 6fr [artist] 4fr [capo] 1fr [play-count] 1fr [last-play] 2fr [play-actions] 2fr [end];    // songs are displayed as: "[FavoriteBtn] Song Title by Some Artist [Capo] [PlayCount] [LastPlayed] [Play] [Play+]
-        row-gap: $size-xxxs;  // smaller gap on PC as each individual item is easier to make out
-
-        // for song lists where the user is not logged in, certain columns will not appear thus the column template must be adjusted accordingly (see _song_list_header.index.erb or _song.html.erb)
-        &--anon {
-            grid-template-columns: [start] 6fr [artist] 4fr [capo] 1fr [end];
-        }
-
-        &__title {
-            text-align: left;           // align the title with the left-most edge for cleaner look
-        }
-    }
 }
 
-@include tablet {
-    .song-search {
+
+    
+.song-list-options {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $size-m;
+
+    .sorters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $size-m;
+    }
+
+    .filters, .filters form {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+
+        input[type=submit] {
+            width: 100%;
+            align-self: center;
+        }
+
+        .filter-controls {
+            display: flex;
+            flex-direction: row;
+        }
+
+        select {
+            max-width: 40vw;
+
+            @include tablet {
+                max-width: 95vw;
+            }
+        }
+    }
+
+    @include tablet {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+            "sort       sort        sort        sort"
+            "filter     filter      filter      filter"
+            "search     search      clear       clear";
+        row-gap: $size-m;
+        column-gap: $size-xs;
+
+        .sorters {
+            grid-area: sort;
+
+            display: grid;
+            grid-template-columns: subgrid;
+            justify-content: space-around;
+            align-items: center;
+            row-gap: $size-xs;
+
+            .label {
+                grid-column: 1 / -1;
+            }
+
+            a {
+                justify-self: center;
+            }
+        }
+
+        .filters {
+            grid-area: filter;
+            display: grid;
+            grid-template-columns: subgrid;
+
+            .label {
+                margin-bottom: $size-xs;
+            }
+
+            // The actual filters are displayed inside a form
+            form {
+                display: grid;
+                grid-template-columns: subgrid;
+                grid-column: 1 / -1;
+                row-gap: $size-xs;
+    
+                .filter {
+                    &--key, &--capo {
+                        grid-column: span 2;
+                    }
+
+                    &--artist {
+                        grid-column: 1 / -1;
+                    }
+                }
+
+                input[type=submit] {
+                    grid-column: 2 / -1;
+                }
+            }
+        }
+
+        .search {
+            grid-area: search;
+
+            .song-search {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+
+                input[type=text] {
+                    width: 100%;
+                }
+            }
+        }
+
+        .clear {
+            grid-area: clear;
+        }
     }
 }

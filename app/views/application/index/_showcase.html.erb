@@ -10,7 +10,7 @@
                 <% end %>
             <% end %>
             <% if showcase.songs.any? %>
-                <%= tag.div class: "songs-list" do %>
+                <%= tag.div class: "song-list" do %>
                     <% showcase.songs.each do |song| %>
                         <%= render song, short_row: true %>
                     <% end %>

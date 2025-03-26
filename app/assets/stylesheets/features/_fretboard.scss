@@ -5,28 +5,50 @@
     padding: $size-l;               // acts as margin, spacing 
 
     .fretboard {
-        border-style: none;         // the frets have their own border
-        display: inline-flex;       // center the fretboard, wrap it around the frets and flex-vertical the strings
-        flex-direction: column;     // vertical list the strings  
+        // Display a vertical fretboard on mobile: a row of column-shaped strings
+        display: flex;
+        flex-direction: row;
+
+        // Use the fret's own borders
+        border-style: none;         
+
+        @include tablet {
+            flex-direction: column;
+        }
 
         .fretboard-header, .string {
+            // Column-shaped string
             display: flex;
+            flex-direction: column;
+
+            @include tablet {
+                flex-direction: row;
+            }
         }
 
         .fret {
-            width: calc(2.5 * $size-xl);
-            height: $size-xl;
             color: $color-primary-dark;
         
-            border-color: $color-primary-white;
-            border-style: solid;
-            border-width: 2px;
+            border: $color-primary-white $thick-border-width solid;
             padding: 0.10rem;
+
+            // Center content
+            display: flex;
+            justify-content: center;
+            align-items: center;
         
+            // Collapse borders
             margin-left: -1px;
             margin-top: -1px;
-        
-            text-align: center;
+
+            width: $size-xxl;
+            height: 2 * $size-xxl;
+
+            // Horizontalize frets for larger screens
+            @include tablet {
+                width: 2 * $size-xxl;
+                height: $size-xxl;
+            }
 
             &--outside {
                 border-color: transparent;

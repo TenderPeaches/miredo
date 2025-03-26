@@ -2,10 +2,15 @@
 
 ## Early Access
 
+## v1.2.0
+
+* Design overhaul
+
 ## v1.1.1
 
 * Add total play count in the feedback when a song is played by heart
 * Add link to Statistics in the header
+* Add Calendars
 
 ## v1.1.0.0
 

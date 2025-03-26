@@ -1,12 +1,18 @@
 <%= content_for :title do %><%= app_title %><% end %>
 
-<%= tag.section class: "form-options" do %>
-    <%= render "songs/index/sort_options", sort_control_id: @sort_control_id, sort_control_order: @sort_control_order %>
-    <%= render "songs/index/filters" %>
-    <%= render "songs/index/search" %>
-    <%= link_button_to t("keywords.clear_filters"), songs_path(sort_options: :clear, filter_options: :clear) %>
+<%= tag.section do %>
+    <%= tag.fieldset class: "song-list-options" do %>
+        <%= tag.legend do %>
+            <%= tag.h3 t("content.list_options") %>
+        <% end %>
+        <%= render "songs/index/filters" %>
+        <%= render "songs/index/sort_options", sort_control_id: @sort_control_id, sort_control_order: @sort_control_order %>
+        <%= render "songs/index/search" %>
+        <%= link_button_to t("keywords.clear_filters"), songs_path(sort_options: :clear, filter_options: :clear), class: "clear" %>
+    <% end %>
 <% end %>
 
+<%= render "songs/index/legend" %>
 <%= tag.section id: "songs" do %>
     <%= render "songs/index/song_list", songs: @songs, page_count: @page_count, expected_page: @expected_page %>
 <% end %>

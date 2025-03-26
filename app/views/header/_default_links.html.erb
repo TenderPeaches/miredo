@@ -1,0 +1,12 @@
+<%# links shown to all users, whether they are logged in or not %>
+<%= tag.nav class: "default-links" do %>
+    <%= link_to t('cta.browse_songs'), songs_path, class: "browse-songs" %>
+    <%# checking for any songs in case there are none, which should never be a concern in production s%>
+    <% if Song.any? %>
+        <%= link_to t('cta.practice_random'), song_path(Song.random_id) %>
+    <% end %>
+    <%= link_to t('content.references.page_title'), references_path %>
+    <% if user_signed_in? %>
+        <%= render "header/signed_in_links" %>
+    <% end %>
+<% end %>

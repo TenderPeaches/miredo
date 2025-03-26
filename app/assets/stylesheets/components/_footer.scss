@@ -1,0 +1,31 @@
+@use "../globals/globals" as *;
+
+footer {
+    display: flex;
+    flex-direction: row;
+    border-top: $thick-border-width ridge $color-primary-dark;
+    width: 100%;
+    padding: $size-xl;
+    background: $sheen-dark;
+    justify-content: center;
+
+    nav a {
+        padding: $size-m $size-xxl;
+        text-decoration: none;
+
+        &:hover {
+            background: $color-primary-black;
+        }
+
+        &:active {
+            background: $color-primary-darkest;
+            color: $color-accent-white;
+        }
+    }
+
+    @include tablet {
+        nav a {
+            padding: $size-s;
+        }
+    }
+}

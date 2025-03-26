@@ -1,0 +1,9 @@
+@use "../globals/globals" as *;
+
+.paginator {
+    margin: $size-s;
+
+    &__current {
+        color: $color-secondary-lightest;
+    }
+}

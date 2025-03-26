@@ -1,15 +1,14 @@
-<%# about song--short; if user is signed out and the row is short, then the display will feel very empty because there is nothing past the name & artist name, so add the class that has a modified grid column template %>
-<%= tag.div id: dom_id(song), class: "song #{song_row_color(song)}#{(local_assigns[:short_row] && !user_signed_in?) ? "song--short" : ""}" do %>
-    <% if user_signed_in? %>
-        <%= tag.span class: "songs-list__favorite" do %>
+<%= tag.div id: dom_id(song), class: "song #{song_row_color(song)}#" do %>
+    <%= tag.span class: "song__favorite" do %>
+        <% if user_signed_in? %>
             <%= star_toggle(current_user.favorites.include?(song), new_song_user_favorite_path(song_id: song.id)) %>
         <% end %>
     <% end %>
-    <%= tag.span class: "songs-list__title" do %>
+    <%= tag.span class: "song__title" do %>
         <%= link_to "#{song.name}", song_path(song.id) %>
     <% end %>
-    <%= tag.span class: "songs-list__artist" do %>
-        <% if current_user&.is_admin%>
+    <%= tag.span class: "song__artist" do %>
+        <% if current_user&.is_admin %>
             <%= link_to song.artist, edit_artist_path(song.artists.first) %>
         <% else %>
             <%= "#{song.artist}" %>
@@ -18,19 +17,30 @@
     <%# if a short_row local parameter was assigned, the row is expected to show less data than usual %>
     <% if local_assigns[:short_row] %>
         <%# 3 data columns are cut from the row, so 3 empty ones must be added in order to maintain the same grid layout %>
-        <% 3.times do |i| %>
+        <% 4.times do |i| %>
             <%= tag.span %>
         <% end %>
     <% else %>
-        <%= tag.span class: "songs-list__capo" do %>
-            <%= song.capo %>
+        <% unless local_assigns[:hide_key] %>
+            <%= tag.span class: "song__key" do %>
+                <% if song.key %>
+                    <%= tag.span "#{Key.model_name.human}: ", class: "mobile-label" %>
+                    <%= tag.span song.key.shorthand %>
+                <% end %>
+            <% end %>
+            <%= tag.span class: "song__capo" do %>
+                <%= tag.span "#{t("content.songs.capo")}: ", class: "mobile-label" %>
+                <%= tag.span song.capo %>
+            <% end %>
         <% end %>
         <% if user_signed_in? %>
-            <%= tag.span class: "songs-list__plays" do %>
-                <%= song.plays current_user %>
+            <%= tag.span class: "song__plays" do %>
+                <%= tag.span "#{t("content.songs.nb_plays_short")}: ", class: "mobile-label" %>
+                <%= tag.span song.plays(current_user) %><%= tag.span "x", class: "mobile-label" %>
             <% end %>
-            <%= tag.span class: "songs-list__last-played" do %>
-                <%= "#{song.last_played(current_user)&.strftime("%Y-%m-%d")}" %>
+            <%= tag.span class: "song__last-play" do %>
+                <%= tag.span "#{t("content.songs.last_played_short")}: ", class: "mobile-label" %>
+                <%= tag.span song.last_played(current_user)&.strftime("%Y-%m-%d") %>
             <% end %>
         <% end %>
     <% end %>

@@ -21,7 +21,7 @@ module FiltersHelper
     # field that contains a toggle-able filter option
     def filter_field form, label, id, &block
         safe_join [
-            tag.div(class: "filter-field", id: "#{id.kebabcase}-filter", data: { controller: "filter-toggle", "filter-toggle-target" => "filter" }) do
+            tag.div(class: "filter filter--#{id.kebabcase}", id: "#{id.kebabcase}-filter", data: { controller: "filter-toggle", "filter-toggle-target" => "filter" }) do
                 if block_given?
                     safe_join [
                         filter_label(label),
@@ -47,7 +47,7 @@ module FiltersHelper
     # filters use toggle-labels - press on the label to activate/deactivate the filter, effectively turning the label into a checkbox of sorts
     def filter_label label
         # check_box_tag
-        tag.label label, class: "filter-label"
+        tag.label label, class: "filter__label"
     end
 
     ## all filter controls are disabled by default at start, because filters are never assumed to be active when any page is first loaded
