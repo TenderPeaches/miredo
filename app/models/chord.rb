@@ -61,4 +61,15 @@ class Chord < ApplicationRecord
 
         semitones.join "-"
     end
+
+    def assess_pitch_degree(pitch, root)
+        interval = (pitch - root) % 12
+
+        chord_components.each do |component|
+            return component.interval_id if component.semitones == interval
+        end
+
+        # if not found, the pitch is not within this chord given the root
+        return nil
+    end
 end

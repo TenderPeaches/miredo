@@ -24,6 +24,7 @@ class ChordHelpersController < ApplicationController
             key: @key,
             scale: @scale,
 			pitch_ids: params[:pitch_ids],
+			progression_chord: @progression_chord
         })
 
 	end

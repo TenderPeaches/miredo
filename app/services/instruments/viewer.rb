@@ -24,6 +24,10 @@ module Instruments
 
             capo_relative_pitches = instrument_view_params[:capo_relative_pitches] || false
 
+            @scale = instrument_view_params[:scale] || Scale.default
+            @key = instrument_view_params[:key] || Key.default
+
+            # When viewing an instrument from a chord helper, the pitch IDs will be provided
             if (instrument_view_params[:pitch_ids])
 
                 @pitch_ids = if instrument_view_params[:pitch_ids].is_a? String then
@@ -31,30 +35,35 @@ module Instruments
                 else
                     instrument_view_params[:pitch_ids]
                 end
+            # Otherwise, when selecting a new instrument or displaying a song, the default request doesn't explicitly contain the pitches to be highlighted
             else
-                @scale = instrument_view_params[:scale] || Scale.default
-                @key = instrument_view_params[:key] || Key.default
                 key_with_capo = @key.shift(@capo * -1)
 
                 @pitch_ids = @scale.chords_from_key((capo_relative_pitches && @instrument.uses_capo) ? key_with_capo : @key).map {|p| p[:pitch_class_id] }
             end
 
-            InstrumentView.new(@instrument, @tuning, @fret_count, @pitch_ids, @capo, capo_relative_pitches)
+            # if the view is meant to highlight a specific progression chord, it should be passed as a parameter
+            @progression_chord = instrument_view_params[:progression_chord]
+
+            InstrumentView.new(@instrument, @tuning, @fret_count, @pitch_ids, @capo, capo_relative_pitches, @key, @scale, @progression_chord)
         end
 
 
         private
 
         class InstrumentView
-            attr_reader :tuning, :fret_count, :pitch_ids, :instrument, :capo
+            attr_reader :tuning, :fret_count, :pitch_ids, :instrument, :capo, :progression_chord, :key, :scale
             attr_accessor :capo_relative_pitches
-            def initialize(instrument, tuning, fret_count, pitch_ids, capo, capo_relative_pitches)
+            def initialize(instrument, tuning, fret_count, pitch_ids, capo, capo_relative_pitches, key = nil, scale = nil, progression_chord = nil)
                 @instrument = instrument
                 @tuning = tuning
                 @fret_count = fret_count
                 @pitch_ids = pitch_ids
                 @capo = capo
                 @capo_relative_pitches = capo_relative_pitches
+                @key = key
+                @scale = scale
+                @progression_chord = progression_chord
             end
         end
     end
