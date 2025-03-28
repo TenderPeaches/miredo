@@ -4,9 +4,14 @@
 
 // for all content
 body {
-    background-color: $color-primary-black;           // dark-bg
-    color: $color-primary-white;                      // light-fg 
-    margin: auto;                                           // to center content
+    background-color: $color-primary-black;         
+    color: $color-primary-white;                 
+    margin: auto;       
+
+    // Push the footer all the way down when there isn't enough content to fill the entire height the screen
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;                               
 }
 
 * {
@@ -43,8 +48,7 @@ main {
     flex-direction: column;                 // verticality of the flex
     padding: $size-m $size-s;   // maximize content with a small buffer zone for mobile
     align-items: center;                    // horizontally align the items along the center axis
-    
-    //* we could've used just text-align: center but that trickles down to every sub-element, which isn't the desired behavior, so instead we're using a vertical flex
+    flex: 1;
 
     & > h1 {
         margin: $size-l;
