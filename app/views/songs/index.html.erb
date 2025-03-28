@@ -16,3 +16,5 @@
 <%= tag.section id: "songs" do %>
     <%= render "songs/index/song_list", songs: @songs, page_count: @page_count, expected_page: @expected_page %>
 <% end %>
+
+<%= back_to_top_button %>

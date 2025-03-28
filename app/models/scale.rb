@@ -34,6 +34,7 @@ class Scale < ApplicationRecord
         # any other case is todo
     end
 
+    # until the chord type can be assessed dynamically, use these static arrays
     def temp_chords
         chord__major = Chord.find_by(name: "Major Triad")
         chord__minor = Chord.find_by(name: "Minor Triad")

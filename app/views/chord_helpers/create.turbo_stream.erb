@@ -2,6 +2,10 @@
     <%= instrument_print(@instrument_view) %>
 <% end %>
 
+<%= turbo_stream.replace "helper-legend" do %>
+    <%= render "songs/show/helper_legend", title: @progression_chord.print_chord(@capo_relative_pitches ? @key.shift(@capo * -1) : @key, @scale), chord: @progression_chord.chord %>
+<% end %>
+
 <%= turbo_stream.replace "chords-helper" do %>
-    <%= render "songs/show/chords", chords: @chords, instrument_view: @instrument_view, key: @key, scale: @scale, song: @song %>
+    <%= render "songs/show/chords", chords: @chords, instrument_view: @instrument_view, key: @key, scale: @scale, song: @song, progression_chord: @progression_chord %>
 <% end %>

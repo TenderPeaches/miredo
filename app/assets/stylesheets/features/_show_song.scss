@@ -190,19 +190,30 @@
             gap: $size-m;
          }
       }
+
+      .instrument-helper {
+
+         @include desktop {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+         }
+
+         .instrument-view { 
+
+            @include tablet {
+               transform: initial;
+            }
+      
+            @include large-desktop {
+               transform: scale(125%);
+               margin: $size-xl;
+            }
+         }
+      }
    }
 
-   .instrument-view { 
-
-      @include tablet {
-         transform: initial;
-      }
-
-      @include large-desktop {
-         transform: scale(125%);
-         margin: $size-xl;
-      }
-   }
 
    .play-actions {
       display: grid;

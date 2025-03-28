@@ -14,6 +14,6 @@
 <%# update the chords as well, if the capo_relative_pitches setting was adjusted %>
 <% if @chords %>
     <%= turbo_stream.replace "chords-helper" do %>
-        <%= render "songs/show/chords", chords: @chords, instrument_view: @instrument_view, key: @key, scale: @scale, song: @song %>
+        <%= render "songs/show/chords", chords: @chords, instrument_view: @instrument_view, key: @key, scale: @scale, song: @song, progression_chord: @progression_chord %>
     <% end %>
 <% end %>

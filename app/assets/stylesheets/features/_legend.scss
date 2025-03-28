@@ -16,6 +16,10 @@
         display: grid;
         grid-template-columns: subgrid;
         grid-column: 1 / -1;
+
+        .description {
+            text-align: left;
+        }
     }
     
     &__sample {
@@ -23,6 +27,7 @@
         height: $size-m;       
         border: $color-primary-white 1px solid;  // contrast with the legend color
 
+        // Practice habits legend
         &--purple {
             background-color: $color-practice--by-heart; 
         }
@@ -41,6 +46,35 @@
 
         &--red {
             background-color: $color-practice--red; 
+        }
+
+        // Scale degrees legend
+        &--degree-1 {
+            background: $color-degree-first-dark;
+        }
+
+        &--degree-2 {
+            background: $color-degree-second-dark;
+        }
+
+        &--degree-3 {
+            background: $color-degree-third-dark;
+        }
+
+        &--degree-4 {
+            background: $color-degree-fourth-dark;
+        }
+
+        &--degree-5 {
+            background: $color-degree-fifth-dark;
+        }
+
+        &--degree-6 {
+            background: $color-degree-sixth-dark;
+        }
+
+        &--degree-7 {
+            background: $color-degree-seventh-dark;
         }
     }
 }

@@ -11,7 +11,7 @@
         <%= hidden_field_tag :song, song.id %>
         <%= hidden_field_tag :capo_relative_pitches, instrument_view.capo_relative_pitches %>
         <% chords.each do |chord| %>
-            <%= tag.div class: "button chord #{"highlighted" if chord[:progression_chord].id.to_s == @progression_chord_id}", data: { controller: "chord-helper", pitches: chord_helper_pitch_classes_dataset(chord[:notes]), progression_chord_id: chord[:progression_chord].id } do %>
+            <%= tag.div class: "button chord #{"highlighted" if chord[:progression_chord].id.to_s == progression_chord&.id}", data: { controller: "chord-helper", pitches: chord_helper_pitch_classes_dataset(chord[:notes]), progression_chord_id: chord[:progression_chord].id } do %>
                 <%= tag.span class: "cypher #{degree_class chord[:progression_chord].degree}" do %>
                     <%= chord[:cypher] %>
                 <% end %>

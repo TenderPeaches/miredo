@@ -1,0 +1,18 @@
+<%= tag.div class: "legend", id: "helper-legend" do %>
+    <%# ensure the conditions are met for the legend to render (see below, when looping on pitches) %>
+    <% if local_assigns[:chord] || local_assigns[:scale] %>
+        <%= tag.h4 title, id: "helper-legend-title" %>
+        <%= tag.div class: "legend__colors", id: "helper-legend-colors" do %>
+            <% if local_assigns[:chord] %>
+                <% chord_components = chord.chord_components.order(interval_id: :asc) %>
+                <% chord_components.each do |component| %>
+                    <%= song_color_legend_sample degree_class(component.interval_id), component.degree %>
+                <% end %>
+            <% else %>
+                <% 7.times do |i| %>
+                    <%= song_color_legend_sample degree_class(i + 1), scale.scale_intervals[(i - 1) % 7].print %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

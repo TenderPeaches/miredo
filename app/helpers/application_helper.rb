@@ -74,6 +74,11 @@ module ApplicationHelper
         end
     end
 
+    # back to top button
+    def back_to_top_button
+        link_button_to "⇮", "#header", class: "button--square back-to-top"
+    end
+
     # paginator
     def paginator(collection = [], page_count = 1, current_page = 1, options = {})
         if page_count > 1

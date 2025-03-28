@@ -5,6 +5,8 @@
 ## v1.2.0
 
 * Design overhaul
+* Add Back-to-top button to home page, songs list
+* Add color legend to chord helpers, instrument view
 
 ## v1.1.1
 
