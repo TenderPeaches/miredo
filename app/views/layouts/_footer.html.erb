@@ -1,5 +1,21 @@
 <%= tag.footer do %>
+    <%# Credit the stack used to build the website %>
+    <%= tag.div class: "tech-stack" do %>
+        <%= tag.div class: "rails" do %>
+            <%= tag.div t("content.powered_by") %>
+            <%= link_to "https://rubyonrails.org/", target: "_blank", rel: "noreferrer", class: "rails-icon" do %>
+                <%= raw File.read(Rails.root.join("app/assets/images/rails.svg")) %>
+            <% end %>
+        <% end %>
+    <% end %>
     <%= tag.nav do %>
         <%= link_to t('cta.contact_us'), inquiries_path %>
+    <% end %>
+    <%# link to the web developper's page %>
+    <%= tag.div class: "webdev" do %>
+        <%= tag.span do %>
+            <%= t("content.web_dev") %>
+            <%= link_to t("app.web_dev"), "https://pattitude.ca/portfolio", target: "_blank", rel: "noreferrer" %>
+        <% end %>
     <% end %>
 <% end %>

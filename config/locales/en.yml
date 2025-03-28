@@ -2,6 +2,7 @@ en:
   app:
     name: "Miredo"
     motto: "The busker's virtual songbook"
+    web_dev: "Pattitude Web"
   keywords:
     ok: "OK"
     cancel: "Cancel"
@@ -225,6 +226,8 @@ en:
     list_options: "List options"
     today: "Today"
     yesterday: "Yesterday"
+    powered_by: "Powered by"
+    web_dev: "Website made by"
     home_page:
       no_forgotten_songs: "Songs last practiced with helpers that you have previously played by heart would appear here, if there were any."
       no_hot_songs: "Songs that you have played at least %{times} times in the past %{days} days would appear here, if there were any."

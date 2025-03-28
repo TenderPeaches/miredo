@@ -112,6 +112,8 @@ input[type="submit"] {
     height: $size-xxxl;
     position: fixed;
     font-size: 2 * $font-size-xxl;
-    bottom: $size-xxxl;
+
+    // Bottom right corner, add more height in order to clear the footer when fully scrolled down
+    bottom: 1.5 * $size-xxxl;
     right: $size-xxxl;
 }

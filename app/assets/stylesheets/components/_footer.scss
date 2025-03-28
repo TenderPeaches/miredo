@@ -1,13 +1,32 @@
 @use "../globals/globals" as *;
 
 footer {
-    display: flex;
-    flex-direction: row;
+    display: grid;
     border-top: $thick-border-width ridge $color-primary-dark;
     width: 100%;
-    padding: $size-xl;
+    padding: $size-s $size-xxxl;
     background: $sheen-dark;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+
+        // Simulate a space-between justification, provided there are 3 columns of content
+        & > * {
+            &:nth-child(1) {
+                justify-self: start;
+            }
+
+            &:nth-child(2) {
+                justify-self: center;
+            }
+
+            &:nth-child(3) {
+                justify-self: end;
+            }
+        }
+    }
 
     nav a {
         padding: $size-m $size-xxl;
@@ -21,11 +40,28 @@ footer {
             background: $color-primary-darkest;
             color: $color-accent-white;
         }
+
+        @include tablet {
+            padding: $size-s;
+        }
     }
 
-    @include tablet {
-        nav a {
-            padding: $size-s;
+    .tech-stack {
+        color: $color-primary-white; 
+        font-size: $font-size-xs;
+
+        & > * {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: $size-xxs;
+        }
+
+        .rails-icon {
+            svg {
+                fill: #D30001;
+            }
         }
     }
 }

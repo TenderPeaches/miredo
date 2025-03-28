@@ -7,6 +7,8 @@
 * Design overhaul
 * Add Back-to-top button to home page, songs list
 * Add color legend to chord helpers, instrument view
+* Fix color scheme on instrument view when highlighting specific chords
+* Add links to Ruby on Rails, developper portfolio in the footer
 
 ## v1.1.1
 
