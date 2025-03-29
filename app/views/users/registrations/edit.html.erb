@@ -5,6 +5,14 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form" }) do |form| %>
     <%= render "users/shared/error_messages", resource: resource %>
 
+    <%= tag.div class: "actions" do %>
+        <% if current_user.is_contributor %>
+            <%= link_button_to t("content.subscriptions.status"), new_subscription_path %>
+        <% else %>
+            <%= link_button_to t("cta.subscribe"), new_subscription_path %>
+        <% end %>
+    <% end %>
+
     <%= tag.div class: "field" do %>
         <%= form.label :email %>
         <%= form.email_field :email, autofocus: true, autocomplete: User.human_attribute_name(:email) %>

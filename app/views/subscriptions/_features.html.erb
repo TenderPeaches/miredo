@@ -1,0 +1,11 @@
+<%= tag.div class: "subscription-features" do %>
+    <%= tag.div class: "feature feature--header" do %>
+        <%= tag.div t("content.subscriptions.feature") %>
+        <%= tag.div t("content.subscriptions.unregistered") %>
+        <%= tag.div t("content.subscriptions.registered") %>
+        <%= tag.div t("content.subscriptions.premium") %>
+    <% end %>
+    <% subscription_features.each do |feature| %>
+        <%= render "subscriptions/feature_item", feature: %>
+    <% end %>
+<% end %>

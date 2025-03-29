@@ -383,6 +383,22 @@ en:
     subscriptions:
       title: "Subscribe"
       blurb: "There is only one subscription plan right now - the Busker plan. For $5 CAD/month, you get to use the Setlist feature that lets you bundle together existing songs. You also acquire the ability to submit your own songs to the catalog. If you cancel your subscription, you won't be able to access your setlists but your uploaded songs will still appear on the website. You also get our warm thanks for helping us keep the lights on :)"
+      status: "Subscription status"
+      feature: "Feature"
+      unregistered: "Anyone"
+      registered: "Registered user"
+      premium: "Premium"
+      features:
+        view_songs: "View song partitions"
+        references: "Music theory references"
+        helpers: "Instrument helpers"
+        adjust_key: "Adjust song key"
+        track_practices: "Track practice habits"
+        settings: "Customize settings"
+        new_songs: "Contribute songs"
+        setlists: "Create setlists"
+        statistics: "Personal statistics"
+        calendar: "Practice calendar"
     my_account:
       not_subscribed: "You are not currently subscribed to any plan. By subscribing to the Busker plan (5 CAD/month), you gain access to the Setlists feature and the ability to upload your own songs to this website."
       subscription_inactive: "Your subscription to the Busker plan has been cancelled and will expire on %{date}."

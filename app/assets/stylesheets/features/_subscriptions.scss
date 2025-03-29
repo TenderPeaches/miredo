@@ -1,0 +1,50 @@
+@use "../globals/globals" as *;
+
+.subscription-features {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    margin: $size-m;
+
+    // Because it's the simplest way to make it all fit - user can zoom in anyway
+    font-size: $font-size-s;
+
+    @include tablet {
+        font-size: $font-size-m;
+    }
+
+    .feature {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1 / -1;
+        justify-items: stretch;
+        text-align: center;
+        align-items: stretch;
+
+        &__access {
+            font-size: $font-size-xxl;
+        }
+
+        & > * {
+            border: $thin-border-width $color-primary-dark solid;
+            padding: $size-xxs;
+        }
+
+        &__name {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding-left: $size-m;
+            background: $color-primary-darkest;
+        }
+
+        &--header {
+            background: $color-primary-darkest;
+            color: $color-secondary-white;
+            font-weight: bold;
+            
+            & > * {
+                padding: $size-s;
+            }
+        }
+    }
+}

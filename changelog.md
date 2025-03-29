@@ -9,6 +9,7 @@
 * Add color legend to chord helpers, instrument view
 * Fix color scheme on instrument view when highlighting specific chords
 * Add links to Ruby on Rails, developper portfolio in the footer
+* Add features table
 
 ## v1.1.1
 

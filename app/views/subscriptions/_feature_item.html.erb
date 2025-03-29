@@ -1,0 +1,6 @@
+<%= tag.div class: "feature" do %>
+    <%= tag.div feature.name, class: "feature__name" %>
+    <%= render "subscriptions/feature_access", access: feature.anon_access? %>
+    <%= render "subscriptions/feature_access", access: feature.user_access? %>
+    <%= render "subscriptions/feature_access", access: feature.premium_access? %>
+<% end %>

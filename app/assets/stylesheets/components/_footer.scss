@@ -60,7 +60,20 @@ footer {
 
         .rails-icon {
             svg {
+                // Use Rails' brand color
                 fill: #D30001;
+
+                &:hover {
+                    fill: $color-white;
+                }
+
+                &:active {
+                    fill: $color-primary;
+                }
+
+                &, &:hover, &:active {
+                    transition: $transition-s;
+                }
             }
         }
     }
