@@ -9,7 +9,10 @@
 * Add color legend to chord helpers, instrument view
 * Fix color scheme on instrument view when highlighting specific chords
 * Add links to Ruby on Rails, developper portfolio in the footer
-* Add features table
+* Add features table to subscription page
+* Show practice data on home page song showcases
+* Show song list header on home page song showcases
+* Show capo on home page song showcases when logged out
 
 ## v1.1.1
 

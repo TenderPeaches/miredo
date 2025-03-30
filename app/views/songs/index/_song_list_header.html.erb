@@ -2,8 +2,10 @@
     <%= tag.span %> <%# no header for favorites %>
     <%= tag.span Song.model_name.human, class: "song__title" %>
     <%= tag.span Artist.model_name.human, class: "song__artist", title: Song.human_attribute_name(:artist) %>
-    <%= tag.span Key.model_name.human, class: "song__key" %>
-    <%= tag.span t('content.songs.capo'), class: "song__capo", title: Song.human_attribute_name(:capo) %>
+    <% unless local_assigns[:hide_key] %>
+        <%= tag.span Key.model_name.human, class: "song__key" %>
+        <%= tag.span t('content.songs.capo'), class: "song__capo", title: Song.human_attribute_name(:capo) %>
+    <% end %>
     <% if user_signed_in? %>
         <%= tag.span Song.human_attribute_name(:nb_practices), class: "song__plays", title: t('hints.user_song_plays') %>
         <%= tag.span Song.human_attribute_name(:last_practice), class: "song__last-play", title: t('hints.user_last_practice') %>

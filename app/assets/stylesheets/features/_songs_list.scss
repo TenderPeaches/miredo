@@ -299,3 +299,26 @@
         }
     }
 }
+
+@include tablet {
+    .showcase--anon {
+        .song-list {
+            .song {
+                &__artist {
+                    grid-column: span 4;
+                    justify-self: end;
+                }
+            }
+        }
+    }
+    
+    .showcase--hide-key {
+        .song-list {
+            .song {
+                &__artist {
+                    grid-column: span 3;
+                }
+            }
+        }
+    }
+}

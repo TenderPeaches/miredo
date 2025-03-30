@@ -1,6 +1,6 @@
 <%= tag.section class: "showcases" do %>
     <% songs.showcases.each do |showcase| %>
-        <%= tag.fieldset class: "showcase" do %>
+        <%= tag.fieldset class: "showcase#{user_signed_in? ? "" : " showcase--anon"}#{[:forgotten, :hot, :old_heart].include?(showcase.category) ? " showcase--hide-key" : ""}" do %>
             <% if user_signed_in? %>
                 <%= tag.legend showcase.title %>
             <% else %>
@@ -11,8 +11,9 @@
             <% end %>
             <% if showcase.songs.any? %>
                 <%= tag.div class: "song-list" do %>
+                    <%= render "songs/index/song_list_header", hide_key: showcase.category != :random %>
                     <% showcase.songs.each do |song| %>
-                        <%= render song, short_row: true %>
+                        <%= render song, hide_key: showcase.category != :random %>
                     <% end %>
                 <% end %>
             <% else %>
