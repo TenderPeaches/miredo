@@ -1,6 +1,8 @@
 <%# links shown to premium users %>
-<%= tag.nav class: "premium-links" do %>
-    <%= link_to t("cta.new_song"), new_song_path %>
-    <%= link_to t("cta.manage_setlists"), setlists_path %>
-    <%= link_to t("content.statistics.title"), statistics_path %>
+<% if user_signed_in? && current_user.is_contributor %>
+    <%= tag.nav class: "premium-links" do %>
+        <%= link_to t("cta.new_song"), new_song_path %>
+        <%= link_to t("cta.manage_setlists"), setlists_path %>
+        <%= link_to t("content.statistics.title"), statistics_path %>
+    <% end %>
 <% end %>
