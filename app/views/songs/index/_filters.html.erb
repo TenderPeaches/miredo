@@ -9,6 +9,7 @@
         <%= filter_option :boolean, form, t("content.songs.hot"), "hot" %>
         <%= filter_option :boolean, form, t("content.songs.old_heart"), "old_heart" %>
         <%= filter_option :boolean, form, t("content.songs.filter_private"), "private" %>
+        <%= filter_option :boolean, form, t("content.songs.memorized"), "memorized" %>
         <%= form.submit "#{t("keywords.apply")} #{t("keywords.filter").downcase.pluralize}" %>
     <% end %>
 <% end %>

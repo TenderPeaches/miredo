@@ -81,6 +81,9 @@ class Song < ApplicationRecord
     # private songs filter
     scope :filter_by_private, -> user { where(is_public: false, submitter: user) }
 
+    # memorized songs filter
+    scope :filter_by_memorized, -> user { where(id: (select {|s| s.memorized? (user) }).map(&:id)) }
+
     scope :search_by_song_name, -> query { where("name like ?", "%#{query}%") }
 
     scope :search_by_artist_name, -> query { where("artists.name like ?", "%#{query}%").references(:artists) }
@@ -101,7 +104,7 @@ class Song < ApplicationRecord
 
     # when adding filters, must add to this list
     #! :visibility must be first as it's the most important filter (to ensure users can't see other users' private songs)
-    VALID_FILTERS = [:visibility, :key, :capo, :artist, :favorite, :forgotten, :hot, :old_heart, :private]
+    VALID_FILTERS = [:visibility, :key, :capo, :artist, :favorite, :forgotten, :hot, :old_heart, :private, :memorized]
 
     def self.page_size
         100
@@ -191,6 +194,17 @@ class Song < ApplicationRecord
         false
     end
 
+    # songs that the user has last played by heart
+    def memorized? user
+        user = get_user_if_id(user)
+
+        if last_play = last_user_play(user)
+            return true if last_play.by_heart
+        end
+
+        false
+    end
+
     # filters a collection of songs, against a set of params
     # @params => params of a typical song_filter form (that would be submitted to a SongFiltersControllert), see VALID_FILTERS for valid filter keys; can also contain a :user_id value for some filters that need the current_user.id
     def self.filter(params, collection = Song.none)
@@ -227,6 +241,8 @@ class Song < ApplicationRecord
                         collection = collection.filter_by_visibility(filter_value)
                     when :private then
                         collection = collection.filter_by_private(params_user) unless filter_value == "false"
+                    when :memorized then
+                        collection = collection.filter_by_memorized(params_user) unless filter_value == "false"
                     end
                 end
             end

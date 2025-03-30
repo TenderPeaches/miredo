@@ -340,6 +340,7 @@ en:
       days_ago: "days ago"
       never: "Never"
       by_heart: "By heart"
+      memorized: "Memorized"
     show_song:
       capo: "Capo"
       shift_key: "Shift key"

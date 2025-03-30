@@ -13,6 +13,7 @@
 * Show practice data on home page song showcases
 * Show song list header on home page song showcases
 * Show capo on home page song showcases when logged out
+* Add memorized songs filter
 
 ## v1.1.1
 
