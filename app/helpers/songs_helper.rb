@@ -91,7 +91,7 @@ module SongsHelper
         elsif song.capo < 0 then
             t("content.songs.negative_capo", capo: (song.capo * -1).to_s)
         else
-            "#{Song.human_attribute_name(:capo)} #{song.capo}"
+            "#{t("content.songs.capo")} #{song.capo}"
         end
     end
 

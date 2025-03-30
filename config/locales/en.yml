@@ -387,7 +387,7 @@ en:
       feature: "Feature"
       unregistered: "Anyone"
       registered: "Registered user"
-      premium: "Premium"
+      premium: "Busker"
       features:
         view_songs: "View song partitions"
         references: "Music theory references"

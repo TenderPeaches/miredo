@@ -35,6 +35,19 @@ en:
       chords: 
         name: "Chord Type"
         notation: "Notation"
+      progression_template:
+        tag: "Template tag"
+        reps: "Template reps"
+      progression:
+        tag: "Progression tag"
+        lyrics: "Lyrics"
+        reps: "Progression reps"
+        template_tag: "Template tag"
+      setlist:
+        label: "Name"
+        name: "Name"
+        song_count: "Songs"
+        play_count: "Plays"
       song:
         name: "Song name"
         number: "#"
@@ -51,19 +64,6 @@ en:
         submitter: "Submitting user"
         artist: "Artist"
         artist_long: "Artist whose rendition of the song the tab was based on"
-      progression_template:
-        tag: "Template tag"
-        reps: "Template reps"
-      progression:
-        tag: "Progression tag"
-        lyrics: "Lyrics"
-        reps: "Progression reps"
-        template_tag: "Template tag"
-      setlist:
-        label: "Name"
-        name: "Name"
-        song_count: "Songs"
-        play_count: "Plays"
       user: 
         email: "Email address"
         password: "Password"
