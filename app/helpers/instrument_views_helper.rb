@@ -27,6 +27,7 @@ module InstrumentViewsHelper
         if fret_included
             # if a progression_chord is provided to the instrument view, the view is meant to highlight that chord within the context of a song's progression
             if instrument_view.progression_chord
+                debugger
                 # the degree is assess from this fret's pitch class, compared against the chord's root note given the instrument view's specified key and scale
                 fret_class << " fret--degree-#{instrument_view.progression_chord.chord.assess_pitch_degree(pitch_class.position, instrument_view.progression_chord.root_note_by_keyscale(instrument_view.key, instrument_view.scale).position).to_s}"
             # otherwise, the instrument view is meant to highlight the specified pitches, provided in order of their ascending corresponding degrees

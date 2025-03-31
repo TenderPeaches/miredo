@@ -5,7 +5,7 @@ body.publication {
         flex-direction: column;                     // vertical flex
         gap: $size-l;                         // space out the publications
         background: $color-accent-black;      // use different color than default background to offer contrast with the screenshots
-        padding: $size-s calc($size-xxxl * 4);
+        padding: $size-s ($size-xxxl * 4);
 
         .line {
             display: flex;                          // horizontal flex

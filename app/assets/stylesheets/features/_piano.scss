@@ -15,10 +15,10 @@
             position: relative;
             background: $color-black;
             width: $piano-key-sharp-width;
-            margin-right: calc($piano-key-sharp-width * -1);
+            margin-right: $piano-key-sharp-width * -1;
             height: $piano-key-sharp-height;
             z-index: 1;
-            left: calc($piano-key-sharp-width / -2);
+            left: $piano-key-sharp-width / -2;
         }
 
         &--degree-1 {
