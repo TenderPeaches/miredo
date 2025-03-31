@@ -113,7 +113,6 @@ class ProgressionChord < ApplicationRecord
   end
 
   def root_note_by_keyscale(key = Key.default, scale = Scale.default)
-    debugger
       # ensure key/scale aren't set to nil, in case they were explicitly passed along
       key = key || Key.default
       scale = scale || Scale.default
