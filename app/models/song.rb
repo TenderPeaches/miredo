@@ -256,7 +256,7 @@ class Song < ApplicationRecord
     end
 
     def last_played(user)
-        last_play(user)&.played_at
+        last_play(user)&.played_at.in_time_zone("EST")
     end
 
     def can_edit?(user)
