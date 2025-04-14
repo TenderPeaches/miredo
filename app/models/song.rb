@@ -84,11 +84,11 @@ class Song < ApplicationRecord
     # memorized songs filter
     scope :filter_by_memorized, -> user { where(id: (select {|s| s.memorized? (user) }).map(&:id)) }
 
-    scope :search_by_song_name, -> query { where("name like ?", "%#{query}%") }
+    scope :search_by_song_name, -> query { where("LOWER(name) like ?", "%#{query.downcase}%") }
 
-    scope :search_by_artist_name, -> query { where("artists.name like ?", "%#{query}%").references(:artists) }
+    scope :search_by_artist_name, -> query { where("LOWER(artists.name) like ?", "%#{query.downcase}%").references(:artists) }
 
-    scope :search_by_lyrics, -> query { select {|s| s.full_lyrics.include? query }}
+    scope :search_by_lyrics, -> query { select {|s| s.full_lyrics.downcase.include? query.downcase }}
 
     # sort by most played for a given user
     scope :sort_by_most_played_by_user, -> (user_id, order = :desc) { select('songs.*').joins(:song_plays).where(song_plays: { user_id: user_id }).group("song_plays.song_id, songs.id").order("COUNT(song_plays.id) #{order.to_s.upcase}")}
