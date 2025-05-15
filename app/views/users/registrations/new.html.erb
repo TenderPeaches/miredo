@@ -5,7 +5,7 @@
     <%= tag.p t("notices.sign_up.blurb") %>
 <% end %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form" }) do |form| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form" }, data: { turbo: false }) do |form| %>
 
     <%= tag.div class: "field" do %>
         <%= form.label :email %><br />

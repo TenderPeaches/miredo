@@ -13,12 +13,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     def create
         @user = Users::Creator.new.create(registration_params)
         if @user.valid?
+			flash.notice = t("flashes.sign_up")
+
             redirect_to root_path
+
+			sign_in(resource_name, resource)
+		else
+			flash.now[:alert] = @user.errors.full_messages.join(", ").capitalize
+			render :new
         end
 
-        flash.notice = t("flashes.sign_up")
-
-        sign_in(resource_name, resource)
     end
 
     # GET /resource/edit
