@@ -2,6 +2,10 @@
 
 ## Early Access
 
+## v1.2.1
+
+* Fix song list items not displaying correctly when played from the home page
+
 ## v1.2.0
 
 * Design overhaul
@@ -14,6 +18,7 @@
 * Show song list header on home page song showcases
 * Show capo on home page song showcases when logged out
 * Add memorized songs filter
+* Fix search not working when letter case didn't match exactly with the query
 
 ## v1.1.1
 

@@ -1,7 +1,7 @@
 <%# if the song_plays#create request was sent from a song list %>
 <%= turbo_stream.replace @song do %>
     <%# replace the song row with the updated one %>
-    <%= render "songs/song", song: @song %>
+    <%= render "songs/song", song: @song, short_row: @short_row, hide_key: @hide_key %>
 <% end %>
 
 <%# if the song_plays#create request was sent from a song player %>

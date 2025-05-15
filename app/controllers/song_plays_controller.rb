@@ -17,6 +17,10 @@ class SongPlaysController < ApplicationController
                 # count all practices if the last practice wasn't by heart
                 t('flashes.song_played', song: @song.name, play_count: SongPlay.where(user: @user, song: @song).count.ordinalize)
             end
+
+		# Because the response might update a song's information as displayed from within a list, the request should include the proper display options parameters which should then be communicated back to the response so it knows how to format the song's updated widget
+		@short_row = params[:short_row] == "true"
+		@hide_key = params[:hide_key] == "true"
     end
 
     private

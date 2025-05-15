@@ -45,6 +45,6 @@
         <% end %>
     <% end %>
     <% if user_signed_in? %>
-        <%= render "songs/song_actions", song: song %>
+        <%= render "songs/song_actions", song: song, short_row: local_assigns[:short_row], hide_key: local_assigns[:hide_key] %>
     <% end %>
 <% end %>

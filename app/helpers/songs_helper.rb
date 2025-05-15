@@ -105,12 +105,12 @@ module SongsHelper
         form.select(label || :capo, options_for_select([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], selected: selected))
     end
 
-    def song_play_button(song_id)
-        turbo_link_button t('controls.play'), song_plays_path(song_id: song_id), method: :post, class: "button--square", title: t('instructions.song_play')
+    def song_play_button(song_id, qsa = {})
+        turbo_link_button t('controls.play'), song_plays_path({ song_id: song_id }.merge(qsa)), method: :post, class: "button--square", title: t('instructions.song_play')
     end
 
-    def song_play_by_heart_button(song_id)
-        turbo_link_button t('controls.play_by_heart'), song_plays_path(song_id: song_id, by_heart: true), method: :post, class: "button--square", title: t('instructions.song_play_by_heart')
+    def song_play_by_heart_button(song_id, qsa = {})
+        turbo_link_button t('controls.play_by_heart'), song_plays_path({ song_id: song_id, by_heart: true }.merge(qsa)), method: :post, class: "button--square", title: t('instructions.song_play_by_heart')
     end
 
     def song_edit_button(song_id)

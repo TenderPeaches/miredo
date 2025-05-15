@@ -1,6 +1,6 @@
 <%= tag.span class: "song__actions", id: "song-actions_#{song.id}" do %>
-    <%= song_play_button(song.id) %>
-    <%= song_play_by_heart_button(song.id) %>
+    <%= song_play_button(song.id, { short_row: local_assigns[:short_row] ? true : false, hide_key: local_assigns[:hide_key] ? true : false}) %>
+    <%= song_play_by_heart_button(song.id, { short_row: local_assigns[:short_row] ? true : false, hide_key: local_assigns[:hide_key] ? true : false}) %>
     <% if current_user.is_contributor? && current_user.setlists.any? %>
         <%= song_add_to_setlist_button(song.id) %>
     <% end %>
