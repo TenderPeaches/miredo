@@ -50,7 +50,7 @@ class SongsController < ApplicationController
                     capo_relative_pitches: true
                 })
 
-                @chords = @song.distinct_chords(@capo * -1)
+                @chords = @song.distinct_chords(@instrument_view.capo_relative_pitches ? @capo * -1 : 0)
             end
         else
             redirect_to new_user_session_path

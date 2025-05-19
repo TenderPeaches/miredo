@@ -5,6 +5,8 @@
 ## v1.2.1
 
 * Fix song list items not displaying correctly when played from the home page
+* Fix chord component colors not displaying correctly for songs with capos
+* Chord helpers now correctly shown relative to capo when that setting is activated
 
 ## v1.2.0
 

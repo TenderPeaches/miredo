@@ -402,6 +402,7 @@ class Song < ApplicationRecord
     def ordered_progressions
         self.progressions.order(sequence: :asc)
     end
+
     # List of all the distinct chords that are included in this song's progressions
     def distinct_chords(shift = 0)
 

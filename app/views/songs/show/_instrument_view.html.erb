@@ -15,7 +15,7 @@
             <%= tag.label t("content.show_song.capo_relative_pitches"), title: t("instructions.capo_relative_pitches") %>
             <%# as this toggle will call a new InstrumentView, it should hold all the current InstrumentView data so the controller can return the proper InstrumentView with the toggled setting adjusted, + the currently used key & scale in order to assess the proper pitch IDs %>
             <%= tag.label class: "toggle", id: "capo-relative-pitches-toggle", data: { controller: "capo-relative-toggle", url: instrument_views_path, instrument_id: instrument_view.instrument.id, fret_count: instrument_view.fret_count, capo: instrument_view.capo, pitch_ids: instrument_view.pitch_ids.to_s, key_id: key.id, scale_id: scale.id, song_id: song.id } do %>
-                <%= check_box_tag :capo_relative_pitches, checked: instrument_view.capo_relative_pitches || nil %>
+                <%= check_box_tag :capo_relative_pitches, checked: instrument_view.capo_relative_pitches == true || nil %>
                 <%= tag.span class: "slider" %>
             <% end %>
         <% end %>

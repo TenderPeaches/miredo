@@ -10,7 +10,10 @@
         <%= hidden_field_tag :scale, scale.id %>
         <%= hidden_field_tag :song, song.id %>
         <%= hidden_field_tag :capo_relative_pitches, instrument_view.capo_relative_pitches %>
+
+        <%# Display the song's chords %>
         <% chords.each do |chord| %>
+            <%# Highlight the chord if it matches the currently selected chord; Store the pitches so they can easily be passed on to a new InstrumentView once this chord is selected %>
             <%= tag.div class: "button chord #{"highlighted" if chord[:progression_chord].id.to_s == progression_chord&.id}", data: { controller: "chord-helper", pitches: chord_helper_pitch_classes_dataset(chord[:notes]), progression_chord_id: chord[:progression_chord].id } do %>
                 <%= tag.span class: "cypher #{degree_class chord[:progression_chord].degree}" do %>
                     <%= chord[:cypher] %>
