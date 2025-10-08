@@ -4,6 +4,7 @@ Rails.application.routes.draw do
         sessions: 'users/sessions',
         registrations: 'users/registrations',
         passwords: 'users/passwords',
+		confirmations: 'users/confirmations',
     }
 
     resources :users do
