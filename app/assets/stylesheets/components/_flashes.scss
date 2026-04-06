@@ -3,11 +3,12 @@
 .flashes {
 
     .flash {
-        font-size: $font-size-l;
-        padding: $size-s;
+        font-size: $font-size-xl;
+        font-weight: 800;
+        padding: $size-xxs;
         border-style: $alert-border-style;
         border-width: $thick-border-width;
-        border-radius: $size-xs;
+        border-radius: $size-xxs;
 
         // notice flashes are neutral/positive feedback as part of the regular flow of operations
         &--notice {
@@ -18,9 +19,13 @@
 
         // alert flashes are negative feedback, indicating to the user that one of their actions did not proceed as expected
         &--alert {
-            border-color: $color-error;
-            background: $color-error-light;
+            background: $color-primary-white;
             color: $color-error;
+            border-color: $color-error;
+        }
+
+        &--alert::before {
+            content: "!"
         }
 
         @include tablet {

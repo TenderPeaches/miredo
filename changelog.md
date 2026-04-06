@@ -2,6 +2,10 @@
 
 ## Early Access
 
+## v1.2.1.1
+
+* Fix confirmation and password reset emails not being sent
+
 ## v1.2.1
 
 * Fix song list items not displaying correctly when played from the home page

@@ -1,24 +1,20 @@
 <%= tag.h1 t('cta.sign_up') %>
-
-<%= tag.div class: "notice" do %>
-    <%= tag.h2 t("notices.sign_up.title") %>
-    <%= tag.p t("notices.sign_up.blurb") %>
-<% end %>
+<%= tag.p t("notices.sign_up.blurb"), class: "hint" %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form" }, data: { turbo: false }) do |form| %>
 
     <%= tag.div class: "field" do %>
-        <%= form.label :email %><br />
+        <%= form.label User.human_attribute_name(:email).humanize %>
         <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
     <% end %>
     
     <%= tag.div class: "field" do %>
-        <%= form.label :password %>
+        <%= form.label User.human_attribute_name(:password).humanize %>
         <%= form.password_field :password, autocomplete: "new-password" %>
     <% end %>
 
     <%= tag.div class: "field" do %>
-        <%= form.label :password_confirmation %>
+        <%= form.label User.human_attribute_name(:password_confirmation).humanize %>
         <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
     <% end %>
 

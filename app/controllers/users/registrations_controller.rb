@@ -19,8 +19,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 			sign_in(resource_name, resource)
 		else
-			flash.now[:alert] = @user.errors.full_messages.join(", ").capitalize
-			render :new
+			flash[:alert] = @user.errors.map { |error| error.message }.join(", ").humanize
+			render :new, status: :unprocessable_entity
         end
 
     end

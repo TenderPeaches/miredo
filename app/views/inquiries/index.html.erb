@@ -1,10 +1,11 @@
 <%= tag.section class: "contact-us" do %>
     <%= tag.h1 t('cta.contact_us') %>
-    <%= tag.p do %>
-        <%= t("content.inquiries.discord_blurb") %>
+    <%= tag.p t("content.inquiries.general_blurb") %>
+    <%= tag.p class: "hint" do %>
+        <%= tag.span t("content.inquiries.discord_blurb") %>
         <%= link_to(t("content.inquiries.discord"), Rails.configuration.discord_server_url) %>
     <% end %>
-    <%= tag.p t("content.inquiries.email_blurb") %>
+    <%= tag.p t("content.inquiries.email_blurb"), class: "hint" %>
     <%= form_tag inquiries_path id: "contact-form", class: "contact-form" do %>
         <%= tag.div class: "field" do %>
             <%= tag.label t('content.inquiries.return_address') %>

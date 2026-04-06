@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 		confirmations: 'users/confirmations',
     }
 
-    resources :users do
+    resources :users, only: [ :index ] do
         resources :songs, only: [ :index ], controller: :user_songs
     end
 

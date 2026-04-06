@@ -53,6 +53,11 @@ en:
       check_2: "Re-type your password. Reset it if you can't find it."
       check_3: "Use a password manager to stop this from happening!"
     error: "Error!"
+  errors:
+    messages:
+      blank: "The %{attribute} is required"
+      taken: "This %{attribute} has already been taken"
+      confirmation: "The passwords don't match"
   flashes:
     log_in: "Successfully logged in"
     sign_up: "Account succesfully created. Welcome!"
@@ -135,10 +140,9 @@ en:
       blurb: "As of right now, songs and their attributes (lyrics, chords, timings, etc.) are not encrypted. Anything you save using this site will be saved as is in our database. Pinky swear I won't look, but be aware that if there's a data leak you might want to release your new #1 hit single sooner rather than later."
     request_removal:
       title: "Own this music?"
-      blurb: "If you own this music as an artist and don't wish to see it on this site, contact me and I will mark them private. If you represent the music industry and are unhappy about seeing them there, kindly fuck off. I made these tabs by ear, with help from friends, from songs I bought legally. "
+      blurb: "If you own this music as an artist and don't wish to see it on this site, contact me and I will mark them private. If you represent the music industry and are unhappy about seeing them there, kindly fuck off. I made these tabs by ear, with help from friends, from songs I bought legally."
     sign_up:
-      title: "Why Sign up?"
-      blurb: "By signing up, you'll be able to track how often you practice each song. You'll also be able to designate some tracks as favorites."
+      blurb: "Sign up to track your practice habits, pick your favorite songs and create setlists"
   instructions:
     song_play: "Press the Play (✓) button after having practiced a song with the help of a tablature or any sort of aid that wouldn't be available during a live performance"
     song_play_by_heart: "Press the Play by Heart (♥︎) button after having practiced a song by heart, without going to a tablature for the chords, lyrics or other helpers at any given time"
@@ -300,11 +304,12 @@ en:
       update_notice: "Settings successfully updated"
     inquiries:
       return_address: "Your email address"
-      subject: "Subject"
-      body: "Content"
-      discord_blurb: "Drop us a line on our "
+      subject: "Subject (optional)"
+      body: "What's up?"
+      discord_blurb: "Get in touch on "
       discord: "Discord"
-      email_blurb: "Alternatively, send us an email through the form below:"
+      email_blurb: "Drop us an email:"
+      general_blurb: "Feedback of any kind? Bug report? Song suggestion? Questions?"
     songs:
       no_progression_template: "No progression templates have been defined for this song"
       no_progression: "No song progressions have been defined for this song"

@@ -53,6 +53,12 @@
     font-size: $font-size-xl;
 }
 
+// Texts that reaches for the user's attention to suggest a course of action
+.hint {
+    font-style: italic;
+    font-weight: bold;
+}
+
 // Used in situations where headers or other indicators are omitted, relying instead on labels placed alongside the relevant data. These labels must be hidden when displayed on larger devices
 .mobile-label {
     color: $color-secondary-lightest;
